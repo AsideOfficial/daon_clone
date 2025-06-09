@@ -1,0 +1,301 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800,900");
+@import url("https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css");
+@import url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff2");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+
+/*-------------------------------------------------
+title       :초기화
+Create date :2020-03-02
+-------------------------------------------------*/
+*,
+*::before,
+*::after {
+  -webkit-text-size-adjust: none;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+html {
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  font-family: "GmarketSans", "Noto Sans KR", "Roboto", "Malgun Gothic", "sans-serif";
+  font-weight: normal;
+  letter-spacing: -0.025em;
+}
+header,
+footer,
+main,
+section,
+article,
+nav,
+aside {
+  display: block;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+hr {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+input,
+select {
+  max-width: 100%;
+  vertical-align: 0;
+}
+input,
+select,
+button,
+textarea,
+optgroup {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+address,
+em,
+i {
+  font-style: normal;
+}
+strong {
+  font-weight: 600;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  padding: 0;
+  border: 0 none;
+  background: none;
+  cursor: pointer;
+}
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+img {
+  max-width: 100%;
+  border: 0 none;
+  font-size: 0;
+  vertical-align: middle;
+}
+table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table + * {
+  border-collapse: collapse;
+}
+caption {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: 0 none;
+  text-indent: -9999px;
+}
+legend,
+.sr_only,
+.hidden,
+.blind,
+.IR {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0 none;
+  clip: rect(0, 0, 0, 0);
+}
+
+/*크롬 자동 완성 선택 시 배경색 변하는 거 막음*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+@media (max-width: 767px) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #eee inset !important;
+  }
+}
+
+/* 반응형일 때 폰트 사이즈 */
+@media (max-width: 1280px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    line-height: 1.6;
+  }
+}
+
+/*skip nav*/
+#skip_nav {
+  position: absolute;
+  left: 0;
+  top: -1000px;
+  width: 100%;
+  height: 0px;
+  z-index: 1000;
+  line-height: 0px;
+  font-size: 0px;
+}
+#skip_nav a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  line-height: 0px;
+  font-size: 0px;
+}
+#skip_nav a:focus,
+#skip_nav a:hover,
+#skip_nav a:active {
+  position: absolute;
+  left: 0px;
+  top: 1000px;
+  padding: 8px 0;
+  display: block;
+  height: 30px;
+  background: #20262c;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #fff;
+}
+
+/*새창 아이콘*/
+.linkWindow,
+.blankW {
+  position: relative;
+}
+.linkWindow:after,
+.blankW:after {
+  content: "";
+  font-family: "xeicon";
+  display: inline;
+  margin-left: 0.3rem;
+  vertical-align: -0.1rem;
+}
+.blankW {
+  color: rgb(33, 150, 243);
+  text-decoration: underline;
+}
+
+/*control 공통*/
+.controller {
+  display: inline-block;
+  vertical-align: top;
+}
+.controller button {
+  color: transparent;
+  font-size: 0;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+.controller button:before {
+  color: #000;
+  display: block;
+  font-family: "xeicon";
+  font-size: 1.8rem;
+  width: 2rem;
+  height: 2rem;
+}
+.prev:before {
+  content: "\e93d";
+}
+.next:before {
+  content: "\e93e";
+}
+.play:before {
+  content: "\e917";
+  color: #46abf7;
+}
+.stop:before {
+  content: "\e974";
+  color: #46abf7;
+}
+/*페이징*/
+.paging {
+  color: transparent;
+  font-size: 0;
+  font-family: "Roboto";
+  font-weight: 300;
+  display: inline-block;
+  height: 2rem;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 1rem;
+}
+.paging span {
+  color: #000;
+  font-size: 1.8rem;
+}
+.paging .this {
+  color: #f8991d !important;
+  font-weight: 600;
+}
+.paging .this:after {
+  content: "/";
+  color: #000;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes"
+    />
+
+    <meta name="title" content="다온파트너즈" />
+    <meta name="description" content="다온파트너즈" />
+    <meta name="keyword" content="다온파트너즈" />
+    <meta name="author" content="다온파트너즈" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="다온파트너즈" />
+    <meta property="og:title" content="다온파트너즈" />
+    <meta property="og:url" content="http://daonpartner.com/?" />
+    <meta property="og:description" content="다온파트너즈" />
+
+    <title>다온파트너즈</title>
+
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/jquery/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="/jquery/css/slick.css" />
+    <link rel="stylesheet" href="/jquery/css/fullpage.css" />
+    <link rel="stylesheet" href="/kor/css/default.css" />
+    <link rel="stylesheet" href="/kor/css/layout.css" />
+    <link rel="stylesheet" href="/kor/css/layout_respond.css" />
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="/kor/css/main.css" />
+    <link rel="stylesheet" href="/kor/css/main_respond.css" />
+    <link rel="stylesheet" href="/kor/css/main_es.css" />
+
+    <!-- 공통 JS -->
+    <script src="/jquery/js/jquery-1.11.2.min.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/jquery/js/jquery.bxslider.min.js"></script>
+    <script src="/jquery/js/slick.js"></script>
+    <script src="/jquery/js/jquery.fullPage.min.js"></script>
+    <script src="/ease_src/js/captchaboard.js"></script>
+
+    <!-- 메인 JS -->
+  </head>
+  <body>
+    <p id="skip_nav">
+      <a href="#headmn">주 메뉴 바로가기</a>
+      <a href="#main_wrap">본문으로 바로가기</a>
+    </p>
+
+    <div id="hiddenLayer" style="display: none"></div>
+    <div class="mw" id="mw_temp" style="display: none"></div>
+
+    <div id="wrap">
+      <link rel="stylesheet" href="/css/modalpopup.css" />
+
+      <section id="issue">
+        <article class="group">
+          <h2 class="title">주요알림</h2>
+
+          <p class="blank">등록된 알림이 없습니다.</p>
+
+          <div class="item">
+            <p class="label">알림건수 : 총 <span class="count">0</span>건</p>
+
+            <a href="" class="control close">닫기</a>
+            <a href="" class="control close oneday">오늘하루열지않기</a>
+          </div>
+        </article>
+      </section>
+
+      <script>
+        // 팝업 갯수
+        var issuecount = $("#issue > .group > ul > li").length;
+        $("#issue .count strong, #issue .item .count").text(issuecount);
+
+        // 팝업 열고 닫기
+        $("#issue")
+          .find(".control")
+          .on("click", function () {
+            if ($(this).hasClass("open") == true) {
+              $("#issue").addClass("active");
+            } else {
+              $("#issue").removeClass("active");
+            }
+            return false;
+          });
+
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+          var popupSlider = $("#issue .list").bxSlider({
+            pager: true,
+            auto: true,
+            autoHover: true,
+            maxSlides: 3,
+            moveSlides: 1,
+            slideWidth: 365,
+            infiniteLoop: false,
+            hideControlOnEnd: true,
+            // 웹접근성 추가
+            onSliderLoad: function () {
+              $(".bx-clone").find("a").prop("tabIndex", "-1");
+              $(".bx-pager-item").find("a").prop("tabIndex", "-1");
+            },
+            onSlideAfter: function () {
+              $(".modalpopup")
+                .children("li")
+                .each(function () {
+                  if ($(this).attr("aria-hidden") == "false") {
+                    $(this).find("a").attr("tabIndex", "0");
+                  } else {
+                    $(this).find("a").attr("tabIndex", "-1");
+                  }
+                });
+            },
+          });
+          $(".modalpopup li a").focusin(function () {
+            popupSlider.stopAuto();
+          });
+        } else {
+          var popupSlider = $("#issue .list").bxSlider({
+            maxSlides: 1,
+            minSlides: 1,
+            moveSlides: 1,
+            slideWidth: 295,
+            // 웹접근성 추가
+            onSliderLoad: function () {
+              $(".bx-clone").find("a").prop("tabIndex", "-1");
+              $(".bx-pager-item").find("a").prop("tabIndex", "-1");
+            },
+            onSlideAfter: function () {
+              $(".modalpopup")
+                .children("li")
+                .each(function () {
+                  if ($(this).attr("aria-hidden") == "false") {
+                    $(this).find("a").attr("tabIndex", "0");
+                  } else {
+                    $(this).find("a").attr("tabIndex", "-1");
+                  }
+                });
+            },
+          });
+          $(".modalpopup li a").focusin(function () {
+            popupSlider.stopAuto();
+          });
+        }
+
+        $(function () {
+          //  오늘하루열지않기
+          $(".oneday").on("click", function () {
+            $("#issue").removeClass("active");
+            // 		    $('#issue').css("display","none");
+            var name = "a1.oneday.open";
+            var value = "1";
+            var expiredays = 1;
+            var expire_date = new Date(); //오늘날짜를  대입값으로 설정한다.
+            var secure = location.protocol == "https:" ? " secure;" : "";
+            expire_date.setDate(expire_date.getDate() + expiredays);
+            $.ajax("/ondayOpen.es?name=" + name);
+          });
+
+          //창 크기 변화 시 주요알림 새로고침
+          // 	    $( window ).resize(function() {
+          // 	    	popupSlider.reloadSlider();
+          // 		});
+        });
+      </script>
+
+      <header id="header">
+        <div class="header_wrap">
+          <h1 id="logo">
+            <a href="/kor/"><span class="IR">다온파트너즈</span></a>
+          </h1>
+          <span class="site-map"
+            ><a href="/sitemap_search.es?sid=a1">전체메뉴</a></span
+          >
+          <div id="headmn">
+            <nav id="gnb1">
+              <ul id="head_menu" class="topmenu">
+                <li class="lnb1 mnfirst">
+                  <a href="/menu.es?mid=a10101000000">회사소개</a>
+                  <div class="submenu">
+                    <ul class="sub01">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10101000000">인사말</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10102000000">회사소개</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10103000000">연혁</a>
+                      </li>
+                      <li class="sub04">
+                        <a href="/menu.es?mid=a10104000000">조직도</a>
+                      </li>
+                      <li class="sub05 sublast">
+                        <a href="/menu.es?mid=a10105000000">찾아오시는길</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb2">
+                  <a href="/menu.es?mid=a10201000000">사업영역</a>
+                  <div class="submenu">
+                    <ul class="sub02">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10201000000">경영 전략 컨설팅</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10202000000">마케팅 컨설팅</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10203000000">브랜드 컨설팅</a>
+                      </li>
+                      <li class="sub04">
+                        <a href="/menu.es?mid=a10204000000"
+                          >소상공인 창업 컨설팅</a
+                        >
+                      </li>
+                      <li class="sub05">
+                        <a href="/menu.es?mid=a10205000000">기술사업화</a>
+                      </li>
+                      <li class="sub06">
+                        <a href="/menu.es?mid=a10206000000">교육 및 연구용역</a>
+                      </li>
+                      <li class="sub07">
+                        <a href="/menu.es?mid=a10207000000"
+                          >전시 컨텐츠 개발 및 실행 총괄</a
+                        >
+                      </li>
+                      <li class="sub08 sublast">
+                        <a href="/menu.es?mid=a10208000000">도시재생 컨설팅</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb3">
+                  <a href="/menu.es?mid=a10301000000">부속기관</a>
+                  <div class="submenu">
+                    <ul class="sub03">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10301000000"
+                          >사회적공유경제연구소</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb4">
+                  <a href="/menu.es?mid=a10401010000">대관사업</a>
+                  <div class="submenu">
+                    <ul class="sub04">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10401010000">세미나실</a>
+                        <div>
+                          <ul class="lnb-detail">
+                            <li class="lnb-detail-item">
+                              <a href="/menu.es?mid=a10401010000">공간소개</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb5 mnlast">
+                  <a href="/menu.es?mid=a10601000000">알림마당</a>
+                  <div class="submenu">
+                    <ul class="sub06">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10601000000">공지사항</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10602000000">갤러리</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10603000000">교육자료</a>
+                      </li>
+                      <li class="sub04 sublast">
+                        <a href="/menu.es?mid=a10604000000">FAQ</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <nav id="gnb2">
+              <a href="" class="control open">열기</a>
+
+              <ul id="head_menu_all" class="topmenu_all">
+                <li class="lnb1 mnfirst">
+                  <a href="/menu.es?mid=a10101000000">회사소개</a>
+                  <div class="submenu">
+                    <ul class="sub01">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10101000000">인사말</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10102000000">회사소개</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10103000000">연혁</a>
+                      </li>
+                      <li class="sub04">
+                        <a href="/menu.es?mid=a10104000000">조직도</a>
+                      </li>
+                      <li class="sub05 sublast">
+                        <a href="/menu.es?mid=a10105000000">찾아오시는길</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb2">
+                  <a href="/menu.es?mid=a10201000000">사업영역</a>
+                  <div class="submenu">
+                    <ul class="sub02">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10201000000">경영 전략 컨설팅</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10202000000">마케팅 컨설팅</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10203000000">브랜드 컨설팅</a>
+                      </li>
+                      <li class="sub04">
+                        <a href="/menu.es?mid=a10204000000"
+                          >소상공인 창업 컨설팅</a
+                        >
+                      </li>
+                      <li class="sub05">
+                        <a href="/menu.es?mid=a10205000000">기술사업화</a>
+                      </li>
+                      <li class="sub06">
+                        <a href="/menu.es?mid=a10206000000">교육 및 연구용역</a>
+                      </li>
+                      <li class="sub07">
+                        <a href="/menu.es?mid=a10207000000"
+                          >전시 컨텐츠 개발 및 실행 총괄</a
+                        >
+                      </li>
+                      <li class="sub08 sublast">
+                        <a href="/menu.es?mid=a10208000000">도시재생 컨설팅</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb3">
+                  <a href="/menu.es?mid=a10301000000">부속기관</a>
+                  <div class="submenu">
+                    <ul class="sub03">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10301000000"
+                          >사회적공유경제연구소</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb4">
+                  <a href="/menu.es?mid=a10401010000">대관사업</a>
+                  <div class="submenu">
+                    <ul class="sub04">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10401010000">세미나실</a>
+                        <div>
+                          <ul class="lnb-detail">
+                            <li class="lnb-detail-item">
+                              <a href="/menu.es?mid=a10401010000">공간소개</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="lnb5 mnlast">
+                  <a href="/menu.es?mid=a10601000000">알림마당</a>
+                  <div class="submenu">
+                    <ul class="sub06">
+                      <li class="sub01 subfirst">
+                        <a href="/menu.es?mid=a10601000000">공지사항</a>
+                      </li>
+                      <li class="sub02">
+                        <a href="/menu.es?mid=a10602000000">갤러리</a>
+                      </li>
+                      <li class="sub03">
+                        <a href="/menu.es?mid=a10603000000">교육자료</a>
+                      </li>
+                      <li class="sub04 sublast">
+                        <a href="/menu.es?mid=a10604000000">FAQ</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+
+              <a href="" class="control close">닫기</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main id="main">
+        <div id="main_wrap">
+          <div class="visual">
+            <div class="desc">
+              <strong class="title"><span>좋은 일을 </span>함께 나누다</strong>
+              <p class="txt">
+                공유경제 실현과 함께 시민사회활동 및 나눔문화를 전개하고 있으며,
+                중소/사회적 경제 기업 및 기관의 다양한 분야에서 활동하고 있는
+                전문 컨설팅 기업입니다.
+              </p>
+              <a href="/menu.es?mid=a10101000000" class="btn"
+                ><i class="xi-arrow-right"></i>회사소개</a
+              >
+            </div>
+
+            <div class="list">
+              <div class="img">
+                <img
+                  src="/upload/visual/a1/20220808170529425.png"
+                  alt="비주얼01"
+                />
+              </div>
+
+              <div class="img">
+                <img
+                  src="/upload/visual/a1/20220808170539593.png"
+                  alt="비주얼02"
+                />
+              </div>
+            </div>
+
+            <div class="control_box">
+              <div class="dots">
+                <span class="item">01</span>
+
+                <span class="item">02</span>
+              </div>
+              <div class="paging">
+                현재 <span class="this">1</span>페이지, 전체
+                <span class="total"></span>페이지
+              </div>
+              <div class="controller">
+                <button type="button" class="prev">이전</button>
+                <button
+                  type="button"
+                  class="play control"
+                  style="display: none"
+                >
+                  재생
+                </button>
+                <button type="button" class="stop control">정지</button>
+                <button type="button" class="next">다음</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="section biz">
+            <div class="contents">
+              <h3>
+                <strong class="title">사업영역</strong
+                ><small>다온파트너즈의 사업분야에 대해 소개합니다.</small>
+              </h3>
+              <div class="flex-box">
+                <ul class="list">
+                  <li>
+                    <a href="/menu.es?mid=a10201000000">
+                      <i><img src="/kor/img/main/icon-biz01.png" alt="" /></i>
+                      <strong>경영 전략 컨설팅</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10202000000">
+                      <i><img src="/kor/img/main/icon-biz02.png" alt="" /></i>
+                      <strong>마케팅 컨설팅 </strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10203000000">
+                      <i><img src="/kor/img/main/icon-biz03.png" alt="" /></i>
+                      <strong>브랜드 컨설팅</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10204000000">
+                      <i><img src="/kor/img/main/icon-biz04.png" alt="" /></i>
+                      <strong>소상공인 창업 컨설팅</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10205000000">
+                      <i><img src="/kor/img/main/icon-biz05.png" alt="" /></i>
+                      <strong>기술사업화</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10206000000">
+                      <i><img src="/kor/img/main/icon-biz06.png" alt="" /></i>
+                      <strong>교육 및 연구용역</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10207000000">
+                      <i><img src="/kor/img/main/icon-biz08.png" alt="" /></i>
+                      <strong>전시 컨텐츠 개발 및<br />실행 총괄</strong></a
+                    >
+                  </li>
+                  <li>
+                    <a href="/menu.es?mid=a10208000000">
+                      <i><img src="/kor/img/main/icon-biz07.png" alt="" /></i>
+                      <strong>도시재생 컨설팅 </strong></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="section news">
+            <div class="contents">
+              <h3>
+                <strong class="title">알림마당</strong>
+                <small>다온파트너즈의 소식을 알려드려요.</small>
+                <a href="/menu.es?mid=a10601000000" class="more"
+                  >공지사항 바로가기 <i class="xi-arrow-right"></i
+                ></a>
+              </h3>
+              <div class="group">
+                <div class="board">
+                  <div class="conBox">
+                    <p class="blank">등록된 게시물이 없습니다.</p>
+                  </div>
+                </div>
+                <div class="gallery">
+                  <h2 class="label">갤러리</h2>
+                  <div class="conBox">
+                    <ul class="list">
+                      <li>
+                        <a
+                          href="/gallery.es?mid=a10602000000&amp;bid=0001&amp;list_no=13&amp;act=view"
+                        >
+                          <div class="img">
+                            <img
+                              src="/galleryImgView.es?bid=0001&list_no=13&seq=1&thumb_size=m"
+                              alt="2023 서구 장사의 신(神) 아카데미 개강"
+                              onerror="this.src='/error/img/noimage.jpg'"
+                            />
+                          </div>
+
+                          <div class="txt">
+                            <strong class="title">
+                              2023 서구 장사의 신(神) 아카데미 개강</strong
+                            >
+                            <span class="desc"
+                              >6월 22일 광주 서구가 서구
+                              소상공인경영지원센터에서 '장사의 신(神) 아카데미'
+                              입교식을 개최하고 소..</span
+                            >
+                            <span class="date">2023.06.27</span>
+                          </div>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="/gallery.es?mid=a10602000000&amp;bid=0001&amp;list_no=12&amp;act=view"
+                        >
+                          <div class="img">
+                            <img
+                              src="/galleryImgView.es?bid=0001&list_no=12&seq=1&thumb_size=m"
+                              alt="광주시 광산구, 제1회 책 축제 ‘행복광산 북스토리’ 개최"
+                              onerror="this.src='/error/img/noimage.jpg'"
+                            />
+                          </div>
+
+                          <div class="txt">
+                            <strong class="title">
+                              광주시 광산구, 제1회 책 축제 ‘행복광산 북스토리’
+                              개최</strong
+                            >
+                            <span class="desc"
+                              >광주광역시 광산구(구청장 김삼호)가 주최하고
+                              (주)다온소셜트리가 주관한 제 1회 광산구 책 축제
+                              '행..</span
+                            >
+                            <span class="date">2021.12.07</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="/menu.es?mid=a10602000000" class="more"
+                    ><i class="xi-plus"></i>더보기</a
+                  >
+                </div>
+                <div class="sns">
+                  <h2 class="label">SNS</h2>
+                  <ul class="list">
+                    <li>
+                      <a
+                        href="https://www.facebook.com/daonnanum"
+                        target="_blank"
+                        ><i
+                          ><img
+                            src="/kor/img/main/sns-facebook.png"
+                            alt="" /></i
+                        >페이스북</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://blog.naver.com/daontree107"
+                        target="_blank"
+                        ><i><img src="/kor/img/main/sns-naver.png" alt="" /></i
+                        >네이버</a
+                      >
+                      <!-- <li><a href=""><i><img src="/kor/img/main/sns-youtube.png" alt="" /></i>유튜브</a>
+					<li><a href=""><i><img src="/kor/img/main/sns-insta.png" alt="" /></i>인스타그램</a> -->
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section seminar">
+            <div class="contents">
+              <h3>
+                <strong class="title">공유 세미나실</strong>
+                <small
+                  >다온소셜트리 세미나실은 최대 30인 수용 가능한 무인
+                  세미나/회의실입니다.<br />세미나실 공간이 필요하시거나 회의,
+                  강연, 등 세미나실을<span class="wbr">
+                    부담 없이 이용하고 싶으시다면 다운 나눔의 문을 노크해
+                    주세요.</span
+                  ></small
+                >
+                <a href="/menu.es?mid=a10401010000" class="more"
+                  >세미나실 안내 <i class="xi-arrow-right"></i
+                ></a>
+              </h3>
+              <ul class="info">
+                <li class="info01">
+                  <i><img src="/kor/img/main/seminar01.png" alt="" /></i>
+                  <strong class="title">최대 30인</strong>
+                  <span class="desc"
+                    >최대 30인까지 수용 가능한
+                    <span class="wbr">깔끔한 공간입니다.</span></span
+                  >
+                </li>
+                <li class="info02">
+                  <i><img src="/kor/img/main/seminar02.png" alt="" /></i>
+                  <strong class="title">다양한 용도</strong>
+                  <span class="desc"
+                    >강의, 강연, 회의, 세미나 등
+                    <span class="wbr"
+                      >다양하게 활용하실 수 있습니다.</span
+                    ></span
+                  >
+                </li>
+                <li class="info03">
+                  <i><img src="/kor/img/main/seminar03.png" alt="" /></i>
+                  <strong class="title">무인 시스템</strong>
+                  <span class="desc"
+                    >무인 시스템으로 운영되며 모든 물품은
+                    <span class="wbr">무료로 이용하실 수 있습니다.</span></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer id="footer" class="footer">
+        <div class="footer_wrap">
+          <div class="siteinfo">
+            <address>광주 광산구 신창로 107, 대운빌딩 4F</address>
+            <p class="info">
+              <span>TEL : <a href="tel:062-955-0416">062. 955. 0416</a></span
+              ><span class="fax">FAX : 062. 955. 0418</span
+              ><span class="mail"
+                ><a href="mailto:daontree107@naver.com"
+                  >daontree107@naver.com</a
+                ></span
+              >
+            </p>
+            <p class="copyright">
+              &copy; 2022. (주)다온소셜트리 All Rights Reserved.
+            </p>
+          </div>
+          <div class="wa">
+            <img src="/kor/img/layout/wa.png" alt="웹접근성 인증마크" />
+          </div>
+        </div>
+        <div class="btn-top show">
+          <a id="top" href="#wrap" class="up"
+            ><i class="xi-caret-up-min"></i>TOP</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/printArea.css" media="print" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" href="/favicon_m.png" />
+
+    <!-- 공통 JS -->
+    <script src="/kor/js/layout.js"></script>
+
+    <!-- 메인 JS -->
+    <script src="/kor/js/main.js"></script>
+
+    <script>
+      //try { initNavigation(1, 0); } catch (e) { console.log(""); }
+      $.ajax({ url: "/logInsert.es?mid=a10000000000" }); // 로그기록
+    </script>
+  </body>
+</html>

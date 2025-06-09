@@ -1,0 +1,1048 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,800,900");
+@import url("https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css");
+@import url("/font/webfonts_gmarketsans.css");
+@import url("/font/webfonts_NotoSansKR.css");
+@import url("/font/dingbat_xeicon.css");
+@import url(/css/animation.css);
+@import url(/css/basic.css);
+@import url(./button.css);
+/*-------------------------------------------------
+title       :초기화
+Create date :2020-03-02
+-------------------------------------------------*/
+*,
+*::before,
+*::after {
+  -webkit-text-size-adjust: none;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+html {
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  font-family: "gmk", "Noto Sans KR", "Roboto", "Malgun Gothic", "sans-serif";
+  font-weight: normal;
+  letter-spacing: -0.025em;
+}
+header,
+footer,
+main,
+section,
+article,
+nav,
+aside {
+  display: block;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+form,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+hr {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+input,
+select {
+  max-width: 100%;
+  vertical-align: 0;
+}
+input,
+select,
+button,
+textarea,
+optgroup {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+address,
+em,
+i {
+  font-style: normal;
+}
+strong {
+  font-weight: 600;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  padding: 0;
+  border: 0 none;
+  background: none;
+  cursor: pointer;
+}
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+img {
+  max-width: 100%;
+  border: 0 none;
+  font-size: 0;
+  vertical-align: middle;
+}
+table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table + * {
+  border-collapse: collapse;
+}
+caption {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: 0 none;
+  text-indent: -9999px;
+}
+legend,
+.sr_only,
+.hidden,
+.blind,
+.IR {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0 none;
+  clip: rect(0, 0, 0, 0);
+}
+
+/*크롬 자동 완성 선택 시 배경색 변하는 거 막음*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+@media (max-width: 767px) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #eee inset !important;
+  }
+}
+
+/* 반응형일 때 폰트 사이즈 */
+@media (max-width: 1280px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    line-height: 1.6;
+  }
+}
+
+/* 드래그 시, 색상
+*::selection {background-color:#09b8b2; color:#fff}
+*/
+
+/*탭 포커스 스타일
+a:focus{position:relative}
+a:focus:before{content:''; width:100%; height:100%; border:1px dotted #000 !important; color:#09b8b2; position:absolute; left:0; top:0; z-index:100}
+*/
+
+/*게시글 new icon*/
+.xi-new {
+  color: #f8991d;
+}
+
+/*새창 아이콘*/
+.linkWindow,
+.blankW {
+  position: relative;
+}
+.linkWindow:after,
+.blankW:after {
+  content: "";
+  font-family: "xeicon";
+  display: inline;
+  margin-left: 0.3rem;
+  vertical-align: -0.1rem;
+}
+.blankW {
+  color: rgb(33, 150, 243);
+  text-decoration: underline;
+}
+
+/*slick 공통*/
+.controller {
+  display: inline-block;
+  vertical-align: top;
+}
+.controller button {
+  color: transparent;
+  font-size: 0;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+.controller button:before {
+  color: #000;
+  display: block;
+  font-family: "xeicon";
+  font-size: 1.8rem;
+  width: 2rem;
+  height: 2rem;
+}
+.prev:before {
+  content: "";
+}
+.next:before {
+  content: "";
+}
+.play:before {
+  content: "";
+  color: #46abf7;
+}
+.stop:before {
+  content: "";
+  color: #46abf7;
+}
+/*페이징*/
+.paging {
+  color: transparent;
+  font-size: 0;
+  font-family: "Roboto";
+  font-weight: 300;
+  display: inline-block;
+  height: 2rem;
+  vertical-align: middle;
+  line-height: 1;
+  margin-right: 1rem;
+}
+.paging span {
+  color: #000;
+  font-size: 1.8rem;
+}
+.paging .this {
+  color: #f8991d !important;
+  font-weight: 600;
+}
+.paging .this:after {
+  content: "/";
+  color: #000;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+/*효과*/
+.controller button:hover:before {
+  color: #02346b;
+}
+/*dots*/
+.slick-dots li {
+  display: inline-block;
+  margin: 0 0.3rem;
+  height: 3rem;
+}
+.slick-dots li button {
+  border: 1px solid #46abf7;
+  border-radius: 100rem;
+  color: transparent;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+.slick-dots li.slick-active button {
+  background-color: #46abf7;
+}
+
+#skip_nav {
+  position: absolute;
+  left: 0;
+  top: -1000px;
+  width: 100%;
+  height: 0px;
+  z-index: 1000;
+  line-height: 0px;
+  font-size: 0px;
+}
+#skip_nav a {
+  display: block;
+  text-align: center;
+  width: 100%;
+  line-height: 0px;
+  font-size: 0px;
+}
+#skip_nav a:focus,
+#skip_nav a:hover,
+#skip_nav a:active {
+  position: absolute;
+  left: 0px;
+  top: 1000px;
+  padding: 8px 0;
+  display: block;
+  height: 30px;
+  background: #20262c;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #fff;
+}
+
+/* 사이트맵 */
+div.sitemap dl {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+div.sitemap dt {
+  color: #2c3b66;
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin: 1rem 0 1.5rem;
+}
+div.sitemap .menu {
+  width: calc(100% + 2rem);
+}
+div.sitemap .menu > li {
+  display: inline-block;
+  width: calc(33.333% - 0.3rem);
+  padding-right: 2rem;
+  vertical-align: top;
+  margin-bottom: 1rem;
+}
+div.sitemap .menu > li > a {
+  display: block;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 0.3rem;
+  color: #000;
+  font-weight: 500;
+  min-height: 5rem;
+  padding: 1rem 2rem;
+  position: relative;
+  transition: all 0.2s;
+}
+div.sitemap .menu > li > a:after {
+  content: "";
+  border: 2px solid transparent;
+  border-radius: 0.3rem;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  z-index: 1;
+  transition: all 0.2s;
+}
+div.sitemap .sub-menu {
+  padding: 1rem;
+  line-height: 1.5;
+}
+div.sitemap .sub-menu li {
+  padding-left: 1rem;
+  position: relative;
+}
+div.sitemap .sub-menu li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+div.sitemap .sub-menu a {
+  display: inline-block;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #666;
+  vertical-align: middle;
+}
+div.sitemap .sub-menu a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #666;
+  transition: all 0.2s;
+}
+div.sitemap .menu li a[target="_blank"]:after {
+  content: "";
+  font-family: "xeicon";
+  display: inline;
+  margin-left: 0.3rem;
+  vertical-align: -0.1rem;
+  left: auto;
+  position: relative;
+  background-color: transparent;
+}
+@media (min-width: 1024px) {
+  div.sitemap .menu > li > a:hover {
+    background-color: #fff;
+    color: #2ea72e;
+  }
+  div.sitemap .menu > li > a:hover:after {
+    border-color: #40c140;
+  }
+  div.sitemap .sub-menu a:hover:before {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  div.sitemap .menu > li {
+    width: calc(50% - 0.3rem);
+  }
+}
+@media (max-width: 480px) {
+  div.sitemap .menu > li {
+    width: 100%;
+  }
+}
+
+/*개인정보수집 및 이용 동의*/
+.agree {
+  margin-bottom: 5rem;
+}
+.agree .title {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #333;
+}
+.agree .form {
+  text-align: right;
+}
+.agree .item {
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 31.5rem;
+  margin: 1rem 0;
+  padding: 3rem 3rem 0;
+  border: 1px solid #ddd;
+}
+.agree .item::after {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  content: "";
+}
+.agree .item p strong {
+  display: block;
+  margin: 3rem 0 2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #000;
+}
+.agree:first-child .title {
+  margin-top: 0;
+}
+
+/*개인정보 수집 동의*/
+.privacy_agree .agree-box {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+.agree-box > strong {
+  color: #333;
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.agree-box > strong:first-child {
+  margin-top: 0;
+}
+.agree-box > p {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.agree-box > ul > li {
+  position: relative;
+  color: #666;
+}
+.agree-box > ul > li:before {
+  content: "-";
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.agree-box .p-box {
+  margin-top: 2rem;
+}
+.agree-box .p-box small {
+  display: block;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+}
+.privacy_agree .form {
+  clear: both;
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 4rem;
+  min-height: 2.5rem;
+}
+.privacy_agree .form a {
+  color: #666;
+  font-size: 1.4rem;
+  float: left;
+}
+.privacy_agree .form .form_check {
+  float: right;
+}
+@media (max-width: 480px) {
+  .privacy_agree .form a {
+    display: block;
+    float: none;
+    margin-bottom: 0.5rem;
+  }
+  .privacy_agree .form .form_check {
+    float: none;
+  }
+}
+
+/* .privacy_agree .title_depth01 {color:#333; font-size:18px; font-weight:500; margin:20px 0 10px}
+.privacy_agree .group {border:1px solid #ddd; border-top:1px solid #666; margin-bottom:15px; padding:20px 25px}
+.privacy_agree .group .title_depth02 {color:#333; font-size:15px; font-weight:500}
+.privacy_agree .group .bul_dot strong,
+.privacy_agree .group .bul_dot div {font-size:14px; margin-bottom:10px; padding-left:8px; position:relative}
+.privacy_agree .group .bul_dot strong:before {content:''; position:absolute; top:9px; left:0; width:3px; height:3px; border-radius:100px; background:#666}
+ */
+/* input, select, txtarea 스타일*/
+.form_textbox {
+  /*width: 100%;*/
+  height: 4rem;
+  max-height: 100%;
+  padding: 0 1rem;
+  border: 1px solid #ddd;
+  font-size: 1.6rem;
+  text-align: left;
+  vertical-align: top;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.form_textbox:focus {
+  border-color: #000;
+}
+.form_textbox.hasDatepicker {
+  width: 15rem;
+  padding-right: 5rem;
+}
+.form_textbox.hasDatepicker + .ui-datepicker-trigger {
+  position: absolute;
+  left: auto;
+  top: auto;
+  width: 3rem;
+  margin: 0.6rem 0 0 -4rem;
+}
+.form_textbox.number {
+  width: 10rem;
+  vertical-align: middle;
+}
+.form_textbox:focus {
+  border-color: #000;
+}
+.form_textbox::placeholder {
+  color: #666;
+}
+.form_textbox:-ms-input-placeholder {
+  color: #bbb;
+}
+
+textarea.form_textbox {
+  width: 100%;
+  height: auto;
+  min-height: 10rem;
+}
+
+.form_mail {
+  line-height: 4rem;
+}
+.form_mail .form_textbox {
+  width: 18rem;
+  vertical-align: middle;
+}
+.form_mail .form_select {
+  vertical-align: middle;
+}
+
+.form_tel .form_textbox {
+  width: 10rem !important;
+  vertical-align: middle;
+}
+
+.form_addr .desc .form_textbox {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.form_addr2 .form_textbox {
+  width: calc(100% - 13rem) !important;
+}
+
+.form_date .form_textbox {
+  vertical-align: middle;
+}
+
+@media (max-width: 640px) {
+  .form_mail .form_textbox {
+    width: calc(50% - 1.1rem) !important;
+  }
+  .form_mail .form_select {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .form_tel .form_select,
+  .form_tel .form_textbox {
+    width: 8rem !important;
+  }
+  .form_addr .form_textbox.postcode,
+  .form_addr .form_textbox#postcode {
+    width: 15rem;
+  }
+  .form_date .form_textbox {
+    width: calc(50% - 1rem) !important;
+  }
+}
+
+.form_select {
+  display: inline-block;
+  position: relative;
+  height: 4rem;
+  color: #333;
+  font-size: 1.5rem;
+  vertical-align: top;
+  z-index: 1;
+}
+.form_select::after {
+  content: "";
+  font-family: "xeicon";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.form_select::before {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.form_select select {
+  background-color: transparent;
+  width: 100%;
+  height: 4rem;
+  padding: 0 3rem 0 1rem;
+  border: 1px solid #ddd;
+  vertical-align: top; /*  -webkit-transition: all 0.2s; transition: all 0.2s; */
+}
+
+.form_check {
+  display: inline-block;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 0;
+  margin-right: 2rem;
+  vertical-align: top;
+}
+.form_check label {
+  cursor: pointer;
+  padding-left: 2.8rem;
+}
+.form_check label::before {
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  z-index: -2;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background-color: #fff;
+  content: "";
+}
+.form_check label::after {
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  z-index: -1;
+  width: 2rem;
+  height: 2rem;
+  font-family: "xeicon";
+  font-size: 1.8rem;
+  color: #ddd;
+  content: "";
+  text-align: center;
+  line-height: 2rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.form_check input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.form_check input:focus + label::before {
+  outline: 1px dotted #000;
+}
+.form_check input:checked + label::before {
+  background-color: #006bb7;
+  box-shadow: 0 0 5px rgba(0, 107, 183, 0.5);
+  border-color: #006bb7;
+}
+.form_check input:checked + label::after {
+  color: #fff;
+}
+.form_check:last-child {
+  margin-right: 0;
+}
+
+.form_check2 {
+  display: inline-block;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 0;
+  margin-right: 2rem;
+  vertical-align: top;
+}
+.form_check2 label {
+  cursor: pointer;
+  padding-left: 2rem;
+}
+.form_check2 label::before {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  z-index: -2;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.2rem;
+  background-color: #fff;
+  content: "";
+}
+.form_check2 label::after {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  z-index: -1;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-family: "xeicon";
+  font-size: 1.4rem;
+  color: #ddd;
+  content: "";
+  text-align: center;
+  line-height: 1.5rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.form_check2 input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.form_check2 input:focus + label::before {
+  outline: 1px dotted #000;
+}
+.form_check2 input:checked + label::before {
+  background-color: #006bb7;
+  border-color: #006bb7;
+}
+.form_check2 input:checked + label::after {
+  color: #fff;
+}
+.form_check2:last-child {
+  margin-right: 0;
+}
+
+.form_radio {
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  margin-right: 2rem;
+  vertical-align: top;
+}
+.form_radio label {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding-left: 2rem;
+}
+.form_radio label::before {
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  z-index: -2;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  content: "";
+}
+.form_radio label::after {
+  position: absolute;
+  left: 0.5rem;
+  top: 1.2rem;
+  z-index: -1;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 100%;
+  background-color: #ddd;
+  content: "";
+}
+.form_radio input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.form_radio input:focus + label::before {
+  outline: 1px dotted #000;
+}
+.form_radio input:checked + label::before {
+  border-color: #006bb7;
+  opacity: 0.3;
+}
+.form_radio input:checked + label::after {
+  background-color: #006bb7;
+}
+.form_radio:last-child {
+  margin-right: 0;
+}
+@media (max-width: 768px) {
+  .form_radio label {
+    display: block;
+  }
+  .form_radio label::before {
+    top: 0.5rem;
+  }
+  .form_radio label::after {
+    top: 1rem;
+  }
+}
+
+/*체크박스*/
+.check-box {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.check-box .article {
+  font-size: 1.4rem;
+  border-bottom: 1px solid #e7e7e7;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+.check-box .article .label {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: table-cell;
+  width: 8rem;
+  vertical-align: top;
+  padding-left: 1rem;
+}
+.check-box .article .check-list {
+  clear: both;
+  display: table-cell;
+  overflow: hidden;
+}
+.check-box .article .check-list .check {
+  display: inline-block;
+  margin-right: 0.3rem;
+}
+.check-box .article .check-list .group {
+  border-bottom: 1px dashed #ddd;
+  position: relative;
+  padding-left: 8rem;
+}
+.check-box .article .check-list .group:last-child {
+  border-bottom: 0;
+}
+.check-box .article .check-list .group .label {
+  font-size: 1.4rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+}
+
+.check-box .check {
+  margin: 0.2rem 0;
+  position: relative;
+}
+.check-box .check input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.check-box .check label {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 100rem;
+  color: #777;
+  cursor: pointer;
+  display: block;
+  font-size: 1.3rem;
+  font-weight: normal !important;
+  text-decoration: none !important;
+  transition: all 0.3s;
+  line-height: 2;
+  padding: 0 1.5rem 0 2.5rem;
+  position: relative;
+}
+.check-box .check label::before {
+  content: "";
+  display: inline-block;
+  font-size: 15px;
+  color: #ccc;
+  font-family: "xeicon";
+  width: 14px;
+  height: 14px;
+  line-height: 1;
+  vertical-align: -0.1rem;
+  position: absolute;
+  left: 0.7rem;
+  top: 48%;
+  transform: translateY(-50%);
+}
+.check-box .check input:checked + label::before {
+  color: #fff;
+  font-family: "xeicon";
+}
+.check-box .check input:checked + label {
+  background-color: #006bb7;
+  color: #fff;
+}
+.check-box .check input:focus + label {
+  outline: 1px dotted #000;
+}
+.check-box .check label:hover {
+  border-color: #006bb7;
+  color: #006bb7;
+}
+.check-box .article > * {
+  vertical-align: middle;
+}
+.check-box .form_multi .form {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.check-box .form_multi .label {
+  padding: 0;
+}
+@media (max-width: 767px) {
+  .check-box .article .label {
+    display: block;
+    width: 100%;
+  }
+  .check-box .article .check-list {
+    display: block;
+    width: 100%;
+  }
+}
+
+.form_file {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-height: 100%;
+  text-align: left;
+}
+.form_file input {
+  width: 8rem;
+  height: 3.5rem;
+  border: 0 none;
+  opacity: 0;
+  cursor: pointer;
+}
+.form_file input:hover + .txt::before,
+.form_file input:focus + .txt::before {
+  background-color: #999;
+  color: #fff;
+}
+.form_file .txt::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 8rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border: 1px solid #999;
+  font-size: 1.5rem;
+  color: #333;
+  content: "첨부파일";
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.form_file .txt {
+  color: #999;
+  font-size: 1.3rem;
+  overflow: hidden;
+  float: right;
+  width: calc(100% - 9rem);
+  padding-top: 0.5rem;
+}

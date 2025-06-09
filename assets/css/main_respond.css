@@ -1,0 +1,281 @@
+@charset "UTF-8";
+
+@media (max-width: 1320px) {
+  .visual {
+    height: 75rem;
+  }
+  .visual .desc {
+    padding-top: 11rem;
+  }
+  .visual .list {
+    width: 101rem;
+    height: 75rem;
+    right: -10rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section .contents {
+    flex-wrap: wrap;
+  }
+  .section .contents h3 {
+    width: 100%;
+    position: relative;
+  }
+
+  .news h3 .more {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.5rem;
+  }
+  .news .group {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 6rem;
+    padding-left: 0;
+  }
+
+  .gallery {
+    width: calc(66.666% - 3rem);
+  }
+  .gallery .list {
+    width: calc(100% + 3rem);
+  }
+  .gallery .list li {
+    margin-right: 3rem;
+    width: calc(50% - 3rem);
+  }
+
+  .sns {
+    width: calc(33.333% - 3rem);
+  }
+
+  .seminar:after {
+    height: 76rem;
+  }
+
+  .team-kcd .content-wrapper {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .team-kcd .text-content {
+    order: 2;
+    text-align: center;
+  }
+  .team-kcd .image-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .visual .desc .title:before {
+    width: 45rem;
+  }
+  .visual .list {
+    width: 88rem;
+    height: 65rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .visual {
+    height: 71rem;
+  }
+  .visual .desc {
+    padding-top: 7rem;
+  }
+  .visual .desc .title {
+    font-size: 6rem;
+  }
+  .visual .desc .title:before {
+    width: 35rem;
+  }
+  .visual .desc .txt {
+    font-size: 1.6rem;
+  }
+  .visual .list {
+    width: 65rem;
+    height: 49rem;
+  }
+  .visual .list:after {
+    width: 95%;
+  }
+
+  .section h3 .title {
+    font-size: 4.5rem;
+  }
+  .section h3 .more {
+    font-size: 1.8rem;
+    height: 4.5rem;
+  }
+
+  .news {
+    padding: 7rem 0;
+  }
+  .news h3 .more {
+    font-size: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    padding: 0;
+    min-width: auto;
+  }
+  .news h3 .more i {
+    display: none;
+  }
+  .news h3 .more:before {
+    content: "";
+    font-family: "xeicon";
+    font-size: 2.4rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: inherit;
+  }
+  .news .group {
+    margin-top: 3rem;
+  }
+  .news .group .label {
+    margin-bottom: 2rem;
+  }
+  .news .board {
+    margin-bottom: 5rem;
+  }
+  .news .board a {
+    padding-right: 9rem;
+  }
+  .news .board .title {
+    font-size: 2rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+  }
+  .news .board .desc {
+    line-height: 1.4;
+    margin: 0.5rem 0 2rem;
+  }
+  .news .board li:first-child .desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+  }
+
+  .gallery {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 5rem;
+  }
+
+  .sns {
+    width: 100%;
+  }
+  .sns .list {
+    height: auto;
+  }
+  .sns .list li {
+    width: 25%;
+    margin-bottom: 0;
+  }
+
+  .seminar:after {
+    height: 55%;
+    width: 100%;
+    transform: scaleX(-1);
+    right: -3rem;
+    left: auto;
+    bottom: 5rem;
+  }
+  .seminar h3 {
+    text-align: left;
+  }
+  .seminar .info {
+    margin-top: 6rem;
+    flex-wrap: wrap;
+  }
+  .seminar .info li {
+    width: 100%;
+    padding-left: 12rem;
+    padding-top: 2rem;
+    position: relative;
+    text-align: left;
+    min-height: 10rem;
+    margin-bottom: 2rem;
+  }
+  .seminar .info i {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .seminar .info i img {
+    transform: scale(0.8);
+  }
+
+  .team-kcd {
+    padding: 10.5rem 0 18rem 0;
+  }
+  .team-kcd .title {
+    font-size: 3.4rem;
+    line-height: 4.6rem;
+    margin-bottom: 2rem;
+  }
+  .team-kcd .subtitle {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .team-kcd .image-content {
+    width: calc(100% + 6rem);
+    margin-left: -3rem;
+    margin-top: 7.5rem;
+  }
+  .team-kcd .detail-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .visual .list {
+    width: 50rem;
+    height: 40rem;
+  }
+  .visual .list:after {
+    width: 93%;
+    bottom: -1rem;
+  }
+
+  .gallery .list li {
+    width: calc(100% - 3rem);
+  }
+  .gallery .list li + li {
+    margin-top: 3rem;
+  }
+
+  .sns .list li {
+    width: 50%;
+  }
+  .sns .list li:nth-child(n + 3) {
+    margin-top: 3rem;
+  }
+
+  .seminar:after {
+    height: 35%;
+    bottom: 8rem;
+  }
+
+  .team-kcd .description {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+}

@@ -1,0 +1,204 @@
+@charset "utf-8";
+
+.lGreen {
+  border: 1px solid rgba(0, 160, 92, 1) !important;
+  color: rgba(0, 160, 92, 1) !important;
+}
+.bGreen {
+  border: 1px solid rgba(0, 160, 92, 1) !important;
+  background-color: rgba(0, 160, 92, 1) !important;
+  color: #fff !important;
+}
+.bGreen:hover {
+  background-color: rgba(0, 142, 82, 1) !important;
+}
+
+/*버튼 다중 사용시*/
+.btnbox .button {
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+/*버튼*/
+.button {
+  display: block;
+}
+.button a,
+.button button {
+  background-color: #006bb7;
+  border-radius: 0.3rem;
+  border: 1px solid #006bb7;
+  color: #fff;
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.8rem 2rem;
+  transition: all 0.3s;
+}
+.button a:hover,
+.button button:hover {
+  box-shadow: 0 0 30px rgba(44, 59, 102, 0.2);
+}
+
+/*크기*/
+.button.lg a,
+.button.lg button {
+  font-size: 1.6rem;
+  padding: 1.5rem 1.8rem;
+} /*large - 아이콘 버튼과 같은 크기*/
+.button.sm a,
+.button.sm button {
+  font-size: 1.4rem;
+  padding: 0.65rem 1.3rem;
+} /*small*/
+.button.mi a,
+.button.mi button {
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+} /*mini*/
+.button.xm a,
+.button.xm button {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.6rem;
+} /*mini*/
+
+/*기본 색상*/
+/*남색*/
+.button.navy a,
+.button.navy button {
+  background-color: #2c3b66;
+  border: 1px solid #2c3b66;
+  color: #fff;
+}
+.button.navy a:hover,
+.button.navy button:hover {
+  background-color: #fff;
+  color: #2c3b66;
+}
+/*빨강*/
+.button.red a,
+.button.red button {
+  background-color: #d24423;
+  border: 1px solid #d24423;
+  color: #fff;
+}
+.button.red a:hover,
+.button.red button:hover {
+  background-color: #fff;
+  color: #d24423;
+}
+/*녹색*/
+.button.green a,
+.button.green button {
+  background-color: #60bb46;
+  border: 1px solid #60bb46;
+  color: #fff;
+}
+.button.green a:hover,
+.button.green button:hover {
+  background-color: #fff;
+  color: #60bb46;
+}
+/*보라*/
+.button.purple a,
+.button.purple button {
+  background-color: #60468e;
+  border: 1px solid #60468e;
+  color: #fff;
+}
+.button.purple a:hover,
+.button.purple button:hover {
+  background-color: #fff;
+  color: #60468e;
+}
+/*회색*/
+.button.gray a,
+.button.gray button {
+  background-color: #444b66;
+  border: 1px solid #444b66;
+  color: #fff;
+}
+.button.gray a:hover,
+.button.gray button:hover {
+  background-color: #fff;
+  color: #444b66;
+}
+/*검정*/
+.button.black a,
+.button.black button {
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
+}
+.button.black a:hover,
+.button.black button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.button.line a,
+.button.line button {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #666;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.button.line a:hover,
+.button.line button:hover {
+  background-color: #333;
+  border: 1px solid #333;
+  color: #fff;
+}
+.button.line i {
+  margin: 0;
+}
+
+/*input 다음에 나오는 버튼*/
+input + .btn {
+  background-color: #2c3b66;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.4rem;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0 1rem;
+}
+
+/*게시판 또는 표에서 나오는 버튼*/
+table .btn-line {
+  border: 1px solid #006bb7;
+  border-radius: 0.3rem;
+  color: #006bb7 !important;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0 0.2rem;
+  padding: 0 1rem;
+  vertical-align: middle;
+  transition: all 0.2s;
+}
+table .btn-line.view {
+  border: 1px solid #60bb46;
+  color: #60bb46 !important;
+}
+table .btn-line.red {
+  border: 1px solid #d24423;
+  color: #d24423 !important;
+}
+table .btn-line:hover {
+  background-color: #006bb7;
+  color: #fff !important;
+}
+table .btn-line.view:hover {
+  background-color: #60bb46;
+  color: #fff !important;
+}
+table .btn-line.red:hover {
+  background-color: #d24423;
+  color: #fff !important;
+}
+
+div + .btnbox {
+  margin-top: 3rem;
+}

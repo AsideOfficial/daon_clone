@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+    
+    <meta name="title" content="다온파트너즈">
+    <meta name="description" content="다온파트너즈">
+    <meta name="keyword" content="다온파트너즈">
+    <meta name="author" content="다온파트너즈">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="다온파트너즈">
+    <meta property="og:title" content="다온파트너즈">
+    <meta property="og:url" content="http://localhost/">
+    <meta property="og:description" content="다온파트너즈">
+    
+    <title>다온파트너즈</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/layout_respond.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main_respond.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <p id="skip_nav">
+        <a href="#headmn">주 메뉴 바로가기</a>
+        <a href="#main_wrap">본문으로 바로가기</a>
+    </p>
+
+    <div id="hiddenLayer" style="display: none"></div>
+    <div class="mw" id="mw_temp" style="display: none"></div>
+
+    <div id="wrap">
+        <header id="header">
+            <div class="header_wrap">
+                <h1 id="logo">
+                    <a href="index.html"><span class="IR">다온파트너즈</span></a>
+                </h1>
+                <span class="site-map">
+                    <a href="#sitemap">전체메뉴</a>
+                </span>
+                
+                <div id="headmn">
+                    <nav id="gnb1">
+                        <ul id="head_menu" class="topmenu">
+                            <li class="lnb1 mnfirst">
+                                <a href="company.html">회사소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub01 subfirst"><a href="company.html#greeting">인사말</a></li>
+                                        <li class="sub02"><a href="company.html#about">회사소개</a></li>
+                                        <li class="sub03"><a href="company.html#history">연혁</a></li>
+                                        <li class="sub04"><a href="company.html#organization">조직도</a></li>
+                                        <li class="sub05 sublast"><a href="company.html#location">찾아오시는길</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="business.html">사업영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="business.html#management">경영 전략 컨설팅</a></li>
+                                        <li class="sub02"><a href="business.html#marketing">마케팅 컨설팅</a></li>
+                                        <li class="sub03"><a href="business.html#brand">브랜드 컨설팅</a></li>
+                                        <li class="sub04"><a href="business.html#startup">소상공인 창업 컨설팅</a></li>
+                                        <li class="sub05"><a href="business.html#tech">기술사업화</a></li>
+                                        <li class="sub06"><a href="business.html#education">교육 및 연구용역</a></li>
+                                        <li class="sub07"><a href="business.html#exhibition">전시 컨텐츠 개발 및 실행 총괄</a></li>
+                                        <li class="sub08 sublast"><a href="business.html#urban">도시재생 컨설팅</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                            </li>
+                            <li class="lnb4">
+                            </li>
+                            <li class="lnb5 mnlast">
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav id="gnb2">
+                        <a href="" class="control open">열기</a>
+
+                        <ul id="head_menu_all" class="topmenu_all">
+                            <li class="lnb1 mnfirst">
+                                <a href="company.html">회사소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub01 subfirst"><a href="company.html#greeting">인사말</a></li>
+                                        <li class="sub02"><a href="company.html#about">회사소개</a></li>
+                                        <li class="sub03"><a href="company.html#history">연혁</a></li>
+                                        <li class="sub04"><a href="company.html#organization">조직도</a></li>
+                                        <li class="sub05 sublast"><a href="company.html#location">찾아오시는길</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="business.html">사업영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="business.html#management">경영 전략 컨설팅</a></li>
+                                        <li class="sub02"><a href="business.html#marketing">마케팅 컨설팅</a></li>
+                                        <li class="sub03"><a href="business.html#brand">브랜드 컨설팅</a></li>
+                                        <li class="sub04"><a href="business.html#startup">소상공인 창업 컨설팅</a></li>
+                                        <li class="sub05"><a href="business.html#tech">기술사업화</a></li>
+                                        <li class="sub06"><a href="business.html#education">교육 및 연구용역</a></li>
+                                        <li class="sub07"><a href="business.html#exhibition">전시 컨텐츠 개발 및 실행 총괄</a></li>
+                                        <li class="sub08 sublast"><a href="business.html#urban">도시재생 컨설팅</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <a href="" class="control close">닫기</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <div id="main_wrap">
+                <div class="visual">
+                    <div class="desc">
+                        <strong class="title"><span>좋은 일을 </span>함께 나누다</strong>
+                        <p class="txt">
+                            공유경제 실현과 함께 시민사회활동 및 나눔문화를 전개하고 있으며,
+                            중소/사회적 경제 기업 및 기관의 다양한 분야에서 활동하고 있는 전문 컨설팅 기업입니다.
+                        </p>
+                        <a href="company.html" class="btn">
+                            <i class="xi-arrow-right"></i>회사소개
+                        </a>
+                    </div>
+
+                    <div class="list">
+                        <div class="img">
+                            <img src="assets/img/main/visual01.png" alt="비주얼01">
+                        </div>
+                        <div class="img">
+                            <img src="assets/img/main/visual02.png" alt="비주얼02">
+                        </div>
+                    </div>
+
+                    <div class="control_box">
+                        <div class="dots">
+                            <span class="item">01</span>
+                            <span class="item">02</span>
+                        </div>
+                        <div class="paging">
+                            현재 <span class="this">1</span>페이지, 전체 <span class="total">2</span>페이지
+                        </div>
+                        <div class="controller">
+                            <button type="button" class="prev">이전</button>
+                            <button type="button" class="play control" style="display: none;">재생</button>
+                            <button type="button" class="stop control">정지</button>
+                            <button type="button" class="next">다음</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section biz">
+                    <div class="contents">
+                        <h3>
+                            <strong class="title">사업영역</strong>
+                            <small>다온파트너즈의 사업분야에 대해 소개합니다.</small>
+                        </h3>
+                        <div class="flex-box">
+                            <ul class="list">
+                                <li>
+                                    <a href="business.html#management">
+                                        <i><img src="assets/images/icon-biz01.png" alt="경영 전략 컨설팅"></i>
+                                        <strong>경영 전략 컨설팅</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#marketing">
+                                        <i><img src="assets/images/icon-biz02.png" alt="마케팅 컨설팅"></i>
+                                        <strong>마케팅 컨설팅</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#brand">
+                                        <i><img src="assets/images/icon-biz03.png" alt="브랜드 컨설팅"></i>
+                                        <strong>브랜드 컨설팅</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#startup">
+                                        <i><img src="assets/images/icon-biz04.png" alt="소상공인 창업 컨설팅"></i>
+                                        <strong>소상공인 창업 컨설팅</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#tech">
+                                        <i><img src="assets/images/icon-biz05.png" alt="기술사업화"></i>
+                                        <strong>기술사업화</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#education">
+                                        <i><img src="assets/images/icon-biz06.png" alt="교육 및 연구용역"></i>
+                                        <strong>교육 및 연구용역</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#exhibition">
+                                        <i><img src="assets/images/icon-biz08.png" alt="전시 컨텐츠 개발"></i>
+                                        <strong>전시 컨텐츠 개발 및<br>실행 총괄</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="business.html#urban">
+                                        <i><img src="assets/images/icon-biz07.png" alt="도시재생 컨설팅"></i>
+                                        <strong>도시재생 컨설팅</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section team-kcd">
+                    <div class="contents">
+                        <div class="content-wrapper">
+                            <div class="text-content">
+                                <h4 class="subtitle">Team KCD</h4>
+                                <h3 class="title">모든 고민은 사장님에 대한<br>공감에서 시작합니다.</h3>
+                                <p class="description">
+                                    우리는 사업의 모든 순간, 사장님이 겪는 문제를 해결하기 위해 
+                                    모여 있습니다. 우리는 하나의 목표를 공유하며 함께 도전하고 
+                                    성장합니다. 믿을 수 있는 동료들과 빠르게 움직이며 언제나 한 
+                                    발 먼저 나아갑니다.
+                                </p>
+                            </div>
+                            <div class="image-content">
+                                <div class="team-image">
+                                    <img src="assets/img/main/team-kcd.png" alt="Team KCD">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section seminar">
+                    <div class="contents">
+                        <h3>
+                            <strong class="title">공유 세미나실</strong>
+                            <small>다온소셜트리 세미나실은 최대 30인 수용 가능한 무인 세미나/회의실입니다.<br>
+                                   세미나실 공간이 필요하시거나 회의, 강연, 등 세미나실을<span class="wbr"> 부담 없이 이용하고 싶으시다면 다운 나눔의 문을 노크해 주세요.</span>
+                            </small>
+                            <a href="#" class="more">세미나실 안내 <i class="xi-arrow-right"></i></a>
+                        </h3>
+                        <ul class="info">
+                            <li class="info01">
+                                <i><img src="assets/images/seminar01.png" alt="최대 30인"></i>
+                                <strong class="title">최대 30인</strong>
+                                <span class="desc">최대 30인까지 수용 가능한 <span class="wbr">깔끔한 공간입니다.</span></span>
+                            </li>
+                            <li class="info02">
+                                <i><img src="assets/images/seminar02.png" alt="다양한 용도"></i>
+                                <strong class="title">다양한 용도</strong>
+                                <span class="desc">강의, 강연, 회의, 세미나 등 <span class="wbr">다양하게 활용하실 수 있습니다.</span></span>
+                            </li>
+                            <li class="info03">
+                                <i><img src="assets/images/seminar03.png" alt="무인 시스템"></i>
+                                <strong class="title">무인 시스템</strong>
+                                <span class="desc">무인 시스템으로 운영되며 모든 물품은 <span class="wbr">무료로 이용하실 수 있습니다.</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="footer_wrap">
+                <div class="siteinfo">
+                    <address>광주 광산구 신창로 107, 대운빌딩 4F</address>
+                    <p class="info">
+                        <span>TEL : <a href="tel:062-955-0416">062. 955. 0416</a></span>
+                        <span class="fax">FAX : 062. 955. 0418</span>
+                        <span class="mail"><a href="mailto:daontree107@naver.com">daontree107@naver.com</a></span>
+                    </p>
+                    <p class="copyright">&copy; 2022. (주)다온소셜트리 All Rights Reserved.</p>
+                </div>
+                <div class="wa">
+                    <!-- 웹접근성 인증마크 -->
+                </div>
+            </div>
+            <div class="btn-top show">
+                <a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

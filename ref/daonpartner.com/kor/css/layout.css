@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/*-------------------------------------------------
+title       :레이아웃
+Create date :2022-08-01
+-------------------------------------------------*/
+
+#wrap {
+  outline: 0;
+  overflow: hidden;
+}
+#header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 11rem;
+  transition: all 0.3s;
+}
+#header.fixed {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#header .header_wrap {
+  width: calc(100% - 4rem);
+  max-width: 160rem;
+  margin: 0 auto;
+  position: relative;
+  padding: 2.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#main {
+  padding-top: 11rem;
+}
+
+#logo {
+  width: 13rem;
+  height: 6rem;
+}
+#logo a {
+  background: url("../img/layout/logo.png") no-repeat;
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/*상단메뉴*/
+#headmn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 101rem;
+  padding-right: 13rem;
+}
+#gnb1 > ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+#gnb1 > ul > li {
+  position: relative;
+  text-align: center;
+}
+#gnb1 > ul > li > a {
+  color: #333;
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  transition: all 0.3s;
+}
+#gnb1 > ul > li > a:before {
+  content: "";
+  background-color: #317bb5;
+  width: 0;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  z-index: 1;
+  transition: all 0.3s;
+}
+#gnb1 .submenu {
+  visibility: hidden;
+  overflow: hidden;
+  width: 25rem;
+  height: 0;
+  opacity: 0;
+  background-color: #182346;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#gnb1 .submenu li {
+  margin: 5px 0;
+}
+#gnb1 .submenu a {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 3px 0;
+  transition: all 0.3s;
+}
+#gnb1 .submenu div {
+  display: none;
+}
+#gnb1 .submenu .linkWindow:after {
+  content: "";
+  font-family: "xeicon";
+  display: inline;
+  margin-left: 0.3rem;
+  vertical-align: -0.1rem;
+}
+
+#gnb1 > ul > li:hover > a,
+#gnb1 > ul > li > a.active {
+  color: #317bb5;
+}
+#gnb1 > ul > li:hover.submenu,
+#gnb1 > ul > li.active .submenu {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  padding: 2rem;
+}
+#gnb1 > ul > li:hover > a:before {
+  width: 100%;
+}
+#gnb1 .submenu a:hover,
+#gnb1 .submenu li.active a {
+  color: rgba(255, 255, 255, 1);
+}
+
+/*전체메뉴*/
+.site-map {
+  position: absolute;
+  right: -1rem;
+  top: 3.3rem;
+}
+.site-map a {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  overflow: hidden;
+  text-align: center;
+}
+.site-map a:before {
+  content: "";
+  color: #333;
+  display: block;
+  font-family: "xeicon";
+  font-size: 3.2rem;
+  width: 100%;
+  height: 100%;
+  line-height: inherit;
+  transition: all 0.3s;
+}
+.site-map a:hover:before {
+  color: #317bb5;
+}
+
+#gnb2 {
+  display: none;
+}
+
+/*FOOT*/
+#footer {
+  background-color: #fff;
+  border-top: 1px solid #cfcfcf;
+  position: relative;
+  z-index: 1;
+}
+.footer_wrap {
+  width: calc(100% - 4rem);
+  max-width: 160rem;
+  margin: 0 auto;
+  padding: 5.5rem 0;
+  word-break: keep-all;
+}
+.footer_wrap .siteinfo {
+  color: #888;
+}
+.footer_wrap .info span {
+  position: relative;
+}
+.footer_wrap .info span:after {
+  content: "";
+  background-color: #ddd;
+  width: 1px;
+  height: 1rem;
+  display: inline-block;
+  margin: 0 1rem;
+}
+.footer_wrap .info span:last-child:after {
+  display: none;
+}
+.footer_wrap .wa {
+  position: absolute;
+  right: 12rem;
+  top: 6rem;
+}
+.footer_wrap .copyright {
+  color: #999;
+  font-size: 1.3rem;
+  margin-top: 4rem;
+}
+#footer .btn-top {
+  position: absolute;
+  right: 4rem;
+  top: 5.5rem;
+}
+#footer .btn-top a {
+  background-color: #333;
+  border-radius: 100%;
+  color: #fff;
+  display: block;
+  font-size: 1.1rem;
+  width: 6rem;
+  height: 6rem;
+  padding: 1.3rem 0;
+  text-align: center;
+}
+#footer .btn-top a i {
+  display: block;
+  font-size: 1.4rem;
+}

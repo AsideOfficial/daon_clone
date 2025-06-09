@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* 기본 반응형 설정 - main_respond.css가 주 반응형 파일 */
+@media (max-width: 768px) {
+    .section .contents {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
