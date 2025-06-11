@@ -40,9 +40,9 @@ Create date :2022-08-01
 }
 #logo a {
   background: url("../img/layout/logo.png") no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: block;
-  width: 100%;
+  width: 200%;
   height: 100%;
 }
 
