@@ -15,6 +15,9 @@ $(function () {
   
   // 모바일 메뉴
   mobileMenu();
+  
+  // 데스크톱 메뉴 드롭다운
+  desktopMenu();
 });
 
 // 헤더 스크롤 효과
@@ -201,6 +204,47 @@ function mobileMenu() {
             $gnb2.removeClass('active');
             $('body').removeClass('menu-open');
             $menuAll.find('li').removeClass('active');
+        }
+    });
+}
+
+// 데스크톱 메뉴 드롭다운
+function desktopMenu() {
+    var $gnb1 = $('#gnb1');
+    var $menuItems = $gnb1.find('#head_menu > li > a');
+    
+    // 메뉴 아이템에 마우스 오버/포커스 시
+    $menuItems.on('mouseenter focusin', function() {
+        var $parent = $(this).parent();
+        var $submenu = $parent.find('.submenu');
+        
+        if ($submenu.length > 0) {
+            // 다른 메뉴들의 active 클래스 제거
+            $gnb1.find('li').removeClass('active');
+            $gnb1.removeClass('active');
+            
+            // 현재 메뉴에 active 클래스 추가
+            $parent.addClass('active');
+            $gnb1.addClass('active');
+        }
+    });
+    
+    // GNB 영역에서 마우스 벗어날 때
+    $gnb1.on('mouseleave', function() {
+        $gnb1.removeClass('active');
+        $gnb1.find('li').removeClass('active');
+    });
+    
+    // 키보드 탭 네비게이션 처리
+    $gnb1.find('a').on('keydown', function(e) {
+        if (e.keyCode === 9) { // Tab 키
+            setTimeout(function() {
+                var $focused = $(':focus');
+                if (!$focused.closest('#gnb1').length) {
+                    $gnb1.removeClass('active');
+                    $gnb1.find('li').removeClass('active');
+                }
+            }, 10);
         }
     });
 }
