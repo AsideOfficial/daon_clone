@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+/*인사말*/
+.c010100 {background-image:url('/kor/img/sub/sub01/010100-bg.png'); background-repeat:no-repeat; background-position:center -8rem; border-bottom:1px solid #b0dbf0; padding: 9rem 0 0; text-align:center; overflow:hidden; position:relative}
+.c010100 p{margin:12rem 0 7.5rem}
+.c010100 .txt {font-size:2rem; width:70%; margin:0 auto}
+.c010100 .txt strong {display:block; margin:6.5rem 0}
+@media screen and (max-width:1280px){
+	
+	.c010100 {background-position:center -10rem}
+	
+}
+@media screen and (max-width:480px){
+	
+	.c010100 {background-position:center; padding:0}
+	.c010100 p {margin:5rem 0}
+	.c010100 .txt {width:100%}
+	
+}
+
+/*연혁*/
+.history .article > div {display:flex; flex-wrap:wrap; position:relative}
+.history .article .year {font-size:2rem; font-weight:100; padding:3rem 3.5rem 0; width:30rem; line-height:1.4; text-transform:uppercase}
+.history .article .year b{font-weight:normal}
+.history .article .year strong{display:block; font-size:3.2rem; font-weight:bold}
+.history .article .item {margin-top:4rem; position:relative}
+.history .article .item > ul {margin-top:-1rem}
+.history .article .item > ul > li {border-left:1px solid #19ace3; padding:0 0 7rem 5rem; position:relative}
+.history .article .item > ul > li:last-child {border-left:0}
+.history .article .item > ul > li:before {content:''; background-color:#19ace3; border:0.8rem solid #f1f1f1; border-radius:100%; position:absolute; left:-1.5rem; top:0; width:3rem; height:3rem; z-index:2}
+.history .article .item ul li {clear:both; display:flex; flex-wrap:wrap; line-height:normal;  word-break:keep-all}
+.history .article .item ul li strong {display:block; float:left; font-size:2.6rem; width:10rem}
+.history .article .item ul li .desc {float:right; width:calc(100% - 10rem); padding:0 0 0 5rem; position:relative}
+.history .article .item ul li .desc ul li {align-items:center; margin-bottom:2rem;}
+.history .article .item ul li .desc span {position:absolute; left:0; color:#333; font-weight:bold; padding:.5rem 0 0 0}
+.history .article .item ul li .desc p {color:#333; width:100%}
+.history .article .item ul li .desc p small {color:#999; display:block; font-size:1.2rem}
+
+@media (min-width:769px){
+	.history .article > div:nth-child(even) {flex-direction:row-reverse; padding-top:10rem}
+	.history .article > div:nth-child(even) .data strong {text-align:right}
+	.history .article > div:nth-child(even) .data i:after {left:auto; right:-3.5rem}
+	.history .article > div:nth-child(even) .item {padding:0 5rem 0 0; text-align:right}
+	.history .article > div:nth-child(even) .item:before {left:auto; right:-1.5rem}
+	.history .article > div:nth-child(even) .item:after {left:auto; right:-1px}
+	.history .article > div:nth-child(even) .item ul li {flex-direction:row-reverse}
+	.history .article > div:nth-child(even) .item ul li .desc {float:left}
+	.history .article > div:nth-child(even) .item ul li strong {float:right}
+	.history .article > div:nth-child(even) .item ul li .desc span {float:right; padding-right:0; padding-left:3rem; text-align:left}
+	.history .article > div:nth-child(even) .item ul li .desc p {text-align:right}
+}
+
+@media (max-width:820px){
+	.history .article > div:last-child {padding-bottom:0}
+	.history .article > div:last-child:after {left:2rem}
+	.history .article > div > * {width:100% !important}
+	.history .article .data {padding:0}
+	.history .article .data strong {font-size:5rem}
+	.history .article .data i {width:100%; max-height:35rem; overflow:hidden}
+	.history .article .data img {display:block; width:100%}
+	.history .article .item {margin-left:2rem; padding-left:3rem; padding-right:2rem}
+	.history .article .item:after {height:100%}
+	.history .article .item > ul > li {margin-bottom:2rem}
+	.history .article .item ul li strong {float:none; font-size:2.4rem; margin-bottom:0.5rem}
+	.history .article .item ul li .desc {float:none; width:100%}
+}
+
+/*회사소개*/
+.c010200 p{font-size:2rem}
+
+
+/*조직도*/
+.org-chart {text-align:center; margin-top:7rem}
+.org-chart .item {background-color:#fff; display:inline-block}
+.org-chart ul {position:relative}
+.org-chart .depth1 > li > .item {background-color:#c9eaf9; border-radius:100%; border:17px solid #e8f6fb; width:23rem; height:23rem; text-align:center}
+.org-chart .depth1 > li > .item img {width:13rem; position:relative; top:50%; transform:translateY(-50%)}
+.org-chart .depth2 {width:100%;margin: 7rem 0 0; position:relative;display: flex;justify-content: end;}
+.org-chart .depth2 > li > .item {border:5px solid #5b76b8; border-radius:10rem; display:block; font-size:2rem; padding:2rem 0; width:27.5rem; margin:0 auto}
+.org-chart .depth2 > li > .item.type2 {background-color:#203579; border:none; color:#fff; font-size:2.4rem;padding: 3.5rem 0; display:flex; width:43rem; justify-content:center; align-items:center}
+.org-chart .depth2 > li > .item.type2 ul {margin-left:2rem}
+.org-chart .depth2 > li > .item.type2 ul li {font-size:1.6rem; font-weight:100; text-align:left}
+.org-chart .depth2 > li > .item.type2 ul li:before {content:''; background-color:#1e98d3; border-radius:100rem; width:.7rem; height:.7rem; display:inline-block; margin-right:0.7rem}
+.org-chart .depth3 { display:flex; width:calc(100% + 2.5rem); padding-top:10rem}
+.org-chart .depth3 > li {background-color:#fff; border:1px solid #1e98d3; border-radius:1.5rem; flex:1 1; margin-right:2.5rem}
+.org-chart .depth3 > li > .item {background-color:#1e98d3; color:#fff; display:block; border-radius:1.5rem; font-size:1.8rem; padding:1rem 0}
+.org-chart .depth4 {display:inline-block; padding:3rem 1rem; text-align:left}
+
+/*선*/
+.org-chart ul:after,
+.org-chart .depth3 li:after{content:''; background-color:#ececec;  position:absolute; z-index:-1}
+.org-chart .depth1:after {width:1px; height:100%; top:0; left:50%}
+.org-chart .depth2:after {width: 50%; height:1px; top:6rem;right: 0;}
+.org-chart .depth3:after {width: 80%; height:1px; top:6rem;left: 49%; transform:translateX(-50%)}
+.org-chart .depth3 li {position:relative}
+.org-chart .depth3 li:after {width:1px; height:100%;top: -4rem; left:50%}
+
+@media screen and (max-width:1024px){
+
+	.org-chart.scroll  {padding-bottom:8rem}
+	.org-chart.scroll > * {min-width:90rem}
+}
