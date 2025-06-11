@@ -123,14 +123,15 @@ Create date :2022-08-01
 #gnb1 > ul > li > a.active {
   color: #317bb5;
 }
-#gnb1 > ul > li:hover.submenu,
+#gnb1 > ul > li:hover .submenu,
 #gnb1 > ul > li.active .submenu {
   visibility: visible;
   opacity: 1;
   height: auto;
   padding: 2rem;
 }
-#gnb1 > ul > li:hover > a:before {
+#gnb1 > ul > li:hover > a:before,
+#gnb1 > ul > li.active > a:before {
   width: 100%;
 }
 #gnb1 .submenu a:hover,
