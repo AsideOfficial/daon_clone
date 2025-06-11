@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" />
+
+<meta name="title" content="마케팅 컨설팅 | 사업영역 : 다온파트너즈" />
+<meta name="description" content="다온파트너즈,마케팅 컨설팅 | 사업영역" />
+<meta name="keyword" content="다온파트너즈" />
+<meta name="author" content="다온파트너즈" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="다온파트너즈" />
+<meta property="og:title" content="마케팅 컨설팅 | 사업영역 : 다온파트너즈" />
+<meta property="og:url" content="http://daonpartner.com/marketing.html" />
+<meta property="og:description" content="다온파트너즈" />
+
+<title>마케팅 컨설팅 | 사업영역 : 다온파트너즈</title>
+
+<!-- 공통 CSS -->
+<link rel="stylesheet" href="./jquery/css/jquery.bxslider.css" />	
+<link rel="stylesheet" href="./jquery/css/slick.css" />
+<link rel="stylesheet" href="./jquery/css/fullpage.css">	
+<link rel="stylesheet" href="./kor/css/default.css" />
+<link rel="stylesheet" href="./kor/css/layout.css" />
+<link rel="stylesheet" href="./kor/css/layout_respond.css" />	
+
+<!-- 서브 CSS -->
+<link rel="stylesheet" href="./js/owl.carousel.css" />
+
+<link rel="stylesheet" href="./kor/css/sub.css" />
+<link rel="stylesheet" href="./kor/css/sub_respond.css" />
+<link rel="stylesheet" href="./kor/css/sub_es.css" />
+<link rel="stylesheet" href="./kor/css/sub02.css" />
+
+
+<!-- 공통 JS -->
+<script src="./jquery/js/jquery-1.11.2.min.js"></script>
+<script src="./js/global.js"></script>
+<script src="./jquery/js/jquery.bxslider.min.js"></script>
+<script src="./jquery/js/slick.js"></script>
+<script src="./jquery/js/jquery.fullPage.min.js"></script>
+<script src="./ease_src/js/captchaboard.js"></script>
+
+
+
+<!-- 서브 JS -->
+<script src="./ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+
+
+
+</head>
+<body>
+
+<p id="skip_nav">
+	<a href="#headmn">주 메뉴 바로가기</a>
+	<a href="#contents_body">본문으로 바로가기</a>
+</p>
+
+<div id="hiddenLayer" style="display:none"></div>
+<div class="mw" id="mw_temp" style="display:none;"></div>
+
+<div id="wrap">
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="./css/modalpopup.css" />
+
+	
+		
+		
+			<section id="issue">
+		
+	
+
+	
+	<article class="group">
+		<h2 class="title">주요알림</h2>
+		
+		
+		
+		
+		<p class="blank">등록된 알림이 없습니다.</p>
+		
+		
+	    
+	    <div class="item">
+            <p class="label">알림건수 : 총 <span class="count">0</span>건</p>
+            
+            <a href="" class="control close">닫기</a>
+            <a href="" class="control close oneday">오늘하루열지않기</a>
+        </div>       
+    </article>
+</section>
+	
+<script>
+	// 팝업 갯수
+	var issuecount = $("#issue > .group > ul > li").length;
+	$('#issue .count strong, #issue .item .count').text(issuecount);
+	
+	// 팝업 열고 닫기
+	$('#issue').find('.control').on('click', function() {
+		if ( $(this).hasClass('open') == true ) {
+			$('#issue').addClass('active');
+		}
+		else {
+			$('#issue').removeClass('active');
+		}
+		return false;
+	});
+	
+	
+	var windowWidth = $(window).width();
+	if(windowWidth > 768){
+		var popupSlider = $('#issue .list').bxSlider
+	    ({
+	    	pager       : true,
+	        auto        : true,
+	        autoHover   : true,
+	        maxSlides   : 3,
+	        moveSlides  : 1,
+	        slideWidth  : 365,
+	        infiniteLoop	:false,
+	        hideControlOnEnd : true
+	     	// 웹접근성 추가
+	    	,onSliderLoad : function() {	        	
+	    		$(".bx-clone").find("a").prop("tabIndex","-1");
+	    		$(".bx-pager-item").find("a").prop("tabIndex","-1");
+			}
+		    ,onSlideAfter: function(){
+				$(".modalpopup").children("li").each(function(){
+					if($(this).attr("aria-hidden") == "false"){
+						$(this).find("a").attr("tabIndex","0");
+					}else{
+						$(this).find("a").attr("tabIndex","-1");
+					}
+				});
+			}
+	    });
+		$('.modalpopup li a').focusin(function () {
+			popupSlider.stopAuto();
+		});
+	}else{
+		var popupSlider = $('#issue .list').bxSlider
+	    ({
+	    	maxSlides       : 1,
+            minSlides       : 1,
+            moveSlides      : 1,
+            slideWidth      : 295
+            // 웹접근성 추가
+	    	,onSliderLoad : function() {	        	
+	    		$(".bx-clone").find("a").prop("tabIndex","-1");
+	    		$(".bx-pager-item").find("a").prop("tabIndex","-1");
+			}
+		    ,onSlideAfter: function(){
+				$(".modalpopup").children("li").each(function(){
+					if($(this).attr("aria-hidden") == "false"){
+						$(this).find("a").attr("tabIndex","0");
+					}else{
+						$(this).find("a").attr("tabIndex","-1");
+					}
+				});
+			}
+	    });	
+		$('.modalpopup li a').focusin(function () {
+			popupSlider.stopAuto();
+		});
+
+	}
+
+    $(function(){
+	    //  오늘하루열지않기
+	    $('.oneday').on('click', function () {
+	    	$('#issue').removeClass("active");
+// 		    $('#issue').css("display","none");
+	    	var name = "a1.oneday.open";
+	    	var value	= "1";
+	    	var expiredays = 1;    	
+			var expire_date = new Date() ;  //오늘날짜를  대입값으로 설정한다.
+			var secure = location.protocol == 'https:' ? ' secure;' : '';
+			expire_date.setDate(expire_date.getDate() + expiredays) ;
+			$.ajax("/ondayOpen.es?name="+name);
+	    });
+	    
+	    //창 크기 변화 시 주요알림 새로고침
+// 	    $( window ).resize(function() {
+// 	    	popupSlider.reloadSlider();
+// 		});
+      })
+</script>
+
+
+
+
+
+
+
+
+
+
+	
+	<header id="header">
+		<div class="header_wrap">
+			
+<h1 id="logo"><a href="index.html"><span class="IR">다온파트너즈</span></a></h1>
+<span class="site-map"><a href="#sitemap">전체메뉴</a></span>
+			<div id="headmn">
+				<nav id="gnb1">
+					
+
+<ul id="head_menu" class="topmenu">
+	<li class="lnb1 mnfirst">
+		<a href="greeting.html">회사소개</a>
+		<div class="submenu">
+			<ul class="sub01">
+				<li class="sub01 subfirst"><a href="greeting.html">인사말</a></li>
+				<li class="sub02"><a href="about.html">회사소개</a></li>
+				<li class="sub03"><a href="history.html">연혁</a></li>
+				<li class="sub04"><a href="organization.html">조직도</a></li>
+				<li class="sub05 sublast"><a href="location.html">찾아오시는길</a></li>
+			</ul>
+		</div>
+	</li>
+	<li class="lnb2">
+		<a href="management.html">사업영역</a>
+		<div class="submenu">
+			<ul class="sub02">
+				<li class="sub01 subfirst"><a href="management.html">경영 전략 컨설팅</a></li>
+				<li class="sub02"><a href="marketing.html">마케팅 컨설팅</a></li>
+				<li class="sub03"><a href="brand.html">브랜드 컨설팅</a></li>
+				<li class="sub04 sublast"><a href="startup.html">소상공인 창업 컨설팅</a></li>
+			</ul>
+		</div>
+	</li>
+	<li class="lnb3">
+	</li>
+	<li class="lnb4">
+	</li>
+	<li class="lnb5 mnlast">
+	</li>
+</ul>
+
+
+				</nav>
+				<nav id="gnb2">
+					<a href="" class="control open">열기</a>
+					
+
+<ul id="head_menu_all" class="topmenu_all">
+	<li class="lnb1 mnfirst">
+		<a href="greeting.html">회사소개</a>
+		<div class="submenu">
+			<ul class="sub01">
+				<li class="sub01 subfirst"><a href="greeting.html">인사말</a></li>
+				<li class="sub02"><a href="about.html">회사소개</a></li>
+				<li class="sub03"><a href="history.html">연혁</a></li>
+				<li class="sub04"><a href="organization.html">조직도</a></li>
+				<li class="sub05 sublast"><a href="location.html">찾아오시는길</a></li>
+			</ul>
+		</div>
+	</li>
+	<li class="lnb2">
+		<a href="management.html">사업영역</a>
+		<div class="submenu">
+			<ul class="sub02">
+				<li class="sub01 subfirst"><a href="management.html">경영 전략 컨설팅</a></li>
+				<li class="sub02"><a href="marketing.html">마케팅 컨설팅</a></li>
+				<li class="sub03"><a href="brand.html">브랜드 컨설팅</a></li>
+				<li class="sub04"><a href="startup.html">소상공인 창업 컨설팅</a></li>
+			</ul>
+		</div>
+	</li>
+</ul>
+
+
+					<a href="" class="control close">닫기</a>
+				</nav>
+			</div>
+			
+		</div>
+	</header>
+	<main id="main">
+		<div id="main_wrap">
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+<div id="visual" class="visual2">
+
+	<div class="desc">
+		<strong class="title">사업영역</strong>
+		<span class="con">좋은 일을 함께 나누다, 다온파트너즈</span>
+	</div>
+	
+
+    <span class="img animated slower"><img src="./kor/img/sub/sub-visual02.jpg" alt=""></span>
+</div>
+		
+		<div id="contentWrap">
+			<section id="snb" class="sub02">
+				
+					
+					
+	   			<h2 class="title">사업영역</h2>
+					
+				
+				<nav class="list">
+			
+				
+
+<ul id="left_menu_top" class="head_menu_depth">
+	<li id="li0201000000" class="first"><a href="management.html" onclick="detailSubMenu('smenu1');">경영 전략 컨설팅</a>
+	</li>
+	<li id="li0202000000"><a href="marketing.html" onclick="detailSubMenu('smenu2');">마케팅 컨설팅</a>
+	</li>
+	<li id="li0203000000"><a href="brand.html" onclick="detailSubMenu('smenu3');">브랜드 컨설팅</a>
+	</li>
+	<li id="li0204000000" class="last"><a href="startup.html" onclick="detailSubMenu('smenu4');">소상공인 창업 컨설팅</a>
+	</li>
+</ul>
+
+
+			
+				</nav>
+				
+			</section>
+			<section id="contents">
+				<div class="contents_util">
+					
+					
+					
+						<h1 id="contents_title">마케팅 컨설팅</h1>
+					
+					
+					<div class="util-group">
+						<nav class="location">
+							<ul class="path">
+								<li class="icon"><a href="index.html"><span class="IR">홈</span></a></li>
+								
+								
+									
+								<li><a href="management.html">사업영역</a></li>
+									
+								<li><a href="marketing.html" class="active">마케팅 컨설팅</a></li>
+									
+								
+								
+							</ul>
+							<div class="nav-depth">
+								
+
+<ul id="head_menu_depth1" class="list depth1">
+	<li id="depth1_li0100000000"><a href="greeting.html">회사소개</a></li>
+	<li id="depth1_li0200000000"><a href="management.html">사업영역</a></li>
+</ul>
+
+
+								
+									
+
+<ul id="head_menu_depth2" class="list depth2">
+	<li id="depth2_li0201000000"><a href="management.html">경영 전략 컨설팅</a></li>
+	<li id="depth2_li0202000000"><a href="marketing.html">마케팅 컨설팅</a></li>
+	<li id="depth2_li0203000000"><a href="brand.html">브랜드 컨설팅</a></li>
+	<li id="depth2_li0204000000" class="last"><a href="startup.html">소상공인 창업 컨설팅</a></li>
+</ul>
+
+
+								
+								
+								
+								
+							</div>
+						</nav>
+						
+						<div class="util">
+							<span class="zoom">
+								<a href="#contents_body" onclick="zoomInOut('plus'); return false;" class="btn up">글자 크게</a>
+								<a href="#contents_body" onclick="zoomInOut('minus'); return false;" class="btn down">글자 작게</a>
+							</span>
+							
+							
+							<article class="share" id="shareWrap" title="닫힘">
+								<h2 class="title"><a href="" class="btn open" onclick="toggleTitle('#shareWrap');">공유하기</a></h2>
+								<form id="snsForm" name="snsForm" action="/api/sns.es" method="post">
+								<input type="hidden" name="title" value="마케팅 컨설팅 | 사업영역 : 다온파트너즈" />
+								<input type="hidden" name="mid" value="a10202000000" />
+								<input type="hidden" name="url" value="" />
+								<input type="submit" value="전송" style="display:none;height:0;width:0;" />
+								</form>
+								<div class="item">
+									<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+									<ul id="share" class="list">
+										<li class="facebook"><a href="#share" title="새창열림" onclick="snsApi('facebook'); return false;">페이스북</a></li>
+										<li class="twitter"><a href="#share" title="새창열림" onclick="snsApi('twitter'); return false;">트위터</a></li>
+										<li class="band"><a href="#share" title="새창열림" onclick="snsApi('band'); return false;">밴드</a></li>
+										<li class="kakaostory"><a href="#share" title="새창열림" onclick="snsApi('kakao'); return false;">카카오스토리</a></li>
+										<!-- <li class="kakaotalk"><a href="javascript:sendLink()" title="새창열림" target="_blank" id="kakao-link-btn">카카오톡</a></li> -->
+										
+		                                    <li class="qrcode" title="QR 코드">
+		                                    	<a href="">QR 코드</a>
+												<div class="qr">
+													<img src="https://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=http://daonpartner.com/marketing.html" alt="마케팅 컨설팅 QR코드 http://daonpartner.com/marketing.html" />
+												</div>
+		                                    </li>
+										
+										<li class="urlShare"><a href="#share" onclick="copyURI(document.location.href); return false;" class="url">URL 복사</a></li>
+									</ul>
+									<script type="text/javascript">
+									//<![CDATA[
+										var now = escape(document.location.href);
+										var url = "/ease_src/kakao.jsp?title=광주광역시도시공사&url="+now;
+										$("#kakao-link-btn").attr("href",url);
+									//]]>
+									</script>
+								</div>
+							</article>
+							
+							
+							<a class="btn print" href="#contents_detail" onclick="printAreaAction(); return false;">인쇄</a>
+						</div>
+					</div>
+				</div>
+				
+				<div id="contents_body">
+					
+					
+
+
+<div class="conArea c020200">
+	<span class="basic-tt">MARKETING CONSULTING <strong>PROCESS</strong></span>
+	<div class="flex-box type2">
+		<ul class="list">
+			<li>
+				<i><img src="./kor/img/sub/icon-data03.png" alt=""></i>
+				<strong><span class="num">1</span>마케팅 전략 <span class="wbr">기획 및 수립</span></strong>
+				<ul class="desc bul">
+					<li>제품시장의 정의</li>
+					<li>제품 목표의 설정</li>
+					<li>마케팅 전략 개발 (STP 전략)</li>
+					<li>마케팅 믹스 개발 (4P / 7P)</li>
+					<li>마케팅 평가와 통제</li>
+				</ul>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-search02.png" alt=""></i>
+				<strong><span class="num">2</span>수출마케팅</strong>
+				<ul class="desc bul">
+					<li>해외시장분석 : 타겟 시장의 사업영역 관련 진입 조건 분석 및 목표시장 선정 등 성공적인 시장 진입 및 확보를 위한 <br />단계적 분석 실시</li> 
+					<li>마케팅 믹스 : 타겟 시장 바이어의 니즈 분석 및 충족을 위한 마케팅믹스 전략 수립 후 차별화된 시장 경쟁력 확보 </li>
+					<li>바이어 발굴 및 계약 : 타깃 시장 분석 및 마케팅 전략을 통해 바이어 발굴-미팅-계약-수출 </li>
+				</ul>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-search03.png" alt=""></i>
+				<strong><span class="num">3</span>Trend Mining</strong>
+				<ul class="desc bul">
+					<li>시장 및 트렌드 현황 조사 및 분석</li>
+					<li>감정이입 디자인 : 사용자의 환경에 참여하여 사용자의 관점에서 직접 보고 느낌으로써<br /> ‘공감’ 혹은 ‘감정이입(empathy)’을 통해 시장 기회를 발견</li>
+					<li>관찰조사 : 개별 소비자에 대한 깊이 있고 지속적인 관찰을 통해 그들이 말로 표현할 수 없거나 하지 않는 내면적인<br /> 욕구나 동기를 파악</li>
+
+				</ul>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-data04.png" alt=""></i>
+				<strong><span class="num">4</span>IMC 통합 마케팅</strong>
+				<ul class="desc bul">
+					<li>기업 사명 정의</li>
+					<li>기업 목표 설정</li>
+					<li>사업 포트폴리오 설계</li>
+					<li>사업 포트폴리오 전략 결정</li>
+				</ul>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-data05.png" alt=""></i>
+				<strong><span class="num">5</span>고객만족도 조사</strong>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-people01.png" alt=""></i>
+				<strong><span class="num">6</span>영업 역량 진단/ 강호, 영업 컨설팅, 영업 네트워크 및 영업 생산성 강화</strong>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-data06.png" alt=""></i>
+				<strong><span class="num">7</span>B2B, B2C 마케팅전략 수립 </strong>
+			</li>
+			<li>
+				<i><img src="./kor/img/sub/icon-data07.png" alt=""></i>
+				<strong><span class="num">8</span>Value Based<span class="wbr">Marketing</span></strong>
+				<ul class="desc bul">
+					<li>고객 가치 기반 마케팅 역량 강화</li> 
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+
+				</div>
+				<div class="contents_info">
+					
+					
+					<div class="group">
+					
+					</div>
+				</div>
+			</section>
+		</div>
+
+
+
+
+
+
+		
+		</div>
+	</main>
+	<footer id="footer" class="footer">
+		
+<div class="footer_wrap">
+	<div class="siteinfo">
+		<address>광주 광산구 신창로 107, 대운빌딩 4F</address>
+		<p class="info"><span>TEL : <a href="tel:062-955-0416">062. 955. 0416</a></span><span class="fax">FAX : 062. 955. 0418</span><span class="mail"><a href="mailto:daontree107@naver.com">daontree107@naver.com</a></span></p>
+		<p class="copyright">&copy; 2022. (주)다온소셜트리 All Rights Reserved.</p>
+	</div>
+	 <div class="wa"><img src="./kor/img/layout/wa.png" alt="웹접근성 인증마크" /></div> 
+</div>	
+<div class="btn-top show">
+	<a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+</div>
+	</footer>
+</div>
+
+<!--[if lt IE 9]><script src="./js/html5.js"></script><![endif]-->
+<link rel="stylesheet" href="./css/printArea.css" media="print" />
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon-precomposed" href="./favicon_m.png" />
+
+<!-- 공통 JS -->
+<script src="./kor/js/layout.js"></script>
+
+<!-- 서브 JS -->
+<script src="./kor/js/sub.js"></script>
+
+
+	
+
+	
+<script>
+	try { initNavigation('02'); } catch (e) { console.log(""); }	// 메인메뉴 활성화
+	//try { initNavigationMbl('02'); } catch (e) { console.log(""); }	// 모바일 메인메뉴 활성화
+	try { initLeftMenuLI('0202', '020200'); } catch (e) { console.log(""); }	// 서브메뉴 활성화
+	try { init3DepthMenu('020200'); } catch (e) { console.log(""); }
+	try { init4DepthMenu('02020000'); } catch (e) { console.log(""); }
+	try { init5DepthMenu('0202000000'); } catch (e) { console.log(""); }
+	try { init1DepthComboMenu('02'); } catch (e) { console.log(""); }
+	try { init2DepthComboMenu('0202'); } catch (e) { console.log(""); }
+	try { init3DepthComboMenu('020200'); } catch (e) { console.log(""); }
+	try { init4DepthComboMenu('02020000'); } catch (e) { console.log(""); }
+	try { init5DepthComboMenu('0202000000'); } catch (e) { console.log(""); }
+	try { init1DepthComboMenu2('02'); } catch (e) { console.log(""); }
+	try { init2DepthComboMenu2('0202'); } catch (e) { console.log(""); }
+	try { init3DepthComboMenu2('020200'); } catch (e) { console.log(""); }
+	$.ajax({ url:'/logInsert.es?mid=a10202000000' });		// 로그기록
+</script>
+	
+	
+
+</body>
+</html>
