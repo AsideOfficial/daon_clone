@@ -1,0 +1,104 @@
+/* Process Box Styles */
+.process-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.process-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.process-list > li {
+    position: relative;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+
+.process-list .num {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #1a4b8c;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.process-list .title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    vertical-align: middle;
+}
+
+.process-list .desc {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.process-list .dep03 {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.process-list .dep03 > li {
+    position: relative;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.process-list .dep03 > li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .process-box {
+        padding: 40px 15px;
+    }
+    
+    .process-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .process-list > li {
+        padding: 20px;
+    }
+    
+    .process-list .num {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+    
+    .process-list .title {
+        font-size: 20px;
+    }
+    
+    .process-list .desc,
+    .process-list .dep03 > li {
+        font-size: 14px;
+    }
+} 
