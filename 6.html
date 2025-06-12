@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" />
+	<meta name="title" content="의료AI 데이터 가공 | 사업영역 : 한국의료정보데이터" />
+	<meta name="description" content="한국의료정보데이터,의료AI 데이터 가공 | 사업영역" />
+	<meta name="keyword" content="한국의료정보데이터" />
+	<meta name="author" content="한국의료정보데이터" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="한국의료정보데이터" />
+	<meta property="og:title" content="의료AI 데이터 가공 | 사업영역 : 한국의료정보데이터" />
+	<meta property="og:url" content="http://www.kmid.co.kr/4.html" />
+	<meta property="og:description" content="한국의료정보데이터" />
+
+	<title>의료AI 데이터 가공 | 사업영역 : 한국의료정보데이터</title>
+	<!-- 공통 CSS -->
+	<link rel="stylesheet" href="./jquery/css/jquery.bxslider.css" />
+	<link rel="stylesheet" href="./jquery/css/slick.css" />
+	<link rel="stylesheet" href="./jquery/css/fullpage.css">
+	<link rel="stylesheet" href="./kor/css/default.css" />
+	<link rel="stylesheet" href="./kor/css/layout.css" />
+	<link rel="stylesheet" href="./kor/css/layout_respond.css" />
+	<link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/default.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/layout_respond.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main_respond.css">
+	<link rel="stylesheet" href="assets/css/button.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="icon" href="assets/images/favicon.png">
+	<!-- 서브 CSS -->
+	<link rel="stylesheet" href="./js/owl.carousel.css" />
+	<link rel="stylesheet" href="./kor/css/sub.css" />
+	<link rel="stylesheet" href="./kor/css/sub_respond.css" />
+	<link rel="stylesheet" href="./kor/css/sub_es.css" />
+	<link rel="stylesheet" href="./kor/css/sub02.css" />
+	<!-- 공통 JS -->
+	<script src="./jquery/js/jquery-1.11.2.min.js"></script>
+	<script src="./js/global.js"></script>
+	<script src="./jquery/js/jquery.bxslider.min.js"></script>
+	<script src="./jquery/js/slick.js"></script>
+	<script src="./jquery/js/jquery.fullPage.min.js"></script>
+	<script src="./ease_src/js/captchaboard.js"></script>
+	<!-- 서브 JS -->
+	<script src="./ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+</head>
+
+<body>
+	<p id="skip_nav">
+		<a href="#headmn">주 메뉴 바로가기</a>
+		<a href="#contents_body">본문으로 바로가기</a>
+	</p>
+	<div id="hiddenLayer" style="display:none"></div>
+	<div class="mw" id="mw_temp" style="display:none;"></div>
+	<div id="wrap">
+		<link rel="stylesheet" href="./css/modalpopup.css" />
+		<section id="issue">
+			<article class="group">
+				<h2 class="title">주요알림</h2>
+				<p class="blank">등록된 알림이 없습니다.</p>
+				<div class="item">
+					<p class="label">알림건수 : 총 <span class="count">0</span>건</p>
+					<a href="" class="control close">닫기</a>
+					<a href="" class="control close oneday">오늘하루열지않기</a>
+				</div>
+			</article>
+		</section>
+		<script>
+			// 팝업 갯수
+			var issuecount = $("#issue > .group > ul > li").length;
+			$('#issue .count strong, #issue .item .count').text(issuecount);
+
+			// 팝업 열고 닫기
+			$('#issue').find('.control').on('click', function () {
+				if ($(this).hasClass('open') == true) {
+					$('#issue').addClass('active');
+				}
+				else {
+					$('#issue').removeClass('active');
+				}
+				return false;
+			});
+			var windowWidth = $(window).width();
+			if (windowWidth > 768) {
+				var popupSlider = $('#issue .list').bxSlider
+					({
+						pager: true,
+						auto: true,
+						autoHover: true,
+						maxSlides: 3,
+						moveSlides: 1,
+						slideWidth: 365,
+						infiniteLoop: false,
+						hideControlOnEnd: true
+						// 웹접근성 추가
+						, onSliderLoad: function () {
+							$(".bx-clone").find("a").prop("tabIndex", "-1");
+							$(".bx-pager-item").find("a").prop("tabIndex", "-1");
+						}
+						, onSlideAfter: function () {
+							$(".modalpopup").children("li").each(function () {
+								if ($(this).attr("aria-hidden") == "false") {
+									$(this).find("a").attr("tabIndex", "0");
+								} else {
+									$(this).find("a").attr("tabIndex", "-1");
+								}
+							});
+						}
+					});
+				$('.modalpopup li a').focusin(function () {
+					popupSlider.stopAuto();
+				});
+			} else {
+				var popupSlider = $('#issue .list').bxSlider
+					({
+						maxSlides: 1,
+						minSlides: 1,
+						moveSlides: 1,
+						slideWidth: 295
+						// 웹접근성 추가
+						, onSliderLoad: function () {
+							$(".bx-clone").find("a").prop("tabIndex", "-1");
+							$(".bx-pager-item").find("a").prop("tabIndex", "-1");
+						}
+						, onSlideAfter: function () {
+							$(".modalpopup").children("li").each(function () {
+								if ($(this).attr("aria-hidden") == "false") {
+									$(this).find("a").attr("tabIndex", "0");
+								} else {
+									$(this).find("a").attr("tabIndex", "-1");
+								}
+							});
+						}
+					});
+				$('.modalpopup li a').focusin(function () {
+					popupSlider.stopAuto();
+				});
+
+			}
+
+			$(function () {
+				//  오늘하루열지않기
+				$('.oneday').on('click', function () {
+					$('#issue').removeClass("active");
+					// 		    $('#issue').css("display","none");
+					var name = "a1.oneday.open";
+					var value = "1";
+					var expiredays = 1;
+					var expire_date = new Date();  //오늘날짜를  대입값으로 설정한다.
+					var secure = location.protocol == 'https:' ? ' secure;' : '';
+					expire_date.setDate(expire_date.getDate() + expiredays);
+					$.ajax("/ondayOpen.es?name=" + name);
+				});
+
+				//창 크기 변화 시 주요알림 새로고침
+				// 	    $( window ).resize(function() {
+				// 	    	popupSlider.reloadSlider();
+				// 		});
+			})
+		</script>
+		<header id="header">
+			<div class="header_wrap">
+
+				<h1 id="logo"><a href="index.html"><span class="IR">한국의료정보데이터</span></a></h1>
+				<span class="site-map"></span>
+				<div id="headmn">
+                    <nav id="gnb1">
+                        <ul id="head_menu" class="topmenu">
+                            <li class="lnb1 mnfirst">
+                                <a href="greeting.html">KMID소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <!-- <li class="sub01 subfirst"><a href="greeting.html">인사말</a></li> -->
+                                        <li class="sub02"><a href="greeting.html">KMID소개</a></li>
+                                        <!-- <li class="sub03"><a href="history.html">연혁</a></li> -->
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                        <!-- <li class="sub05 sublast"><a href="location.html">찾아오시는길</a></li> -->
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="1.html">사업영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안관리</a></li>
+                                        <li class="sub02"><a href="2.html">의료콘텐츠 플랫폼</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터화</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합솔루션</a></li>
+                                        <li class="sub01 subfirst"><a href="5.html">환자정보 통합관리</a></li>
+                                        <li class="sub02"><a href="6.html">의료AI 데이터 가공</a></li>
+                                        <li class="sub03"><a href="7.html">환자경험 데이터 수집</a></li>
+                                        <li class="sub04 sublast"><a href="8.html">공공의료 데이터 협력</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                            </li>
+                            <li class="lnb4">
+                            </li>
+                            <li class="lnb5 mnlast">
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav id="gnb2">
+                        <a href="" class="control open">열기</a>
+
+                        <ul id="head_menu_all" class="topmenu_all">
+                            <li class="lnb1 mnfirst">
+                                <a href="greeting.html">회사소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <!-- <li class="sub01 subfirst"><a href="greeting.html">인사말</a></li> -->
+                                        <li class="sub02"><a href="greeting.html">회사소개</a></li>
+                                        <!-- <li class="sub03"><a href="history.html">연혁</a></li> -->
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                        <!-- <li class="sub05 sublast"><a href="location.html">찾아오시는길</a></li> -->
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="1.html">사업영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안관리</a></li>
+                                        <li class="sub02"><a href="2.html">의료콘텐츠 플랫폼</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터화</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합솔루션</a></li>
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안관리</a></li>
+                                        <li class="sub02"><a href="2.html">의료콘텐츠 플랫폼</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터화</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료AI 데이터 가공</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <a href="" class="control close">닫기</a>
+                    </nav>
+                </div>
+
+			</div>
+		</header>
+		<main id="main">
+			<div id="main_wrap">
+				<div id="visual" class="visual2">
+					<div class="desc">
+						<strong class="title">사업영역</strong>
+						<span class="con">건강의 미래를 데이터로 잇다, 한국의료정보데이터</span>
+					</div>
+					<span class="img animated slower"><img src="./kor/img/sub/sub-visual02.jpg" alt=""></span>
+				</div>
+				<div id="contentWrap">
+					<section id="snb" class="sub02">
+						<h2 class="title">사업영역</h2>
+						<nav class="list">
+							<ul id="left_menu_top" class="head_menu_depth">
+								<li id="li0201000000" class="first"><a href="1.html"
+										onclick="detailSubMenu('smenu1');">의료정보 보안관리</a>
+								</li>
+								<li id="li0202000000"><a href="2.html" onclick="detailSubMenu('smenu2');">의료콘텐츠
+										플랫폼</a>
+								</li>
+								<li id="li0203000000"><a href="3.html" onclick="detailSubMenu('smenu3');">병원경영
+										데이터화</a>
+								</li>
+								<li id="li0204000000"><a href="4.html"
+										onclick="detailSubMenu('smenu4');">의료데이터 통합솔루션</a>
+								</li>
+								<li id="li0205000000"><a href="5.html"
+										onclick="detailSubMenu('smenu5');">환자정보 통합관리</a>
+								</li>
+								<li id="li0206000000"><a href="6.html"
+										onclick="detailSubMenu('smenu6');">의료AI 데이터 가공</a>
+								</li>
+								<li id="li0207000000"><a href="7.html"
+										onclick="detailSubMenu('smenu7');">환자경험 데이터 수집</a>
+								</li>
+								<li id="li0208000000" class="last"><a href="8.html"
+										onclick="detailSubMenu('smenu8');">공공의료 데이터 협력</a>
+								</li>
+							</ul>
+						</nav>
+					</section>
+					<section id="contents">
+						<div class="contents_util">
+							<h1 id="contents_title">의료AI 데이터 가공</h1>
+							<div class="util-group">
+								<nav class="location">
+									<ul class="path">
+										<li class="icon"><a href="index.html"><span class="IR">홈</span></a></li>
+										<li><a href="1.html">사업영역</a></li>
+
+										<li><a href="6.html" class="active">의료AI 데이터 가공</a></li>
+									</ul>
+									<div class="nav-depth">
+										<ul id="head_menu_depth1" class="list depth1">
+											<li id="depth1_li0100000000"><a href="greeting.html">회사소개</a></li>
+											<li id="depth1_li0200000000"><a href="1.html">사업영역</a></li>
+										</ul>
+										<ul id="head_menu_depth2" class="list depth2">
+											<li id="depth2_li0201000000"><a href="1.html">의료정보 보안관리</a></li>
+											<li id="depth2_li0202000000"><a href="2.html">의료콘텐츠 플랫폼</a></li>
+											<li id="depth2_li0203000000"><a href="3.html">병원경영 데이터화</a></li>
+											<li id="depth2_li0204000000"><a href="4.html">의료데이터 통합솔루션</a></li>
+											<li id="depth2_li0205000000"><a href="5.html">환자정보 통합관리</a></li>
+											<li id="depth2_li0206000000"><a href="6.html">의료AI 데이터 가공</a></li>
+											<li id="depth2_li0207000000"><a href="7.html">환자경험 데이터 수집</a></li>
+											<li id="depth2_li0208000000" class="last"><a href="8.html">공공의료 데이터 협력</a></li>
+										</ul>
+									</div>
+								</nav>
+
+								<div class="util">
+									<span class="zoom">
+										<a href="#contents_body" onclick="zoomInOut('plus'); return false;"
+											class="btn up">글자 크게</a>
+										<a href="#contents_body" onclick="zoomInOut('minus'); return false;"
+											class="btn down">글자 작게</a>
+									</span>
+									<article class="share" id="shareWrap" title="닫힘">
+										<!-- <h2 class="title"><a href="" class="btn open"
+												onclick="toggleTitle('#shareWrap');">공유하기</a></h2> -->
+										<form id="snsForm" name="snsForm" action="/api/sns.es" method="post">
+											<input type="hidden" name="title" value="의료AI 데이터 가공 | 사업영역 : 한국의료정보데이터" />
+											<input type="hidden" name="mid" value="a10204000000" />
+											<input type="hidden" name="url" value="" />
+											<input type="submit" value="전송" style="display:none;height:0;width:0;" />
+										</form>
+										<div class="item">
+											<script src="https://developers.kakao.co.kr/sdk/js/kakao.js"></script>
+											<ul id="share" class="list">
+												<li class="facebook"><a href="#share" title="새창열림"
+														onclick="snsApi('facebook'); return false;">페이스북</a></li>
+												<li class="twitter"><a href="#share" title="새창열림"
+														onclick="snsApi('twitter'); return false;">트위터</a></li>
+												<li class="band"><a href="#share" title="새창열림"
+														onclick="snsApi('band'); return false;">밴드</a></li>
+												<li class="kakaostory"><a href="#share" title="새창열림"
+														onclick="snsApi('kakao'); return false;">카카오스토리</a></li>
+												<!-- <li class="kakaotalk"><a href="javascript:sendLink()" title="새창열림" target="_blank" id="kakao-link-btn">카카오톡</a></li> -->
+												<li class="qrcode" title="QR 코드">
+													<a href="">QR 코드</a>
+													<div class="qr">
+														<img src="https://chart.apis.google.co.kr/chart?cht=qr&chs=150x150&chl=http://www.kmid.co.kr/4.html"
+															alt="의료AI 데이터 가공 QR코드 http://www.kmid.co.kr/4.html" />
+													</div>
+												</li>
+												<li class="urlShare"><a href="#share"
+														onclick="copyURI(document.location.href); return false;"
+														class="url">URL 복사</a></li>
+											</ul>
+											<script type="text/javascript">
+												//<![CDATA[
+												var now = escape(document.location.href);
+												var url = "/ease_src/kakao.jsp?title=광주광역시도시공사&url=" + now;
+												$("#kakao-link-btn").attr("href", url);
+												//]]>
+											</script>
+										</div>
+									</article>
+									<a class="btn print" href="#contents_detail"
+										onclick="printAreaAction(); return false;">인쇄</a>
+								</div>
+							</div>
+						</div>
+						<div id="contents_body">
+							<div class="conArea c020400">
+								<span class="basic-tt">FOUNDATION CONSULTING <strong>PROCESS</strong></span>
+								<div class="flex-box">
+									<ul class="list">
+										<li>
+											<i><img src="./kor/img/sub/icon-people02.png" alt=""></i>
+											<strong><span class="num num-c">1</span>창업 상담</strong>
+											<div class="desc">
+												투자 자금, 점포,<br />규모 및 자금운영 상담
+											</div>
+										</li>
+										<li>
+											<i><img src="./kor/img/sub/icon-data08.png" alt=""></i>
+											<strong><span class="num num-c">2</span>상권분석 및 점포선정</strong>
+											<div class="desc">
+												신규 시장 진출이나 기존 시장의 방어,<br />
+												사업 다각화, 전략적 제휴와 M&A 등<br />
+												기업의 전략적 현안에 대한 최고 경영자의 <br />
+												효과적인 의사결정을 지원하고<br />
+												성장 로드맵 수립
+											</div>
+										</li>
+										<li>
+											<i><img src="./kor/img/sub/icon-data09.png" alt=""></i>
+											<strong><span class="num num-c">3</span>점포 구성 기획 및 사업 계획 수립</strong>
+											<div class="desc">
+												효과적인 공간디자인 및 점포 구성요소<br />
+												관련 기획과 세부적인 사업 수행 일정 수립
+											</div>
+										</li>
+										<li>
+											<i><img src="./kor/img/sub/icon-management.png" alt=""></i>
+											<strong><span class="num num-c">4</span>내외장 공사</strong>
+											<div class="desc">
+												사업분야 관련 트렌드에 맞는<br />
+												공사 매뉴얼 구성 후 점포 시공
+											</div>
+										</li>
+										<li>
+											<i><img src="./kor/img/sub/icon-search04.png" alt=""></i>
+											<strong><span class="num num-c">5</span>점포관리 및 운영</strong>
+											<div class="desc">
+												안정적인 시장 진입 및 지속경영을 위한<br />
+												점포 운영 방안 및 최신 마케팅<br />
+												관리 기법 컨설팅
+											</div>
+										</li>
+										<li>
+											<i><img src="./kor/img/sub/icon-store.png" alt=""></i>
+											<strong><span class="num num-c">6</span>점포 창업</strong>
+											<div class="desc">
+												잠재고객 확보 및 충성고객 확보를 위한<br />
+												판매촉진/광고 계획 수립 및 실행
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="contents_info">
+							<div class="group">
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+		<footer id="footer" class="footer">
+            <div class="footer_wrap">
+                <div class="siteinfo">
+                    <address>서울특별시 강남구 테헤란로 147, 성지하이츠II 15F</address>
+                    <p class="info">
+                        <span>TEL : <a href="tel:010-4693-2451">0507. 1360. 1935</a></span>
+                        <span class="fax">FAX : 02. 6956. 9508</span>
+                        <span class="mail"><a href="mailto:kmid.contact@gmail.co.kr">kmid.contact@gmail.co.kr</a></span>
+                    </p>
+                    <p class="copyright">&copy; 2025. (주)에이치에스투에쿼티 All Rights Reserved.</p>
+                </div>
+                <div class="wa">
+                    <!-- 웹접근성 인증마크 -->
+                </div>
+            </div>
+            <div class="btn-top show">
+                <a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+            </div>
+        </footer>
+	</div>
+
+	<!--[if lt IE 9]><script src="./js/html5.js"></script><![endif]-->
+	<link rel="stylesheet" href="./css/printArea.css" media="print" />
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon-precomposed" href="./favicon_m.png" />
+
+	<!-- 공통 JS -->
+	<script src="./kor/js/layout.js"></script>
+
+	<!-- 서브 JS -->
+	<script src="./kor/js/sub.js"></script>
+
+	<script>
+		try { initNavigation('02'); } catch (e) { console.log(""); }	// 메인메뉴 활성화
+		//try { initNavigationMbl('02'); } catch (e) { console.log(""); }	// 모바일 메인메뉴 활성화
+		try { initLeftMenuLI('0206', '020600'); } catch (e) { console.log(""); }	// 서브메뉴 활성화
+		try { init3DepthMenu('020600'); } catch (e) { console.log(""); }
+		try { init4DepthMenu('02060000'); } catch (e) { console.log(""); }
+		try { init5DepthMenu('0206000000'); } catch (e) { console.log(""); }
+		try { init1DepthComboMenu('02'); } catch (e) { console.log(""); }
+		try { init2DepthComboMenu('0206'); } catch (e) { console.log(""); }
+		try { init3DepthComboMenu('020600'); } catch (e) { console.log(""); }
+		try { init4DepthComboMenu('02060000'); } catch (e) { console.log(""); }
+		try { init5DepthComboMenu('0206000000'); } catch (e) { console.log(""); }
+		try { init1DepthComboMenu2('02'); } catch (e) { console.log(""); }
+		try { init2DepthComboMenu2('0206'); } catch (e) { console.log(""); }
+		try { init3DepthComboMenu2('020600'); } catch (e) { console.log(""); }
+		$.ajax({ url: '/logInsert.es?mid=a10206000000' });		// 로그기록
+	</script>
+</body>
+</html>
