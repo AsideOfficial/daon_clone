@@ -47,7 +47,7 @@ Create date :2022-08-02
 .contents_util{position:relative; margin-bottom:4rem; padding-bottom:2rem; border-bottom:1px solid #e5e5e5}
 .contents_util:after {content:''; display:block; width:100%; overflow:hidden}
 #contents_title {font-size:3rem; font-weight:600; color:#333}
-#contents_body:after {content:''; display:block; width:100%; overflow:hidden}
+#contents_body:after {content:''; display:block; width:100%; overflow:hidden; padding-bottom:7.5rem;}
 
 .util-group {position:absolute; top:0.5rem; width:100%; text-align:right; z-index:3}
 .location {color:#666; display:inline-block; margin:1rem 3rem 0 0; vertical-align:top}
