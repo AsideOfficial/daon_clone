@@ -2,18 +2,18 @@
 
 /*인사말*/
 .c010100 {background-image:url('/kor/img/sub/sub01/010100-bg.png'); background-repeat:no-repeat; background-position:center -8rem; border-bottom:1px solid #b0dbf0; padding: 9rem 0 0; text-align:center; overflow:hidden; position:relative}
-.c010100 p{margin:12rem 0 7.5rem}
+.c010100 p{margin:-5rem 0 7.5rem}
 .c010100 .txt {font-size:2rem; width:70%; margin:0 auto}
 .c010100 .txt strong {display:block; margin:6.5rem 0}
 @media screen and (max-width:1280px){
-	
+
 	.c010100 {background-position:center -10rem}
 	
 }
 @media screen and (max-width:480px){
 	
 	.c010100 {background-position:center; padding:0}
-	.c010100 p {margin:5rem 0}
+	.c010100 p {margin:1rem 0}
 	.c010100 .txt {width:100%}
 	
 }

@@ -63,7 +63,7 @@ $(function()
        'button'        : '.active a'   // �대깽�� 諛쏆쓣 ��寃� �좏깮
    });
    
-   $('.company label').classtoggle
+   $('.co.krpany label').classtoggle
    ({
        'button'        : '.help'   // �대깽�� 諛쏆쓣 ��寃� �좏깮
    });

@@ -1043,7 +1043,7 @@ function snsApi(sns)
 }
 function twitter(site_nm, title, url){
 	var str = site_nm + " | " + title + " " + url;
-	var sitelink = "http://twitter.com/home?status=" + encodeURIComponent(str);
+	var sitelink = "http://twitter.co.kr/home?status=" + encodeURIComponent(str);
 	window.open(sitelink);
 }
 function me2day(site_nm, title, url){
@@ -1053,7 +1053,7 @@ function me2day(site_nm, title, url){
 }
 function facebook(site_nm, title, url){
 	var str = site_nm + " | " + title;
-	var sitelink = "http://facebook.com/sharer.php?u=" + encodeURIComponent(url) + "&t=" + encodeURIComponent(str);
+	var sitelink = "http://facebook.co.kr/sharer.php?u=" + encodeURIComponent(url) + "&t=" + encodeURIComponent(str);
 	window.open(sitelink);
 }
 
