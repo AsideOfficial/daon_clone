@@ -192,13 +192,7 @@ Create date :2022-08-01
 .visual .control_box .dots .item.slick-active:after {
   width: 100%;
 }
-  width: 0;
-  height: 2px;
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  transition: all 0.3s;
-}
+
 .visual .control_box .dots .item.slick-active {
   opacity: 1;
 }
@@ -707,7 +701,7 @@ Create date :2022-08-01
   height: 96rem;
   position: absolute;
   left: 0;
-  bottom: 11.5rem;
+  bottom: 31.5rem;
   z-index: -1;
 }
 .seminar .contents {
@@ -760,4 +754,42 @@ Create date :2022-08-01
 }
 .seminar .info03 i {
   background-color: #7e8dda;
+}
+
+/* Seminar 이미지 스타일 */
+.seminar .seminar-image {
+  text-align: right;
+  margin: 2rem 0 -10rem 0;
+}
+
+.seminar .seminar-image img {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* hospital-business-2 섹션 레이아웃 반전 */
+#hospital-business-1:after {
+  background: url("../img/main/seminar1.jpg") no-repeat;
+}
+
+#hospital-business-2:after {
+  left: auto;
+  right: 0;
+  background: url("../img/main/seminar2.jpg") no-repeat;
+}
+
+#hospital-business-2 .contents {
+  justify-content: left;
+}
+
+#hospital-business-2 h3 {
+  text-align: left;
+}
+
+#hospital-business-3:after {
+  background: url("../img/main/seminar3.jpg") no-repeat;
 }
