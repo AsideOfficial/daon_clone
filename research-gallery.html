@@ -200,6 +200,27 @@
             background: #f8f9fa;
             border-color: #00a3d3;
         }
+
+        /* 페이지네이션 아이콘 추가 */
+        .board-pagination .first::before {
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .board-pagination .prev::before {
+            content: "<";
+            margin-right: 0.5rem;
+        }
+        
+        .board-pagination .next1::after {
+            content: ">";
+            margin-left: 0.5rem;
+        }
+        
+        .board-pagination .last::after {
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
         
         @media (max-width: 768px) {
             .board-search {
@@ -260,14 +281,14 @@
                                 <a href="1.html">연구영역</a>
                                 <div class="submenu">
                                     <ul class="sub02">
-                                        <li class="sub01"><a href="1.html">의료정보 보안관리</a></li>
+                                        <li class="sub01"><a href="1.html">의료정보 보안연구</a></li>
                                         <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
-                                        <li class="sub03"><a href="3.html">병원경영 데이터화</a></li>
-                                        <li class="sub04"><a href="4.html">의료데이터 통합솔루션</a></li>
-                                        <li class="sub05"><a href="5.html">환자정보 통합관리</a></li>
-                                        <li class="sub06"><a href="6.html">의료AI 데이터 가공</a></li>
-                                        <li class="sub07"><a href="7.html">환자경험 데이터 수집</a></li>
-                                        <li class="sub08 sublast"><a href="8.html">공공의료 데이터 협력</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub05"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub06"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub07"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub08 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -304,14 +325,14 @@
                                 <a href="1.html">연구영역</a>
                                 <div class="submenu">
                                     <ul class="sub02">
-                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안관리</a></li>
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안연구</a></li>
                                         <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
-                                        <li class="sub03"><a href="3.html">병원경영 데이터화</a></li>
-                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합솔루션</a></li>
-                                        <li class="sub01 subfirst"><a href="5.html">환자정보 통합관리</a></li>
-                                        <li class="sub02"><a href="6.html">의료AI 데이터 가공</a></li>
-                                        <li class="sub03"><a href="7.html">환자경험 데이터 수집</a></li>
-                                        <li class="sub04 sublast"><a href="8.html">공공의료 데이터 협력</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub01 subfirst"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub02"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub03"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -415,7 +436,7 @@
                                 <a href="#" class="first">처음</a>
                                 <a href="#" class="prev">이전</a>
                                 <span class="current">1</span>
-                                <a href="#" class="next">다음</a>
+                                <a href="#" class="next1">다음</a>
                                 <a href="#" class="last">마지막</a>
                             </div>
                         </div>
