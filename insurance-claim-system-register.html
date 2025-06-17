@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
 
-    <meta name="title" content="검체검사 발송시스템 신청 - 한국의료정보데이터">
-    <meta name="description" content="검체검사 발송시스템 신청 - 한국의료정보데이터">
-    <meta name="keyword" content="한국의료정보데이터, KMID, 검체검사 발송시스템">
+    <meta name="title" content="실손보험 청구 자동화 시스템 신청 - 한국의료정보데이터">
+    <meta name="description" content="실손보험 청구 자동화 시스템 신청 - 한국의료정보데이터">
+    <meta name="keyword" content="한국의료정보데이터, KMID, 실손보험 청구 자동화 시스템">
     <meta name="author" content="한국의료정보데이터">
 
-    <title>검체검사 발송시스템 신청 - 한국의료정보데이터</title>
+    <title>실손보험 청구 자동화 시스템 신청 - 한국의료정보데이터</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/main_respond.css">
     <link rel="stylesheet" href="assets/css/button.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/register.css">
     <link rel="icon" href="assets/images/favicon.png">
 </head>
@@ -140,32 +140,14 @@
         <main id="main">
             <div class="register-container">
                 <div class="register-header">
-                    <h1>검체검사 발송시스템 신청</h1>
-                    <p>한국의료정보데이터의 검체검사 발송시스템을 무료로 신청하실 수 있습니다.</p>
+                    <h1>실손보험 청구 자동화 시스템 신청</h1>
+                    <p>한국의료정보데이터의 실손보험 청구 자동화 시스템을 무료로 신청하실 수 있습니다.</p>
                 </div>
-
-                <!-- <div class="install-guide">
-                    <h4>📋 시스템 설치 및 사용 방법</h4>
-                    <ol>
-                        <li>검체검사 발송시스템 설치 파일 다운로드</li>
-                        <li>사용하시는 의료진료 프로그램이 있는 PC에 설치</li>
-                        <li>설치 완료 후, 바탕화면에 있는 KMID 아이콘 클릭</li>
-                        <li>로그인창에 이메일 아이디와 설정한 비밀번호로 로그인</li>
-                        <li>진료 프로그램에서 검체검사 결과지 출력시 KMID 프린터로 선택하여 출력</li>
-                        <li>KMID 프린터로 출력한 검체검사 결과지를 KMID 관리자 페이지에서 확인</li>
-                    </ol>
-                </div> -->
 
                 <form class="register-form" id="registerForm">
                     <div class="form-section">
                         <h3>1) 병원정보 입력</h3>
                         
-                        <div class="form-group">
-                            <label for="licenseNumber">요양기관번호 <span class="required">*</span></label>
-                            <input type="text" id="licenseNumber" name="licenseNumber" required>
-                            <!-- <button type="button" class="btn-search" onclick="searchHospital()">병원 검색</button> -->
-                        </div>
-
                         <div class="form-group">
                             <label for="hospitalName">병원명 <span class="required">*</span></label>
                             <input type="text" id="hospitalName" name="hospitalName" required>
@@ -180,89 +162,15 @@
                             <label for="hospitalPhone">전화번호 <span class="required">*</span></label>
                             <input type="tel" id="hospitalPhone" name="hospitalPhone" required>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>2) 약관동의</h3>
-                        
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="agreeAll" onchange="toggleAllAgreement()">
-                                <label for="agreeAll"><strong>개인정보수집, 업무위탁, 서비스 이용약관 모두 동의합니다.</strong></label>
-                            </div>
-                        </div>
-
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="agreePrivacy" name="agreements" required>
-                            <label for="agreePrivacy">개인정보 수집 및 이용에 대한 안내 (필수) <span class="required">*</span></label>
-                        </div>
-                        <div class="terms-content">
-                            <p><strong>1. 수집되는 개인정보의 항목</strong></p>
-                            <p>① 한국의료정보데이터는 서비스의 원활한 운영을 위해 회원으로부터 아래의 개인정보를 수집하고 있습니다.</p>
-                            <ul>
-                                <li>서비스 신청: 요양기관번호, 요양기관명, 대표자명, 전화번호, 이메일</li>
-                                <li>전송 및 접수: 검사병원, 검사일, 성명, 핸드폰번호, 이메일 주소, 검사결과</li>
-                            </ul>
-                            <p><strong>2. 개인정보의 이용목적</strong></p>
-                            <ul>
-                                <li>검사기관 확인, 서비스 제공: 검체검사 결과 및 예약 관련 등 의료검사 관련 서비스 제공</li>
-                            </ul>
-                        </div>
-
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="agreeService" name="agreements" required>
-                            <label for="agreeService">서비스 이용약관 (필수) <span class="required">*</span></label>
-                        </div>
-                        <div class="terms-content">
-                            <p><strong>제1조 (목적)</strong></p>
-                            <p>본 약관은 한국의료정보데이터가 제공하는 검체검사 발송시스템 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
-                            <p><strong>제2조 (서비스의 제공)</strong></p>
-                            <ul>
-                                <li>검체검사 결과 발송 서비스</li>
-                                <li>환자 예약 관리 서비스</li>
-                                <li>병원 홍보 서비스</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>3) 서비스 계정 생성</h3>
-                        
                         <div class="form-group">
-                            <label for="email">ID (이메일) <span class="required">*</span></label>
+                            <label for="email">이메일 <span class="required">*</span></label>
                             <input type="email" id="email" name="email" required>
-                            <!-- <button type="button" class="btn-search" onclick="verifyEmail()">인증 요청</button> -->
-                        </div>
-
-                        <div class="form-group">
-                            <label for="applicantName">신청자명 <span class="required">*</span></label>
-                            <input type="text" id="applicantName" name="applicantName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">비밀번호 <span class="required">*</span></label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirmPassword">비밀번호 확인 <span class="required">*</span></label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>4) 이용요금</h3>
-                        <div class="price-info">
-                            <h4>💰 검체검사 발송시스템 이용요금</h4>
-                            <ul>
-                                <li><strong>기본 운영비:</strong> 무료</li>
-                                <li><strong>카카오 알림톡 발송료:</strong> 건당 8원(VAT 별도)</li>
-                            </ul>
                         </div>
                     </div>
 
                     <button type="submit" class="submit-btn">
-                        <i class="xi-check"></i> 검체검사 발송시스템 신청서 제출
+                        <i class="xi-check"></i> 실손보험 청구 자동화 시스템 신청하기
                     </button>
                 </form>
             </div>
@@ -294,65 +202,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <script>
-        // EmailJS 초기화 - 아래 YOUR_PUBLIC_KEY를 실제 Public Key로 변경하세요
+        // EmailJS 초기화
         (function() {
-            // 실제 사용 시 아래 주석을 해제하고 YOUR_PUBLIC_KEY를 입력하세요
             emailjs.init('Bsua1cc2pzvCqtQpw');
-            
-            // Development mode - 콘솔에 출력
             console.log('EmailJS Development Mode - 설정 완료 후 위 주석을 해제하세요');
         })();
-
-        // 전체 약관 동의 체크박스 기능
-        function toggleAllAgreement() {
-            const agreeAll = document.getElementById('agreeAll');
-            const agreements = document.querySelectorAll('input[name="agreements"]');
-            
-            agreements.forEach(checkbox => {
-                checkbox.checked = agreeAll.checked;
-            });
-        }
-
-        // 병원 검색 기능
-        function searchHospital() {
-            const licenseNumber = document.getElementById('licenseNumber').value;
-            if (!licenseNumber) {
-                alert('요양기관번호를 입력해주세요.');
-                return;
-            }
-            
-            // 테스트 데이터 확장
-            const hospitalData = {
-                '12345678': { name: '삼성서울병원', phone: '02-3410-2114', rep: '홍길동' },
-                '87654321': { name: '서울아산병원', phone: '02-3010-3114', rep: '김철수' },
-                '11122233': { name: '세브란스병원', phone: '02-2228-5800', rep: '이영희' }
-            };
-
-            if (hospitalData[licenseNumber]) {
-                const hospital = hospitalData[licenseNumber];
-                document.getElementById('hospitalName').value = hospital.name;
-                document.getElementById('hospitalPhone').value = hospital.phone;
-                document.getElementById('representative').value = hospital.rep;
-            } else {
-                alert('해당 요양기관번호로 등록된 병원을 찾을 수 없습니다.');
-            }
-        }
-
-        // 이메일 인증 기능
-        function verifyEmail() {
-            const email = document.getElementById('email').value;
-            if (!email) {
-                alert('이메일을 입력해주세요.');
-                return;
-            }
-            
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert('유효한 이메일 주소를 입력해주세요.');
-                return;
-            }
-            
-            alert('인증 메일이 발송되었습니다. 이메일을 확인해주세요.');
-        }
 
         // 이메일 발송 함수
         function sendApplicationEmail(formData) {
@@ -376,80 +230,43 @@ ${formData.product}가 접수되었습니다.
             `;
 
             // Development mode - 콘솔에 출력
-            console.log('=== 검체검사 발송시스템 신청서 ===');
+            console.log('=== 실손보험 청구 자동화 시스템 신청서 ===');
             console.log(emailContent);
             console.log('수신자: kmid.contact@gmail.com');
             
-            // 실제 EmailJS 발송 코드 - 설정 완료 후 주석을 해제하세요
-            // 아래 YOUR_SERVICE_ID와 YOUR_TEMPLATE_ID를 실제 값으로 변경하세요
+            // EmailJS 발송
             emailjs.send('service_8xyqgmt', 'template_dtyaziq', {
                 to_email: 'kmid.contact@gmail.com',
-                from_name: formData.applicantName,
+                from_name: '실손보험 시스템 신청자',
                 product: formData.product,
                 hospital_name: formData.hospitalName,
-                license_number: formData.licenseNumber,
                 representative: formData.representative,
                 hospital_phone: formData.hospitalPhone,
-                applicant_name: formData.applicantName,
                 email: formData.email,
-                password: formData.password,
                 submission_date: new Date().toLocaleString('ko-KR'),
-                message: emailContent
+                message: emailContent,
+                system_type: '실손보험 청구 자동화 시스템'
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
+                alert('실손보험 청구 자동화 시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
                 window.location.href = 'index.html';
             }, function(error) {
                 console.log('FAILED...', error);
                 alert('신청서 발송 중 오류가 발생했습니다. 다시 시도해주세요.');
             });
-            
-            
-            // Development mode - 성공 시뮬레이션 (실제 EmailJS 사용 시 이 부분을 주석 처리하세요)
-            // setTimeout(() => {
-            //     alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
-                // window.location.href = 'index.html';
-            // }, 1000);
         }
 
         // 폼 제출 처리
         document.getElementById('registerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 필수 약관 동의 확인
-            const agreements = document.querySelectorAll('input[name="agreements"]');
-            let allAgreed = true;
-            
-            agreements.forEach(checkbox => {
-                if (!checkbox.checked) {
-                    allAgreed = false;
-                }
-            });
-            
-            if (!allAgreed) {
-                alert('필수 약관에 모두 동의해주세요.');
-                return;
-            }
-            
-            // 비밀번호 확인
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('비밀번호가 일치하지 않습니다.');
-                return;
-            }
-            
             // 폼 데이터 수집
             const formData = {
-                product: '검체검사 발송시스템',
-                licenseNumber: document.getElementById('licenseNumber').value,
+                product: '실손보험 청구 자동화 시스템',
                 hospitalName: document.getElementById('hospitalName').value,
                 representative: document.getElementById('representative').value,
                 hospitalPhone: document.getElementById('hospitalPhone').value,
-                applicantName: document.getElementById('applicantName').value,
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value
+                email: document.getElementById('email').value
             };
             
             // 이메일 발송

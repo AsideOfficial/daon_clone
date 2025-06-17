@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" />
+
+    <meta name="title" content="연구현황 상세 : 한국의료정보데이터" />
+    <meta name="description" content="한국의료정보데이터,연구현황 상세" />
+    <meta name="keyword" content="한국의료정보데이터, 연구현황, 정부과제" />
+    <meta name="author" content="한국의료정보데이터" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="한국의료정보데이터" />
+    <meta property="og:title" content="연구현황 상세 : 한국의료정보데이터" />
+    <meta property="og:url" content="http://www.kmid.co.kr/research-detail.html" />
+    <meta property="og:description" content="한국의료정보데이터" />
+
+    <title>연구현황 상세 : 한국의료정보데이터</title>
+
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="./jquery/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="./jquery/css/slick.css" />
+    <link rel="stylesheet" href="./jquery/css/fullpage.css">
+    <link rel="stylesheet" href="./kor/css/default.css" />
+    <link rel="stylesheet" href="./kor/css/layout.css" />
+    <link rel="stylesheet" href="./kor/css/layout_respond.css" />
+    <link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/layout_respond.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main_respond.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <!-- 서브 CSS -->
+    <link rel="stylesheet" href="./js/owl.carousel.css" />
+    <link rel="stylesheet" href="./kor/css/sub.css" />
+    <link rel="stylesheet" href="./kor/css/sub_respond.css" />
+    <link rel="stylesheet" href="./kor/css/sub_es.css" />
+    <link rel="stylesheet" href="./kor/css/sub02.css" />
+
+    <!-- 공통 JS -->
+    <script src="./jquery/js/jquery-1.11.2.min.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./jquery/js/jquery.bxslider.min.js"></script>
+    <script src="./jquery/js/slick.js"></script>
+    <script src="./jquery/js/jquery.fullPage.min.js"></script>
+    <script src="./ease_src/js/captchaboard.js"></script>
+
+    <!-- 서브 JS -->
+    <script src="./ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+
+    <style>
+        /* 상세 페이지 전용 스타일 */
+        .detail-content {
+            padding: 3rem 0;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+            border-left: 5px solid #00a3d3;
+        }
+        
+        .project-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .meta-label {
+            font-weight: 600;
+            color: #666;
+            min-width: 8rem;
+        }
+        
+        .meta-value {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 8rem;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-upcoming {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .detail-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #00a3d3;
+        }
+        
+        .description-content {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.5rem;
+            white-space: pre-line;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .info-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 0.8rem;
+            border-left: 4px solid #00a3d3;
+        }
+        
+        .info-item h4 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .keyword-tag {
+            background: #00a3d3;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .criteria-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .criteria-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .criteria-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            color: #1976d2;
+            min-width: 8rem;
+        }
+        
+        .contact-value {
+            color: #333;
+        }
+        
+        .contact-value a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+        
+
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            min-width: 12rem;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #00a3d3;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0082a6;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .loading-message {
+            text-align: center;
+            padding: 5rem;
+            color: #666;
+            font-size: 1.6rem;
+        }
+        
+        .error-message {
+            text-align: center;
+            padding: 5rem;
+            color: #dc3545;
+            font-size: 1.6rem;
+        }
+        
+        #contents_title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {            
+            .project-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 30rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p id="skip_nav">
+        <a href="#headmn">주 메뉴 바로가기</a>
+        <a href="#contents_body">본문으로 바로가기</a>
+    </p>
+    
+    <div id="hiddenLayer" style="display:none"></div>
+    <div class="mw" id="mw_temp" style="display:none;"></div>
+    
+    <div id="wrap">
+        <link rel="stylesheet" href="./css/modalpopup.css" />
+        <header id="header">
+            <div class="header_wrap">
+                <h1 id="logo">
+                    <a href="index.html"><span class="IR">한국의료정보데이터</span></a>
+                </h1>
+
+                <div id="headmn">
+                    <nav id="gnb1">
+                        <ul id="head_menu" class="topmenu">
+                            <li class="lnb1 mnfirst">
+                            </li>
+                            <li class="lnb2">
+                                <a href="greeting.html">KMID연구소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub02"><a href="greeting.html">KMID연구소개</a></li>
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                                <a href="1.html">연구영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01"><a href="1.html">의료정보 보안연구</a></li>
+                                        <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub05"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub06"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub07"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub08 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb4">
+                                <a href="medical-institutions.html">의료기관 현황</a>
+                            </li>
+                            <li class="lnb5 mnlast">
+                                <a href="research.html">연구현황</a>
+                                <div class="submenu">
+                                    <ul class="sub03">
+                                        <li class="sub01"><a href="research.html">연구현황</a></li>
+                                        <li class="sub02"><a href="research-gallery.html">연구갤러리</a></li>
+                                        <li class="sub03"><a href="research-materials.html">연구자료</a></li>
+                                        <li class="sub04 sublast"><a href="research-faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav id="gnb2">
+                        <a href="" class="control open">열기</a>
+                        <ul id="head_menu_all" class="topmenu_all">
+                            <li class="lnb1 mnfirst">
+                                <a href="greeting.html">KMID연구소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub02"><a href="greeting.html">KMID연구소개</a></li>
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="1.html">연구영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안연구</a></li>
+                                        <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub01 subfirst"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub02"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub03"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                                <a href="medical-institutions.html">의료기관 현황</a>
+                            </li>
+                            <li class="lnb4 mnlast">
+                                <a href="research.html">연구현황</a>
+                                <div class="submenu">
+                                    <ul class="sub03">
+                                        <li class="sub01 subfirst"><a href="research.html">연구현황</a></li>
+                                        <li class="sub02"><a href="research-gallery.html">연구갤러리</a></li>
+                                        <li class="sub03"><a href="research-materials.html">연구자료</a></li>
+                                        <li class="sub04 sublast"><a href="research-faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="" class="control close">닫기</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <div id="main_wrap">
+                <div id="visual" class="visual2">
+                    <div class="desc">
+                        <strong class="title">연구현황 상세</strong>
+                        <span class="con">정부과제 상세 정보를 확인하실 수 있습니다.</span>
+                    </div>
+                    <span class="img animated slower"><img src="./kor/img/sub/sub-visual02.jpg" alt=""></span>
+                </div>
+                
+                <div id="contentWrap">
+                    <section id="snb" class="sub02">
+                        <h2 class="title">연구현황</h2>
+                        <nav class="list">
+                            <ul id="left_menu_top" class="head_menu_depth">
+                                <li id="li0401000000" class="first active"><a href="research.html">연구현황</a></li>
+                                <li id="li0402000000"><a href="research-gallery.html">연구갤러리</a></li>
+                                <li id="li0403000000"><a href="research-materials.html">연구자료</a></li>
+                                <li id="li0404000000" class="last"><a href="research-faq.html">FAQ</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                    
+                    <section id="contents">
+                        <div class="contents_util">
+                            <h1 id="contents_title">연구현황 상세</h1>
+                            <div class="util-group">
+                                <nav class="location">
+                                    <ul class="path">
+                                        <li class="icon"><a href="index.html"><span class="IR">홈</span></a></li>
+                                        <li><a href="research.html">연구현황</a></li>
+                                        <li><a href="research.html">연구현황</a></li>
+                                        <li><span class="active" id="breadcrumb-title">상세보기</span></li>
+                                    </ul>
+                                </nav>
+                                <!-- <div class="util">
+                                    <span class="zoom">
+                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;" class="btn up">글자 크게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;" class="btn down">글자 작게</a>
+                                    </span>
+
+                                    <a class="btn print" href="#contents_body" onclick="printAreaAction(); return false;">인쇄</a>
+                                </div> -->
+                            </div>
+                        </div>
+                        
+                        <div id="contents_body" class="detail-content">
+                            <!-- 로딩 메시지 -->
+                            <div id="loading-message" class="loading-message">
+                                데이터를 불러오는 중입니다...
+                            </div>
+
+                            <!-- 에러 메시지 -->
+                            <div id="error-message" class="error-message" style="display: none;">
+                                과제 정보를 찾을 수 없습니다.
+                            </div>
+
+                            <!-- 프로젝트 상세 내용 -->
+                            <div id="project-detail" style="display: none;">
+                                <!-- 프로젝트 헤더 -->
+                                <div class="project-header">
+                                    <h1 class="project-title" id="project-title"></h1>
+                                    <div class="project-meta" id="project-meta">
+                                        <!-- 메타 정보가 여기에 동적으로 삽입됩니다 -->
+                                    </div>
+                                </div>
+
+                                <!-- 사업 개요 -->
+                                <div class="detail-section">
+                                    <h2 class="section-title">사업 개요</h2>
+                                    <div class="description-content" id="project-description">
+                                        <!-- 설명이 여기에 삽입됩니다 -->
+                                    </div>
+                                    <div class="keywords-list" id="project-keywords">
+                                        <!-- 키워드가 여기에 삽입됩니다 -->
+                                    </div>
+                                </div>
+
+                                <!-- 지원 정보 -->
+                                <div class="detail-section">
+                                    <h2 class="section-title">지원 정보</h2>
+                                    <div class="info-grid" id="support-info">
+                                        <!-- 지원 정보가 여기에 삽입됩니다 -->
+                                    </div>
+                                </div>
+
+                                <!-- 평가 기준 -->
+                                <div class="detail-section">
+                                    <h2 class="section-title">평가 기준</h2>
+                                    <ul class="criteria-list" id="evaluation-criteria">
+                                        <!-- 평가 기준이 여기에 삽입됩니다 -->
+                                    </ul>
+                                </div>
+
+                                <!-- 담당자 정보 -->
+                                <div class="detail-section">
+                                    <h2 class="section-title">담당자 정보</h2>
+                                    <div class="contact-info" id="contact-info">
+                                        <!-- 담당자 정보가 여기에 삽입됩니다 -->
+                                    </div>
+                                </div>
+
+
+
+                                <!-- 액션 버튼 -->
+                                <div class="action-buttons">
+                                    <a href="research.html" class="btn btn-secondary">목록으로</a>
+                                    <!-- <button onclick="sharePage()" class="btn btn-primary">공유하기</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="footer_wrap">
+                <div class="siteinfo">
+                    <address>서울특별시 강남구 테헤란로 147, 성지하이츠II 15F</address>
+                    <p class="info">
+                        <span>TEL : <a href="tel:010-4693-2451">0507. 1360. 1935</a></span>
+                        <span class="fax">FAX : 02. 6956. 9508</span>
+                        <span class="mail"><a href="mailto:kmid.contact@gmail.co.kr">kmid.contact@gmail.co.kr</a></span>
+                    </p>
+                    <p class="copyright">&copy; 2025. (주)에이치에스투에쿼티 All Rights Reserved.</p>
+                </div>
+                <div class="wa">
+                    <!-- 웹접근성 인증마크 -->
+                </div>
+            </div>
+            <div class="btn-top show">
+                <a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let currentProject = null;
+
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+            
+            if (projectId) {
+                loadProjectDetail(projectId);
+            } else {
+                showError('잘못된 접근입니다.');
+            }
+        });
+
+        // 프로젝트 상세 정보 로드
+        async function loadProjectDetail(projectId) {
+            try {
+                const response = await fetch('./government-projects.json');
+                const data = await response.json();
+                const project = data.projects.find(p => p.id === projectId);
+                
+                if (project) {
+                    currentProject = project;
+                    renderProjectDetail(project);
+                    hideLoading();
+                } else {
+                    showError('해당 과제를 찾을 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('데이터 로딩 에러:', error);
+                showError('데이터를 불러오는데 실패했습니다.');
+            }
+        }
+
+        // 프로젝트 상세 정보 렌더링
+        function renderProjectDetail(project) {
+            // 제목 설정
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('breadcrumb-title').textContent = project.title;
+            document.title = `${project.title} : 한국의료정보데이터`;
+
+            // 메타 정보
+            const metaHtml = `
+                <div class="meta-item">
+                    <span class="meta-label">소관부처:</span>
+                    <span class="meta-value">${project.department}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">전문기관:</span>
+                    <span class="meta-value">${project.agency}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">공고번호:</span>
+                    <span class="meta-value">${project.announcementNumber}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">공고일:</span>
+                    <span class="meta-value">${formatDate(project.announcementDate)}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">접수기간:</span>
+                    <span class="meta-value">${formatDate(project.applicationPeriod.start)} ~ ${formatDate(project.applicationPeriod.end)}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">지원규모:</span>
+                    <span class="meta-value">${project.budget}</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">사업기간:</span>
+                    <span class="meta-value">${project.duration}</span>
+                </div>
+            `;
+            document.getElementById('project-meta').innerHTML = metaHtml;
+
+            // 사업 개요
+            document.getElementById('project-description').textContent = project.description;
+
+            // 키워드
+            const keywordsHtml = project.keywords.map(keyword => 
+                `<span class="keyword-tag">${keyword}</span>`
+            ).join('');
+            document.getElementById('project-keywords').innerHTML = keywordsHtml;
+
+            // 지원 정보
+            const supportInfoHtml = `
+                <div class="info-item">
+                    <h4>지원대상</h4>
+                    <p>${project.eligibility}</p>
+                </div>
+                <div class="info-item">
+                    <h4>기술분야</h4>
+                    <p>${project.field} > ${project.subField}</p>
+                </div>
+                <div class="info-item">
+                    <h4>사업요약</h4>
+                    <p>${project.summary}</p>
+                </div>
+            `;
+            document.getElementById('support-info').innerHTML = supportInfoHtml;
+
+            // 평가 기준
+            const criteriaHtml = project.selectionCriteria.map(criteria => 
+                `<li><span>${criteria}</span></li>`
+            ).join('');
+            document.getElementById('evaluation-criteria').innerHTML = criteriaHtml;
+
+            // 담당자 정보
+            const contactHtml = `
+                <div class="contact-item">
+                    <span class="contact-label">담당부서:</span>
+                    <span class="contact-value">${project.contactInfo.department}</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">전화번호:</span>
+                    <span class="contact-value">
+                        <a href="tel:${project.contactInfo.phone.replace(/[^0-9]/g, '')}">${project.contactInfo.phone}</a>
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">이메일:</span>
+                    <span class="contact-value">
+                        <a href="mailto:${project.contactInfo.email}">${project.contactInfo.email}</a>
+                    </span>
+                </div>
+            `;
+            document.getElementById('contact-info').innerHTML = contactHtml;
+
+
+
+            // 상세 내용 표시
+            document.getElementById('project-detail').style.display = 'block';
+        }
+
+        // 로딩 숨기기
+        function hideLoading() {
+            document.getElementById('loading-message').style.display = 'none';
+        }
+
+        // 에러 표시
+        function showError(message) {
+            document.getElementById('loading-message').style.display = 'none';
+            document.getElementById('error-message').textContent = message;
+            document.getElementById('error-message').style.display = 'block';
+        }
+
+        // 상태 클래스
+        function getStatusClass(status) {
+            switch (status) {
+                case '접수중': return 'status-active';
+                case '접수예정': return 'status-upcoming';
+                case '접수마감': return 'status-closed';
+                default: return '';
+            }
+        }
+
+        // 날짜 포맷
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toISOString().split('T')[0];
+        }
+
+        // 페이지 공유
+        function sharePage() {
+            if (navigator.share && currentProject) {
+                navigator.share({
+                    title: currentProject.title,
+                    text: currentProject.summary,
+                    url: window.location.href
+                }).catch(err => console.log('공유 실패:', err));
+            } else {
+                // 클립보드에 URL 복사
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('페이지 URL이 클립보드에 복사되었습니다.');
+                }).catch(() => {
+                    // 클립보드 API가 지원되지 않는 경우
+                    const textArea = document.createElement('textarea');
+                    textArea.value = window.location.href;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('페이지 URL이 클립보드에 복사되었습니다.');
+                });
+            }
+        }
+
+
+    </script>
+</body>
+
+</html> 

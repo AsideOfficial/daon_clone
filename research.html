@@ -282,6 +282,14 @@
             font-weight: bold;
         }
         
+        #contents_title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
         @media (max-width: 768px) {
             .board-search {
                 flex-direction: column;
@@ -497,46 +505,41 @@
                                     <select name="search_type" id="search_type">
                                         <option value="all">전체</option>
                                         <option value="title">제목</option>
-                                        <option value="content">내용</option>
+                                        <option value="keywords">키워드</option>
                                     </select>
-                                    <input type="text" name="search_keyword" placeholder="검색어를 입력하세요" />
-                                    <button type="submit">검색</button>
+                                    <input type="text" name="search_keyword" id="search_keyword" placeholder="검색어를 입력하세요" />
+                                    <button type="submit" id="search-btn">검색</button>
                                 </form>
                             </div>
 
                             <!-- 총 게시물 수 -->
-                            <div class="board-util">
-                                전체 <strong>0</strong>건 페이지 <strong>1</strong>/<strong>1</strong>
+                            <div class="board-util" id="board-util">
+                                전체 <strong id="total-count">0</strong>건 페이지 <strong id="current-page">1</strong>/<strong id="total-pages">1</strong>
                             </div>
 
                             <!-- 연구현황 테이블 -->
                             <table class="board-table">
                                 <thead>
                                     <tr>
-                                        <th style="width: 0.5rem;">번호</th>
+                                        <th style="width: 8rem;">번호</th>
                                         <th class="title">제목</th>
-                                        <th class="writer">작성자</th>
-                                        <th class="date">등록일</th>
-                                        <th class="file">첨부파일</th>
-                                        <th class="view">조회수</th>
+                                        <th style="width: 12rem;">소관부처</th>
+                                        <th style="width: 12rem;">공고일</th>
+                                        <th style="width: 8rem;">조회수</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="project-list">
                                     <tr>
-                                        <td colspan="6" class="empty-message">
-                                            해당 내용이 없습니다.
+                                        <td colspan="5" class="empty-message">
+                                            데이터를 불러오는 중입니다...
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
 
                             <!-- 페이지네이션 -->
-                            <div class="board-pagination">
-                                <a href="#" class="first">처음</a>
-                                <a href="#" class="prev">이전</a>
-                                <span class="current">1</span>
-                                <a href="#" class="next1">다음</a>
-                                <a href="#" class="last">마지막</a>
+                            <div class="board-pagination" id="pagination">
+                                <!-- 페이지네이션은 JavaScript로 동적 생성 -->
                             </div>
                         </div>
                     </section>
@@ -566,31 +569,295 @@
     </div>
 
     <script>
-        // 기존 사이트 공통 스크립트 포함
-        
-        // global.js의 함수들을 사용하므로 중복 정의 제거
+        // 정부과제 데이터를 관리하는 객체
+        let projectData = {
+            projects: [],
+            filteredProjects: [],
+            currentPage: 1,
+            itemsPerPage: 10
+        };
 
-        // 검색 기능 (실제 구현시 서버 사이드에서 처리)
+        // 페이지 로드 시 데이터 초기화
         document.addEventListener('DOMContentLoaded', function() {
-            var searchForm = document.querySelector('.search-form');
+            loadProjects();
+            setupEventListeners();
+        });
+
+        // JSON 데이터 로드
+        async function loadProjects() {
+            try {
+                const response = await fetch('./government-projects.json');
+                const data = await response.json();
+                projectData.projects = data.projects || [];
+                projectData.filteredProjects = [...projectData.projects];
+                renderProjects();
+                updateStats();
+            } catch (error) {
+                console.error('데이터 로딩 에러:', error);
+                showEmptyMessage('데이터를 불러오는데 실패했습니다.');
+            }
+        }
+
+        // 이벤트 리스너 설정
+        function setupEventListeners() {
+            const searchForm = document.querySelector('.search-form');
+            const departmentFilter = document.getElementById('department_filter');
+            const statusFilter = document.getElementById('status_filter');
+            const searchBtn = document.getElementById('search-btn');
+
             if (searchForm) {
                 searchForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    const searchType = document.getElementById('search_type').value;
-                    const keyword = document.querySelector('input[name="search_keyword"]').value;
-                    
-                    if (!keyword.trim()) {
-                        alert('검색어를 입력하세요.');
-                        return;
-                    }
-                    
-                    // 실제 검색 로직 구현 필요
-                    console.log('검색 타입:', searchType, '검색어:', keyword);
-                    alert('검색 기능은 서버 구현이 필요합니다.');
+                    filterProjects();
                 });
             }
-        });
+
+            // 실시간 필터링
+            if (departmentFilter) {
+                departmentFilter.addEventListener('change', filterProjects);
+            }
+            if (statusFilter) {
+                statusFilter.addEventListener('change', filterProjects);
+            }
+        }
+
+        // 프로젝트 필터링
+        function filterProjects() {
+            const departmentFilter = document.getElementById('department_filter').value;
+            const statusFilter = document.getElementById('status_filter').value;
+            const searchType = document.getElementById('search_type').value;
+            const keyword = document.getElementById('search_keyword').value.toLowerCase().trim();
+
+            projectData.filteredProjects = projectData.projects.filter(project => {
+                // 부처 필터
+                if (departmentFilter && project.department !== departmentFilter) {
+                    return false;
+                }
+
+                // 상태 필터
+                if (statusFilter && project.status !== statusFilter) {
+                    return false;
+                }
+
+                // 검색어 필터
+                if (keyword) {
+                    switch (searchType) {
+                        case 'title':
+                            return project.title.toLowerCase().includes(keyword);
+                        case 'keywords':
+                            return project.keywords.some(k => k.toLowerCase().includes(keyword));
+                        case 'all':
+                        default:
+                            return project.title.toLowerCase().includes(keyword) ||
+                                   project.summary.toLowerCase().includes(keyword) ||
+                                   project.keywords.some(k => k.toLowerCase().includes(keyword));
+                    }
+                }
+
+                return true;
+            });
+
+            projectData.currentPage = 1;
+            renderProjects();
+            updateStats();
+        }
+
+        // 프로젝트 목록 렌더링
+        function renderProjects() {
+            const tbody = document.getElementById('project-list');
+            if (!tbody) return;
+
+            if (projectData.filteredProjects.length === 0) {
+                showEmptyMessage('조건에 맞는 과제가 없습니다.');
+                renderPagination();
+                return;
+            }
+
+            const startIndex = (projectData.currentPage - 1) * projectData.itemsPerPage;
+            const endIndex = startIndex + projectData.itemsPerPage;
+            const pageProjects = projectData.filteredProjects.slice(startIndex, endIndex);
+
+            tbody.innerHTML = pageProjects.map((project, index) => {
+                const rowNumber = startIndex + index + 1;
+                const viewCount = Math.floor(Math.random() * 500) + 50; // 임시 조회수
+
+                return `
+                    <tr>
+                        <td>${rowNumber}</td>
+                        <td class="title">
+                            <a href="research-detail.html?id=${project.id}" title="${project.title}">
+                                ${project.title}
+                            </a>
+                        </td>
+                        <td>${project.department}</td>
+                        <td>${formatDate(project.announcementDate)}</td>
+                        <td>${viewCount}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            renderPagination();
+        }
+
+        // 빈 메시지 표시
+        function showEmptyMessage(message) {
+            const tbody = document.getElementById('project-list');
+            if (tbody) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="empty-message">
+                            ${message}
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // 통계 업데이트
+        function updateStats() {
+            const totalCount = document.getElementById('total-count');
+            const currentPage = document.getElementById('current-page');
+            const totalPages = document.getElementById('total-pages');
+
+            if (totalCount) totalCount.textContent = projectData.filteredProjects.length;
+            if (currentPage) currentPage.textContent = projectData.currentPage;
+            
+            const totalPageCount = Math.ceil(projectData.filteredProjects.length / projectData.itemsPerPage) || 1;
+            if (totalPages) totalPages.textContent = totalPageCount;
+        }
+
+        // 상태에 따른 CSS 클래스
+        function getStatusClass(status) {
+            switch (status) {
+                case '접수중': return 'status-active';
+                case '접수예정': return 'status-upcoming';
+                case '접수마감': return 'status-closed';
+                default: return '';
+            }
+        }
+
+        // 날짜 포맷팅
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toISOString().split('T')[0];
+        }
+
+        // 페이지네이션 렌더링
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            if (!pagination) return;
+
+            const totalPageCount = Math.ceil(projectData.filteredProjects.length / projectData.itemsPerPage);
+            const currentPage = projectData.currentPage;
+
+            if (totalPageCount <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = '';
+
+            // 처음 버튼
+            if (currentPage > 1) {
+                paginationHTML += `<a href="#" onclick="goToPage(1)" class="first">처음</a>`;
+                paginationHTML += `<a href="#" onclick="goToPage(${currentPage - 1})" class="prev">이전</a>`;
+            }
+
+            // 페이지 번호들
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPageCount, currentPage + 2);
+
+            for (let i = startPage; i <= endPage; i++) {
+                if (i === currentPage) {
+                    paginationHTML += `<span class="current">${i}</span>`;
+                } else {
+                    paginationHTML += `<a href="#" onclick="goToPage(${i})">${i}</a>`;
+                }
+            }
+
+            // 다음 버튼
+            if (currentPage < totalPageCount) {
+                paginationHTML += `<a href="#" onclick="goToPage(${currentPage + 1})" class="next1">다음</a>`;
+                paginationHTML += `<a href="#" onclick="goToPage(${totalPageCount})" class="last">마지막</a>`;
+            }
+
+            pagination.innerHTML = paginationHTML;
+        }
+
+        // 페이지 이동 함수 (페이지네이션에서 사용)
+        function goToPage(page) {
+            const totalPageCount = Math.ceil(projectData.filteredProjects.length / projectData.itemsPerPage);
+            if (page >= 1 && page <= totalPageCount) {
+                projectData.currentPage = page;
+                renderProjects();
+                updateStats();
+                
+                // 페이지 이동 시 스크롤을 테이블 상단으로 이동
+                document.querySelector('.board-table').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
     </script>
+
+    <style>
+        /* 상태 표시를 위한 추가 스타일 */
+        .status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: #e8f5e8;
+            color: #2d5a2d;
+        }
+        
+        .status-upcoming {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-closed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* 검색 폼 레이아웃 개선 */
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .search-form select,
+        .search-form input[type="text"] {
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+            font-size: 1.4rem;
+        }
+        
+        .search-form select {
+            min-width: 12rem;
+        }
+        
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-form select,
+            .search-form input[type="text"] {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </body>
 
 </html> 
