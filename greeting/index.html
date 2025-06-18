@@ -22,6 +22,8 @@
 	<link rel="stylesheet" href="/kor/css/default.css" />
 	<link rel="stylesheet" href="/kor/css/layout.css" />
 	<link rel="stylesheet" href="/kor/css/layout_respond.css" />
+	<!-- 메인 페이지 햄버거 메뉴 CSS 추가 -->
+	<link rel="stylesheet" href="assets/css/layout_respond.css">
 	<link rel="icon" href="/assets/images/favicon.png">
 	<!-- 서브 CSS -->
 	<link rel="stylesheet" href="/js/owl.carousel.css" />
@@ -41,30 +43,30 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	<link rel="icon" href="/assets/images/favicon.png">
-	<!-- 햄버거 메뉴 강제 우선순위 CSS -->
+	<!-- 햄버거 메뉴 디버깅 CSS -->
 	<style>
-		/* 햄버거 버튼 강제 표시 및 우선순위 */
+		/* 햄버거 버튼 강제 표시 */
 		@media (max-width: 1200px) {
 			#gnb2 {
 				display: block !important;
-				position: relative !important;
-				z-index: 99999 !important;
-				background: transparent !important;
+				position: absolute !important;
+				right: -1rem !important;
+				top: 3.3rem !important;
+				width: 5rem !important;
+				height: 5rem !important;
+				line-height: 5rem !important;
+				background: red !important; /* 디버깅용 빨간 배경 */
+				z-index: 9999 !important;
 			}
 			
 			#gnb2 .control {
+				color: white !important; /* 디버깅용 흰색 글자 */
 				display: block !important;
-				position: relative !important;
-				z-index: 99999 !important;
-				color: #333 !important;
 				font-family: "xeicon" !important;
 				font-size: 3.2rem !important;
 				width: 100% !important;
 				height: 100% !important;
 				line-height: inherit !important;
-				transition: all 0.3s !important;
-				background: transparent !important;
-				border: none !important;
 				text-decoration: none !important;
 			}
 			
@@ -72,32 +74,19 @@
 				content: "☰" !important;
 				font-family: inherit !important;
 			}
-			
-			#gnb2 .close {
-				display: none !important;
-			}
-			
-			#gnb2 .close:before {
-				content: "✕" !important;
-				font-family: inherit !important;
-			}
-			
-			/* 활성화 상태 */
-			#gnb2.active .open {
-				display: none !important;
-			}
-			
-			#gnb2.active .close {
+		}
+		
+		/* 데스크톱에서도 테스트용으로 표시 */
+		@media (min-width: 1201px) {
+			#gnb2 {
 				display: block !important;
-			}
-			
-			/* 메뉴 전체 */
-			#head_menu_all {
-				position: fixed !important;
-				left: 1rem !important;
-				top: 11rem !important;
-				width: calc(100% - 2rem) !important;
-				z-index: 99998 !important;
+				position: absolute !important;
+				right: 0 !important;
+				top: 0 !important;
+				width: 60px !important;
+				height: 60px !important;
+				background: red !important; /* 디버깅용 */
+				z-index: 9999 !important;
 			}
 		}
 	</style>
