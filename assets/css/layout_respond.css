@@ -32,13 +32,15 @@
         transition: all 0.3s;
     }
     #gnb2 .open:before {
-        content: "\e91c";
+        content: "☰";
+        font-family: inherit;
     }
     #gnb2 .close {
         display: none;
     }
     #gnb2 .close:before {
-        content: "\e921";
+        content: "✕";
+        font-family: inherit;
     }
     #head_menu_all {
         display: none;

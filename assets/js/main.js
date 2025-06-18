@@ -249,3 +249,10 @@ function desktopMenu() {
     });
 }
 
+// 페이지 로드 시 초기화
+$(document).ready(function() {
+    desktopMenu();
+    mobileMenu();
+    initScrollTop();
+});
+
