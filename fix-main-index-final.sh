@@ -1,17 +1,15 @@
 #!/bin/bash
 
-# 메인 index.html 파일 링크 수정 스크립트
-# 사용법: ./fix-main-index.sh
+# 메인 index.html 파일을 greeting 패턴과 일치하도록 수정
+# 사용법: ./fix-main-index-final.sh
 
-echo "메인 index.html 파일 링크 수정 중..."
+echo "📝 메인 index.html 수정 중..."
 
 if [ -f "index.html" ]; then
-    echo "처리 중: index.html"
-    
     # 백업 생성
-    cp "index.html" "index.html.backup"
+    cp index.html index.html.backup.$(date +%Y%m%d_%H%M%S)
     
-    # .html 확장자 제거 (내부 링크만)
+    # 내부 링크 수정 (.html 제거)
     sed -i.tmp 's|href="greeting\.html"|href="/greeting"|g' "index.html"
     sed -i.tmp 's|href="organization\.html"|href="/organization"|g' "index.html"
     sed -i.tmp 's|href="about\.html"|href="/about"|g' "index.html"
@@ -25,25 +23,25 @@ if [ -f "index.html" ]; then
     sed -i.tmp 's|href="research-faq\.html"|href="/research-faq"|g' "index.html"
     sed -i.tmp 's|href="research-gallery\.html"|href="/research-gallery"|g' "index.html"
     sed -i.tmp 's|href="research-materials\.html"|href="/research-materials"|g' "index.html"
+    sed -i.tmp 's|href="ai-diagnosis-system-register\.html"|href="/ai-diagnosis-system-register"|g' "index.html"
+    sed -i.tmp 's|href="insurance-claim-system-register\.html"|href="/insurance-claim-system-register"|g' "index.html"
+    sed -i.tmp 's|href="lab-test-system-register\.html"|href="/lab-test-system-register"|g' "index.html"
     
     # 숫자 페이지 처리
     for i in {1..8}; do
         sed -i.tmp "s|href=\"${i}\.html\"|href=\"/${i}\"|g" "index.html"
     done
     
-    # 시스템 등록 페이지
-    sed -i.tmp 's|href="ai-diagnosis-system-register\.html"|href="/ai-diagnosis-system-register"|g' "index.html"
-    sed -i.tmp 's|href="insurance-claim-system-register\.html"|href="/insurance-claim-system-register"|g' "index.html"
-    sed -i.tmp 's|href="lab-test-system-register\.html"|href="/lab-test-system-register"|g' "index.html"
-    
     # 임시 파일 삭제
     rm "index.html.tmp" 2>/dev/null || true
     
-    echo "완료: index.html"
+    echo "✅ 메인 index.html 수정 완료"
 else
-    echo "index.html 파일을 찾을 수 없습니다."
+    echo "❌ index.html 파일을 찾을 수 없습니다."
 fi
 
 echo ""
-echo "메인 index.html 파일 수정 완료!"
-echo "백업 파일은 index.html.backup으로 저장되었습니다." 
+echo "📋 수정된 내용:"
+echo "- 모든 내부 링크에서 .html 확장자 제거"
+echo "- /greeting, /organization, /research 등으로 변경"
+echo "- 숫자 페이지도 /1, /2, /3 등으로 변경" 
