@@ -586,7 +586,7 @@
         // JSON 데이터 로드
         async function loadProjects() {
             try {
-                const response = await fetch('./government-projects.json');
+                const response = await fetch('/government-projects.json');
                 const data = await response.json();
                 projectData.projects = data.projects || [];
                 projectData.filteredProjects = [...projectData.projects];
@@ -685,7 +685,7 @@
                     <tr>
                         <td>${rowNumber}</td>
                         <td class="title">
-                            <a href="research-detail.html?id=${project.id}" title="${project.title}">
+                            <a href="/research-detail/#id=${project.id}" title="${project.title}">
                                 ${project.title}
                             </a>
                         </td>

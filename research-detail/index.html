@@ -597,20 +597,71 @@
 
         // 페이지 로드 시 실행
         document.addEventListener('DOMContentLoaded', function() {
+            // URL에서 프로젝트 ID 추출 (여러 방법 시도)
+            let projectId = null;
+            
+            // 방법 1: URLSearchParams 사용
             const urlParams = new URLSearchParams(window.location.search);
-            const projectId = urlParams.get('id');
+            projectId = urlParams.get('id');
+            
+            // 방법 2: hash 사용 (#id=proj001)
+            if (!projectId && window.location.hash) {
+                const hashParams = new URLSearchParams(window.location.hash.substring(1));
+                projectId = hashParams.get('id');
+            }
+            
+            // 방법 3: URL 경로에서 직접 추출 (/research-detail/proj001)
+            if (!projectId) {
+                const pathParts = window.location.pathname.split('/');
+                const detailIndex = pathParts.indexOf('research-detail');
+                if (detailIndex !== -1 && pathParts[detailIndex + 1]) {
+                    projectId = pathParts[detailIndex + 1];
+                }
+            }
+            
+            // 디버깅 정보 출력
+            console.log('Current URL:', window.location.href);
+            console.log('Search params:', window.location.search);
+            console.log('Hash:', window.location.hash);
+            console.log('Pathname:', window.location.pathname);
+            console.log('Extracted projectId:', projectId);
             
             if (projectId) {
                 loadProjectDetail(projectId);
             } else {
-                showError('잘못된 접근입니다.');
+                // 테스트용으로 첫 번째 프로젝트 로드
+                console.log('No project ID found, loading first project for testing');
+                loadFirstProject();
             }
         });
+
+        // 첫 번째 프로젝트 로드 (테스트용)
+        async function loadFirstProject() {
+            try {
+                const response = await fetch('/government-projects.json');
+                const data = await response.json();
+                if (data.projects && data.projects.length > 0) {
+                    const project = data.projects[0];
+                    currentProject = project;
+                    renderProjectDetail(project);
+                    hideLoading();
+                    
+                    // URL을 업데이트하여 올바른 형태로 만들기
+                    const newUrl = `/research-detail/?id=${project.id}`;
+                    window.history.replaceState({}, '', newUrl);
+                } else {
+                    showError('프로젝트 데이터가 없습니다.');
+                }
+            } catch (error) {
+                console.error('데이터 로딩 에러:', error);
+                showError('데이터를 불러오는데 실패했습니다.');
+            }
+        }
 
         // 프로젝트 상세 정보 로드
         async function loadProjectDetail(projectId) {
             try {
-                const response = await fetch('./government-projects.json');
+                const response = await fetch('/government-projects.json');
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
                 
