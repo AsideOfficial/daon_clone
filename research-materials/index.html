@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes" />
+
+    <meta name="title" content="연구자료 : 한국의료정보데이터" />
+    <meta name="description" content="한국의료정보데이터,연구자료" />
+    <meta name="keyword" content="한국의료정보데이터, 연구자료" />
+    <meta name="author" content="한국의료정보데이터" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="한국의료정보데이터" />
+    <meta property="og:title" content="연구자료 : 한국의료정보데이터" />
+    <meta property="og:url" content="http://www.kmid.co.kr/research-materials.html" />
+    <meta property="og:description" content="한국의료정보데이터" />
+
+    <title>연구자료 : 한국의료정보데이터</title>
+
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="./jquery/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="./jquery/css/slick.css" />
+    <link rel="stylesheet" href="./jquery/css/fullpage.css">
+    <link rel="stylesheet" href="./kor/css/default.css" />
+    <link rel="stylesheet" href="./kor/css/layout.css" />
+    <link rel="stylesheet" href="./kor/css/layout_respond.css" />
+    <link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/layout_respond.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main_respond.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <!-- 서브 CSS -->
+    <link rel="stylesheet" href="./js/owl.carousel.css" />
+    <link rel="stylesheet" href="./kor/css/sub.css" />
+    <link rel="stylesheet" href="./kor/css/sub_respond.css" />
+    <link rel="stylesheet" href="./kor/css/sub_es.css" />
+    <link rel="stylesheet" href="./kor/css/sub02.css" />
+
+    <!-- 공통 JS -->
+    <script src="./jquery/js/jquery-1.11.2.min.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./jquery/js/jquery.bxslider.min.js"></script>
+    <script src="./jquery/js/slick.js"></script>
+    <script src="./jquery/js/jquery.fullPage.min.js"></script>
+    <script src="./ease_src/js/captchaboard.js"></script>
+
+    <!-- 서브 JS -->
+    <script src="./ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+
+    <style>
+        /* 연구자료 페이지 전용 스타일 */
+        .materials-board {
+            padding: 3rem 0;
+        }
+        
+        .board-search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-form select {
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+            font-size: 1.4rem;
+        }
+        
+        .search-form input[type="text"] {
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+            font-size: 1.4rem;
+            width: 25rem;
+        }
+        
+        .search-form button {
+            padding: 0.8rem 2rem;
+            background: #00a3d3;
+            color: white;
+            border: none;
+            border-radius: 0.4rem;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-form button:hover {
+            background: #0082a6;
+        }
+        
+        .board-util {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .board-util strong {
+            color: #00a3d3;
+        }
+        
+        .board-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+            border: 1px solid #ddd;
+        }
+        
+        .board-table th,
+        .board-table td {
+            border: 1px solid #ddd;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-size: 1.4rem;
+            vertical-align: middle;
+        }
+        
+        .board-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* 테이블 헤더에서 이상한 아이콘 제거 */
+        .board-table th::before,
+        .board-table th::after {
+            display: none !important;
+            content: none !important;
+        }
+        
+        .board-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .board-table .title {
+            text-align: center;
+            padding-left: 2rem;
+        }
+        
+        .board-table .title a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .board-table .title a:hover {
+            color: #00a3d3;
+            text-decoration: underline;
+        }
+        
+        .board-table .num {
+            width: 0.5rem;
+        }
+        
+        .board-table .writer {
+            width: 12rem;
+        }
+        
+        .board-table .date {
+            width: 12rem;
+        }
+        
+        .board-table .file {
+            width: 8rem;
+        }
+        
+        .board-table .download {
+            width: 8rem;
+        }
+        
+        .download-btn {
+            background: #00a3d3;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #0082a6;
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 6rem 0;
+            color: #666;
+            font-size: 1.6rem;
+        }
+        
+        .board-pagination {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .board-pagination a,
+        .board-pagination span {
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            margin: 0 0.2rem;
+            text-decoration: none;
+            color: #666;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+        }
+        
+        .board-pagination .current {
+            background: #00a3d3;
+            color: white;
+            border-color: #00a3d3;
+            font-weight: 600;
+        }
+        
+        .board-pagination a:hover {
+            background: #f8f9fa;
+            border-color: #00a3d3;
+        }
+
+        /* 페이지네이션 아이콘 추가 */
+        .board-pagination .first::before {
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .board-pagination .prev::before {
+            content: "<";
+            margin-right: 0.5rem;
+        }
+        
+        .board-pagination .next1::after {
+            content: ">";
+            margin-left: 0.5rem;
+        }
+        
+        .board-pagination .last::after {
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .board-search {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: stretch;
+            }
+            
+            .search-form {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .search-form input[type="text"] {
+                width: 100%;
+            }
+            
+            .board-table {
+                font-size: 1.2rem;
+            }
+            
+            .board-table th,
+            .board-table td {
+                padding: 1rem 0.5rem;
+            }
+            
+            .board-table .title {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p id="skip_nav">
+        <a href="#headmn">주 메뉴 바로가기</a>
+        <a href="#contents_body">본문으로 바로가기</a>
+    </p>
+    
+    <div id="hiddenLayer" style="display:none"></div>
+    <div class="mw" id="mw_temp" style="display:none;"></div>
+    
+    <div id="wrap">
+        <link rel="stylesheet" href="./css/modalpopup.css" />
+        <header id="header">
+            <div class="header_wrap">
+                <h1 id="logo">
+                    <a href="index.html"><span class="IR">한국의료정보데이터</span></a>
+                </h1>
+
+                <div id="headmn">
+                    <nav id="gnb1">
+                        <ul id="head_menu" class="topmenu">
+                            <li class="lnb1 mnfirst">
+                            </li>
+                            <li class="lnb2">
+                                <a href="greeting.html">KMID연구소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub02"><a href="greeting.html">KMID연구소개</a></li>
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                                <a href="1.html">연구영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01"><a href="1.html">의료정보 보안연구</a></li>
+                                        <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub05"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub06"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub07"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub08 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb4">
+                                <a href="medical-institutions.html">의료기관 현황</a>
+                            </li>
+                            <li class="lnb5 mnlast">
+                                <a href="research.html">연구현황</a>
+                                <div class="submenu">
+                                    <ul class="sub03">
+                                        <li class="sub01"><a href="research.html">연구현황</a></li>
+                                        <li class="sub02"><a href="research-gallery.html">연구갤러리</a></li>
+                                        <li class="sub03"><a href="research-materials.html">연구자료</a></li>
+                                        <li class="sub04 sublast"><a href="research-faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav id="gnb2">
+                        <a href="" class="control open">열기</a>
+                        <ul id="head_menu_all" class="topmenu_all">
+                            <li class="lnb1 mnfirst">
+                                <a href="greeting.html">KMID연구소개</a>
+                                <div class="submenu">
+                                    <ul class="sub01">
+                                        <li class="sub02"><a href="greeting.html">KMID연구소개</a></li>
+                                        <li class="sub04"><a href="organization.html">조직도</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb2">
+                                <a href="1.html">연구영역</a>
+                                <div class="submenu">
+                                    <ul class="sub02">
+                                        <li class="sub01 subfirst"><a href="1.html">의료정보 보안연구</a></li>
+                                        <li class="sub02"><a href="2.html">의료 데이터 연구</a></li>
+                                        <li class="sub03"><a href="3.html">병원경영 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="4.html">의료데이터 통합연구</a></li>
+                                        <li class="sub01 subfirst"><a href="5.html">환자정보 통합연구</a></li>
+                                        <li class="sub02"><a href="6.html">의료AI 데이터 연구</a></li>
+                                        <li class="sub03"><a href="7.html">환자경험 데이터 연구</a></li>
+                                        <li class="sub04 sublast"><a href="8.html">공공의료 데이터 연구</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="lnb3">
+                                <a href="medical-institutions.html">의료기관 현황</a>
+                            </li>
+                            <li class="lnb4 mnlast">
+                                <a href="research.html">연구현황</a>
+                                <div class="submenu">
+                                    <ul class="sub03">
+                                        <li class="sub01 subfirst"><a href="research.html">연구현황</a></li>
+                                        <li class="sub02"><a href="research-gallery.html">연구갤러리</a></li>
+                                        <li class="sub03"><a href="research-materials.html">연구자료</a></li>
+                                        <li class="sub04 sublast"><a href="research-faq.html">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="" class="control close">닫기</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <div id="main_wrap">
+                <div id="visual" class="visual2">
+                    <div class="desc">
+                        <strong class="title">연구현황</strong>
+                        <span class="con">한국의료정보데이터의 연구자료를 확인하실 수 있습니다.</span>
+                    </div>
+                    <span class="img animated slower"><img src="./kor/img/sub/sub-visual02.jpg" alt=""></span>
+                </div>
+                
+                <div id="contentWrap">
+                    <section id="snb" class="sub02">
+                        <h2 class="title">연구현황</h2>
+                        <nav class="list">
+                            <ul id="left_menu_top" class="head_menu_depth">
+                                <li id="li0401000000" class="first"><a href="research.html">연구현황</a></li>
+                                <li id="li0402000000"><a href="research-gallery.html">연구갤러리</a></li>
+                                <li id="li0403000000" class="active"><a href="research-materials.html">연구자료</a></li>
+                                <li id="li0404000000" class="last"><a href="research-faq.html">FAQ</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                    
+                    <section id="contents">
+                        <div class="contents_util">
+                            <h1 id="contents_title">연구자료</h1>
+                            <div class="util-group">
+                                <nav class="location">
+                                    <ul class="path">
+                                        <li class="icon"><a href="index.html"><span class="IR">홈</span></a></li>
+                                        <li><a href="research.html">연구현황</a></li>
+                                        <li><a href="research-materials.html" class="active">연구자료</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="util">
+                                    <span class="zoom">
+                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;" class="btn up">글자 크게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;" class="btn down">글자 작게</a>
+                                    </span>
+
+                                    <a class="btn print" href="#contents_body" onclick="printAreaAction(); return false;">인쇄</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="contents_body" class="materials-board">
+                            <!-- 검색 기능 -->
+                            <div class="board-search">
+                                <form class="search-form" action="" method="get">
+                                    <select name="search_type" id="search_type">
+                                        <option value="all">전체</option>
+                                        <option value="title">제목</option>
+                                        <option value="content">내용</option>
+                                    </select>
+                                    <input type="text" name="search_keyword" placeholder="검색어를 입력하세요" />
+                                    <button type="submit">검색</button>
+                                </form>
+                            </div>
+
+                            <!-- 총 게시물 수 -->
+                            <div class="board-util">
+                                전체 <strong>0</strong>건 페이지 <strong>1</strong>/<strong>1</strong>
+                            </div>
+
+                            <!-- 연구자료 테이블 -->
+                            <table class="board-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 0.5rem;">번호</th>
+                                        <th class="title">제목</th>
+                                        <th class="writer">작성자</th>
+                                        <th class="date">등록일</th>
+                                        <th class="file">첨부파일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="empty-message">
+                                            해당 내용이 없습니다.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- 페이지네이션 -->
+                            <div class="board-pagination">
+                                <a href="#" class="first">처음</a>
+                                <a href="#" class="prev">이전</a>
+                                <span class="current">1</span>
+                                <a href="#" class="next1">다음</a>
+                                <a href="#" class="last">마지막</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="footer_wrap">
+                <div class="siteinfo">
+                    <address>서울특별시 강남구 테헤란로 147, 성지하이츠II 15F</address>
+                    <p class="info">
+                        <span>TEL : <a href="tel:010-4693-2451">0507. 1360. 1935</a></span>
+                        <span class="fax">FAX : 02. 6956. 9508</span>
+                        <span class="mail"><a href="mailto:kmid.contact@gmail.co.kr">kmid.contact@gmail.co.kr</a></span>
+                    </p>
+                    <p class="copyright">&copy; 2025. (주)에이치에스투에쿼티 All Rights Reserved.</p>
+                </div>
+                <div class="wa">
+                    <!-- 웹접근성 인증마크 -->
+                </div>
+            </div>
+            <div class="btn-top show">
+                <a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // global.js의 함수들을 사용하므로 중복 정의 제거
+
+        // 검색 기능
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchForm = document.querySelector('.search-form');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const searchType = document.getElementById('search_type').value;
+                    const keyword = document.querySelector('input[name="search_keyword"]').value;
+                    
+                    if (!keyword.trim()) {
+                        alert('검색어를 입력하세요.');
+                        return;
+                    }
+                    
+                    console.log('검색 타입:', searchType, '검색어:', keyword);
+                    alert('검색 기능은 서버 구현이 필요합니다.');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html> 

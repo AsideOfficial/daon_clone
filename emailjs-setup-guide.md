@@ -53,7 +53,7 @@ Content:
 
 ## 2. 코드 적용
 
-### 2.1 lab-test-system-register.html 수정
+### 2.1 apply.html 수정
 다음 코드의 주석을 해제하고 설정값을 입력:
 
 ```javascript

@@ -1,0 +1,40 @@
+# Jekyll 설정
+title: "한국의료정보데이터"
+description: "한국의료정보데이터 - 보건의료 정보화 연구 전문기업"
+url: "https://kmid.co.kr"
+baseurl: ""
+
+# Permalink 설정 - .html 확장자 제거
+permalink: pretty
+
+# 플러그인 설정
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# 빌드 설정
+markdown: kramdown
+highlighter: rouge
+
+# 제외할 파일들
+exclude:
+  - README.md
+  - deploy-*.sh
+  - remove-html-extension.sh
+  - lambda-edge-function.js
+  - cloudfront-setup.json
+  - "*.backup"
+  - node_modules/
+  - vendor/
+
+# 포함할 파일들
+include:
+  - _pages
+
+# 기본값 설정
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default" 
