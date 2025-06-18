@@ -24,6 +24,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <link rel="icon" href="/assets/images/favicon.png">
+    <!-- 햄버거 메뉴 강제 우선순위 CSS -->
+    <style>
+        /* 햄버거 버튼 강제 표시 및 우선순위 */
+        @media (max-width: 1200px) {
+            #gnb2 {
+                display: block !important;
+                position: relative !important;
+                z-index: 99999 !important;
+                background: transparent !important;
+            }
+            
+            #gnb2 .control {
+                display: block !important;
+                position: relative !important;
+                z-index: 99999 !important;
+                color: #333 !important;
+                font-family: "xeicon" !important;
+                font-size: 3.2rem !important;
+                width: 100% !important;
+                height: 100% !important;
+                line-height: inherit !important;
+                transition: all 0.3s !important;
+                background: transparent !important;
+                border: none !important;
+                text-decoration: none !important;
+            }
+            
+            #gnb2 .open:before {
+                content: "☰" !important;
+                font-family: inherit !important;
+            }
+            
+            #gnb2 .close:before {
+                content: "✕" !important;
+                font-family: inherit !important;
+            }
+            
+            /* 활성화 상태 */
+            #gnb2.active .open { display: none !important; }
+            #gnb2.active .close { display: block !important; }
+        }
+    </style>
 
     <!-- 서브 CSS -->
     <link rel="stylesheet" href="/js/owl.carousel.css" />
@@ -34,12 +76,37 @@
 
     <!-- 공통 JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/js/global.js"></script>
-    <script src="/jquery/js/jquery.bxslider.min.js"></script>
-    <script src="/jquery/js/slick.js"></script>
-    <script src="/jquery/js/jquery.fullPage.min.js"></script>
-    <script src="/ease_src/js/captchaboard.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // 서브메뉴 토글 디버깅 - 메인 페이지와 동일
+        $(document).ready(function() {
+            console.log('의료기관 현황 페이지 - 서브메뉴 디버깅 시작');
+            
+            // 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
+            $('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
+                var $parent = $(this).parent();
+                var $submenu = $parent.find('.submenu');
+                
+                console.log('메뉴 클릭:', $(this).text(), '서브메뉴 있음:', $submenu.length > 0);
+                
+                if ($submenu.length > 0) {
+                    e.preventDefault();
+                    
+                    if ($parent.hasClass('active')) {
+                        console.log('서브메뉴 닫기');
+                        $parent.removeClass('active');
+                    } else {
+                        console.log('서브메뉴 열기');
+                        // 다른 모든 메뉴 닫기
+                        $('#head_menu_all > li').removeClass('active');
+                        // 현재 메뉴 열기
+                        $parent.addClass('active');
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <p id="skip_nav">

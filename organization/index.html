@@ -46,6 +46,35 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	<link rel="icon" href="/assets/images/favicon.png">
+	<!-- 햄버거 메뉴 강제 우선순위 CSS -->
+	<style>
+		@media (max-width: 1200px) {
+			#gnb2 {
+				display: block !important;
+				position: relative !important;
+				z-index: 99999 !important;
+				background: transparent !important;
+			}
+			#gnb2 .control {
+				display: block !important;
+				position: relative !important;
+				z-index: 99999 !important;
+				color: #333 !important;
+				font-family: "xeicon" !important;
+				font-size: 3.2rem !important;
+				width: 100% !important;
+				height: 100% !important;
+				line-height: inherit !important;
+				background: transparent !important;
+				border: none !important;
+				text-decoration: none !important;
+			}
+			#gnb2 .open:before { content: "☰" !important; font-family: inherit !important; }
+			#gnb2 .close:before { content: "✕" !important; font-family: inherit !important; }
+			#gnb2.active .open { display: none !important; }
+			#gnb2.active .close { display: block !important; }
+		}
+	</style>
 
 
 	<!-- 공통 JS - 메인 페이지와 동일 -->
