@@ -269,6 +269,6 @@ function desktopMenu() {
 $(document).ready(function() {
     desktopMenu();
     mobileMenu();
-    initScrollTop();
+    // initScrollTop(); // 함수가 정의되지 않아 주석 처리
 });
 
