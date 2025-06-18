@@ -41,46 +41,46 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	<link rel="icon" href="/assets/images/favicon.png">
-	<!-- 공통 JS -->
+	<!-- 공통 JS - 메인 페이지와 동일 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="/js/global.js"></script>
-	<script src="/jquery/js/jquery.bxslider.min.js"></script>
-	<script src="/jquery/js/slick.js"></script>
-	<script src="/jquery/js/jquery.fullPage.min.js"></script>
-	<script src="/ease_src/js/captchaboard.js"></script>
-	<script src="/assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="assets/js/main.js"></script>
 	<script>
-		// greeting 페이지 디버깅 코드
-		console.log('=== greeting 페이지 디버깅 시작 ===');
-		
+		// 서브메뉴 토글 디버깅 - 메인 페이지와 동일
 		$(document).ready(function() {
-			console.log('1. jQuery 로딩 확인:', typeof $);
-			console.log('2. #gnb2 존재 확인:', $('#gnb2').length);
-			console.log('3. .control.open 존재 확인:', $('.control.open').length);
-			console.log('4. #head_menu_all 존재 확인:', $('#head_menu_all').length);
+			console.log('서브메뉴 디버깅 시작');
 			
-			// 햄버거 버튼 클릭 이벤트 확인
-			$('.control.open').on('click', function(e) {
-				e.preventDefault();
-				console.log('햄버거 버튼 클릭됨!');
-				console.log('현재 #gnb2 상태:', $('#gnb2').hasClass('active'));
+			// 메뉴 항목들 확인
+			$('#head_menu_all > li > a').each(function(index) {
+				var $this = $(this);
+				var $parent = $this.parent();
+				var $submenu = $parent.find('.submenu');
+				console.log('메뉴 ' + index + ':', $this.text(), '서브메뉴 있음:', $submenu.length > 0);
 			});
 			
-			// main.js의 mobileMenu 함수 존재 확인
-			console.log('5. mobileMenu 함수 존재:', typeof mobileMenu);
-			
-			// 강제로 mobileMenu 초기화 시도
-			if (typeof mobileMenu === 'function') {
-				console.log('6. mobileMenu 함수 호출 시도');
-				try {
-					mobileMenu();
-					console.log('7. mobileMenu 초기화 성공');
-				} catch(err) {
-					console.error('8. mobileMenu 초기화 실패:', err);
+			// 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
+			$('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
+				var $parent = $(this).parent();
+				var $submenu = $parent.find('.submenu');
+				
+				console.log('메뉴 클릭:', $(this).text());
+				console.log('서브메뉴 있음:', $submenu.length > 0);
+				
+				if ($submenu.length > 0) {
+					e.preventDefault();
+					
+					if ($parent.hasClass('active')) {
+						console.log('서브메뉴 닫기');
+						$parent.removeClass('active');
+					} else {
+						console.log('서브메뉴 열기');
+						// 다른 모든 메뉴 닫기
+						$('#head_menu_all > li').removeClass('active');
+						// 현재 메뉴 열기
+						$parent.addClass('active');
+					}
 				}
-			} else {
-				console.error('9. mobileMenu 함수가 정의되지 않음');
-			}
+			});
 		});
 	</script>
 	<!-- 서브 JS -->

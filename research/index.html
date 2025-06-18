@@ -46,14 +46,33 @@
     <link rel="stylesheet" href="/kor/css/sub_es.css" />
     <link rel="stylesheet" href="/kor/css/sub02.css" />
 
-    <!-- 공통 JS -->
+    <!-- 공통 JS - 메인 페이지와 동일 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/js/global.js"></script>
-    <script src="/jquery/js/jquery.bxslider.min.js"></script>
-    <script src="/jquery/js/slick.js"></script>
-    <script src="/jquery/js/jquery.fullPage.min.js"></script>
-    <script src="/ease_src/js/captchaboard.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // 서브메뉴 토글 디버깅 - 메인 페이지와 동일
+        $(document).ready(function() {
+            // 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
+            $('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
+                var $parent = $(this).parent();
+                var $submenu = $parent.find('.submenu');
+                
+                if ($submenu.length > 0) {
+                    e.preventDefault();
+                    
+                    if ($parent.hasClass('active')) {
+                        $parent.removeClass('active');
+                    } else {
+                        // 다른 모든 메뉴 닫기
+                        $('#head_menu_all > li').removeClass('active');
+                        // 현재 메뉴 열기
+                        $parent.addClass('active');
+                    }
+                }
+            });
+        });
+    </script>
     <script>
         // research 페이지 디버깅 코드
         console.log('=== research 페이지 디버깅 시작 ===');
