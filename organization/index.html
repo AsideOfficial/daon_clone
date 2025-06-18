@@ -44,48 +44,136 @@
 	<link rel="stylesheet" href="/assets/css/button.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-	<link rel="stylesheet" href="assets/css/responsive.css">
-	<link rel="icon" href="assets/images/favicon.png">
+	<link rel="stylesheet" href="/assets/css/responsive.css">
+	<link rel="icon" href="/assets/images/favicon.png">
+	<!-- 햄버거 메뉴 강제 스타일 -->
+	<style>
+		@media (max-width: 1200px) {
+			#gnb2 {
+				display: block !important;
+				position: fixed !important;
+				top: 0 !important;
+				right: 0 !important;
+				width: 60px !important;
+				height: 60px !important;
+				background: #fff !important;
+				border: 1px solid #ddd !important;
+				z-index: 9999 !important;
+				cursor: pointer !important;
+			}
+			
+			#gnb2 .control {
+				display: block !important;
+				width: 100% !important;
+				height: 100% !important;
+				line-height: 60px !important;
+				text-align: center !important;
+				font-size: 24px !important;
+				color: #333 !important;
+				text-decoration: none !important;
+			}
+			
+			#gnb2 .control.open { display: block !important; }
+			#gnb2 .control.close { display: none !important; }
+			#gnb2.active .control.open { display: none !important; }
+			#gnb2.active .control.close { display: block !important; }
+			
+			#head_menu_all {
+				position: fixed !important;
+				top: 60px !important;
+				right: 0 !important;
+				width: 300px !important;
+				height: calc(100vh - 60px) !important;
+				background: #fff !important;
+				border-left: 1px solid #ddd !important;
+				z-index: 9998 !important;
+				overflow-y: auto !important;
+				transform: translateX(100%) !important;
+				transition: transform 0.3s ease !important;
+			}
+			
+			#gnb2.active #head_menu_all { transform: translateX(0) !important; }
+			#head_menu_all > li { border-bottom: 1px solid #eee !important; }
+			#head_menu_all > li > a {
+				display: block !important;
+				padding: 15px 20px !important;
+				color: #333 !important;
+				text-decoration: none !important;
+				font-weight: 500 !important;
+			}
+			#head_menu_all > li > a:hover { background: #f5f5f5 !important; }
+			#head_menu_all .submenu { display: none !important; background: #f9f9f9 !important; }
+			#head_menu_all li.active .submenu { display: block !important; }
+			#head_menu_all .submenu li a {
+				display: block !important;
+				padding: 10px 40px !important;
+				color: #666 !important;
+				text-decoration: none !important;
+				font-size: 14px !important;
+			}
+			#head_menu_all .submenu li a:hover { background: #efefef !important; }
+		}
+		@media (min-width: 1201px) { #gnb2 { display: none !important; } }
+	</style>
 
 
-	<!-- 공통 JS - 메인 페이지와 동일 -->
+	<!-- 공통 JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 	<script>
-		// 서브메뉴 토글 디버깅 - 메인 페이지와 동일
-		$(document).ready(function() {
-			console.log('서브메뉴 디버깅 시작');
-			
-			// 메뉴 항목들 확인
-			$('#head_menu_all > li > a').each(function(index) {
-				var $this = $(this);
-				var $parent = $this.parent();
-				var $submenu = $parent.find('.submenu');
-				console.log('메뉴 ' + index + ':', $this.text(), '서브메뉴 있음:', $submenu.length > 0);
-			});
-			
-			// 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
-			$('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
-				var $parent = $(this).parent();
-				var $submenu = $parent.find('.submenu');
+		// 강제 jQuery 노충돌 모드
+		jQuery.noConflict();
+		
+		jQuery(document).ready(function($) {
+			// 햄버거 메뉴 강제 초기화
+			function forceInitMobileMenu() {
+				var $gnb2 = $('#gnb2');
+				var $openBtn = $gnb2.find('.control.open');
+				var $closeBtn = $gnb2.find('.control.close');
+				var $menuAll = $('#head_menu_all');
+				var $menuItems = $menuAll.find('> li > a');
 				
-				if ($submenu.length > 0) {
+				// 기존 이벤트 제거
+				$openBtn.off('click');
+				$closeBtn.off('click');
+				$menuItems.off('click');
+				
+				// 햄버거 버튼 열기
+				$openBtn.on('click', function(e) {
 					e.preventDefault();
-					console.log('서브메뉴 토글 클릭:', $(this).text());
+					$gnb2.addClass('active');
+					$('body').addClass('menu-open');
+				});
+				
+				// 햄버거 버튼 닫기
+				$closeBtn.on('click', function(e) {
+					e.preventDefault();
+					$gnb2.removeClass('active');
+					$('body').removeClass('menu-open');
+					$menuAll.find('li').removeClass('active');
+				});
+				
+				// 서브메뉴 토글
+				$menuItems.on('click', function(e) {
+					var $parent = $(this).parent();
+					var $submenu = $parent.find('.submenu');
 					
-					if ($parent.hasClass('active')) {
-						$parent.removeClass('active');
-						console.log('서브메뉴 닫힘');
-					} else {
-						// 다른 모든 메뉴 닫기
-						$('#head_menu_all > li').removeClass('active');
-						// 현재 메뉴 열기
-						$parent.addClass('active');
-						console.log('서브메뉴 열림');
+					if ($submenu.length > 0) {
+						e.preventDefault();
+						if ($parent.hasClass('active')) {
+							$parent.removeClass('active');
+						} else {
+							$menuAll.find('li').removeClass('active');
+							$parent.addClass('active');
+						}
 					}
-				}
-			});
+				});
+			}
+			
+			// 즉시 실행
+			forceInitMobileMenu();
+			setTimeout(forceInitMobileMenu, 1000);
 		});
 	</script>
 
