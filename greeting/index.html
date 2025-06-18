@@ -43,10 +43,14 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	<link rel="icon" href="/assets/images/favicon.png">
-	<!-- 햄버거 메뉴 디버깅 CSS -->
+	<!-- 햄버거 메뉴 - 메인 페이지와 동일한 스타일 -->
 	<style>
-		/* 햄버거 버튼 강제 표시 */
+		/* 메인 페이지와 동일한 햄버거 버튼 스타일 */
 		@media (max-width: 1200px) {
+			.site-map,
+			#gnb1 {
+				display: none;
+			}
 			#gnb2 {
 				display: block !important;
 				position: absolute !important;
@@ -55,38 +59,67 @@
 				width: 5rem !important;
 				height: 5rem !important;
 				line-height: 5rem !important;
-				background: red !important; /* 디버깅용 빨간 배경 */
+				overflow: hidden !important;
+				text-align: center !important;
+				background: transparent !important;
 				z-index: 9999 !important;
 			}
 			
 			#gnb2 .control {
-				color: white !important; /* 디버깅용 흰색 글자 */
+				color: #333 !important;
 				display: block !important;
 				font-family: "xeicon" !important;
 				font-size: 3.2rem !important;
 				width: 100% !important;
 				height: 100% !important;
 				line-height: inherit !important;
+				transition: all 0.3s !important;
 				text-decoration: none !important;
+				background: transparent !important;
 			}
 			
 			#gnb2 .open:before {
 				content: "☰" !important;
 				font-family: inherit !important;
 			}
-		}
-		
-		/* 데스크톱에서도 테스트용으로 표시 */
-		@media (min-width: 1201px) {
-			#gnb2 {
+			
+			#gnb2 .close {
+				display: none !important;
+			}
+			
+			#gnb2 .close:before {
+				content: "✕" !important;
+				font-family: inherit !important;
+			}
+			
+			/* 활성화 상태 */
+			#gnb2.active .open {
+				display: none !important;
+			}
+			
+			#gnb2.active .close {
 				display: block !important;
-				position: absolute !important;
-				right: 0 !important;
-				top: 0 !important;
-				width: 60px !important;
-				height: 60px !important;
-				background: red !important; /* 디버깅용 */
-				z-index: 9999 !important;
+			}
+			
+			/* 메뉴 전체 */
+			#head_menu_all {
+				display: none !important;
+				visibility: hidden !important;
+				opacity: 0 !important;
+				height: 0 !important;
+				position: fixed !important;
+				left: 1rem !important;
+				top: 11rem !important;
+				width: calc(100% - 2rem) !important;
+				z-index: 9998 !important;
+			}
+			
+			/* 메뉴 활성화 상태 */
+			#gnb2.active #head_menu_all {
+				display: block !important;
+				visibility: visible !important;
+				opacity: 1 !important;
+				height: auto !important;
 			}
 		}
 	</style>
@@ -95,39 +128,49 @@
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		// 서브메뉴 토글 디버깅 - 메인 페이지와 동일
+		// 메인 페이지와 동일한 햄버거 메뉴 기능
 		$(document).ready(function() {
-			console.log('서브메뉴 디버깅 시작');
-			
-			// 메뉴 항목들 확인
-			$('#head_menu_all > li > a').each(function(index) {
-				var $this = $(this);
-				var $parent = $this.parent();
-				var $submenu = $parent.find('.submenu');
-				console.log('메뉴 ' + index + ':', $this.text(), '서브메뉴 있음:', $submenu.length > 0);
-			});
-			
-			// 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
-			$('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
-				var $parent = $(this).parent();
-				var $submenu = $parent.find('.submenu');
-				
-				console.log('메뉴 클릭:', $(this).text());
-				console.log('서브메뉴 있음:', $submenu.length > 0);
-				
-				if ($submenu.length > 0) {
+			function mobileMenu() {
+				// 햄버거 버튼 클릭 이벤트
+				$("#gnb2 .control").off("click").on("click", function(e) {
 					e.preventDefault();
 					
-					if ($parent.hasClass('active')) {
-						console.log('서브메뉴 닫기');
-						$parent.removeClass('active');
-					} else {
-						console.log('서브메뉴 열기');
-						// 다른 모든 메뉴 닫기
-						$('#head_menu_all > li').removeClass('active');
-						// 현재 메뉴 열기
-						$parent.addClass('active');
-					}
+					// 햄버거 버튼 활성화 토글
+					$("#gnb2").toggleClass("active");
+					
+					// 메뉴 슬라이드 토글 (메인 페이지와 동일)
+					$("#head_menu_all").slideToggle(300, function() {
+						if ($(this).is(':visible')) {
+							$(this).css('display', 'block');
+						}
+					});
+				});
+				
+				// 서브메뉴 아코디언 기능 (메인 페이지와 동일)
+				$("#head_menu_all .depth1 > a").off("click").on("click", function(e) {
+					e.preventDefault();
+					
+					var $parent = $(this).parent('.depth1');
+					var $submenu = $(this).next('.depth2');
+					
+					// 다른 서브메뉴 닫기
+					$("#head_menu_all .depth1").not($parent).removeClass('active');
+					$("#head_menu_all .depth1").not($parent).find('.depth2').slideUp(200);
+					
+					// 현재 서브메뉴 토글
+					$parent.toggleClass('active');
+					$submenu.slideToggle(200);
+				});
+			}
+			
+			// 초기화
+			mobileMenu();
+			
+			// 리사이즈 시 재초기화 (메인 페이지와 동일)
+			$(window).resize(function() {
+				if ($(window).width() > 1200) {
+					$("#gnb2").removeClass("active");
+					$("#head_menu_all").hide();
 				}
 			});
 		});
