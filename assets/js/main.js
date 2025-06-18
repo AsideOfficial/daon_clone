@@ -3,7 +3,12 @@ title       : 메인
 Create date : 2022-02-07
 -------------------------------------------------*/
 
+// main.js 로딩 확인용
+console.log('main.js 파일이 로딩되었습니다.');
+window.mainJsLoaded = true;
+
 $(function () {
+  console.log('main.js $(function()) 실행됨');
   // 비주얼
   visual();
   
@@ -150,17 +155,28 @@ function topButton() {
 
 // 모바일 메뉴
 function mobileMenu() {
+    console.log('mobileMenu 함수 시작');
+    
     var $gnb2 = $('#gnb2');
     var $openBtn = $gnb2.find('.open');
     var $closeBtn = $gnb2.find('.close');
     var $menuAll = $('#head_menu_all');
     var $menuItems = $menuAll.find('> li > a');
     
+    console.log('mobileMenu 요소 체크:');
+    console.log('- $gnb2 길이:', $gnb2.length);
+    console.log('- $openBtn 길이:', $openBtn.length);
+    console.log('- $closeBtn 길이:', $closeBtn.length);
+    console.log('- $menuAll 길이:', $menuAll.length);
+    console.log('- $menuItems 길이:', $menuItems.length);
+    
     // 열기 버튼 클릭
     $openBtn.on('click', function(e) {
+        console.log('햄버거 버튼(열기) 클릭됨');
         e.preventDefault();
         $gnb2.addClass('active');
         $('body').addClass('menu-open');
+        console.log('메뉴 열림 - gnb2에 active 클래스 추가됨');
     });
     
     // 닫기 버튼 클릭

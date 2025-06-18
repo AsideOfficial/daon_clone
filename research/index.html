@@ -54,6 +54,53 @@
     <script src="/jquery/js/jquery.fullPage.min.js"></script>
     <script src="/ease_src/js/captchaboard.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script>
+        // research 페이지 디버깅 코드
+        console.log('=== research 페이지 디버깅 시작 ===');
+        
+        $(document).ready(function() {
+            console.log('1. jQuery 로딩 확인:', typeof $);
+            console.log('2. #gnb2 존재 확인:', $('#gnb2').length);
+            console.log('3. .control.open 존재 확인:', $('.control.open').length);
+            console.log('4. #head_menu_all 존재 확인:', $('#head_menu_all').length);
+            
+            // 햄버거 버튼 클릭 이벤트 확인
+            $('.control.open').on('click', function(e) {
+                e.preventDefault();
+                console.log('햄버거 버튼 클릭됨!');
+                console.log('현재 #gnb2 상태:', $('#gnb2').hasClass('active'));
+            });
+            
+            // main.js 로딩 확인
+            console.log('5. main.js 로딩 확인 - window.mainJsLoaded:', window.mainJsLoaded);
+            console.log('6. mobileMenu 함수 존재:', typeof mobileMenu);
+            
+            // Network 탭에서 main.js 로딩 실패 확인을 위한 추가 체크
+            fetch('/assets/js/main.js')
+                .then(response => {
+                    console.log('7. main.js 파일 접근 가능:', response.ok);
+                    if (!response.ok) {
+                        console.error('main.js 로딩 실패:', response.status);
+                    }
+                })
+                .catch(err => {
+                    console.error('8. main.js 파일 접근 불가:', err);
+                });
+            
+            // 강제로 mobileMenu 초기화 시도
+            if (typeof mobileMenu === 'function') {
+                console.log('9. mobileMenu 함수 호출 시도');
+                try {
+                    mobileMenu();
+                    console.log('10. mobileMenu 초기화 성공');
+                } catch(err) {
+                    console.error('11. mobileMenu 초기화 실패:', err);
+                }
+            } else {
+                console.error('12. mobileMenu 함수가 정의되지 않음');
+            }
+        });
+    </script>
 
     <!-- 서브 JS -->
     <script src="/ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>

@@ -515,6 +515,45 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="./kor/js/layout.js"></script>
 	<script src="../assets/js/main.js"></script>
+	<script>
+		// 세부 페이지 디버깅 코드
+		console.log('=== 1번 페이지 디버깅 시작 ===');
+		
+		$(document).ready(function() {
+			console.log('1. jQuery 로딩 확인:', typeof $);
+			console.log('2. #gnb2 존재 확인:', $('#gnb2').length);
+			console.log('3. .control.open 존재 확인:', $('.control.open').length);
+			console.log('4. #head_menu_all 존재 확인:', $('#head_menu_all').length);
+			
+			// 햄버거 버튼 클릭 이벤트 확인
+			$('.control.open').on('click', function(e) {
+				e.preventDefault();
+				console.log('햄버거 버튼 클릭됨!');
+				console.log('현재 #gnb2 상태:', $('#gnb2').hasClass('active'));
+			});
+			
+			// 서브메뉴 클릭 이벤트 확인
+			$('#head_menu_all > li > a').on('click', function(e) {
+				console.log('서브메뉴 클릭됨:', $(this).text());
+			});
+			
+			// main.js의 mobileMenu 함수 존재 확인
+			console.log('5. mobileMenu 함수 존재:', typeof mobileMenu);
+			
+			// 강제로 mobileMenu 초기화 시도
+			if (typeof mobileMenu === 'function') {
+				console.log('6. mobileMenu 함수 호출 시도');
+				try {
+					mobileMenu();
+					console.log('7. mobileMenu 초기화 성공');
+				} catch(err) {
+					console.error('8. mobileMenu 초기화 실패:', err);
+				}
+			} else {
+				console.error('9. mobileMenu 함수가 정의되지 않음');
+			}
+		});
+	</script>
 
 	<!-- 서브 JS -->
 	<script src="./kor/js/sub.js"></script>
