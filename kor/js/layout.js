@@ -37,7 +37,10 @@ $(function()
     $('#gnb1').gnb1();
 
     // �꾩껜硫붾돱�댁옄 紐⑤컮�� 硫붾돱
-    $('#gnb2').gnb2();
+    // $('#gnb2').gnb2(); // 기존 함수 비활성화, 새로운 mobileMenu 사용
+    console.log('[layout.js] mobileMenu 함수 호출 시작');
+    mobileMenu(); // 새로운 햄버거 메뉴 함수 호출
+    console.log('[layout.js] mobileMenu 함수 호출 완료');
 
     // �듬찓��
     $('#quick').classtoggle();
@@ -416,3 +419,93 @@ function copyToClipboard(elementId)
 	document.body.removeChild(aux);
 	alert('二쇱냼媛� 蹂듭궗�섏뿀�듬땲��.');
 }
+
+/*-------------------------------------------------
+title       : 메인 페이지와 동일한 햄버거 메뉴 기능
+-------------------------------------------------*/
+
+// 모바일 메뉴 - 메인 페이지와 완전히 동일한 기능
+function mobileMenu() {
+    console.log('[mobileMenu] 함수 시작');
+    
+    var $gnb2 = $('#gnb2');
+    var $openBtn = $gnb2.find('.open');
+    var $closeBtn = $gnb2.find('.close');
+    var $menuAll = $('#head_menu_all');
+    var $menuItems = $menuAll.find('> li > a');
+    
+    console.log('[mobileMenu] 요소 체크:');
+    console.log('- $gnb2 길이:', $gnb2.length);
+    console.log('- $openBtn 길이:', $openBtn.length);
+    console.log('- $closeBtn 길이:', $closeBtn.length);
+    console.log('- $menuAll 길이:', $menuAll.length);
+    console.log('- $menuItems 길이:', $menuItems.length);
+    
+    if ($gnb2.length === 0) {
+        console.log('[mobileMenu] 오류: #gnb2 요소를 찾을 수 없음');
+        return;
+    }
+    if ($openBtn.length === 0) {
+        console.log('[mobileMenu] 오류: .open 버튼을 찾을 수 없음');
+        return;
+    }
+    
+    // 열기 버튼 클릭 (중복 방지)
+    console.log('[mobileMenu] 열기 버튼 이벤트 등록 시작');
+    $openBtn.off('click.mobileMenu').on('click.mobileMenu', function(e) {
+        console.log('[mobileMenu] 햄버거 버튼(열기) 클릭됨!!!');
+        e.preventDefault();
+        console.log('[mobileMenu] preventDefault 실행됨');
+        $gnb2.addClass('active');
+        $('body').addClass('menu-open');
+        console.log('[mobileMenu] 메뉴 열림 - gnb2에 active 클래스 추가됨');
+        console.log('[mobileMenu] gnb2 클래스:', $gnb2[0].className);
+    });
+    console.log('[mobileMenu] 열기 버튼 이벤트 등록 완료');
+    
+    // 닫기 버튼 클릭 (중복 방지)
+    $closeBtn.off('click.mobileMenu').on('click.mobileMenu', function(e) {
+        e.preventDefault();
+        $gnb2.removeClass('active');
+        $('body').removeClass('menu-open');
+        // 모든 서브메뉴 닫기
+        $menuAll.find('li').removeClass('active');
+    });
+    
+    // 메뉴 아이템 클릭 (서브메뉴 토글, 중복 방지)
+    $menuItems.off('click.mobileMenu').on('click.mobileMenu', function(e) {
+        var $parent = $(this).parent();
+        var $submenu = $parent.find('.submenu');
+        
+        if ($submenu.length > 0) {
+            e.preventDefault();
+            
+            if ($parent.hasClass('active')) {
+                $parent.removeClass('active');
+            } else {
+                $menuAll.find('li').removeClass('active');
+                $parent.addClass('active');
+            }
+        }
+    });
+    
+    // 배경 클릭시 메뉴 닫기
+    $menuAll.on('click', function(e) {
+        if (e.target === this) {
+            $gnb2.removeClass('active');
+            $('body').removeClass('menu-open');
+            $menuAll.find('li').removeClass('active');
+        }
+    });
+    
+    // ESC 키로 메뉴 닫기
+    $(document).on('keydown', function(e) {
+        if (e.keyCode === 27 && $gnb2.hasClass('active')) {
+            $gnb2.removeClass('active');
+            $('body').removeClass('menu-open');
+            $menuAll.find('li').removeClass('active');
+        }
+    });
+}
+
+// mobileMenu는 위의 $(function() {...}) 안에서 이미 초기화됨

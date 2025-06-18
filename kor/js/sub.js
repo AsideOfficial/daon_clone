@@ -5,8 +5,8 @@ Create date : 2020-03-06
 
 $(function()
 {
-	// 2�곸뒪媛� 5媛쒖씪 �� �щ씪�대뱶
-	var li_cnt = $('#left_menu_top > li').size();
+	// 2단계가 5개일 때 슬라이드
+	var li_cnt = $('#left_menu_top > li').length;
 	if(li_cnt = 5){
 		$('#snb').addClass('snb-type1');
 	}
@@ -68,7 +68,7 @@ $(function()
        'button'        : '.help'   // �대깽�� 諛쏆쓣 ��寃� �좏깮
    });
    
-   /*紐⑤컮�� 留뚯”�� 議곗궗*/
+   /*紐⑤컮�� 留뚯" 議곗궗*/
 	$('#satisfy .cont').classtoggle
 	({
 	    'button'        : '.select'   // �대깽�� 諛쏆쓣 ��寃� �좏깮
@@ -117,7 +117,7 @@ $(function()
 					   return '<a><span class="now">'+('0'+(i+1)).slice(-2)+'</span> / <span class="dotmaxnum total"></span></a>'; // <-- new
 		}
 	});
-	$('.dotmaxnum').html("0"+$(".slick-dots > li").size());
+	$('.dotmaxnum').html("0"+$(".slick-dots > li").length);
 	
 	// 怨듭궗�뚭컻 > 吏��띻��κ꼍�� > �ㅻ━寃쎌쁺 > ISO 37001
 	 $('.process .flex-step li').classtoggle

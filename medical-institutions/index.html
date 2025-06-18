@@ -26,44 +26,159 @@
     <link rel="icon" href="/assets/images/favicon.png">
     <!-- 햄버거 메뉴 강제 우선순위 CSS -->
     <style>
-        /* 햄버거 버튼 강제 표시 및 우선순위 */
+        /* 햄버거 메뉴 위치 고정 */
         @media (max-width: 1200px) {
+            .site-map,
+            #gnb1 {
+                display: none !important;
+            }
+            
             #gnb2 {
                 display: block !important;
-                position: relative !important;
+                position: absolute !important;
+                right: -1rem !important;
+                top: 3.3rem !important;
+                width: 5rem !important;
+                height: 5rem !important;
+                line-height: 5rem !important;
+                overflow: hidden !important;
+                text-align: center !important;
                 z-index: 99999 !important;
                 background: transparent !important;
             }
             
             #gnb2 .control {
                 display: block !important;
-                position: relative !important;
-                z-index: 99999 !important;
                 color: #333 !important;
                 font-family: "xeicon" !important;
                 font-size: 3.2rem !important;
                 width: 100% !important;
                 height: 100% !important;
                 line-height: inherit !important;
-                transition: all 0.3s !important;
                 background: transparent !important;
                 border: none !important;
                 text-decoration: none !important;
+                transition: all 0.3s !important;
             }
             
-            #gnb2 .open:before {
-                content: "☰" !important;
-                font-family: inherit !important;
+            #gnb2 .open:before { 
+                content: "☰" !important; 
+                font-family: inherit !important; 
             }
             
-            #gnb2 .close:before {
-                content: "✕" !important;
-                font-family: inherit !important;
+            #gnb2 .close { 
+                display: none !important; 
             }
             
-            /* 활성화 상태 */
-            #gnb2.active .open { display: none !important; }
-            #gnb2.active .close { display: block !important; }
+            #gnb2 .close:before { 
+                content: "✕" !important; 
+                font-family: inherit !important; 
+            }
+            
+            #gnb2.active .open { 
+                display: none !important; 
+            }
+            
+            #gnb2.active .close { 
+                display: block !important; 
+            }
+            
+            /* 모바일 메뉴 스타일 */
+            #head_menu_all {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                position: fixed !important;
+                left: 1rem !important;
+                top: 11rem !important;
+                width: calc(100% - 2rem) !important;
+                z-index: 9999 !important;
+                background: #edf7ff !important;
+                border-radius: 1rem !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+            }
+            
+            #gnb2.active #head_menu_all {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                height: calc(100vh - 13rem) !important;
+                overflow-y: auto !important;
+            }
+            
+            #head_menu_all > li {
+                border-bottom: 1px solid #ddd !important;
+            }
+            
+            #head_menu_all > li > a {
+                color: #333 !important;
+                display: block !important;
+                font-size: 2rem !important;
+                font-weight: 700 !important;
+                padding: 2rem 3rem 1.5rem !important;
+                position: relative !important;
+                z-index: 1 !important;
+            }
+            
+            #head_menu_all > li > a:after {
+                content: "▼" !important;
+                font-size: 1.4rem !important;
+                position: absolute !important;
+                right: 2rem !important;
+                top: 2.2rem !important;
+                transition: all 0.3s !important;
+            }
+            
+            #head_menu_all > li.active > a:after {
+                transform: rotate(180deg) !important;
+            }
+            
+            #head_menu_all .submenu {
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                overflow: hidden !important;
+                background: #317bb5 !important;
+                transition: all 0.3s !important;
+            }
+            
+            #head_menu_all > li.active {
+                background-color: #317bb5 !important;
+                border-radius: 1rem !important;
+            }
+            
+            #head_menu_all > li.active > a {
+                background-color: #182346 !important;
+                border-radius: 1rem !important;
+                color: #fff !important;
+            }
+            
+            #head_menu_all > li.active .submenu {
+                visibility: visible !important;
+                opacity: 1 !important;
+                height: auto !important;
+                padding: 2rem 3rem 3rem !important;
+            }
+            
+            #head_menu_all .submenu > ul > li > a {
+                color: #fff !important;
+                display: block !important;
+                font-size: 1.8rem !important;
+                font-weight: normal !important;
+                padding: 1rem 0 !important;
+            }
+            
+            #head_menu_all .submenu > ul > li + li {
+                margin-top: 0.5rem !important;
+            }
+            
+            /* 모바일 메뉴 열렸을 때 스크롤 방지 */
+            body.menu-open {
+                overflow: hidden !important;
+                position: fixed !important;
+                width: 100% !important;
+            }
         }
     </style>
 
@@ -79,32 +194,73 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        // 서브메뉴 토글 디버깅 - 메인 페이지와 동일
         $(document).ready(function() {
-            console.log('의료기관 현황 페이지 - 서브메뉴 디버깅 시작');
+            console.log('[의료기관 현황] 햄버거 메뉴 스크립트 시작');
             
-            // 서브메뉴가 있는 메뉴 항목에 강제 이벤트 바인딩
-            $('#head_menu_all > li > a').off('click.submenu').on('click.submenu', function(e) {
-                var $parent = $(this).parent();
-                var $submenu = $parent.find('.submenu');
+            // 기존 이벤트 제거
+            $('#gnb2').off('.hamburger');
+            $('#head_menu_all').off('.submenu');
+            $(document).off('.menu-close');
+            
+            // 햄버거 메뉴 토글 - 의료기관 현황 페이지 전용
+            $('#gnb2 .control').on('click.hamburger', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 
-                console.log('메뉴 클릭:', $(this).text(), '서브메뉴 있음:', $submenu.length > 0);
+                console.log('[의료기관 현황] 햄버거 버튼 클릭됨, 클래스:', $(this).attr('class'));
                 
-                if ($submenu.length > 0) {
-                    e.preventDefault();
-                    
-                    if ($parent.hasClass('active')) {
-                        console.log('서브메뉴 닫기');
-                        $parent.removeClass('active');
-                    } else {
-                        console.log('서브메뉴 열기');
-                        // 다른 모든 메뉴 닫기
-                        $('#head_menu_all > li').removeClass('active');
-                        // 현재 메뉴 열기
-                        $parent.addClass('active');
-                    }
+                const gnb2 = $('#gnb2');
+                const isActive = gnb2.hasClass('active');
+                
+                if ($(this).hasClass('close') || isActive) {
+                    gnb2.removeClass('active');
+                    $('body').removeClass('menu-open');
+                    console.log('[의료기관 현황] 메뉴 닫힘');
+                } else {
+                    gnb2.addClass('active');
+                    $('body').addClass('menu-open');
+                    console.log('[의료기관 현황] 메뉴 열림');
                 }
             });
+            
+            // 서브메뉴 아코디언 토글
+            $('#head_menu_all > li > a').on('click.submenu', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const li = $(this).parent();
+                const hasSubmenu = li.find('.submenu').length > 0;
+                
+                if (hasSubmenu) {
+                    console.log('[의료기관 현황] 서브메뉴 토글:', $(this).text());
+                    
+                    // 다른 메뉴들 닫기
+                    $('#head_menu_all > li').not(li).removeClass('active');
+                    
+                    // 현재 메뉴 토글
+                    li.toggleClass('active');
+                }
+            });
+            
+            // 메뉴 외부 클릭시 닫기
+            $(document).on('click.menu-close', function(e) {
+                if (!$(e.target).closest('#gnb2').length) {
+                    $('#gnb2').removeClass('active');
+                    $('body').removeClass('menu-open');
+                    console.log('[의료기관 현황] 외부 클릭으로 메뉴 닫힘');
+                }
+            });
+            
+            // ESC 키로 메뉴 닫기
+            $(document).on('keydown.menu-close', function(e) {
+                if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
+                    $('#gnb2').removeClass('active');
+                    $('body').removeClass('menu-open');
+                    console.log('[의료기관 현황] ESC 키로 메뉴 닫힘');
+                }
+            });
+            
+            console.log('[의료기관 현황] 햄버거 메뉴 스크립트 완료');
         });
     </script>
 </head>
@@ -172,7 +328,7 @@
                     </nav>
 
                     <nav id="gnb2">
-                        <a href="" class="control open">열기</a>
+                        						<a href="#" class="control open">열기</a>
                         <ul id="head_menu_all" class="topmenu_all">
                             <li class="lnb1 mnfirst">
                                 <a href="/greeting">KMID연구소개</a>
@@ -213,7 +369,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <a href="" class="control close">닫기</a>
+                        						<a href="#" class="control close">닫기</a>
                     </nav>
                 </div>
             </div>
@@ -749,5 +905,7 @@
         .col-speciality::before { content: '주요진료과: '; }
     }
     </style>
+
+
 </body>
 </html>
