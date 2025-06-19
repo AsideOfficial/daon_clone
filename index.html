@@ -11,10 +11,25 @@
     <meta name="description" content="한국의료정보데이터는 보건의료 분야 정보화와 다학제적 융합 연구를 주도하는 의료정보화 연구 전문기업입니다. 한국의료정보데이터 KMID는 의료정보 보안, 의료데이터 통합, 의료AI 등 다양한 연구영역을 다루고 있습니다.">
     <meta name="keywords" content="한국의료정보데이터, 한국 의료정보 데이터, KMID, 의료정보화, 의료데이터, 의료AI, 보건의료정보화, 의료정보보안, 병원경영데이터, 환자정보통합, 공공의료데이터, 의료정보연구, 헬스케어데이터, 한국의료정보">
     <meta name="author" content="한국의료정보데이터 KMID">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="naver-site-verification" content="c50603357bd8b596eae4a0e12cff3d8819697f6a" />
     <meta name="google-site-verification" content="3PiTXtPOfLLxyORJtvNNBKQuLC1EtVGOwnRlgw-Q3QA" />
+    
+    <!-- 추가 SEO 메타 태그 -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#1976D2">
+    <meta name="msapplication-TileColor" content="#1976D2">
+    <meta name="application-name" content="한국의료정보데이터">
+    <meta name="apple-mobile-web-app-title" content="한국의료정보데이터">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- 지역 SEO -->
+    <meta name="geo.region" content="KR-11">
+    <meta name="geo.placename" content="서울특별시 강남구">
+    <meta name="geo.position" content="37.5172;127.0473">
+    <meta name="ICBM" content="37.5172, 127.0473">
 
     <!-- Open Graph 태그 개선 -->
     <meta property="og:type" content="website">
@@ -63,6 +78,48 @@
     }
     </script>
 
+    <!-- FAQ 구조화된 데이터 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "한국의료정보데이터(KMID)는 어떤 회사인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "한국의료정보데이터(KMID)는 보건의료 분야의 정보화와 다학제적 융합과 연구를 주도하며, 안전하고 신뢰할 수 있는 의료정보 생태계 구축을 지원하는 보건의료 정보화 연구 전문기업입니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "한국의료정보데이터의 주요 연구영역은 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "의료정보 보안연구, 의료 데이터 연구, 병원경영 데이터 연구, 의료데이터 통합연구, 환자정보 통합연구, 의료AI 데이터 연구, 환자경험 데이터 연구, 공공의료 데이터 연구 등 8개 분야의 연구를 진행하고 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "검체검사 발송 시스템은 무료인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네, 한국의료정보데이터는 검체검사 발송 시스템을 병의원에 무료로 지원하고 있습니다. 검사결과 안내, 결과지 발송, 자동화 시스템 등의 기능을 제공합니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "AI 기반 의료 진단 지원 시스템도 무료로 제공되나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "네, 한국의료정보데이터는 AI 기반 의료 진단 지원 시스템도 병의원에 무료로 지원하고 있습니다. AI 진단 지원, 빅데이터 분석, 실시간 학습 기능을 제공합니다."
+                }
+            }
+        ]
+    }
+    </script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/font/dingbat_xeicon.css">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -77,6 +134,16 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="icon" href="assets/images/favicon.png">
     <link rel="canonical" href="https://kmid.co.kr/">
+    
+    <!-- RSS 피드 -->
+    <link rel="alternate" type="application/rss+xml" title="한국의료정보데이터 KMID RSS" href="https://kmid.co.kr/rss.xml">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload 중요 리소스 -->
+    <link rel="preload" href="assets/img/main/visual01.png" as="image">
+    <link rel="preload" href="assets/css/main.css" as="style">
 </head>
 
 <body>
@@ -214,10 +281,10 @@
 
                     <div class="list">
                         <div class="img">
-                            <img src="assets/img/main/visual01.png" alt="비주얼01">
+                            <img src="assets/img/main/visual01.png" alt="한국의료정보데이터 의료정보화 연구 비주얼" loading="lazy">
                         </div>
                         <div class="img">
-                            <img src="assets/img/main/visual02.png" alt="비주얼02">
+                            <img src="assets/img/main/visual02.png" alt="KMID 의료데이터 연구 전문기업 비주얼" loading="lazy">
                         </div>
                     </div>
 
@@ -248,49 +315,49 @@
                             <ul class="list">
                                 <li>
                                     <a href="business.html#management">
-                                        <i><img src="assets/images/icon-biz01.png" alt="의료정보 보안연구"></i>
+                                        <i><img src="assets/images/icon-biz01.png" alt="한국의료정보데이터 의료정보 보안연구 아이콘" loading="lazy"></i>
                                         <strong>의료정보 보안연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/2">
-                                        <i><img src="assets/images/icon-biz02.png" alt="의료 데이터 연구"></i>
+                                        <i><img src="assets/images/icon-biz02.png" alt="한국의료정보데이터 의료 데이터 연구 아이콘" loading="lazy"></i>
                                         <strong>의료 데이터 연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/3">
-                                        <i><img src="assets/images/icon-biz03.png" alt="병원경영 데이터 연구"></i>
+                                        <i><img src="assets/images/icon-biz03.png" alt="한국의료정보데이터 병원경영 데이터 연구 아이콘" loading="lazy"></i>
                                         <strong>병원경영 데이터 연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/4">
-                                        <i><img src="assets/images/icon-biz04.png" alt="의료데이터 통합연구"></i>
+                                        <i><img src="assets/images/icon-biz04.png" alt="한국의료정보데이터 의료데이터 통합연구 아이콘" loading="lazy"></i>
                                         <strong>의료데이터 통합연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/5">
-                                        <i><img src="assets/images/icon-biz05.png" alt="환자정보 통합연구"></i>
+                                        <i><img src="assets/images/icon-biz05.png" alt="한국의료정보데이터 환자정보 통합연구 아이콘" loading="lazy"></i>
                                         <strong>환자정보 통합연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/6">
-                                        <i><img src="assets/images/icon-biz06.png" alt="의료AI 데이터 연구"></i>
+                                        <i><img src="assets/images/icon-biz06.png" alt="한국의료정보데이터 의료AI 데이터 연구 아이콘" loading="lazy"></i>
                                         <strong>의료AI 데이터 연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/7">
-                                        <i><img src="assets/images/icon-biz08.png" alt="환자경험 데이터 연구"></i>
+                                        <i><img src="assets/images/icon-biz08.png" alt="한국의료정보데이터 환자경험 데이터 연구 아이콘" loading="lazy"></i>
                                         <strong>환자경험 데이터 연구</strong>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/8">
-                                        <i><img src="assets/images/icon-biz07.png" alt="공공의료 데이터 연구"></i>
+                                        <i><img src="assets/images/icon-biz07.png" alt="한국의료정보데이터 공공의료 데이터 연구 아이콘" loading="lazy"></i>
                                         <strong>공공의료 데이터 연구</strong>
                                     </a>
                                 </li>
@@ -312,7 +379,7 @@
                             </div>
                             <div class="image-content">
                                 <div class="team-image">
-                                    <img src="assets/img/main/team-kcd.png" alt="Team KMID">
+                                    <img src="assets/img/main/team-kcd.png" alt="한국의료정보데이터 KMID 팀 소개" loading="lazy">
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,30 @@
+{
+    "name": "한국의료정보데이터 KMID",
+    "short_name": "KMID",
+    "description": "한국의료정보데이터는 보건의료 분야 정보화와 다학제적 융합 연구를 주도하는 의료정보화 연구 전문기업입니다.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1976D2",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "ko",
+    "icons": [
+        {
+            "src": "assets/images/favicon.png",
+            "sizes": "any",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["medical", "healthcare", "research", "data"],
+    "keywords": [
+        "한국의료정보데이터",
+        "KMID",
+        "의료정보화",
+        "의료데이터",
+        "의료AI",
+        "보건의료정보화",
+        "의료정보보안"
+    ]
+} 
