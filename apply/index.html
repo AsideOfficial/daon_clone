@@ -22,9 +22,319 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/main_respond.css">
     <link rel="stylesheet" href="/assets/css/button.css">
-        <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
     <link rel="stylesheet" href="/assets/css/register.css">
     <link rel="icon" href="/assets/images/favicon.png">
+
+    <style>
+        /* 약관 테이블 스타일 */
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 1.4rem;
+            background: white;
+        }
+
+        .terms-table th,
+        .terms-table td {
+            border: 1px solid #ddd;
+            padding: 1.2rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .terms-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .terms-table td {
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        .terms-table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        .terms-content {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.5rem;
+            background: #fafafa;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .terms-content p {
+            margin-bottom: 1rem;
+        }
+
+        .terms-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 약관 토글 스타일 */
+        .terms-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 1rem;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .terms-toggle:hover {
+            background: #e9ecef;
+        }
+
+        .terms-toggle-text {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .terms-toggle-icon {
+            font-size: 1.6rem;
+            color: #00a3d3;
+            transition: transform 0.3s ease;
+        }
+
+        .terms-toggle-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .terms-content.collapsed {
+            display: none;
+        }
+
+        .terms-content.expanded {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+
+            to {
+                opacity: 1;
+                max-height: 300px;
+            }
+        }
+
+        /* 컨텐츠 래퍼 스타일 */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 비디오 컨테이너 스타일 */
+        .video-container {
+            margin: 3rem 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            border-radius: 1rem;
+        }
+
+        /* 반응형 비디오 */
+        @media (max-width: 768px) {
+            .video-container iframe {
+                height: 300px;
+            }
+
+            .content-wrapper {
+                padding: 0 1rem;
+            }
+        }
+
+        /* 폼 레이아웃 일관성 개선 */
+        .register-form {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .form-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #00a3d3;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 1.4rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00a3d3;
+            box-shadow: 0 0 0 2px rgba(0, 163, 211, 0.2);
+        }
+
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .checkbox-group {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 0.8rem;
+            border: 2px solid #00a3d3;
+        }
+
+        .checkbox-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .checkbox-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.3rem;
+            transform: scale(1.2);
+        }
+
+        .checkbox-item label {
+            flex: 1;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .price-info {
+            background: #f0f8ff;
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 5px solid #00a3d3;
+        }
+
+        .price-info h4 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .price-info li {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00a3d3 0%, #0077a3 100%);
+            color: white;
+            border: none;
+            padding: 1.8rem 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 163, 211, 0.3);
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 163, 211, 0.4);
+        }
+
+        .submit-btn i {
+            margin-right: 1rem;
+        }
+
+        /* 반응형 레이아웃 */
+        @media (max-width: 768px) {
+
+            .form-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .form-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .form-group label {
+                font-size: 1.4rem;
+            }
+
+            .form-group input {
+                padding: 1rem;
+                font-size: 1.3rem;
+            }
+
+            .checkbox-item label {
+                font-size: 1.3rem;
+            }
+
+            .submit-btn {
+                font-size: 1.6rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -144,139 +454,458 @@
                     <p>한국의료정보데이터의 검체검사 발송시스템을 무료로 신청하실 수 있습니다.</p>
                 </div>
 
-                <div class="video-container">
-                    <iframe 
-                        width="100%" 
-                        height="500" 
-                        src="https://www.youtube.com/embed/FX1cegR7ZUE?hd=1&modestbranding=1&rel=0&vq=hd1080" 
-                        title="검체검사 발송시스템 소개" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <!-- <div class="install-guide">
-                    <h4>📋 시스템 설치 및 사용 방법</h4>
-                    <ol>
-                        <li>검체검사 발송시스템 설치 파일 다운로드</li>
-                        <li>사용하시는 의료진료 프로그램이 있는 PC에 설치</li>
-                        <li>설치 완료 후, 바탕화면에 있는 KMID 아이콘 클릭</li>
-                        <li>로그인창에 이메일 아이디와 설정한 비밀번호로 로그인</li>
-                        <li>진료 프로그램에서 검체검사 결과지 출력시 KMID 프린터로 선택하여 출력</li>
-                        <li>KMID 프린터로 출력한 검체검사 결과지를 KMID 관리자 페이지에서 확인</li>
-                    </ol>
-                </div> -->
-
-                <form class="register-form" id="registerForm">
-                    <div class="form-section">
-                        <h3>1) 병원정보 입력</h3>
-                        
-                        <div class="form-group">
-                            <label for="licenseNumber">요양기관번호 <span class="required">*</span></label>
-                            <input type="text" id="licenseNumber" name="licenseNumber" required>
-                            <!-- <button type="button" class="btn-search" onclick="searchHospital()">병원 검색</button> -->
-                        </div>
-
-                        <div class="form-group">
-                            <label for="hospitalName">병원명 <span class="required">*</span></label>
-                            <input type="text" id="hospitalName" name="hospitalName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="representative">대표자 <span class="required">*</span></label>
-                            <input type="text" id="representative" name="representative" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="hospitalPhone">전화번호 <span class="required">*</span></label>
-                            <input type="tel" id="hospitalPhone" name="hospitalPhone" required>
-                        </div>
+                <div class="content-wrapper">
+                    <div class="video-container">
+                        <iframe width="100%" height="500"
+                            src="https://www.youtube.com/embed/FX1cegR7ZUE?hd=1&modestbranding=1&rel=0&vq=hd1080"
+                            title="검체검사 발송시스템 소개" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
 
-                    <div class="form-section">
-                        <h3>2) 약관동의</h3>
-                        
-                        <div class="checkbox-group">
+                    <!-- <div class="install-guide">
+                        <h4>📋 시스템 설치 및 사용 방법</h4>
+                        <ol>
+                            <li>검체검사 발송시스템 설치 파일 다운로드</li>
+                            <li>사용하시는 의료진료 프로그램이 있는 PC에 설치</li>
+                            <li>설치 완료 후, 바탕화면에 있는 KMID 아이콘 클릭</li>
+                            <li>로그인창에 이메일 아이디와 설정한 비밀번호로 로그인</li>
+                            <li>진료 프로그램에서 검체검사 결과지 출력시 KMID 프린터로 선택하여 출력</li>
+                            <li>KMID 프린터로 출력한 검체검사 결과지를 KMID 관리자 페이지에서 확인</li>
+                        </ol>
+                    </div> -->
+
+                    <form class="register-form" id="registerForm">
+                        <div class="form-section">
+                            <h3>1) 병원정보 입력</h3>
+
+                            <div class="form-group">
+                                <label for="licenseNumber">요양기관번호 <span class="required">*</span></label>
+                                <input type="text" id="licenseNumber" name="licenseNumber" required>
+                                <!-- <button type="button" class="btn-search" onclick="searchHospital()">병원 검색</button> -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hospitalName">병원명 <span class="required">*</span></label>
+                                <input type="text" id="hospitalName" name="hospitalName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="representative">대표자 <span class="required">*</span></label>
+                                <input type="text" id="representative" name="representative" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hospitalPhone">전화번호 <span class="required">*</span></label>
+                                <input type="tel" id="hospitalPhone" name="hospitalPhone" required>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>2) 약관동의</h3>
+
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="agreeAll" onchange="toggleAllAgreement()">
+                                    <label for="agreeAll"><strong>개인정보수집, 업무위탁, 서비스 이용약관 모두 동의합니다.</strong></label>
+                                </div>
+                            </div>
+
                             <div class="checkbox-item">
-                                <input type="checkbox" id="agreeAll" onchange="toggleAllAgreement()">
-                                <label for="agreeAll"><strong>개인정보수집, 업무위탁, 서비스 이용약관 모두 동의합니다.</strong></label>
+                                <input type="checkbox" id="agreePrivacy" name="agreements" required>
+                                <label for="agreePrivacy">개인정보 수집 및 이용에 대한 안내 (필수) <span
+                                        class="required">*</span></label>
+                            </div>
+
+                            <div class="terms-toggle" onclick="toggleTerms('privacy')">
+                                <span class="terms-toggle-text">개인정보 수집 및 이용 약관 내용 보기</span>
+                                <i class="xi-angle-down terms-toggle-icon" id="privacy-icon"></i>
+                            </div>
+
+                            <div class="terms-content collapsed" id="privacy-content">
+                                <p>본 개인정보처리방침은 (주)에이치에스투에쿼티(이하, '회사' 라 함)에서 제공하는 검체검사 결과 발송 서비스(이하 '서비스' 라 함)의 원활한 제공을
+                                    위한
+                                    개인정보 수집∙이용∙위탁을 목적으로 합니다.</p>
+                                <p>정보주체(이하, '회원' 라 함)는 필요한 최소한의 정보 외의 개인정보수집∙이용∙위탁에 동의하지 않을 수 있습니다. 다만 서비스 제공에 필수적인 정보
+                                    제공에
+                                    동의하지 않을 시 서비스를 이용하실 수 없습니다.</p>
+                                <p>개인정보 처리에 관한 상세한 내용은 회사의 '개인정보처리방침'을 참조하십시오.</p>
+
+                                <p><strong>1. 수집되는 개인정보의 항목</strong></p>
+                                <p>① '회사'는 '서비스'의 원활한 운영을 위해 '회원'로부터 아래의 개인정보를 수집하고 있습니다.</p>
+                                <table class="terms-table">
+                                    <thead>
+                                        <tr>
+                                            <th>수집방법</th>
+                                            <th>항목</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>서비스 신청</td>
+                                            <td>요양기관번호, 요양기관명, 대표자명(이름), 요양기관주소, 요양기관 전화번호, 이메일</td>
+                                        </tr>
+                                        <tr>
+                                            <td>전송 및 접수</td>
+                                            <td>의료기관, 진료일, 성명, 생년월일, 성별, 핸드폰번호, 이메일 주소, 검체검사 결과</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p><strong>2. 개인정보의 이용목적</strong></p>
+                                <table class="terms-table">
+                                    <thead>
+                                        <tr>
+                                            <th>이용 목적</th>
+                                            <th>항목</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>요양기관 확인</td>
+                                            <td>요양기관번호, 요양기관명, 대표자명(이름), 요양기관주소, 요양기관 전화번호, 이메일</td>
+                                        </tr>
+                                        <tr>
+                                            <td>판정의사 확인</td>
+                                            <td>판정의사(전문의)번호, 의사 휴대폰번호, 판정의사 서명</td>
+                                        </tr>
+                                        <tr>
+                                            <td>서비스 제공</td>
+                                            <td>검체검사 결과 및 예약 관련 등 검체검사 관련 서비스 제공</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p><strong>3. 개인정보의 처리 및 보유기간</strong></p>
+                                <p>① '회원'의 개인정보는 그 수집목적 또는 제공받은 목적이 달성되거나 회원이 이용계약 해지(회원탈퇴)를 요청한 경우 파기하는 것을 원칙으로 하며, 이
+                                    경우
+                                    회원의 개인정보는 재생할 수 없는 방법에 의하여 시스템에서 완전히 삭제되며 어떠한 용도로도 열람 또는 이용할 수 없도록 처리됩니다.</p>
+                                <p>② '회사'는 불량 회원의 부정한 이용의 재발을 방지하기 위해 이용계약 해지일(회원탈퇴일)로부터 6개월간 해당 회원의 개인정보를 보유할 수 있습니다.
+                                    관계법령에
+                                    따라 보존이 필요한 경우 해당 기간 동안 정보는 보관되며, 이 경우 정보는 다음 목적에 한하여 사용됩니다.</p>
+                                <ul>
+                                    <li>– 계약 또는 청약철회 등에 관한 기록 : 5년</li>
+                                    <li>– 대금결제 및 재화 등의 공급에 관한 기록 : 5년</li>
+                                    <li>– 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년</li>
+                                    <li>– 부정거래기록 : 6개월 (부정거래의 배제 등 회사 방침에 의한 보존)</li>
+                                </ul>
+                                <p>③ 이용약관 및 관계법령을 위반한 회원의 경우 다른 회원을 보호하고 사법기관 수사의뢰 시 증거자료로 활용하기 위해 회원탈퇴 후 6개월까지 회원정보를
+                                    보관할 수
+                                    있습니다.</p>
+                                <p>'회사'는 위의 1년의 기간 만료 30일 전까지 개인정보가 파기되거나 분리되어 저장, 관리되는 사실과 기간 만료일 및 해당 개인정보의 항목을 전자우편
+                                    등의
+                                    방법으로 회원에게 알립니다. 이를 위해 회원은 정확한 연락처 정보를 제공/수정하여야 합니다.</p>
+
+                                <p><strong>4. 개인정보 처리의 위탁</strong></p>
+                                <p>'회사'는 서비스 향상을 위해 아래와 같이 개인정보를 위탁하고 있으며, 관계 법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을
+                                    규정하고 있습니다.</p>
+                                <p>① 엔에이치엔클라우드(주) : 카카오 알림톡/친구톡/문자 발송</p>
+
+                                <p><strong>5. '서비스'의 내용</strong></p>
+                                <p>회사는 다음과 같은 서비스를 제공합니다.</p>
+                                <ul>
+                                    <li>① 검체검사 결과지 발송 서비스</li>
+                                    <li>② 기타 회사가 정하는 업무</li>
+                                </ul>
+
+                                <p><strong>6. 개인정보 파기절차 및 방법</strong></p>
+                                <p>회사는 원칙적으로 개인정보 처리목적이 달성된 경우 지체 없이 해당 개인정보를 파기하며, 파기절차 및 방법은 다음과 같습니다.</p>
+                                <ol>
+                                    <li>① 파기절차: 수집 목적이 달성된 후 별도의 DB 또는 서류로 이동하여 일정기간 저장 후 즉시 파기되며, 다른 목적으로 이용되지 않습니다.
+                                    </li>
+                                    <li>② 파기방법: 전자파일은 복구 불가능한 기술적 방법으로 삭제하고, 출력물은 분쇄 또는 소각합니다.</li>
+                                </ol>
+
+                                <p><strong>7. '이용자' 및 법정대리인의 권리</strong></p>
+                                <p>'이용자' 또는 법정대리인은 언제든지 개인정보 열람, 정정, 삭제, 처리정지, 동의 철회, 회원탈퇴를 요청할 수 있습니다. 이 경우 일부 또는 전체
+                                    서비스
+                                    이용에 제한이 있을 수 있습니다.</p>
+
+                                <p><strong>8. 쿠키의 운영 및 수집 거부 방법</strong></p>
+                                <p>회사는 이용자의 환경설정 및 맞춤형 서비스를 위해 쿠키를 사용합니다. 이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있으며, 이 경우
+                                    일부
+                                    서비스 이용에 제한이 있을 수 있습니다.</p>
+
+                                <p><strong>9. 개인정보 보호를 위한 기술적∙관리적 보호대책</strong></p>
+                                <ul>
+                                    <li>① 개인정보는 암호화되어 저장되며, 본인 외에는 확인할 수 없습니다.</li>
+                                    <li>② 해킹, 악성코드에 대비해 24시간 침입차단 시스템 및 백신 운영</li>
+                                    <li>③ 개인정보 처리 직원 최소화 및 정기 교육 실시</li>
+                                </ul>
+
+                                <p><strong>10. 개인정보 보호책임자 및 담당부서</strong></p>
+                                <p>이용자는 개인정보 보호 관련 문의를 아래 책임자에게 연락할 수 있습니다.</p>
+                                <ul>
+                                    <li>– 개인정보 보호책임자: 김지훈</li>
+                                    <li>– 직책: 보안과장</li>
+                                    <li>– 전화번호: 0507-1360-1935</li>
+                                    <li>– 이메일: kmid.contact@gmail.com</li>
+                                </ul>
+                                <p>기타 기관:</p>
+                                <ul>
+                                    <li>– 개인정보침해신고센터 (privacy.kisa.or.kr / 국번없이 118)</li>
+                                    <li>– 대검찰청 사이버수사과 (www.spo.go.kr / 02-3480-3571)</li>
+                                    <li>– 경찰청 사이버테러대응센터 (www.ctrc.go.kr / 1566-0112)</li>
+                                </ul>
+
+                                <p><strong>11. 링크 사이트에 대한 책임</strong></p>
+                                <p>회사는 외부 링크를 제공할 수 있으며, 해당 링크의 개인정보처리방침은 별도로 적용되므로 별도 검토가 필요합니다.</p>
+
+                                <p><strong>12. 개인정보처리방침의 고지 의무</strong></p>
+                                <p>회사는 본 방침을 홈페이지에 게시하여 언제든 열람 가능하도록 하고 있으며, 변경 시 최소 7일 전 다음 방법 중 하나로 공지합니다.</p>
+                                <ul>
+                                    <li>1) 홈페이지 첫 화면 또는 별도 창 공지</li>
+                                    <li>2) 서면, SMS, 이메일 등 개별 통지</li>
+                                </ul>
+
+                            </div>
+                            <br>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="agreeDelegate" name="agreements" required>
+                                <label for="agreeDelegate">서비스 이용을 위한 업무위탁 동의 (필수) <span
+                                        class="required">*</span></label>
+                            </div>
+
+                            <div class="terms-toggle" onclick="toggleTerms('delegate')">
+                                <span class="terms-toggle-text">업무위탁 약관 내용 보기</span>
+                                <i class="xi-angle-down terms-toggle-icon" id="delegate-icon"></i>
+                            </div>
+
+                            <div class="terms-content collapsed" id="delegate-content">
+                                <p>검체검사 결과 발송 서비스(이하, '서비스' 라 함)를 이용하는 요양기관(이하, '회원'이라 함)은 '서비스'를 제공하는 사업자인
+                                    (주)에이치에스투에쿼티(이하,
+                                    '회사'라 함)와 '회원'의 개인정보 처리업무를 위해 다음과 같은 내용으로 본 업무위탁계약을 체결합니다.</p>
+
+                                <p><strong>제1조 (목적)</strong></p>
+                                <p>이 계약은 '회원'이 개인정보보호 및 보안에 대하여 개인정보 처리 업무를 '회사'에게 위탁하고, '회사'는 이를 승낙하여 '회사'의 책임 아래 성실하게
+                                    업무를
+                                    완성하도록 하는데 필요한 사항을 정함을 목적으로 합니다.</p>
+
+                                <p><strong>제2조 (용어의 정의)</strong></p>
+                                <p>본 계약에서 별도로 정의되지 아니한 용어는 개인정보보호법, 동법 시행령 및 시행규칙, '표준 개인정보 보호지침'(안전행정부 예규 제45호)에서 정의된
+                                    바에
+                                    따릅니다.</p>
+
+                                <p><strong>제3조 (위탁업무의 목적 및 범위)</strong></p>
+                                <p>'회사'는 계약이 정하는 바에 따라 아래 서비스 제공을 목적으로 다음과 같은 개인정보 처리 업무를 수행합니다.</p>
+                                <ul>
+                                    <li>1. 검체검사 결과 발송</li>
+                                    <li>2. 기타 회사가 정하는 업무</li>
+                                </ul>
+
+                                <p><strong>제4조 (재위탁 제한)</strong></p>
+                                <p>① '회사'는 '회원'의 사전 승낙 없이 본 계약상의 권리 및 의무의 전부 또는 일부를 제3자에게 양도하거나 재위탁할 수 없습니다.</p>
+                                <p>② '회사'가 불가피하게 재위탁할 경우, 재위탁 계약 체결과 함께 그 사실을 즉시 '회원'에게 통보해야 합니다.</p>
+
+                                <p><strong>제5조 (개인정보의 안전성 확보조치)</strong></p>
+                                <p>'회사'는 개인정보보호법 제29조 및 시행령 제39조, 개인정보 안전성 확보조치 기준(안전행정부 고시 제2011-43호)에 따라 관리적, 기술적
+                                    보호조치를
+                                    철저히 이행합니다.</p>
+
+                                <p><strong>제6조 (개인정보의 처리제한)</strong></p>
+                                <p>① '회사'는 위탁업무 수행 목적 외 개인정보를 이용하거나 제3자에게 제공 또는 누설해서는 안 됩니다.</p>
+                                <p>② 계약 종료 시에는 관련 개인정보를 '개인정보보호법' 시행령 제16조에 따라 즉시 파기하거나 '회원'에게 반납하여야 하며, 파기 시 그 결과를 지체
+                                    없이
+                                    통보합니다.</p>
+
+                                <p><strong>제7조 (위탁업체에 대한 관리·감독)</strong></p>
+                                <p>① '회원'은 다음 각 호의 사항에 대한 관리 및 점검을 '회사'에 요구할 수 있으며, '회사'는 특별한 사유가 없는 한 이에 응하여야 합니다.</p>
+                                <ol>
+                                    <li>1. 개인정보 처리 현황</li>
+                                    <li>2. 개인정보 접근 또는 접속 현황</li>
+                                    <li>3. 접근 대상자 정보</li>
+                                    <li>4. 목적 외 이용, 제공 및 재위탁 금지 여부</li>
+                                    <li>5. 암호화 등 안전성 확보조치 이행 여부</li>
+                                    <li>6. 기타 개인정보 보호에 필요한 사항</li>
+                                </ol>
+                                <p>② '회원'은 제1항의 사항에 대해 실태를 점검하고 시정을 요구할 수 있으며, '회사'는 특별한 사유가 없는 한 이를 이행해야 합니다.</p>
+
+                                <p><strong>제8조 (손해배상)</strong></p>
+                                <p>① '회사' 또는 그 임직원, 재위탁받은 자의 귀책사유로 인하여 이 계약 위반 또는 개인정보 유출 등이 발생한 경우 '회사'는 그로 인한 '회원' 또는
+                                    제3자의
+                                    손해를 배상합니다.</p>
+                                <p>② '회원'이 제3자에 대한 손해를 우선 배상한 경우, 해당 금액은 '회사'에 구상청구할 수 있습니다.</p>
+
+                                <p><strong>제9조 (개인정보보호 및 보안 교육)</strong></p>
+                                <p>① '회사'는 개인정보를 처리하는 임직원에게 연 1회 이상 개인정보보호 교육을 이행해야 합니다.</p>
+                                <p>② '회원'은 필요한 경우 '회사'에 대하여 개인정보 보호 교육을 요청할 수 있으며, '회사'는 이에 성실히 응하여야 합니다.</p>
+                                <p>③ 교육의 시기 및 방법은 '회원'과 '회사'가 상호 협의하여 결정합니다.</p>
+                            </div>
+                            <br>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="agreeTerms" name="agreements" required>
+                                <label for="agreeTerms">서비스 이용약관 (필수) <span class="required">*</span></label>
+                            </div>
+
+                            <div class="terms-toggle" onclick="toggleTerms('terms')">
+                                <span class="terms-toggle-text">서비스 이용약관 내용 보기</span>
+                                <i class="xi-angle-down terms-toggle-icon" id="terms-icon"></i>
+                            </div>
+
+                            <div class="terms-content collapsed" id="terms-content">
+                                <p>(주)에이치에스투에쿼티(이하 '회사'라 함)는 서비스 이용업체(이하 '회원'이라 함)의 검체검사 서비스를 위해 '검체검사 결과 발송 서비스'(이하
+                                    '서비스'라
+                                    함)와 관련하여 다음과 같이 업무협약(이하 '본 약관'이라 함)을 체결합니다.</p>
+
+                                <p><strong>제1조 (목적 및 용어의 정의)</strong></p>
+                                <p>본 약관은 '회사'가 '회원'에게 '서비스'를 제공하고, '회원'이 이에 대한 대가를 지급함에 있어 양 당사자의 권리와 의무를 규정함을 목적으로 합니다.
+                                </p>
+                                <ul>
+                                    <li>가. '회사': (주)에이치에스투에쿼티</li>
+                                    <li>나. '서비스': 검체검사 결과 발송 서비스</li>
+                                    <li>다. '회원': 의원 또는 병원 개설자로서 회사에 가입하고 비용을 납입한 고객</li>
+                                </ul>
+
+                                <p><strong>제2조 (약관의 효력 및 변경)</strong></p>
+                                <ul>
+                                    <li>가. 본 약관은 회원의 동의와 회사의 가입 승인 시 효력을 발생합니다.</li>
+                                    <li>나. 회사는 관련 법률을 준수하며 약관을 개정할 수 있습니다.</li>
+                                    <li>다. 약관 변경 시 적용일자 7일 전부터 홈페이지에 공지합니다. 중요한 변경 시 30일 전 사전 고지합니다.</li>
+                                    <li>라. 해석에 관하여는 관계법령 및 상관례에 따릅니다.</li>
+                                </ul>
+
+                                <p><strong>제3조 (서비스의 이용)</strong></p>
+                                <ul>
+                                    <li>가. 서비스는 회원 본인 및 소속 종사자에 한하여 사용 가능합니다.</li>
+                                    <li>나. 서비스에 대한 저작권 및 지적재산권은 회사에 있습니다.</li>
+                                    <li>다. 서비스는 판매가 아닌, 이용기간 동안의 사용 허가입니다.</li>
+                                    <li>라. 무단 사용 시 회사는 손해배상을 청구할 수 있습니다.</li>
+                                    <li>마. 계약 종료 시 모든 제공된 서비스 및 제작물을 삭제해야 합니다.</li>
+                                </ul>
+
+                                <p><strong>제4조 (서비스 제공 및 지원 범위)</strong></p>
+                                <ul>
+                                    <li>가. 검체검사 결과 알림톡 발송, 관련 부가서비스 제공</li>
+                                    <li>나. 이용 중 발생한 하자는 회사가 보수하되, 회원 과실은 제외</li>
+                                    <li>다. 업그레이드 이전 버전 사용에 따른 손해는 회사 책임 제외</li>
+                                    <li>라. 하드웨어 및 타 소프트웨어 문제는 해당 제조사 책임</li>
+                                </ul>
+
+                                <p><strong>제5조 (계약 기간)</strong></p>
+                                <p>계약은 1년 유효하며, 만료 60일 전 별도 해지통보가 없을 경우 자동 연장됩니다.</p>
+
+                                <p><strong>제6조 (요금 체계)</strong></p>
+                                <ul>
+                                    <li>가. 운영비/이용료: 매월 결제</li>
+                                    <li>나. 알림톡 발송료: 결과 발송 시 발생하며 익월 정산</li>
+                                </ul>
+
+                                <p><strong>제7조 (설치비/운영비/이용권)</strong></p>
+                                <ul>
+                                    <li>가. 기본 서비스 이용료는 무료</li>
+                                    <li>나. 알림톡 발송료는 익월 일괄 결제</li>
+                                </ul>
+
+                                <p><strong>제10조 (결제수단)</strong></p>
+                                <ul>
+                                    <li>가. 무통장입금</li>
+                                    <li>나. 그 외 상호 합의된 결제수단</li>
+                                </ul>
+
+                                <p><strong>제11조 (청약철회 및 환불)</strong></p>
+                                <ul>
+                                    <li>가. 사용 전 7일 이내 청약철회 가능</li>
+                                    <li>나. 7일 초과 시 환불 불가</li>
+                                    <li>다. 홈페이지 또는 문의를 통한 철회 신청 가능</li>
+                                    <li>라. 환불은 통상 3영업일 이내 처리</li>
+                                    <li>마. 유효기간은 1개월이며, 미사용 시 이월 가능</li>
+                                    <li>사. 무상 제공 이용권은 환불 대상 제외</li>
+                                </ul>
+
+                                <p><strong>제12조 (계약 해지 및 환불)</strong></p>
+                                <ul>
+                                    <li>가. 회원의 의무 위반 시 계약 해지 가능</li>
+                                    <li>나. 해지 시 환불은 일정 조건에 따라 공제 후 반환</li>
+                                    <li>다. 과납/오납 요금은 반환되며, 미응답 시 상계 가능</li>
+                                </ul>
+
+                                <p><strong>제13조 (회원의 의무)</strong></p>
+                                <ul>
+                                    <li>가. 약관, 사용설명서, 주의사항 준수</li>
+                                    <li>나. 정해진 비용 납입</li>
+                                    <li>다. 회원 정보 변동 시 즉시 고지</li>
+                                    <li>라. 관리 소홀로 인한 결과는 회원 책임</li>
+                                    <li>마. 개인정보 보호 및 보안 의무</li>
+                                    <li>바. 회사 승인 없이 정보 영리 이용 금지</li>
+                                </ul>
+
+                                <p><strong>제14조 (회사의 의무)</strong></p>
+                                <ul>
+                                    <li>가. 안정적 서비스 제공 노력</li>
+                                    <li>나. 회원의 개인정보 보호</li>
+                                    <li>다. 서비스 내용 변경 시 고지</li>
+                                </ul>
+
+                                <p><strong>제15조 (이용자 불만 처리)</strong></p>
+                                <ul>
+                                    <li>가. 일반 불만: 접수 후 3영업일 이내 처리</li>
+                                    <li>나. 제품 개선 요구 등은 검토 후 반영 여부 결정</li>
+                                </ul>
+
+                                <p><strong>제16조 (손해배상)</strong></p>
+                                <ul>
+                                    <li>가. 서비스 하자에 따른 피해보상은 지침에 따름</li>
+                                    <li>나. 회원 귀책사유로 인한 손해는 회원이 배상</li>
+                                    <li>다. 회원의 위법 행위로 인한 제3자 청구 시 면책 또는 손해배상</li>
+                                </ul>
+
+                                <p><strong>제17조 (책임의 한계)</strong></p>
+                                <ul>
+                                    <li>가. 천재지변 등 불가항력 시 책임 면제</li>
+                                    <li>나. 회원 귀책 및 외부 문제 시 면책</li>
+                                    <li>다. 정보의 신뢰성, 회원 간 거래 등에 회사는 책임 없음</li>
+                                    <li>라. 무료 서비스는 관련 법령 외 책임 없음</li>
+                                </ul>
+
+                                <p><strong>제18조 (재판권 및 준거법)</strong></p>
+                                <ul>
+                                    <li>가. 대한민국 법률 적용</li>
+                                    <li>나. 관할 법원은 민사소송법에 따름</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-section">
+                            <h3>3) 서비스 계정 생성</h3>
+
+                            <div class="form-group">
+                                <label for="email">ID (이메일) <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <!-- <button type="button" class="btn-search" onclick="verifyEmail()">인증 요청</button> -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicantName">신청자명 <span class="required">*</span></label>
+                                <input type="text" id="applicantName" name="applicantName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">비밀번호 <span class="required">*</span></label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">비밀번호 확인 <span class="required">*</span></label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
                             </div>
                         </div>
 
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="agreePrivacy" name="agreements" required>
-                            <label for="agreePrivacy">개인정보 수집 및 이용에 대한 안내 (필수) <span class="required">*</span></label>
-                        </div>
-                        <div class="terms-content">
-                            <p><strong>1. 수집되는 개인정보의 항목</strong></p>
-                            <p>① 한국의료정보데이터는 서비스의 원활한 운영을 위해 회원으로부터 아래의 개인정보를 수집하고 있습니다.</p>
-                            <ul>
-                                <li>서비스 신청: 요양기관번호, 요양기관명, 대표자명, 전화번호, 이메일</li>
-                                <li>전송 및 접수: 검사병원, 검사일, 성명, 핸드폰번호, 이메일 주소, 검사결과</li>
-                            </ul>
-                            <p><strong>2. 개인정보의 이용목적</strong></p>
-                            <ul>
-                                <li>검사기관 확인, 서비스 제공: 검체검사 결과 및 예약 관련 등 의료검사 관련 서비스 제공</li>
-                            </ul>
+                        <div class="form-section">
+                            <h3>4) 이용요금</h3>
+                            <div class="price-info">
+                                <h4>💰 검체검사 발송시스템 이용요금</h4>
+                                <ul>
+                                    <li><strong>기본 운영비:</strong> 무료</li>
+                                    <li><strong>카카오 알림톡 발송료:</strong> 건당 8원(VAT 별도)</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="agreeService" name="agreements" required>
-                            <label for="agreeService">서비스 이용약관 (필수) <span class="required">*</span></label>
-                        </div>
-                        <div class="terms-content">
-                            <p><strong>제1조 (목적)</strong></p>
-                            <p>본 약관은 한국의료정보데이터가 제공하는 검체검사 발송시스템 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
-                            <p><strong>제2조 (서비스의 제공)</strong></p>
-                            <ul>
-                                <li>검체검사 결과 발송 서비스</li>
-                                <li>환자 예약 관리 서비스</li>
-                                <li>병원 홍보 서비스</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>3) 서비스 계정 생성</h3>
-                        
-                        <div class="form-group">
-                            <label for="email">ID (이메일) <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
-                            <!-- <button type="button" class="btn-search" onclick="verifyEmail()">인증 요청</button> -->
-                        </div>
-
-                        <div class="form-group">
-                            <label for="applicantName">신청자명 <span class="required">*</span></label>
-                            <input type="text" id="applicantName" name="applicantName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">비밀번호 <span class="required">*</span></label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirmPassword">비밀번호 확인 <span class="required">*</span></label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>4) 이용요금</h3>
-                        <div class="price-info">
-                            <h4>💰 검체검사 발송시스템 이용요금</h4>
-                            <ul>
-                                <li><strong>기본 운영비:</strong> 무료</li>
-                                <li><strong>카카오 알림톡 발송료:</strong> 건당 8원(VAT 별도)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <i class="xi-check"></i> 검체검사 발송시스템 신청서 제출
-                    </button>
-                </form>
+                        <button type="submit" class="submit-btn">
+                            <i class="xi-check"></i> 검체검사 발송시스템 신청서 제출
+                        </button>
+                    </form>
+                </div>
             </div>
         </main>
 
@@ -304,13 +933,13 @@
     <script src="https://code.jquery.co.kr/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
+
     <script>
         // EmailJS 초기화 - 아래 YOUR_PUBLIC_KEY를 실제 Public Key로 변경하세요
-        (function() {
+        (function () {
             // 실제 사용 시 아래 주석을 해제하고 YOUR_PUBLIC_KEY를 입력하세요
             emailjs.init('Bsua1cc2pzvCqtQpw');
-            
+
             // Development mode - 콘솔에 출력
             console.log('EmailJS Development Mode - 설정 완료 후 위 주석을 해제하세요');
         })();
@@ -319,10 +948,46 @@
         function toggleAllAgreement() {
             const agreeAll = document.getElementById('agreeAll');
             const agreements = document.querySelectorAll('input[name="agreements"]');
-            
+
             agreements.forEach(checkbox => {
                 checkbox.checked = agreeAll.checked;
             });
+        }
+
+        // 약관 토글 기능
+        function toggleTerms(type) {
+            const content = document.getElementById(type + '-content');
+            const icon = document.getElementById(type + '-icon');
+            const toggle = event.currentTarget;
+            const toggleText = toggle.querySelector('.terms-toggle-text');
+
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                content.classList.add('expanded');
+                icon.classList.add('rotated');
+
+                // 텍스트 변경
+                if (type === 'privacy') {
+                    toggleText.textContent = '개인정보 수집 및 이용 약관 내용 숨기기';
+                } else if (type === 'delegate') {
+                    toggleText.textContent = '업무위탁 약관 내용 숨기기';
+                } else if (type === 'terms') {
+                    toggleText.textContent = '서비스 이용약관 내용 숨기기';
+                }
+            } else {
+                content.classList.remove('expanded');
+                content.classList.add('collapsed');
+                icon.classList.remove('rotated');
+
+                // 텍스트 변경
+                if (type === 'privacy') {
+                    toggleText.textContent = '개인정보 수집 및 이용 약관 내용 보기';
+                } else if (type === 'delegate') {
+                    toggleText.textContent = '업무위탁 약관 내용 보기';
+                } else if (type === 'terms') {
+                    toggleText.textContent = '서비스 이용약관 내용 보기';
+                }
+            }
         }
 
         // 병원 검색 기능
@@ -332,7 +997,7 @@
                 alert('요양기관번호를 입력해주세요.');
                 return;
             }
-            
+
             // 테스트 데이터 확장
             const hospitalData = {
                 '12345678': { name: '삼성서울병원', phone: '02-3410-2114', rep: '홍길동' },
@@ -357,12 +1022,12 @@
                 alert('이메일을 입력해주세요.');
                 return;
             }
-            
+
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 alert('유효한 이메일 주소를 입력해주세요.');
                 return;
             }
-            
+
             alert('인증 메일이 발송되었습니다. 이메일을 확인해주세요.');
         }
 
@@ -385,13 +1050,13 @@ ${formData.product}가 접수되었습니다.
 비밀번호: ${formData.password}
 
 신청일시: ${new Date().toLocaleString('ko-KR')}
-            `;
+        `;
 
             // Development mode - 콘솔에 출력
             console.log('=== 검체검사 발송시스템 신청서 ===');
             console.log(emailContent);
             console.log('수신자: kmid.contact@gmail.com');
-            
+
             // 실제 EmailJS 발송 코드 - 설정 완료 후 주석을 해제하세요
             // 아래 YOUR_SERVICE_ID와 YOUR_TEMPLATE_ID를 실제 값으로 변경하세요
             emailjs.send('service_8xyqgmt', 'template_dtyaziq', {
@@ -407,51 +1072,51 @@ ${formData.product}가 접수되었습니다.
                 password: formData.password,
                 submission_date: new Date().toLocaleString('ko-KR'),
                 message: emailContent
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
                 window.location.href = 'index.html';
-            }, function(error) {
+            }, function (error) {
                 console.log('FAILED...', error);
                 alert('신청서 발송 중 오류가 발생했습니다. 다시 시도해주세요.');
             });
-            
-            
+
+
             // Development mode - 성공 시뮬레이션 (실제 EmailJS 사용 시 이 부분을 주석 처리하세요)
             // setTimeout(() => {
             //     alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
-                // window.location.href = 'index.html';
+            // window.location.href = 'index.html';
             // }, 1000);
         }
 
         // 폼 제출 처리
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // 필수 약관 동의 확인
             const agreements = document.querySelectorAll('input[name="agreements"]');
             let allAgreed = true;
-            
+
             agreements.forEach(checkbox => {
                 if (!checkbox.checked) {
                     allAgreed = false;
                 }
             });
-            
+
             if (!allAgreed) {
                 alert('필수 약관에 모두 동의해주세요.');
                 return;
             }
-            
+
             // 비밀번호 확인
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            
+
             if (password !== confirmPassword) {
                 alert('비밀번호가 일치하지 않습니다.');
                 return;
             }
-            
+
             // 폼 데이터 수집
             const formData = {
                 product: '검체검사 발송시스템',
@@ -463,11 +1128,11 @@ ${formData.product}가 접수되었습니다.
                 email: document.getElementById('email').value,
                 password: document.getElementById('password').value
             };
-            
+
             // 이메일 발송
             sendApplicationEmail(formData);
         });
     </script>
 </body>
 
-</html> 
+</html>
