@@ -120,9 +120,9 @@
     <!-- 신청 페이지들 -->
     <url>
         <loc>https://kmid.co.kr/apply/</loc>
-        <lastmod>2025-01-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <lastmod>2025-01-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
     </url>
     
     <url>
