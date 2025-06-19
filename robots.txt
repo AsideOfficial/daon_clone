@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /backup_html_files/
+Disallow: /backup_original_files/
+Disallow: /*.sh
+Disallow: /*.json
+Disallow: /*.md
+
+Sitemap: https://kmid.co.kr/sitemap.xml
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+
+# 구글 검색로봇
+User-agent: Googlebot
+Allow: /
+
+# 다음 검색로봇
+User-agent: Daumoa
+Allow: / 
