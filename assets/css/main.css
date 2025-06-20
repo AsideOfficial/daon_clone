@@ -160,9 +160,10 @@ Create date :2022-08-01
   width: calc(100% - 4rem);
   position: absolute;
   left: 50%;
-  bottom: 17%;
-  transform: translate(-50%, -50%);
+  bottom: 8rem;
+  transform: translateX(-50%);
   text-align: left;
+  z-index: 2;
 }
 .visual .control_box .dots {
   display: inline-block;

@@ -7,6 +7,9 @@
   .visual .desc {
     padding-top: 11rem;
   }
+  .visual .control_box {
+    bottom: 6rem;
+  }
   .visual .list {
     width: 101rem;
     height: 75rem;
@@ -72,6 +75,9 @@
   .visual .desc .title:before {
     width: 45rem;
   }
+  .visual .control_box {
+    bottom: 5rem;
+  }
   .visual .list {
     width: 88rem;
     height: 65rem;
@@ -93,6 +99,9 @@
   }
   .visual .desc .txt {
     font-size: 1.6rem;
+  }
+  .visual .control_box {
+    bottom: 4rem;
   }
   .visual .list {
     width: 65rem;
@@ -246,6 +255,9 @@
 }
 
 @media (max-width: 480px) {
+  .visual .control_box {
+    bottom: 2rem;
+  }
   .visual .list {
     width: 50rem;
     height: 40rem;
