@@ -6,8 +6,8 @@
         <link>https://kmid.co.kr/</link>
         <atom:link href="https://kmid.co.kr/rss.xml" rel="self" type="application/rss+xml" />
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 03 Jan 2025 00:00:00 +0900</lastBuildDate>
-        <pubDate>Fri, 03 Jan 2025 00:00:00 +0900</pubDate>
+        <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0900</lastBuildDate>
+        <pubDate>Thu, 09 Jan 2025 00:00:00 +0900</pubDate>
         <ttl>1440</ttl>
         <image>
             <url>https://kmid.co.kr/assets/images/logo.png</url>
@@ -80,11 +80,12 @@
         </item>
 
         <item>
-            <title>한국의료정보데이터 검체검사 발송 시스템 무료 지원</title>
-            <description>한국의료정보데이터는 검체검사 발송 시스템을 병의원에 무료로 지원하고 있습니다.</description>
+            <title>의료 개인정보 전송요구권을 위한 검체검사 결과 발송시스템 신청</title>
+            <description>환자의 개인정보 전송요구권을 보장하는 안전한 검체검사 결과 발송시스템을 무료로 신청하실 수 있습니다. GDPR 및 개인정보보호법을 준수하여 환자의 의료데이터를 안전하게 전송합니다.</description>
             <link>https://kmid.co.kr/apply/</link>
             <guid>https://kmid.co.kr/apply/</guid>
-            <pubDate>Fri, 03 Jan 2025 00:00:00 +0900</pubDate>
+            <pubDate>Thu, 09 Jan 2025 00:00:00 +0900</pubDate>
+            <category>의료 개인정보 전송요구권</category>
         </item>
 
         <item>

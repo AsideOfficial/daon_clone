@@ -20,10 +20,10 @@
 3. 다음 템플릿 설정:
 
 ```
-Subject: 검체검사 발송시스템 신청서 - {{hospital_name}}
+Subject: 검체검사 결과 발송시스템 신청서 - {{hospital_name}}
 
 Content:
-검체검사 발송시스템 신청서가 접수되었습니다.
+검체검사 결과 발송시스템 신청서가 접수되었습니다.
 
 === 병원정보 ===
 요양기관번호: {{license_number}}
@@ -42,7 +42,7 @@ Content:
 신청일시: {{submission_date}}
 
 ---
-한국의료정보데이터 검체검사 발송시스템
+한국의료정보데이터 검체검사 결과 발송시스템
 ```
 
 4. Template ID 기록 (예: `template_xyz789`)
@@ -76,7 +76,7 @@ emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
     message: emailContent
 }).then(function(response) {
     console.log('SUCCESS!', response.status, response.text);
-    alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
+    alert('검체검사 결과 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
     window.location.href = 'index.html';
 }, function(error) {
     console.log('FAILED...', error);
@@ -145,9 +145,9 @@ app.post('/send-application', async (req, res) => {
         const mailOptions = {
             from: 'kmid.contact@gmail.com',
             to: 'kmid.contact@gmail.com',
-            subject: `검체검사 발송시스템 신청서 - ${formData.hospitalName}`,
+            subject: `검체검사 결과 발송시스템 신청서 - ${formData.hospitalName}`,
             text: `
-검체검사 발송시스템 신청서
+검체검사 결과 발송시스템 신청서
 
 === 병원정보 ===
 요양기관번호: ${formData.licenseNumber}

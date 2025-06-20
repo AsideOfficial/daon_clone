@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
 
-    <meta name="title" content="검체검사 발송시스템 신청 - 한국의료정보데이터">
-    <meta name="description" content="검체검사 발송시스템 신청 - 한국의료정보데이터">
-    <meta name="keyword" content="한국의료정보데이터, KMID, 검체검사 발송시스템">
+    <meta name="title" content="검체검사 결과 발송시스템 신청 - 한국의료정보데이터">
+    <meta name="description" content="검체검사 결과 발송시스템 신청 - 한국의료정보데이터">
+    <meta name="keyword" content="한국의료정보데이터, KMID, 검체검사 결과 발송시스템">
     <meta name="author" content="한국의료정보데이터">
 
-    <title>검체검사 발송시스템 신청 - 한국의료정보데이터</title>
+    <title>검체검사 결과 발송시스템 신청 - 한국의료정보데이터</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
@@ -140,14 +140,14 @@
         <main id="main">
             <div class="register-container">
                 <div class="register-header">
-                    <h1>검체검사 발송시스템 신청</h1>
-                    <p>한국의료정보데이터의 검체검사 발송시스템을 무료로 신청하실 수 있습니다.</p>
+                    <h1>검체검사 결과 발송시스템 신청</h1>
+                    <p>한국의료정보데이터의 검체검사 결과 발송시스템을 무료로 신청하실 수 있습니다.</p>
                 </div>
 
                 <!-- <div class="install-guide">
                     <h4>📋 시스템 설치 및 사용 방법</h4>
                     <ol>
-                        <li>검체검사 발송시스템 설치 파일 다운로드</li>
+                        <li>검체검사 결과 발송시스템 설치 파일 다운로드</li>
                         <li>사용하시는 의료진료 프로그램이 있는 PC에 설치</li>
                         <li>설치 완료 후, 바탕화면에 있는 KMID 아이콘 클릭</li>
                         <li>로그인창에 이메일 아이디와 설정한 비밀번호로 로그인</li>
@@ -215,7 +215,7 @@
                         </div>
                         <div class="terms-content">
                             <p><strong>제1조 (목적)</strong></p>
-                            <p>본 약관은 한국의료정보데이터가 제공하는 검체검사 발송시스템 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
+                            <p>본 약관은 한국의료정보데이터가 제공하는 검체검사 결과 발송시스템 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
                             <p><strong>제2조 (서비스의 제공)</strong></p>
                             <ul>
                                 <li>검체검사 결과 발송 서비스</li>
@@ -253,7 +253,7 @@
                     <div class="form-section">
                         <h3>4) 이용요금</h3>
                         <div class="price-info">
-                            <h4>💰 검체검사 발송시스템 이용요금</h4>
+                            <h4>💰 검체검사 결과 발송시스템 이용요금</h4>
                             <ul>
                                 <li><strong>기본 운영비:</strong> 무료</li>
                                 <li><strong>카카오 알림톡 발송료:</strong> 건당 8원(VAT 별도)</li>
@@ -262,7 +262,7 @@
                     </div>
 
                     <button type="submit" class="submit-btn">
-                        <i class="xi-check"></i> 검체검사 발송시스템 신청서 제출
+                        <i class="xi-check"></i> 검체검사 결과 발송시스템 신청서 제출
                     </button>
                 </form>
             </div>
@@ -376,7 +376,7 @@ ${formData.product}가 접수되었습니다.
             `;
 
             // Development mode - 콘솔에 출력
-            console.log('=== 검체검사 발송시스템 신청서 ===');
+            console.log('=== 검체검사 결과 발송시스템 신청서 ===');
             console.log(emailContent);
             console.log('수신자: kmid.contact@gmail.com');
             
@@ -397,7 +397,7 @@ ${formData.product}가 접수되었습니다.
                 message: emailContent
             }).then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
+                alert('검체검사 결과 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
                 window.location.href = 'index.html';
             }, function(error) {
                 console.log('FAILED...', error);
@@ -407,7 +407,7 @@ ${formData.product}가 접수되었습니다.
             
             // Development mode - 성공 시뮬레이션 (실제 EmailJS 사용 시 이 부분을 주석 처리하세요)
             // setTimeout(() => {
-            //     alert('검체검사 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
+            //     alert('검체검사 결과 발송시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
                 // window.location.href = 'index.html';
             // }, 1000);
         }
@@ -442,7 +442,7 @@ ${formData.product}가 접수되었습니다.
             
             // 폼 데이터 수집
             const formData = {
-                product: '검체검사 발송시스템',
+                product: '검체검사 결과 발송시스템',
                 licenseNumber: document.getElementById('licenseNumber').value,
                 hospitalName: document.getElementById('hospitalName').value,
                 representative: document.getElementById('representative').value,

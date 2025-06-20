@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+
+    <meta name="title" content="사이트맵 - 한국의료정보데이터">
+    <meta name="description" content="한국의료정보데이터(KMID) 웹사이트의 전체 사이트맵입니다. 모든 페이지를 한눈에 확인하고 원하는 정보를 쉽게 찾으실 수 있습니다.">
+    <meta name="keywords" content="사이트맵, 한국의료정보데이터, KMID, 웹사이트 구조, 페이지 목록">
+    <meta name="author" content="한국의료정보데이터">
+    <meta name="robots" content="index, follow">
+
+    <title>사이트맵 - 한국의료정보데이터</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/layout_respond.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main_respond.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <!-- Favicon 설정 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+    <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #00a3d3; text-align: center; }
+        .section { margin-bottom: 30px; }
+        .section h2 { color: #333; border-bottom: 2px solid #00a3d3; padding-bottom: 5px; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 5px 0; }
+        a { color: #333; text-decoration: none; }
+        a:hover { color: #00a3d3; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>사이트맵</h1>
+        
+        <div class="section">
+            <h2>메인</h2>
+            <ul>
+                <li><a href="/">홈페이지</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>회사소개</h2>
+            <ul>
+                <li><a href="/greeting">KMID 연구소개</a></li>
+                <li><a href="/organization">조직도</a></li>
+                <li><a href="/about">회사 정보</a></li>
+                <li><a href="/company">회사 현황</a></li>
+                <li><a href="/business">사업영역</a></li>
+                <li><a href="/history">연혁</a></li>
+                <li><a href="/location">찾아오시는 길</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>연구영역</h2>
+            <ul>
+                <li><a href="/1">의료정보 보안연구</a></li>
+                <li><a href="/2">의료 데이터 연구</a></li>
+                <li><a href="/3">병원경영 데이터 연구</a></li>
+                <li><a href="/4">의료데이터 통합연구</a></li>
+                <li><a href="/5">환자정보 통합연구</a></li>
+                <li><a href="/6">의료AI 데이터 연구</a></li>
+                <li><a href="/7">환자경험 데이터 연구</a></li>
+                <li><a href="/8">공공의료 데이터 연구</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>의료기관 현황</h2>
+            <ul>
+                <li><a href="/medical-institutions">의료기관 현황</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>연구현황</h2>
+            <ul>
+                <li><a href="/research">연구현황</a></li>
+                <li><a href="/research-detail">연구 상세</a></li>
+                <li><a href="/research-gallery">연구갤러리</a></li>
+                <li><a href="/research-materials">연구자료</a></li>
+                <li><a href="/research-faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>신청/등록 서비스</h2>
+            <ul>
+                <li><a href="/apply">검체검사 결과 발송시스템 신청</a></li>
+                <li><a href="/insurance-claim-system-register">보험금 청구시스템 등록</a></li>
+                <li><a href="/ai-diagnosis-system-register">AI 진단시스템 등록</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 링크 클릭 트래킹
+        document.querySelectorAll('.sitemap-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // 구글 애널리틱스 이벤트 트래킹 (필요시 활성화)
+                // gtag('event', 'sitemap_click', {
+                //     'page_title': this.textContent.trim(),
+                //     'page_location': this.href
+                // });
+            });
+        });
+    </script>
+</body>
+
+</html> 
