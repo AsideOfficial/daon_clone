@@ -18,12 +18,6 @@
 	<title>의료 데이터 연구 | 연구영역 : 한국의료정보데이터</title>
 
 	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/jquery/css/jquery.bxslider.css" />
-	<link rel="stylesheet" href="/jquery/css/slick.css" />
-	<link rel="stylesheet" href="/jquery/css/fullpage.css">
-	<link rel="stylesheet" href="/kor/css/default.css" />
-	<link rel="stylesheet" href="/kor/css/layout.css" />
-	<link rel="stylesheet" href="/kor/css/layout_respond.css" />
 	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
 	<link rel="stylesheet" href="/assets/css/reset.css">
 	<link rel="stylesheet" href="/assets/css/default.css">
@@ -32,10 +26,20 @@
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="stylesheet" href="/assets/css/main_respond.css">
 	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	
+	<!-- 서브 페이지 CSS -->
+	<link rel="stylesheet" href="/assets/css/sub.css" />
+	<link rel="stylesheet" href="/assets/css/sub_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
+	
+	<!-- CDN CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
 	<!-- Favicon 설정 -->
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
@@ -200,11 +204,6 @@
 		}
 	</style>
 	<!-- 서브 CSS -->
-	<link rel="stylesheet" href="/js/owl.carousel.css" />
-	<link rel="stylesheet" href="/kor/css/sub.css" />
-	<link rel="stylesheet" href="/kor/css/sub_respond.css" />
-	<link rel="stylesheet" href="/kor/css/sub_es.css" />
-	<link rel="stylesheet" href="/kor/css/sub02.css" />
 	<!-- 공통 JS - 메인 페이지와 동일 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -325,7 +324,28 @@
 		});
 	</script>
 	<!-- 서브 JS -->
-	<script src="/ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+	<!-- 공통 CSS -->
+	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+	<link rel="stylesheet" href="/assets/css/reset.css">
+	<link rel="stylesheet" href="/assets/css/default.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+	<link rel="stylesheet" href="/assets/css/layout_respond.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/main_respond.css">
+	<link rel="stylesheet" href="/assets/css/button.css">
+	<link rel="stylesheet" href="/assets/css/responsive.css">
+
+	<!-- 서브 페이지 CSS -->
+	<link rel="stylesheet" href="/assets/css/sub.css" />
+	<link rel="stylesheet" href="/assets/css/sub_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
+
+	<!-- CDN CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -544,7 +564,7 @@
 						<strong class="title">연구영역</strong>
 						<span class="con">건강의 미래를 데이터로 잇다, 한국의료정보데이터</span>
 					</div>
-					<span class="img animated slower"><img src="/kor/img/sub/sub-visual02.jpg" alt=""></span>
+					<span class="img animated slower"><img src="/assets/img/sub/sub-visual02.jpg" alt=""></span>
 				</div>
 				<div id="contentWrap">
 					<section id="snb" class="sub02">
@@ -648,7 +668,6 @@
 											<script type="text/javascript">
 												//<![CDATA[
 												var now = escape(document.location.href);
-												var url = "/ease_src/kakao.jsp?title=광주광역시도시공사&url=" + now;
 												$("#kakao-link-btn").attr("href", url);
 												//]]>
 											</script>
@@ -665,7 +684,7 @@
 								<div class="flex-box type2">
 									<ul class="list">
 										<li>
-											<i><img src="/kor/img/sub/icon-data03.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-data03.png" alt=""></i>
 											<strong><span class="num">1</span>의료데이터 <span class="wbr">수집 및 정제</span></strong>
 											<ul class="desc bul">
 												<li>다양한 의료기관의 임상데이터 수집</li>
@@ -676,7 +695,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-search02.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-search02.png" alt=""></i>
 											<strong><span class="num">2</span>임상 연구 분석</strong>
 											<ul class="desc bul">
 												<li>실제 임상 환경에서의 치료 효과 분석<br />다양한 치료법의 실효성과 안전성을 데이터 기반으로 검증</li>
@@ -685,7 +704,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-search03.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-search03.png" alt=""></i>
 											<strong><span class="num">3</span>질병 패턴 분석</strong>
 											<ul class="desc bul">
 												<li>지역별·연령별 질병 발생 패턴 분석</li>
@@ -694,7 +713,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-data04.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-data04.png" alt=""></i>
 											<strong><span class="num">4</span>바이오마커 연구</strong>
 											<ul class="desc bul">
 												<li>질병 조기 진단을 위한 바이오마커 발굴</li>
@@ -704,7 +723,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-data05.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-data05.png" alt=""></i>
 											<strong><span class="num">5</span>의료 결과 연구</strong>
 											<ul class="desc bul">
 												<li>치료 성과 평가 및 비교 효과 연구</li>
@@ -713,7 +732,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-people01.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-people01.png" alt=""></i>
 											<strong><span class="num">6</span>연구자 네트워크 구축 및<br />다기관 공동연구 지원</strong>
 											<ul class="desc bul">
 												<li>국내외 의료기관 간 연구 협력 체계 구축</li>
@@ -721,7 +740,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-data06.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-data06.png" alt=""></i>
 											<strong><span class="num">7</span>연구 데이터 플랫폼 구축</strong>
 											<ul class="desc bul">
 												<li>연구자용 데이터 분석 환경 제공</li>
@@ -729,7 +748,7 @@
 											</ul>
 										</li>
 										<li>
-											<i><img src="/kor/img/sub/icon-data07.png" alt=""></i>
+											<i><img src="/assets/img/sub/icon-data07.png" alt=""></i>
 											<strong><span class="num">8</span>연구 성과 <span class="wbr">확산 및 활용</span></strong>
 											<ul class="desc bul">
 												<li>연구 결과의 임상 적용 방안 개발</li>
@@ -773,18 +792,18 @@
 		</footer>
 	</div>
 
-	<!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
-	<link rel="stylesheet" href="/css/printArea.css" media="print" />
+	<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+	<link rel="stylesheet" href="/assets/css/main.css" media="print" />
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon-precomposed" href="./favicon_m.png" />
 
 	<!-- 공통 JS - 중복 제거 -->
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-	<!-- <script src="./kor/js/layout.js"></script> -->
-	<!-- <script src="../assets/js/main.js"></script> -->
+	<!-- <script src="/assets/js/main.js"></script> -->
+	<!-- <script src="/assets/js/main.js"></script> -->
 
 	<!-- 서브 JS - 중복 제거 -->
-	<!-- <script src="./kor/js/sub.js"></script> -->
+	<!-- <script src="/assets/js/main.js"></script> -->
 
 	<script>
 		try { initNavigation('02'); } catch (e) { console.log(""); }	// 메인메뉴 활성화

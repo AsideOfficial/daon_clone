@@ -20,12 +20,6 @@
 	<title>의료정보 보안연구 | 연구영역 : 한국의료정보데이터</title>
 
 	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/jquery/css/jquery.bxslider.css" />
-	<link rel="stylesheet" href="/jquery/css/slick.css" />
-	<link rel="stylesheet" href="/jquery/css/fullpage.css">
-	<link rel="stylesheet" href="/kor/css/default.css" />
-	<link rel="stylesheet" href="/kor/css/layout.css" />
-	<link rel="stylesheet" href="/kor/css/layout_respond.css" />
 	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
 	<link rel="stylesheet" href="/assets/css/reset.css">
 	<link rel="stylesheet" href="/assets/css/default.css">
@@ -34,10 +28,20 @@
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="stylesheet" href="/assets/css/main_respond.css">
 	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 	<link rel="stylesheet" href="/assets/css/responsive.css">
 	
+	<!-- 서브 페이지 CSS -->
+	<link rel="stylesheet" href="/assets/css/sub.css" />
+	<link rel="stylesheet" href="/assets/css/sub_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
+	
+	<!-- CDN CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
 	<!-- Favicon 설정 -->
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
@@ -203,12 +207,8 @@
 	</style>
 
 	<!-- 서브 CSS -->
-	<link rel="stylesheet" href="/js/owl.carousel.css" />
+	<link rel="stylesheet" href="/assets/js/owl.carousel.css" />
 
-	<link rel="stylesheet" href="/kor/css/sub.css" />
-	<link rel="stylesheet" href="/kor/css/sub_respond.css" />
-	<link rel="stylesheet" href="/kor/css/sub_es.css" />
-	<link rel="stylesheet" href="/kor/css/sub02.css" />
 
 
 	<!-- 공통 JS - 메인 페이지와 동일 -->
@@ -317,7 +317,6 @@
 
 
 	<!-- 서브 JS -->
-	<script src="/ease_src/sEditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 
 
 
@@ -542,7 +541,7 @@
 						<strong class="title">연구영역</strong>
 						<span class="con">건강의 미래를 데이터로 잇다, 한국의료정보데이터</span>
 					</div>
-					<span class="img animated slower"><img src="/kor/img/sub/sub-visual02.jpg" alt=""></span>
+					<span class="img animated slower"><img src="/assets/img/sub/sub-visual02.jpg" alt=""></span>
 				</div>
 				<div id="contentWrap">
 					<section id="snb" class="sub02">
@@ -647,7 +646,6 @@
 											<script type="text/javascript">
 												//<![CDATA[
 												var now = escape(document.location.href);
-												var url = "/ease_src/kakao.jsp?title=광주광역시도시공사&url=" + now;
 												$("#kakao-link-btn").attr("href", url);
 												//]]>
 											</script>
@@ -665,14 +663,14 @@
 							<div class="flex-box type1">
 								<ul class="list">
 									<li>
-										<i><img src="/kor/img/sub/icon-search01.png" alt=""></i>
+										<i><img src="/assets/img/sub/icon-search01.png" alt=""></i>
 										<strong><span class="num">1</span>의료정보 보안 위협 연구</strong>
 										<div class="desc">
 											의료기관이 직면한 다양한 보안 위협을 체계적으로 분석하고, 새로운 보안 위협의 동향과 패턴을 연구합니다. 사이버 공격 사례 분석을 통해 의료정보 보안 취약점을 도출하고 대응 방안을 연구합니다.
 										</div>
 									</li>
 									<li>
-										<i><img src="/kor/img/sub/icon-planning.png" alt=""></i>
+										<i><img src="/assets/img/sub/icon-planning.png" alt=""></i>
 										<strong><span class="num">2</span>의료정보 보안 기술 연구</strong>
 										<ul class="dep03">
 											<li>의료정보 암호화 기술 연구</li>
@@ -688,7 +686,7 @@
 										</ul>
 									</li>
 									<li>
-										<i><img src="/kor/img/sub/icon-analysis.png" alt=""></i>
+										<i><img src="/assets/img/sub/icon-analysis.png" alt=""></i>
 										<strong><span class="num">3</span>의료정보 보안 솔루션 연구</strong>
 										<ul class="dep03">
 											<li>의료기관 특화 방화벽 연구</li>
@@ -701,14 +699,14 @@
 										</ul>
 									</li>
 									<li>
-										<i><img src="/kor/img/sub/icon-data02.png" alt=""></i>
+										<i><img src="/assets/img/sub/icon-data02.png" alt=""></i>
 										<strong><span class="num">4</span>의료 개인정보보호 연구</strong>
 										<div class="desc">
 											의료 환경에서의 개인정보보호 방안을 연구하고, 환자 프라이버시 보호를 위한 새로운 기술 및 정책을 개발합니다. 의료정보 비식별화 기술 및 개인정보 유출 방지 기술을 연구합니다.
 										</div>
 									</li>
 									<li>
-										<i><img src="/kor/img/sub/icon-research.png" alt=""></i>
+										<i><img src="/assets/img/sub/icon-research.png" alt=""></i>
 										<strong><span class="num">5</span>의료정보 보안 표준 연구</strong>
 										<ul class="dep03">
 											<li>의료정보보호 관리체계 연구<br />
@@ -765,14 +763,14 @@
 		</footer>
 	</div>
 
-	<!--[if lt IE 9]><script src="/js/html5.js"></script><![endif]-->
-	<link rel="stylesheet" href="/css/printArea.css" media="print" />
+	<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+	<link rel="stylesheet" href="/assets/css/main.css" media="print" />
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon-precomposed" href="./favicon_m.png" />
 	<!-- 공통 JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="./kor/js/layout.js"></script>
-	<script src="../assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/main.js"></script>
 	<script>
 		// 세부 페이지 디버깅 코드
 		console.log('=== 1번 페이지 디버깅 시작 ===');
@@ -814,7 +812,7 @@
 	</script>
 
 	<!-- 서브 JS -->
-	<script src="./kor/js/sub.js"></script>
+	<script src="/assets/js/main.js"></script>
 	<script>
 		try { initNavigation('02'); } catch (e) { console.log(""); }	// 메인메뉴 활성화
 		//try { initNavigationMbl('02'); } catch (e) { console.log(""); }	// 모바일 메인메뉴 활성화
