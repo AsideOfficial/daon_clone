@@ -35,22 +35,23 @@
     <link rel="stylesheet" href="/assets/font/webfonts_gmarketsans.css">
     <link rel="stylesheet" href="/assets/font/webfonts_NotoSansKR.css">
     <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	
-	<!-- Favicon 설정 -->
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
-	<link rel="shortcut icon" href="/assets/images/favicon.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
-	<meta name="msapplication-TileImage" content="/assets/images/favicon.png">
+
+    <!-- Favicon 설정 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+    <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
     <!-- 햄버거 메뉴 강제 우선순위 CSS -->
     <style>
         /* 햄버거 메뉴 위치 고정 */
         @media (max-width: 1200px) {
+
             .site-map,
             #gnb1 {
                 display: none !important;
             }
-            
+
             #gnb2 {
                 display: block !important;
                 position: absolute !important;
@@ -64,7 +65,7 @@
                 z-index: 99999 !important;
                 background: transparent !important;
             }
-            
+
             #gnb2 .control {
                 display: block !important;
                 color: #333 !important;
@@ -78,29 +79,29 @@
                 text-decoration: none !important;
                 transition: all 0.3s !important;
             }
-            
-            #gnb2 .open:before { 
-                content: "☰" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .open:before {
+                content: "☰" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2 .close { 
-                display: none !important; 
+
+            #gnb2 .close {
+                display: none !important;
             }
-            
-            #gnb2 .close:before { 
-                content: "✕" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .close:before {
+                content: "✕" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2.active .open { 
-                display: none !important; 
+
+            #gnb2.active .open {
+                display: none !important;
             }
-            
-            #gnb2.active .close { 
-                display: block !important; 
+
+            #gnb2.active .close {
+                display: block !important;
             }
-            
+
             /* 모바일 메뉴 스타일 */
             #head_menu_all {
                 display: none !important;
@@ -114,9 +115,9 @@
                 z-index: 9999 !important;
                 background: #edf7ff !important;
                 border-radius: 1rem !important;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
             }
-            
+
             #gnb2.active #head_menu_all {
                 display: block !important;
                 visibility: visible !important;
@@ -124,12 +125,12 @@
                 height: calc(100vh - 13rem) !important;
                 overflow-y: auto !important;
             }
-            
-            #head_menu_all > li {
+
+            #head_menu_all>li {
                 border-bottom: 1px solid #ddd !important;
             }
-            
-            #head_menu_all > li > a {
+
+            #head_menu_all>li>a {
                 color: #333 !important;
                 display: block !important;
                 font-size: 2rem !important;
@@ -138,8 +139,8 @@
                 position: relative !important;
                 z-index: 1 !important;
             }
-            
-            #head_menu_all > li > a:after {
+
+            #head_menu_all>li>a:after {
                 content: "▼" !important;
                 font-size: 1.4rem !important;
                 position: absolute !important;
@@ -147,11 +148,11 @@
                 top: 2.2rem !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active > a:after {
+
+            #head_menu_all>li.active>a:after {
                 transform: rotate(180deg) !important;
             }
-            
+
             #head_menu_all .submenu {
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -160,37 +161,37 @@
                 background: #317bb5 !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active {
+
+            #head_menu_all>li.active {
                 background-color: #317bb5 !important;
                 border-radius: 1rem !important;
             }
-            
-            #head_menu_all > li.active > a {
+
+            #head_menu_all>li.active>a {
                 background-color: #182346 !important;
                 border-radius: 1rem !important;
                 color: #fff !important;
             }
-            
-            #head_menu_all > li.active .submenu {
+
+            #head_menu_all>li.active .submenu {
                 visibility: visible !important;
                 opacity: 1 !important;
                 height: auto !important;
                 padding: 2rem 3rem 3rem !important;
             }
-            
-            #head_menu_all .submenu > ul > li > a {
+
+            #head_menu_all .submenu>ul>li>a {
                 color: #fff !important;
                 display: block !important;
                 font-size: 1.8rem !important;
                 font-weight: normal !important;
                 padding: 1rem 0 !important;
             }
-            
-            #head_menu_all .submenu > ul > li + li {
+
+            #head_menu_all .submenu>ul>li+li {
                 margin-top: 0.5rem !important;
             }
-            
+
             /* 모바일 메뉴 열렸을 때 스크롤 방지 */
             body.menu-open {
                 overflow: hidden !important;
@@ -209,31 +210,31 @@
     <script>
 
 
-                    $(document).ready(function() {
+        $(document).ready(function () {
             console.log('[연구현황] 햄버거 메뉴 스크립트 시작');
-            
+
             // 기존 이벤트 제거
             $('#gnb2').off('.hamburger');
             $('#head_menu_all').off('.submenu');
 
             // 연구현황 데이터 초기화 (약간의 지연을 주어 DOM이 완전히 로드된 후 실행)
-            setTimeout(function() {
+            setTimeout(function () {
                 initializeData();
                 setupEventListeners();
             }, 100);
- 
+
             $(document).off('.menu-close');
-            
+
             // 햄버거 메뉴 토글 (open과 close 버튼 모두 처리)
-            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function(e) {
+            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 console.log('[연구현황] 햄버거 버튼 클릭됨');
-                
+
                 const gnb2 = $('#gnb2');
                 const isActive = gnb2.hasClass('active');
-                
+
                 if (isActive) {
                     gnb2.removeClass('active');
                     $('body').removeClass('menu-open');
@@ -244,44 +245,44 @@
                     console.log('[연구현황] 메뉴 열림');
                 }
             });
-            
+
             // 서브메뉴 아코디언 토글
-            $('#head_menu_all > li > a').on('click.submenu', function(e) {
+            $('#head_menu_all > li > a').on('click.submenu', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const li = $(this).parent();
                 const hasSubmenu = li.find('.submenu').length > 0;
-                
+
                 if (hasSubmenu) {
                     console.log('[연구현황] 서브메뉴 토글:', $(this).text());
-                    
+
                     // 다른 메뉴들 닫기
                     $('#head_menu_all > li').not(li).removeClass('active');
-                    
+
                     // 현재 메뉴 토글
                     li.toggleClass('active');
                 }
             });
-            
+
             // 메뉴 외부 클릭시 닫기
-            $(document).on('click.menu-close', function(e) {
+            $(document).on('click.menu-close', function (e) {
                 if (!$(e.target).closest('#gnb2').length) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구현황] 외부 클릭으로 메뉴 닫힘');
                 }
             });
-            
+
             // ESC 키로 메뉴 닫기
-            $(document).on('keydown.menu-close', function(e) {
+            $(document).on('keydown.menu-close', function (e) {
                 if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구현황] ESC 키로 메뉴 닫힘');
                 }
             });
-            
+
             console.log('[연구현황] 햄버거 메뉴 스크립트 완료');
         });
     </script>
@@ -293,7 +294,7 @@
         .research-board {
             padding: 3rem 0;
         }
-        
+
         .board-search {
             display: flex;
             justify-content: space-between;
@@ -302,20 +303,20 @@
             padding: 2rem 0;
             border-bottom: 1px solid #e5e5e5;
         }
-        
+
         .search-form {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-        
+
         .search-form select {
             padding: 0.8rem 1.2rem;
             border: 1px solid #ddd;
             border-radius: 0.4rem;
             font-size: 1.4rem;
         }
-        
+
         .search-form input[type="text"] {
             padding: 0.8rem 1.2rem;
             border: 1px solid #ddd;
@@ -323,7 +324,7 @@
             font-size: 1.4rem;
             width: 25rem;
         }
-        
+
         .search-form button {
             padding: 0.8rem 2rem;
             background: #00a3d3;
@@ -334,21 +335,21 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .search-form button:hover {
             background: #0082a6;
         }
-        
+
         .board-util {
             font-size: 1.4rem;
             color: #666;
             margin-bottom: 2rem;
         }
-        
+
         .board-util strong {
             color: #00a3d3;
         }
-        
+
         .board-table {
             width: 100%;
             border-collapse: collapse;
@@ -357,7 +358,7 @@
             background: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .board-table th,
         .board-table td {
             border: 1px solid #e0e0e0;
@@ -366,70 +367,70 @@
             font-size: 1.4rem;
             vertical-align: middle;
         }
-        
+
         .board-table th {
             background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
             font-weight: 600;
             color: #495057;
             border-bottom: 2px solid #dee2e6;
         }
-        
+
         .board-table tbody tr {
             background: white;
             transition: background-color 0.2s ease;
         }
-        
+
         .board-table tbody tr:nth-child(even) {
             background: #fafafa;
         }
-        
+
         .board-table tbody tr:hover {
             background: #e3f2fd;
         }
-        
+
         .board-table .title {
             text-align: left;
             padding-left: 2rem;
         }
-        
+
         .board-table .title a {
             color: #333;
             text-decoration: none;
             transition: all 0.3s;
         }
-        
+
         .board-table .title a:hover {
             color: #00a3d3;
             text-decoration: underline;
         }
-        
+
         .board-table .num {
             width: 8rem;
         }
-        
+
         .board-table .writer {
             width: 12rem;
         }
-        
+
         .board-table .date {
             width: 12rem;
         }
-        
+
         .board-table .file {
             width: 8rem;
         }
-        
+
         .board-table .view {
             width: 8rem;
         }
-        
+
         /* 테이블 헤더에서 불필요한 요소 제거 */
         .board-table th::before,
         .board-table th::after,
         .board-table th * {
             content: none !important;
         }
-        
+
         .board-table th {
             position: relative;
             background: #f8f9fa !important;
@@ -437,7 +438,7 @@
             color: #333 !important;
             text-align: center !important;
         }
-        
+
         /* 기존 테이블 스타일 덮어쓰기 */
         .board-table th,
         .board-table td {
@@ -448,12 +449,12 @@
             vertical-align: middle !important;
             line-height: 1.5 !important;
         }
-        
+
         .board-table .title {
             text-align: left !important;
             padding-left: 1.5rem !important;
         }
-        
+
         .empty-message {
             text-align: center;
             padding: 6rem 0;
@@ -461,12 +462,12 @@
             font-size: 1.6rem;
             font-weight: 400;
         }
-        
+
         .board-pagination {
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .board-pagination a,
         .board-pagination span {
             display: inline-block;
@@ -479,14 +480,14 @@
             font-size: 1.4rem;
             transition: all 0.3s;
         }
-        
+
         .board-pagination .current {
             background: #00a3d3;
             color: white;
             border-color: #00a3d3;
             font-weight: 600;
         }
-        
+
         .board-pagination a:hover {
             background: #f8f9fa;
             border-color: #00a3d3;
@@ -497,22 +498,22 @@
             margin-right: 0.5rem;
             font-weight: bold;
         }
-        
+
         .board-pagination .prev::before {
             content: "<";
             margin-right: 0.5rem;
         }
-        
+
         .board-pagination .next1::after {
             content: ">";
             margin-left: 0.5rem;
         }
-        
+
         .board-pagination .last::after {
             margin-left: 0.5rem;
             font-weight: bold;
         }
-        
+
         #contents_title {
             font-size: 2.4rem;
             font-weight: 700;
@@ -527,34 +528,34 @@
                 gap: 2rem;
                 align-items: stretch;
             }
-            
+
             .search-form {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .search-form input[type="text"] {
                 width: 100%;
             }
-            
+
             .board-table {
                 font-size: 1.2rem !important;
                 display: table;
                 table-layout: fixed;
                 width: 100%;
             }
-            
+
             .board-table th,
             .board-table td {
                 padding: 0.8rem 0.5rem !important;
                 font-size: 1.2rem !important;
                 word-break: break-word;
             }
-            
+
             .board-table .title {
                 padding-left: 0.8rem !important;
             }
-            
+
             .board-table .num,
             .board-table .writer,
             .board-table .date,
@@ -562,37 +563,54 @@
             .board-table .view {
                 min-width: auto;
             }
-            
-            .board-table .num { width: 10%; }
-            .board-table .writer { width: 15%; }
-            .board-table .date { width: 20%; }
-            .board-table .file { width: 10%; }
-            .board-table .view { width: 10%; }
-            .board-table .title { width: 35%; }
+
+            .board-table .num {
+                width: 10%;
+            }
+
+            .board-table .writer {
+                width: 15%;
+            }
+
+            .board-table .date {
+                width: 20%;
+            }
+
+            .board-table .file {
+                width: 10%;
+            }
+
+            .board-table .view {
+                width: 10%;
+            }
+
+            .board-table .title {
+                width: 35%;
+            }
         }
     </style>
-	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	<link rel="stylesheet" href="/assets/css/reset.css">
-	<link rel="stylesheet" href="/assets/css/default.css">
-	<link rel="stylesheet" href="/assets/css/layout.css">
-	<link rel="stylesheet" href="/assets/css/layout_respond.css">
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<link rel="stylesheet" href="/assets/css/main_respond.css">
-	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/layout_respond.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main_respond.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 
-	<!-- 서브 페이지 CSS -->
-	<link rel="stylesheet" href="/assets/css/sub.css" />
-	<link rel="stylesheet" href="/assets/css/sub_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
+    <!-- 서브 페이지 CSS -->
+    <link rel="stylesheet" href="/assets/css/sub.css" />
+    <link rel="stylesheet" href="/assets/css/sub_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub02_full.css" />
 
-	<!-- CDN CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- CDN CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -600,10 +618,10 @@
         <a href="#headmn">주 메뉴 바로가기</a>
         <a href="#contents_body">본문으로 바로가기</a>
     </p>
-    
+
     <div id="hiddenLayer" style="display:none"></div>
     <div class="mw" id="mw_temp" style="display:none;"></div>
-    
+
     <div id="wrap">
         <link rel="stylesheet" href="/css/modalpopup.css" />
         <header id="header">
@@ -715,7 +733,7 @@
                     </div>
                     <span class="img animated slower"><img src="/assets/img/sub/sub-visual02.jpg" alt=""></span>
                 </div>
-                
+
                 <div id="contentWrap">
                     <section id="snb" class="sub02">
                         <h2 class="title">연구현황</h2>
@@ -728,7 +746,7 @@
                             </ul>
                         </nav>
                     </section>
-                    
+
                     <section id="contents">
                         <div class="contents_util">
                             <h1 id="contents_title">연구현황</h1>
@@ -742,15 +760,18 @@
                                 </nav>
                                 <div class="util">
                                     <span class="zoom">
-                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;" class="btn up">글자 크게</a>
-                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;" class="btn down">글자 작게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;"
+                                            class="btn up">글자 크게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;"
+                                            class="btn down">글자 작게</a>
                                     </span>
 
-                                    <a class="btn print" href="#contents_body" onclick="printAreaAction(); return false;">인쇄</a>
+                                    <a class="btn print" href="#contents_body"
+                                        onclick="printAreaAction(); return false;">인쇄</a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div id="contents_body" class="research-board">
                             <!-- 검색 기능 -->
                             <div class="board-search">
@@ -760,14 +781,16 @@
                                         <option value="title">제목</option>
                                         <option value="keywords">키워드</option>
                                     </select>
-                                    <input type="text" name="search_keyword" id="search_keyword" placeholder="검색어를 입력하세요" />
+                                    <input type="text" name="search_keyword" id="search_keyword"
+                                        placeholder="검색어를 입력하세요" />
                                     <button type="submit" id="search-btn">검색</button>
                                 </form>
                             </div>
 
                             <!-- 총 게시물 수 -->
                             <div class="board-util" id="board-util">
-                                전체 <strong id="total-count">0</strong>건 페이지 <strong id="current-page">1</strong>/<strong id="total-pages">1</strong>
+                                전체 <strong id="total-count">0</strong>건 페이지 <strong id="current-page">1</strong>/<strong
+                                    id="total-pages">1</strong>
                             </div>
 
                             <!-- 연구현황 테이블 -->
@@ -838,7 +861,7 @@
                     id: 2,
                     title: "병원 경영 데이터 분석을 통한 효율성 개선 방안 연구",
                     department: "과학기술정보통신부",
-                    announcementDate: "2024-12-10", 
+                    announcementDate: "2024-12-10",
                     status: "진행중",
                     summary: "병원 경영 데이터를 분석하여 운영 효율성을 개선하는 방안 연구",
                     keywords: ["데이터분석", "경영효율", "병원운영", "최적화"]
@@ -1358,13 +1381,13 @@
         function initializeData() {
             console.log('[연구현황] 데이터 초기화 시작');
             console.log('[연구현황] 총 프로젝트 수:', projectData.projects.length);
-            
+
             projectData.filteredProjects = [...projectData.projects];
             console.log('[연구현황] 필터된 프로젝트 수:', projectData.filteredProjects.length);
-            
+
             renderProjects();
             updateStats();
-            
+
             console.log('[연구현황] 데이터 초기화 완료');
         }
 
@@ -1376,7 +1399,7 @@
             const searchBtn = document.getElementById('search-btn');
 
             if (searchForm) {
-                searchForm.addEventListener('submit', function(e) {
+                searchForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     filterProjects();
                 });
@@ -1419,8 +1442,8 @@
                         case 'all':
                         default:
                             return project.title.toLowerCase().includes(keyword) ||
-                                   project.summary.toLowerCase().includes(keyword) ||
-                                   project.keywords.some(k => k.toLowerCase().includes(keyword));
+                                project.summary.toLowerCase().includes(keyword) ||
+                                project.keywords.some(k => k.toLowerCase().includes(keyword));
                     }
                 }
 
@@ -1437,7 +1460,7 @@
             console.log('[연구현황] renderProjects 함수 호출');
             const tbody = document.getElementById('project-list');
             console.log('[연구현황] tbody 요소:', tbody);
-            
+
             if (!tbody) {
                 console.error('[연구현황] project-list 요소를 찾을 수 없습니다.');
                 return;
@@ -1453,7 +1476,7 @@
             const startIndex = (projectData.currentPage - 1) * projectData.itemsPerPage;
             const endIndex = startIndex + projectData.itemsPerPage;
             const pageProjects = projectData.filteredProjects.slice(startIndex, endIndex);
-            
+
             console.log('[연구현황] 렌더링할 프로젝트 수:', pageProjects.length);
 
             tbody.innerHTML = pageProjects.map((project, index) => {
@@ -1474,7 +1497,7 @@
                     </tr>
                 `;
             }).join('');
-            
+
             console.log('[연구현황] HTML 렌더링 완료');
             renderPagination();
         }
@@ -1501,7 +1524,7 @@
 
             if (totalCount) totalCount.textContent = projectData.filteredProjects.length;
             if (currentPage) currentPage.textContent = projectData.currentPage;
-            
+
             const totalPageCount = Math.ceil(projectData.filteredProjects.length / projectData.itemsPerPage) || 1;
             if (totalPages) totalPages.textContent = totalPageCount;
         }
@@ -1571,9 +1594,9 @@
                 projectData.currentPage = page;
                 renderProjects();
                 updateStats();
-                
+
                 // 페이지 이동 시 스크롤을 테이블 상단으로 이동
-                document.querySelector('.board-table').scrollIntoView({ 
+                document.querySelector('.board-table').scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -1589,17 +1612,17 @@
             font-size: 1.2rem;
             font-weight: 500;
         }
-        
+
         .status-active {
             background: #e8f5e8;
             color: #2d5a2d;
         }
-        
+
         .status-upcoming {
             background: #fff3cd;
             color: #856404;
         }
-        
+
         .status-closed {
             background: #f8d7da;
             color: #721c24;
@@ -1612,7 +1635,7 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         .search-form select,
         .search-form input[type="text"] {
             padding: 0.8rem 1.2rem;
@@ -1620,17 +1643,17 @@
             border-radius: 0.4rem;
             font-size: 1.4rem;
         }
-        
+
         .search-form select {
             min-width: 12rem;
         }
-        
+
         @media (max-width: 768px) {
             .search-form {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .search-form select,
             .search-form input[type="text"] {
                 width: 100%;
@@ -1645,4 +1668,4 @@
 
 </body>
 
-</html> 
+</html>

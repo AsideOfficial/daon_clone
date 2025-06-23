@@ -32,7 +32,7 @@
 	<link rel="stylesheet" href="/assets/font/webfonts_gmarketsans.css">
 	<link rel="stylesheet" href="/assets/font/webfonts_NotoSansKR.css">
 	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	
+
 	<!-- Favicon 설정 -->
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
@@ -43,11 +43,12 @@
 	<style>
 		/* 햄버거 메뉴 위치 고정 */
 		@media (max-width: 1200px) {
+
 			.site-map,
 			#gnb1 {
 				display: none !important;
 			}
-			
+
 			#gnb2 {
 				display: block !important;
 				position: absolute !important;
@@ -61,7 +62,7 @@
 				z-index: 99999 !important;
 				background: transparent !important;
 			}
-			
+
 			#gnb2 .control {
 				display: block !important;
 				color: #333 !important;
@@ -75,29 +76,29 @@
 				text-decoration: none !important;
 				transition: all 0.3s !important;
 			}
-			
-			#gnb2 .open:before { 
-				content: "☰" !important; 
-				font-family: inherit !important; 
+
+			#gnb2 .open:before {
+				content: "☰" !important;
+				font-family: inherit !important;
 			}
-			
-			#gnb2 .close { 
-				display: none !important; 
+
+			#gnb2 .close {
+				display: none !important;
 			}
-			
-			#gnb2 .close:before { 
-				content: "✕" !important; 
-				font-family: inherit !important; 
+
+			#gnb2 .close:before {
+				content: "✕" !important;
+				font-family: inherit !important;
 			}
-			
-			#gnb2.active .open { 
-				display: none !important; 
+
+			#gnb2.active .open {
+				display: none !important;
 			}
-			
-			#gnb2.active .close { 
-				display: block !important; 
+
+			#gnb2.active .close {
+				display: block !important;
 			}
-			
+
 			/* 모바일 메뉴 스타일 */
 			#head_menu_all {
 				display: none !important;
@@ -111,9 +112,9 @@
 				z-index: 9999 !important;
 				background: #edf7ff !important;
 				border-radius: 1rem !important;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 			}
-			
+
 			#gnb2.active #head_menu_all {
 				display: block !important;
 				visibility: visible !important;
@@ -121,12 +122,12 @@
 				height: calc(100vh - 13rem) !important;
 				overflow-y: auto !important;
 			}
-			
-			#head_menu_all > li {
+
+			#head_menu_all>li {
 				border-bottom: 1px solid #ddd !important;
 			}
-			
-			#head_menu_all > li > a {
+
+			#head_menu_all>li>a {
 				color: #333 !important;
 				display: block !important;
 				font-size: 2rem !important;
@@ -135,8 +136,8 @@
 				position: relative !important;
 				z-index: 1 !important;
 			}
-			
-			#head_menu_all > li > a:after {
+
+			#head_menu_all>li>a:after {
 				content: "▼" !important;
 				font-size: 1.4rem !important;
 				position: absolute !important;
@@ -144,11 +145,11 @@
 				top: 2.2rem !important;
 				transition: all 0.3s !important;
 			}
-			
-			#head_menu_all > li.active > a:after {
+
+			#head_menu_all>li.active>a:after {
 				transform: rotate(180deg) !important;
 			}
-			
+
 			#head_menu_all .submenu {
 				visibility: hidden !important;
 				opacity: 0 !important;
@@ -157,37 +158,37 @@
 				background: #317bb5 !important;
 				transition: all 0.3s !important;
 			}
-			
-			#head_menu_all > li.active {
+
+			#head_menu_all>li.active {
 				background-color: #317bb5 !important;
 				border-radius: 1rem !important;
 			}
-			
-			#head_menu_all > li.active > a {
+
+			#head_menu_all>li.active>a {
 				background-color: #182346 !important;
 				border-radius: 1rem !important;
 				color: #fff !important;
 			}
-			
-			#head_menu_all > li.active .submenu {
+
+			#head_menu_all>li.active .submenu {
 				visibility: visible !important;
 				opacity: 1 !important;
 				height: auto !important;
 				padding: 2rem 3rem 3rem !important;
 			}
-			
-			#head_menu_all .submenu > ul > li > a {
+
+			#head_menu_all .submenu>ul>li>a {
 				color: #fff !important;
 				display: block !important;
 				font-size: 1.8rem !important;
 				font-weight: normal !important;
 				padding: 1rem 0 !important;
 			}
-			
-			#head_menu_all .submenu > ul > li + li {
+
+			#head_menu_all .submenu>ul>li+li {
 				margin-top: 0.5rem !important;
 			}
-			
+
 			/* 모바일 메뉴 열렸을 때 스크롤 방지 */
 			body.menu-open {
 				overflow: hidden !important;
@@ -346,28 +347,24 @@
 						<h2 class="title">연구영역</h2>
 						<nav class="list">
 							<ul id="left_menu_top" class="head_menu_depth">
-								<li id="li0201000000" class="first"><a href="/1"
-										onclick="detailSubMenu('smenu1');">의료정보 보안연구</a>
+								<li id="li0201000000" class="first"><a href="/1" onclick="detailSubMenu('smenu1');">의료정보
+										보안연구</a>
 								</li>
 								<li id="li0202000000"><a href="/2" onclick="detailSubMenu('smenu2');">의료데이터 연구</a>
 								</li>
 								<li id="li0203000000"><a href="/3" onclick="detailSubMenu('smenu3');">병원경영
 										데이터 연구</a>
 								</li>
-								<li id="li0204000000"><a href="/4"
-										onclick="detailSubMenu('smenu4');">의료데이터 통합연구</a>
+								<li id="li0204000000"><a href="/4" onclick="detailSubMenu('smenu4');">의료데이터 통합연구</a>
 								</li>
-								<li id="li0205000000"><a href="/5"
-										onclick="detailSubMenu('smenu5');">환자정보 통합연구</a>
+								<li id="li0205000000"><a href="/5" onclick="detailSubMenu('smenu5');">환자정보 통합연구</a>
 								</li>
-								<li id="li0206000000"><a href="/6"
-										onclick="detailSubMenu('smenu6');">의료AI 데이터 연구</a>
+								<li id="li0206000000"><a href="/6" onclick="detailSubMenu('smenu6');">의료AI 데이터 연구</a>
 								</li>
-								<li id="li0207000000"><a href="/7"
-										onclick="detailSubMenu('smenu7');">환자경험 데이터 연구</a>
+								<li id="li0207000000"><a href="/7" onclick="detailSubMenu('smenu7');">환자경험 데이터 연구</a>
 								</li>
-								<li id="li0208000000" class="last"><a href="/8"
-										onclick="detailSubMenu('smenu8');">공공의료 데이터 연구</a>
+								<li id="li0208000000" class="last"><a href="/8" onclick="detailSubMenu('smenu8');">공공의료
+										데이터 연구</a>
 								</li>
 							</ul>
 						</nav>
@@ -524,24 +521,24 @@
 			</div>
 		</main>
 		<footer id="footer" class="footer">
-            <div class="footer_wrap">
-                <div class="siteinfo">
-                    <address>서울특별시 강남구 테헤란로 147, 성지하이츠II 15F</address>
-                    <p class="info">
-                        <span>TEL : <a href="tel:010-4693-2451">0507. 1360. 1935</a></span>
-                        <span class="fax">FAX : 02. 6956. 9508</span>
-                        <span class="mail"><a href="mailto:kmid.contact@gmail.com">kmid.contact@gmail.com</a></span>
-                    </p>
-                    <p class="copyright">&copy; 2025. (주)에이치에스투에쿼티 All Rights Reserved.</p>
-                </div>
-                <div class="wa">
-                    <!-- 웹접근성 인증마크 -->
-                </div>
-            </div>
-            <div class="btn-top show">
-                <a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
-            </div>
-        </footer>
+			<div class="footer_wrap">
+				<div class="siteinfo">
+					<address>서울특별시 강남구 테헤란로 147, 성지하이츠II 15F</address>
+					<p class="info">
+						<span>TEL : <a href="tel:010-4693-2451">0507. 1360. 1935</a></span>
+						<span class="fax">FAX : 02. 6956. 9508</span>
+						<span class="mail"><a href="mailto:kmid.contact@gmail.com">kmid.contact@gmail.com</a></span>
+					</p>
+					<p class="copyright">&copy; 2025. (주)에이치에스투에쿼티 All Rights Reserved.</p>
+				</div>
+				<div class="wa">
+					<!-- 웹접근성 인증마크 -->
+				</div>
+			</div>
+			<div class="btn-top show">
+				<a id="top" href="#wrap" class="up"><i class="xi-caret-up-min"></i>TOP</a>
+			</div>
+		</footer>
 	</div>
 
 	<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
@@ -580,28 +577,28 @@
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script>
 		// 연구영역 8번 페이지 스크립트 로딩 완료
-		$(document).ready(function() {
+		$(document).ready(function () {
 			console.log('연구영역 8번 페이지 스크립트 로딩 완료');
-			
+
 			// 햄버거 메뉴 완전 구현
 			console.log('=== /8/ 햄버거 버튼 초기화 시작 ===');
-			
+
 			// 이전 이벤트 제거
 			$('#gnb2 .control').off('click.hamburger click.hamburger-close');
 			$('#head_menu_all > li > a').off('click.submenu');
 			$(document).off('click.menu-close');
-			
+
 			// 햄버거 메뉴 열기/닫기 (8번 페이지용 수정)
-			$('#gnb2 .control.open, #gnb2 .control').on('click.hamburger', function(e) {
+			$('#gnb2 .control.open, #gnb2 .control').on('click.hamburger', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
-				
+
 				var $gnb2 = $('#gnb2');
 				var $body = $('body');
-				
+
 				console.log('햄버거 버튼 클릭됨, 현재 상태:', $gnb2.hasClass('active'));
 				console.log('클릭된 요소:', $(this).attr('class'));
-				
+
 				if ($(this).hasClass('close') || $gnb2.hasClass('active')) {
 					$gnb2.removeClass('active');
 					$body.removeClass('menu-open');
@@ -613,37 +610,37 @@
 					console.log('메뉴 열림');
 				}
 			});
-			
+
 			// 닫기 버튼 별도 처리
-			$('#gnb2 .control.close').on('click.hamburger-close', function(e) {
+			$('#gnb2 .control.close').on('click.hamburger-close', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
-				
+
 				var $gnb2 = $('#gnb2');
 				var $body = $('body');
-				
+
 				console.log('닫기 버튼 클릭됨');
 				$gnb2.removeClass('active');
 				$body.removeClass('menu-open');
 				$('#head_menu_all > li').removeClass('active');
 				console.log('메뉴 닫힘');
 			});
-			
+
 			// 서브메뉴 토글 (아코디언 방식)
-			$('#head_menu_all > li > a').on('click.submenu', function(e) {
+			$('#head_menu_all > li > a').on('click.submenu', function (e) {
 				var $parent = $(this).parent();
 				var $submenu = $parent.find('.submenu');
-				
+
 				console.log('메뉴 항목 클릭:', $(this).text().trim());
 				console.log('서브메뉴 존재:', $submenu.length > 0);
-				
+
 				if ($submenu.length > 0) {
 					e.preventDefault();
 					e.stopPropagation();
-					
+
 					var wasActive = $parent.hasClass('active');
 					$('#head_menu_all > li').not($parent).removeClass('active');
-					
+
 					if (wasActive) {
 						$parent.removeClass('active');
 						console.log('서브메뉴 닫힘:', $(this).text().trim());
@@ -653,37 +650,38 @@
 					}
 				} else {
 					console.log('서브메뉴 없음, 링크 이동:', $(this).attr('href'));
-					setTimeout(function() {
+					setTimeout(function () {
 						window.location.href = $(this).attr('href');
 					}.bind(this), 100);
 				}
 			});
-			
+
 			// 서브메뉴 링크 클릭시 페이지 이동
-			$('#head_menu_all .submenu a').on('click.submenu-link', function(e) {
+			$('#head_menu_all .submenu a').on('click.submenu-link', function (e) {
 				console.log('서브메뉴 링크 클릭:', $(this).text().trim(), $(this).attr('href'));
 			});
-			
+
 			// 메뉴 외부 클릭 시 닫기
-			$(document).on('click.menu-close', function(e) {
+			$(document).on('click.menu-close', function (e) {
 				if (!$(e.target).closest('#gnb2').length && !$(e.target).closest('#head_menu_all').length) {
 					$('#gnb2').removeClass('active');
 					$('body').removeClass('menu-open');
 					$('#head_menu_all > li').removeClass('active');
 				}
 			});
-			
+
 			// ESC 키로 메뉴 닫기
-			$(document).on('keydown.menu-close', function(e) {
+			$(document).on('keydown.menu-close', function (e) {
 				if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
 					$('#gnb2').removeClass('active');
 					$('body').removeClass('menu-open');
 					$('#head_menu_all > li').removeClass('active');
 				}
 			});
-			
+
 			console.log('=== /8/ 햄버거 메뉴 초기화 완료 ===');
 		});
 	</script>
 </body>
+
 </html>

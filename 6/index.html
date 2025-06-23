@@ -676,8 +676,61 @@
 		try { init2DepthComboMenu2('0206'); } catch (e) { console.log(""); }
 		try { init3DepthComboMenu2('020600'); } catch (e) { console.log(""); }
 		$.ajax({ url: '/logInsert.es?mid=a10206000000' });		// 로그기록
-	</script>
 
-	<!-- 햄버거 메뉴는 상단에서 완전히 구현되었으므로 추가 스크립트 불필요 -->
+		// 햄버거 메뉴 초기화
+		$(document).ready(function() {
+			console.log('6번 페이지 햄버거 메뉴 초기화 시작');
+			
+			// 기존 이벤트 제거
+			$('#gnb2 .control').off('click.hamburger click.hamburger-close');
+			
+			// 햄버거 메뉴 열기/닫기 이벤트
+			$('#gnb2 .control.open, #gnb2 .control').on('click.hamburger', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				var $gnb2 = $('#gnb2');
+				
+				console.log('햄버거 버튼 클릭됨, 현재 상태:', $gnb2.hasClass('active'));
+				
+				// 닫기 버튼이거나 이미 활성화된 상태면 닫기
+				if ($(this).hasClass('close') || $gnb2.hasClass('active')) {
+					$gnb2.removeClass('active');
+					console.log('메뉴 닫힘');
+				} else {
+					// 열기
+					$gnb2.addClass('active');
+					console.log('메뉴 열림');
+				}
+			});
+			
+			// 닫기 버튼 별도 이벤트
+			$('#gnb2 .control.close').on('click.hamburger-close', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				var $gnb2 = $('#gnb2');
+				
+				console.log('닫기 버튼 클릭됨');
+				$gnb2.removeClass('active');
+			});
+			
+			// 외부 클릭시 메뉴 닫기
+			$(document).on('click.hamburger-outside', function(e) {
+				if (!$(e.target).closest('#gnb2').length && !$(e.target).closest('#head_menu_all').length) {
+					$('#gnb2').removeClass('active');
+				}
+			});
+			
+			// ESC 키로 메뉴 닫기
+			$(document).on('keydown.hamburger-esc', function(e) {
+				if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
+					$('#gnb2').removeClass('active');
+				}
+			});
+			
+			console.log('6번 페이지 햄버거 메뉴 초기화 완료');
+		});
+	</script>
 </body>
 </html>

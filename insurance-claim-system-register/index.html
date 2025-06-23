@@ -14,35 +14,35 @@
     <title>실손보험 청구 자동화 시스템 신청 - 한국의료정보데이터</title>
 
     <!-- CSS -->
-    
+
     <!-- Favicon 설정 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <link rel="shortcut icon" href="/assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
     <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
-	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	<link rel="stylesheet" href="/assets/css/reset.css">
-	<link rel="stylesheet" href="/assets/css/default.css">
-	<link rel="stylesheet" href="/assets/css/layout.css">
-	<link rel="stylesheet" href="/assets/css/layout_respond.css">
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<link rel="stylesheet" href="/assets/css/main_respond.css">
-	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/layout_respond.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main_respond.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 
-	<!-- 서브 페이지 CSS -->
-	<link rel="stylesheet" href="/assets/css/sub.css" />
-	<link rel="stylesheet" href="/assets/css/sub_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub01_full.css" />
+    <!-- 서브 페이지 CSS -->
+    <link rel="stylesheet" href="/assets/css/sub.css" />
+    <link rel="stylesheet" href="/assets/css/sub_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub01_full.css" />
 
-	<!-- CDN CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- CDN CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -165,7 +165,7 @@
                 <form class="register-form" id="registerForm">
                     <div class="form-section">
                         <h3>1) 병원정보 입력</h3>
-                        
+
                         <div class="form-group">
                             <label for="hospitalName">병원명 <span class="required">*</span></label>
                             <input type="text" id="hospitalName" name="hospitalName" required>
@@ -218,10 +218,10 @@
     <script src="https://code.jquery.co.kr/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
+
     <script>
         // EmailJS 초기화
-        (function() {
+        (function () {
             emailjs.init('Bsua1cc2pzvCqtQpw');
             console.log('EmailJS Development Mode - 설정 완료 후 위 주석을 해제하세요');
         })();
@@ -251,7 +251,7 @@ ${formData.product}가 접수되었습니다.
             console.log('=== 실손보험 청구 자동화 시스템 신청서 ===');
             console.log(emailContent);
             console.log('수신자: kmid.contact@gmail.com');
-            
+
             // EmailJS 발송
             emailjs.send('service_8xyqgmt', 'template_dtyaziq', {
                 to_email: 'kmid.contact@gmail.com',
@@ -264,20 +264,20 @@ ${formData.product}가 접수되었습니다.
                 submission_date: new Date().toLocaleString('ko-KR'),
                 message: emailContent,
                 system_type: '실손보험 청구 자동화 시스템'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('실손보험 청구 자동화 시스템 신청이 완료되었습니다!\n\n신청해주셔서 감사합니다.\n담당자가 검토 후 연락드리겠습니다.');
                 window.location.href = 'index.html';
-            }, function(error) {
+            }, function (error) {
                 console.log('FAILED...', error);
                 alert('신청서 발송 중 오류가 발생했습니다. 다시 시도해주세요.');
             });
         }
 
         // 폼 제출 처리
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // 폼 데이터 수집
             const formData = {
                 product: '실손보험 청구 자동화 시스템',
@@ -286,11 +286,11 @@ ${formData.product}가 접수되었습니다.
                 hospitalPhone: document.getElementById('hospitalPhone').value,
                 email: document.getElementById('email').value
             };
-            
+
             // 이메일 발송
             sendApplicationEmail(formData);
         });
     </script>
 </body>
 
-</html> 
+</html>

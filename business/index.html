@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
-    
+
     <meta name="title" content="연구영역 - 한국의료정보데이터">
     <meta name="description" content="한국의료정보데이터 연구영역">
     <meta name="keyword" content="한국의료정보데이터, 연구영역, 컨설팅">
     <meta name="author" content="한국의료정보데이터">
-    
+
     <title>연구영역 - 한국의료정보데이터</title>
-    
+
     <!-- CSS -->
-    
+
     <!-- Favicon 설정 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <link rel="shortcut icon" href="/assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
     <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
-	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	<link rel="stylesheet" href="/assets/css/reset.css">
-	<link rel="stylesheet" href="/assets/css/default.css">
-	<link rel="stylesheet" href="/assets/css/layout.css">
-	<link rel="stylesheet" href="/assets/css/layout_respond.css">
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<link rel="stylesheet" href="/assets/css/main_respond.css">
-	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/layout_respond.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main_respond.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 
-	<!-- 서브 페이지 CSS -->
-	<link rel="stylesheet" href="/assets/css/sub.css" />
-	<link rel="stylesheet" href="/assets/css/sub_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub01_full.css" />
+    <!-- 서브 페이지 CSS -->
+    <link rel="stylesheet" href="/assets/css/sub.css" />
+    <link rel="stylesheet" href="/assets/css/sub_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub01_full.css" />
 
-	<!-- CDN CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- CDN CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
+
 <body>
     <p id="skip_nav">
         <a href="#headmn">주 메뉴 바로가기</a>
@@ -56,7 +58,7 @@
                     <a href="/"><span class="IR">한국의료정보데이터</span></a>
                 </h1>
                 <!-- 햨버거 메뉴 제거 -->
-                
+
                 <div id="headmn">
                     <nav id="gnb1">
                         <ul id="head_menu" class="topmenu">
@@ -316,5 +318,62 @@
     </div>
 
     <script src="/assets/js/main.js"></script>
+    <script>
+        // 햄버거 메뉴 초기화
+        $(document).ready(function() {
+            console.log('business 페이지 햄버거 메뉴 초기화 시작');
+            
+            // 기존 이벤트 제거
+            $('#gnb2 .control').off('click.hamburger click.hamburger-close');
+            
+            // 햄버거 메뉴 열기/닫기 이벤트
+            $('#gnb2 .control.open, #gnb2 .control').on('click.hamburger', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $gnb2 = $('#gnb2');
+                
+                console.log('햄버거 버튼 클릭됨, 현재 상태:', $gnb2.hasClass('active'));
+                
+                // 닫기 버튼이거나 이미 활성화된 상태면 닫기
+                if ($(this).hasClass('close') || $gnb2.hasClass('active')) {
+                    $gnb2.removeClass('active');
+                    console.log('메뉴 닫힘');
+                } else {
+                    // 열기
+                    $gnb2.addClass('active');
+                    console.log('메뉴 열림');
+                }
+            });
+            
+            // 닫기 버튼 별도 이벤트
+            $('#gnb2 .control.close').on('click.hamburger-close', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $gnb2 = $('#gnb2');
+                
+                console.log('닫기 버튼 클릭됨');
+                $gnb2.removeClass('active');
+            });
+            
+            // 외부 클릭시 메뉴 닫기
+            $(document).on('click.hamburger-outside', function(e) {
+                if (!$(e.target).closest('#gnb2').length && !$(e.target).closest('#head_menu_all').length) {
+                    $('#gnb2').removeClass('active');
+                }
+            });
+            
+            // ESC 키로 메뉴 닫기
+            $(document).on('keydown.hamburger-esc', function(e) {
+                if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
+                    $('#gnb2').removeClass('active');
+                }
+            });
+            
+            console.log('business 페이지 햄버거 메뉴 초기화 완료');
+        });
+    </script>
 </body>
+
 </html>

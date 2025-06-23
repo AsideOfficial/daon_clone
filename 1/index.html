@@ -29,14 +29,14 @@
 	<link rel="stylesheet" href="/assets/css/main_respond.css">
 	<link rel="stylesheet" href="/assets/css/button.css">
 	<link rel="stylesheet" href="/assets/css/responsive.css">
-	
+
 	<!-- 서브 페이지 CSS -->
 	<link rel="stylesheet" href="/assets/css/sub.css" />
 	<link rel="stylesheet" href="/assets/css/sub_full.css" />
 	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
 	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
 	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
-	
+
 	<!-- CDN CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -52,11 +52,12 @@
 	<style>
 		/* 햄버거 메뉴 위치 고정 */
 		@media (max-width: 1200px) {
+
 			.site-map,
 			#gnb1 {
 				display: none !important;
 			}
-			
+
 			#gnb2 {
 				display: block !important;
 				position: absolute !important;
@@ -70,7 +71,7 @@
 				z-index: 99999 !important;
 				background: transparent !important;
 			}
-			
+
 			#gnb2 .control {
 				display: block !important;
 				color: #333 !important;
@@ -84,29 +85,29 @@
 				text-decoration: none !important;
 				transition: all 0.3s !important;
 			}
-			
-			#gnb2 .open:before { 
-				content: "☰" !important; 
-				font-family: inherit !important; 
+
+			#gnb2 .open:before {
+				content: "☰" !important;
+				font-family: inherit !important;
 			}
-			
-			#gnb2 .close { 
-				display: none !important; 
+
+			#gnb2 .close {
+				display: none !important;
 			}
-			
-			#gnb2 .close:before { 
-				content: "✕" !important; 
-				font-family: inherit !important; 
+
+			#gnb2 .close:before {
+				content: "✕" !important;
+				font-family: inherit !important;
 			}
-			
-			#gnb2.active .open { 
-				display: none !important; 
+
+			#gnb2.active .open {
+				display: none !important;
 			}
-			
-			#gnb2.active .close { 
-				display: block !important; 
+
+			#gnb2.active .close {
+				display: block !important;
 			}
-			
+
 			/* 모바일 메뉴 스타일 */
 			#head_menu_all {
 				display: none !important;
@@ -120,9 +121,9 @@
 				z-index: 9999 !important;
 				background: #edf7ff !important;
 				border-radius: 1rem !important;
-				box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 			}
-			
+
 			#gnb2.active #head_menu_all {
 				display: block !important;
 				visibility: visible !important;
@@ -130,12 +131,12 @@
 				height: calc(100vh - 13rem) !important;
 				overflow-y: auto !important;
 			}
-			
-			#head_menu_all > li {
+
+			#head_menu_all>li {
 				border-bottom: 1px solid #ddd !important;
 			}
-			
-			#head_menu_all > li > a {
+
+			#head_menu_all>li>a {
 				color: #333 !important;
 				display: block !important;
 				font-size: 2rem !important;
@@ -144,8 +145,8 @@
 				position: relative !important;
 				z-index: 1 !important;
 			}
-			
-			#head_menu_all > li > a:after {
+
+			#head_menu_all>li>a:after {
 				content: "▼" !important;
 				font-size: 1.4rem !important;
 				position: absolute !important;
@@ -153,11 +154,11 @@
 				top: 2.2rem !important;
 				transition: all 0.3s !important;
 			}
-			
-			#head_menu_all > li.active > a:after {
+
+			#head_menu_all>li.active>a:after {
 				transform: rotate(180deg) !important;
 			}
-			
+
 			#head_menu_all .submenu {
 				visibility: hidden !important;
 				opacity: 0 !important;
@@ -166,37 +167,37 @@
 				background: #317bb5 !important;
 				transition: all 0.3s !important;
 			}
-			
-			#head_menu_all > li.active {
+
+			#head_menu_all>li.active {
 				background-color: #317bb5 !important;
 				border-radius: 1rem !important;
 			}
-			
-			#head_menu_all > li.active > a {
+
+			#head_menu_all>li.active>a {
 				background-color: #182346 !important;
 				border-radius: 1rem !important;
 				color: #fff !important;
 			}
-			
-			#head_menu_all > li.active .submenu {
+
+			#head_menu_all>li.active .submenu {
 				visibility: visible !important;
 				opacity: 1 !important;
 				height: auto !important;
 				padding: 2rem 3rem 3rem !important;
 			}
-			
-			#head_menu_all .submenu > ul > li > a {
+
+			#head_menu_all .submenu>ul>li>a {
 				color: #fff !important;
 				display: block !important;
 				font-size: 1.8rem !important;
 				font-weight: normal !important;
 				padding: 1rem 0 !important;
 			}
-			
-			#head_menu_all .submenu > ul > li + li {
+
+			#head_menu_all .submenu>ul>li+li {
 				margin-top: 0.5rem !important;
 			}
-			
+
 			/* 모바일 메뉴 열렸을 때 스크롤 방지 */
 			body.menu-open {
 				overflow: hidden !important;
@@ -216,28 +217,28 @@
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script>
 		// 연구영역 1번 페이지 스크립트 로딩 완료
-		$(document).ready(function() {
+		$(document).ready(function () {
 			// 연구영역 페이지에는 visual 슬라이더가 없으므로 제외
 			console.log('연구영역 1번 페이지 스크립트 로딩 완료');
-			
+
 			// 햄버거 메뉴 완전 구현
 			console.log('=== /1/ 햄버거 버튼 초기화 시작 ===');
-			
+
 			// 이전 이벤트 제거
 			$('#gnb2 .control').off('click.hamburger');
 			$('#head_menu_all > li > a').off('click.submenu');
 			$(document).off('click.menu-close');
-			
+
 			// 햄버거 메뉴 열기/닫기
-			$('#gnb2 .control').on('click.hamburger', function(e) {
+			$('#gnb2 .control').on('click.hamburger', function (e) {
 				e.preventDefault();
 				e.stopPropagation();
-				
+
 				var $gnb2 = $('#gnb2');
 				var $body = $('body');
-				
+
 				console.log('햄버거 버튼 클릭됨, 현재 상태:', $gnb2.hasClass('active'));
-				
+
 				if ($gnb2.hasClass('active')) {
 					// 메뉴 닫기
 					$gnb2.removeClass('active');
@@ -251,24 +252,24 @@
 					console.log('메뉴 열림');
 				}
 			});
-			
+
 			// 서브메뉴 토글 (아코디언 방식)
-			$('#head_menu_all > li > a').on('click.submenu', function(e) {
+			$('#head_menu_all > li > a').on('click.submenu', function (e) {
 				var $parent = $(this).parent();
 				var $submenu = $parent.find('.submenu');
-				
+
 				console.log('메뉴 항목 클릭:', $(this).text().trim());
 				console.log('서브메뉴 존재:', $submenu.length > 0);
-				
+
 				if ($submenu.length > 0) {
 					e.preventDefault();
 					e.stopPropagation();
-					
+
 					var wasActive = $parent.hasClass('active');
-					
+
 					// 모든 다른 메뉴 닫기
 					$('#head_menu_all > li').not($parent).removeClass('active');
-					
+
 					// 현재 메뉴 토글
 					if (wasActive) {
 						$parent.removeClass('active');
@@ -280,36 +281,36 @@
 				} else {
 					console.log('서브메뉴 없음, 링크 이동:', $(this).attr('href'));
 					// 서브메뉴가 없으면 링크로 이동
-					setTimeout(function() {
+					setTimeout(function () {
 						window.location.href = $(this).attr('href');
 					}.bind(this), 100);
 				}
 			});
-			
+
 			// 서브메뉴 링크 클릭시 페이지 이동
-			$('#head_menu_all .submenu a').on('click.submenu-link', function(e) {
+			$('#head_menu_all .submenu a').on('click.submenu-link', function (e) {
 				console.log('서브메뉴 링크 클릭:', $(this).text().trim(), $(this).attr('href'));
 				// 서브메뉴 링크는 바로 이동
 			});
-			
+
 			// 메뉴 외부 클릭 시 닫기
-			$(document).on('click.menu-close', function(e) {
+			$(document).on('click.menu-close', function (e) {
 				if (!$(e.target).closest('#gnb2').length && !$(e.target).closest('#head_menu_all').length) {
 					$('#gnb2').removeClass('active');
 					$('body').removeClass('menu-open');
 					$('#head_menu_all > li').removeClass('active');
 				}
 			});
-			
+
 			// ESC 키로 메뉴 닫기
-			$(document).on('keydown.menu-close', function(e) {
+			$(document).on('keydown.menu-close', function (e) {
 				if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
 					$('#gnb2').removeClass('active');
 					$('body').removeClass('menu-open');
 					$('#head_menu_all > li').removeClass('active');
 				}
 			});
-			
+
 			console.log('=== /1/ 햄버거 메뉴 초기화 완료 ===');
 		});
 	</script>
@@ -444,28 +445,24 @@
 						<h2 class="title">연구영역</h2>
 						<nav class="list">
 							<ul id="left_menu_top" class="head_menu_depth">
-								<li id="li0201000000" class="first"><a href="/1"
-										onclick="detailSubMenu('smenu1');">의료정보 보안연구</a>
+								<li id="li0201000000" class="first"><a href="/1" onclick="detailSubMenu('smenu1');">의료정보
+										보안연구</a>
 								</li>
 								<li id="li0202000000"><a href="/2" onclick="detailSubMenu('smenu2');">의료데이터 연구</a>
 								</li>
 								<li id="li0203000000"><a href="/3" onclick="detailSubMenu('smenu3');">병원경영
 										데이터 연구</a>
 								</li>
-								<li id="li0204000000"><a href="/4"
-										onclick="detailSubMenu('smenu4');">의료데이터 통합연구</a>
+								<li id="li0204000000"><a href="/4" onclick="detailSubMenu('smenu4');">의료데이터 통합연구</a>
 								</li>
-								<li id="li0205000000"><a href="/5"
-										onclick="detailSubMenu('smenu5');">환자정보 통합연구</a>
+								<li id="li0205000000"><a href="/5" onclick="detailSubMenu('smenu5');">환자정보 통합연구</a>
 								</li>
-								<li id="li0206000000"><a href="/6"
-										onclick="detailSubMenu('smenu6');">의료AI 데이터 연구</a>
+								<li id="li0206000000"><a href="/6" onclick="detailSubMenu('smenu6');">의료AI 데이터 연구</a>
 								</li>
-								<li id="li0207000000"><a href="/7"
-										onclick="detailSubMenu('smenu7');">환자경험 데이터 연구</a>
+								<li id="li0207000000"><a href="/7" onclick="detailSubMenu('smenu7');">환자경험 데이터 연구</a>
 								</li>
-								<li id="li0208000000" class="last"><a href="/8"
-										onclick="detailSubMenu('smenu8');">공공의료 데이터 연구</a>
+								<li id="li0208000000" class="last"><a href="/8" onclick="detailSubMenu('smenu8');">공공의료
+										데이터 연구</a>
 								</li>
 
 							</ul>
@@ -561,7 +558,8 @@
 										<i><img src="/assets/img/sub/icon-search01.png" alt=""></i>
 										<strong><span class="num">1</span>의료정보 보안 위협 연구</strong>
 										<div class="desc">
-											의료기관이 직면한 다양한 보안 위협을 체계적으로 분석하고, 새로운 보안 위협의 동향과 패턴을 연구합니다. 사이버 공격 사례 분석을 통해 의료정보 보안 취약점을 도출하고 대응 방안을 연구합니다.
+											의료기관이 직면한 다양한 보안 위협을 체계적으로 분석하고, 새로운 보안 위협의 동향과 패턴을 연구합니다. 사이버 공격 사례 분석을 통해
+											의료정보 보안 취약점을 도출하고 대응 방안을 연구합니다.
 										</div>
 									</li>
 									<li>
@@ -597,7 +595,8 @@
 										<i><img src="/assets/img/sub/icon-data02.png" alt=""></i>
 										<strong><span class="num">4</span>의료 개인정보보호 연구</strong>
 										<div class="desc">
-											의료 환경에서의 개인정보보호 방안을 연구하고, 환자 프라이버시 보호를 위한 새로운 기술 및 정책을 개발합니다. 의료정보 비식별화 기술 및 개인정보 유출 방지 기술을 연구합니다.
+											의료 환경에서의 개인정보보호 방안을 연구하고, 환자 프라이버시 보호를 위한 새로운 기술 및 정책을 개발합니다. 의료정보 비식별화 기술 및
+											개인정보 유출 방지 기술을 연구합니다.
 										</div>
 									</li>
 									<li>
@@ -605,16 +604,16 @@
 										<strong><span class="num">5</span>의료정보 보안 표준 연구</strong>
 										<ul class="dep03">
 											<li>의료정보보호 관리체계 연구<br />
-											  - ISMS/PIMS 의료 적용 연구 / 의료기관 맞춤 보안 체계 연구
+												- ISMS/PIMS 의료 적용 연구 / 의료기관 맞춤 보안 체계 연구
 											</li>
 											<li>의료정보 보안 국제표준 연구<br />
-											  - ISO 27001/27799 의료 적용 / HL7 보안 표준 연구
+												- ISO 27001/27799 의료 적용 / HL7 보안 표준 연구
 											</li>
 											<li>의료정보 보안 법제도 연구<br />
-											  - 의료법 정보보호 조항 연구 / 개인정보보호법 의료 적용 연구
+												- 의료법 정보보호 조항 연구 / 개인정보보호법 의료 적용 연구
 											</li>
 											<li>의료정보 보안 평가 방법론 연구<br />
-											  - 의료기관 보안 성숙도 평가 / 보안 효과성 측정 연구
+												- 의료기관 보안 성숙도 평가 / 보안 효과성 측정 연구
 											</li>
 										</ul>
 									</li>
@@ -669,35 +668,35 @@
 	<script>
 		// 세부 페이지 디버깅 코드
 		console.log('=== 1번 페이지 디버깅 시작 ===');
-		
-		$(document).ready(function() {
+
+		$(document).ready(function () {
 			console.log('1. jQuery 로딩 확인:', typeof $);
 			console.log('2. #gnb2 존재 확인:', $('#gnb2').length);
 			console.log('3. .control.open 존재 확인:', $('.control.open').length);
 			console.log('4. #head_menu_all 존재 확인:', $('#head_menu_all').length);
-			
+
 			// 햄버거 버튼 클릭 이벤트 확인
-			$('.control.open').on('click', function(e) {
+			$('.control.open').on('click', function (e) {
 				e.preventDefault();
 				console.log('햄버거 버튼 클릭됨!');
 				console.log('현재 #gnb2 상태:', $('#gnb2').hasClass('active'));
 			});
-			
+
 			// 서브메뉴 클릭 이벤트 확인
-			$('#head_menu_all > li > a').on('click', function(e) {
+			$('#head_menu_all > li > a').on('click', function (e) {
 				console.log('서브메뉴 클릭됨:', $(this).text());
 			});
-			
+
 			// main.js의 mobileMenu 함수 존재 확인
 			console.log('5. mobileMenu 함수 존재:', typeof mobileMenu);
-			
+
 			// 강제로 mobileMenu 초기화 시도
 			if (typeof mobileMenu === 'function') {
 				console.log('6. mobileMenu 함수 호출 시도');
 				try {
 					mobileMenu();
 					console.log('7. mobileMenu 초기화 성공');
-				} catch(err) {
+				} catch (err) {
 					console.error('8. mobileMenu 초기화 실패:', err);
 				}
 			} else {
@@ -728,37 +727,37 @@
 
 	<!-- 햄버거 버튼 디버깅 및 대체 함수 스크립트 -->
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function () {
 			console.log("=== " + window.location.pathname + " 햄버거 버튼 초기화 ===");
-			
+
 			// layout.js 로드 확인 후 대체 함수 구현
 			if (typeof mobileMenu === "undefined") {
 				console.log("mobileMenu 함수가 없으므로 직접 구현");
-				
+
 				// 햄버거 버튼 기능 직접 구현
-				$("#gnb2 .control.open").on("click.fallback", function(e) {
+				$("#gnb2 .control.open").on("click.fallback", function (e) {
 					console.log("햄버거 버튼 클릭됨");
 					e.preventDefault();
 					$("#gnb2").addClass("active");
 					$("body").addClass("menu-open");
 				});
-				
-				$("#gnb2 .control.close").on("click.fallback", function(e) {
+
+				$("#gnb2 .control.close").on("click.fallback", function (e) {
 					console.log("닫기 버튼 클릭됨");
 					e.preventDefault();
 					$("#gnb2").removeClass("active");
 					$("body").removeClass("menu-open");
 					$("#head_menu_all li").removeClass("active");
 				});
-				
+
 				// 서브메뉴 아코디언 기능 직접 구현
-				$("#head_menu_all > li > a").on("click.fallback", function(e) {
+				$("#head_menu_all > li > a").on("click.fallback", function (e) {
 					var $parent = $(this).parent();
 					var $submenu = $parent.find(".submenu");
-					
+
 					if ($submenu.length > 0) {
 						e.preventDefault();
-						
+
 						if ($parent.hasClass("active")) {
 							$parent.removeClass("active");
 						} else {
@@ -767,7 +766,7 @@
 						}
 					}
 				});
-				
+
 				console.log("대체 함수 구현 완료");
 			}
 		});

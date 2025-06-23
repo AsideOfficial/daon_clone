@@ -20,22 +20,23 @@
     <title>연구갤러리 : 한국의료정보데이터</title>
 
     <!-- 공통 CSS -->
-	
-	<!-- Favicon 설정 -->
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
-	<link rel="shortcut icon" href="/assets/images/favicon.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
-	<meta name="msapplication-TileImage" content="/assets/images/favicon.png">
+
+    <!-- Favicon 설정 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
+    <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
     <!-- 햄버거 메뉴 강제 우선순위 CSS -->
     <style>
         /* 햄버거 메뉴 위치 고정 */
         @media (max-width: 1200px) {
+
             .site-map,
             #gnb1 {
                 display: none !important;
             }
-            
+
             #gnb2 {
                 display: block !important;
                 position: absolute !important;
@@ -49,7 +50,7 @@
                 z-index: 99999 !important;
                 background: transparent !important;
             }
-            
+
             #gnb2 .control {
                 display: block !important;
                 color: #333 !important;
@@ -63,29 +64,29 @@
                 text-decoration: none !important;
                 transition: all 0.3s !important;
             }
-            
-            #gnb2 .open:before { 
-                content: "☰" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .open:before {
+                content: "☰" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2 .close { 
-                display: none !important; 
+
+            #gnb2 .close {
+                display: none !important;
             }
-            
-            #gnb2 .close:before { 
-                content: "✕" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .close:before {
+                content: "✕" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2.active .open { 
-                display: none !important; 
+
+            #gnb2.active .open {
+                display: none !important;
             }
-            
-            #gnb2.active .close { 
-                display: block !important; 
+
+            #gnb2.active .close {
+                display: block !important;
             }
-            
+
             /* 모바일 메뉴 스타일 */
             #head_menu_all {
                 display: none !important;
@@ -99,9 +100,9 @@
                 z-index: 9999 !important;
                 background: #edf7ff !important;
                 border-radius: 1rem !important;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
             }
-            
+
             #gnb2.active #head_menu_all {
                 display: block !important;
                 visibility: visible !important;
@@ -109,12 +110,12 @@
                 height: calc(100vh - 13rem) !important;
                 overflow-y: auto !important;
             }
-            
-            #head_menu_all > li {
+
+            #head_menu_all>li {
                 border-bottom: 1px solid #ddd !important;
             }
-            
-            #head_menu_all > li > a {
+
+            #head_menu_all>li>a {
                 color: #333 !important;
                 display: block !important;
                 font-size: 2rem !important;
@@ -123,8 +124,8 @@
                 position: relative !important;
                 z-index: 1 !important;
             }
-            
-            #head_menu_all > li > a:after {
+
+            #head_menu_all>li>a:after {
                 content: "▼" !important;
                 font-size: 1.4rem !important;
                 position: absolute !important;
@@ -132,11 +133,11 @@
                 top: 2.2rem !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active > a:after {
+
+            #head_menu_all>li.active>a:after {
                 transform: rotate(180deg) !important;
             }
-            
+
             #head_menu_all .submenu {
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -145,37 +146,37 @@
                 background: #317bb5 !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active {
+
+            #head_menu_all>li.active {
                 background-color: #317bb5 !important;
                 border-radius: 1rem !important;
             }
-            
-            #head_menu_all > li.active > a {
+
+            #head_menu_all>li.active>a {
                 background-color: #182346 !important;
                 border-radius: 1rem !important;
                 color: #fff !important;
             }
-            
-            #head_menu_all > li.active .submenu {
+
+            #head_menu_all>li.active .submenu {
                 visibility: visible !important;
                 opacity: 1 !important;
                 height: auto !important;
                 padding: 2rem 3rem 3rem !important;
             }
-            
-            #head_menu_all .submenu > ul > li > a {
+
+            #head_menu_all .submenu>ul>li>a {
                 color: #fff !important;
                 display: block !important;
                 font-size: 1.8rem !important;
                 font-weight: normal !important;
                 padding: 1rem 0 !important;
             }
-            
-            #head_menu_all .submenu > ul > li + li {
+
+            #head_menu_all .submenu>ul>li+li {
                 margin-top: 0.5rem !important;
             }
-            
+
             /* 모바일 메뉴 열렸을 때 스크롤 방지 */
             body.menu-open {
                 overflow: hidden !important;
@@ -195,26 +196,26 @@
         .gallery-board {
             padding: 3rem 0;
         }
-        
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
-        
+
         .gallery-item {
             border: 1px solid #ddd;
             border-radius: 0.5rem;
             overflow: hidden;
             transition: all 0.3s;
         }
-        
+
         .gallery-item:hover {
             transform: translateY(-0.5rem);
-            box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
         }
-        
+
         .gallery-item .image {
             width: 100%;
             height: 20rem;
@@ -225,30 +226,30 @@
             color: #999;
             font-size: 1.4rem;
         }
-        
+
         .gallery-item .info {
             padding: 1.5rem;
         }
-        
+
         .gallery-item .title {
             font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #333;
         }
-        
+
         .gallery-item .date {
             font-size: 1.3rem;
             color: #666;
         }
-        
+
         .empty-gallery {
             text-align: center;
             padding: 10rem 0;
             color: #666;
             font-size: 1.6rem;
         }
-        
+
         .board-search {
             display: flex;
             justify-content: space-between;
@@ -257,20 +258,20 @@
             padding: 2rem 0;
             border-bottom: 1px solid #e5e5e5;
         }
-        
+
         .search-form {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-        
+
         .search-form select {
             padding: 0.8rem 1.2rem;
             border: 1px solid #ddd;
             border-radius: 0.4rem;
             font-size: 1.4rem;
         }
-        
+
         .search-form input[type="text"] {
             padding: 0.8rem 1.2rem;
             border: 1px solid #ddd;
@@ -278,7 +279,7 @@
             font-size: 1.4rem;
             width: 25rem;
         }
-        
+
         .search-form button {
             padding: 0.8rem 2rem;
             background: #00a3d3;
@@ -289,26 +290,26 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .search-form button:hover {
             background: #0082a6;
         }
-        
+
         .board-util {
             font-size: 1.4rem;
             color: #666;
             margin-bottom: 2rem;
         }
-        
+
         .board-util strong {
             color: #00a3d3;
         }
-        
+
         .board-pagination {
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .board-pagination a,
         .board-pagination span {
             display: inline-block;
@@ -321,14 +322,14 @@
             font-size: 1.4rem;
             transition: all 0.3s;
         }
-        
+
         .board-pagination .current {
             background: #00a3d3;
             color: white;
             border-color: #00a3d3;
             font-weight: 600;
         }
-        
+
         .board-pagination a:hover {
             background: #f8f9fa;
             border-color: #00a3d3;
@@ -339,38 +340,38 @@
             margin-right: 0.5rem;
             font-weight: bold;
         }
-        
+
         .board-pagination .prev::before {
             content: "<";
             margin-right: 0.5rem;
         }
-        
+
         .board-pagination .next1::after {
             content: ">";
             margin-left: 0.5rem;
         }
-        
+
         .board-pagination .last::after {
             margin-left: 0.5rem;
             font-weight: bold;
         }
-        
+
         @media (max-width: 768px) {
             .board-search {
                 flex-direction: column;
                 gap: 2rem;
                 align-items: stretch;
             }
-            
+
             .search-form {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .search-form input[type="text"] {
                 width: 100%;
             }
-            
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
                 gap: 1.5rem;
@@ -379,24 +380,24 @@
     </style>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             console.log('[연구갤러리] 햄버거 메뉴 스크립트 시작');
-            
+
             // 기존 이벤트 제거
             $('#gnb2').off('.hamburger');
             $('#head_menu_all').off('.submenu');
             $(document).off('.menu-close');
-            
+
             // 햄버거 메뉴 토글 (open과 close 버튼 모두 처리)
-            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function(e) {
+            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 console.log('[연구갤러리] 햄버거 버튼 클릭됨');
-                
+
                 const gnb2 = $('#gnb2');
                 const isActive = gnb2.hasClass('active');
-                
+
                 if (isActive) {
                     gnb2.removeClass('active');
                     $('body').removeClass('menu-open');
@@ -407,81 +408,81 @@
                     console.log('[연구갤러리] 메뉴 열림');
                 }
             });
-            
+
             // 서브메뉴 아코디언 토글
-            $('#head_menu_all > li > a').on('click.submenu', function(e) {
+            $('#head_menu_all > li > a').on('click.submenu', function (e) {
                 console.log('[연구갤러리] 메뉴 클릭됨:', $(this).text());
-                
+
                 const li = $(this).parent();
                 const hasSubmenu = li.find('.submenu').length > 0;
-                
+
                 console.log('[연구갤러리] 서브메뉴 있음:', hasSubmenu, '개수:', li.find('.submenu').length);
                 console.log('[연구갤러리] 현재 li 클래스:', li.attr('class'));
                 console.log('[연구갤러리] 서브메뉴 HTML:', li.find('.submenu').html());
-                
+
                 if (hasSubmenu) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     console.log('[연구갤러리] 서브메뉴 토글 실행:', $(this).text());
-                    
+
                     // 다른 메뉴들 닫기
                     $('#head_menu_all > li').not(li).removeClass('active');
-                    
+
                     // 현재 메뉴 토글
                     const wasActive = li.hasClass('active');
                     li.toggleClass('active');
-                    
+
                     console.log('[연구갤러리] 토글 후 상태:', li.hasClass('active'), '(이전:', wasActive, ')');
                     console.log('[연구갤러리] 토글 후 li 클래스:', li.attr('class'));
                 } else {
                     console.log('[연구갤러리] 서브메뉴 없음, 링크 이동 허용');
                 }
             });
-            
+
             // 메뉴 외부 클릭시 닫기
-            $(document).on('click.menu-close', function(e) {
+            $(document).on('click.menu-close', function (e) {
                 if (!$(e.target).closest('#gnb2').length) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구갤러리] 외부 클릭으로 메뉴 닫힘');
                 }
             });
-            
+
             // ESC 키로 메뉴 닫기
-            $(document).on('keydown.menu-close', function(e) {
+            $(document).on('keydown.menu-close', function (e) {
                 if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구갤러리] ESC 키로 메뉴 닫힘');
                 }
             });
-            
+
             console.log('[연구갤러리] 햄버거 메뉴 스크립트 완료');
         });
     </script>
-	<!-- 공통 CSS -->
-	<link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
-	<link rel="stylesheet" href="/assets/css/reset.css">
-	<link rel="stylesheet" href="/assets/css/default.css">
-	<link rel="stylesheet" href="/assets/css/layout.css">
-	<link rel="stylesheet" href="/assets/css/layout_respond.css">
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<link rel="stylesheet" href="/assets/css/main_respond.css">
-	<link rel="stylesheet" href="/assets/css/button.css">
-	<link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/layout_respond.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main_respond.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 
-	<!-- 서브 페이지 CSS -->
-	<link rel="stylesheet" href="/assets/css/sub.css" />
-	<link rel="stylesheet" href="/assets/css/sub_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub_es_full.css" />
-	<link rel="stylesheet" href="/assets/css/sub02_full.css" />
+    <!-- 서브 페이지 CSS -->
+    <link rel="stylesheet" href="/assets/css/sub.css" />
+    <link rel="stylesheet" href="/assets/css/sub_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css" />
+    <link rel="stylesheet" href="/assets/css/sub02_full.css" />
 
-	<!-- CDN CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <!-- CDN CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.15/dist/jquery.bxslider.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -489,10 +490,10 @@
         <a href="#headmn">주 메뉴 바로가기</a>
         <a href="#contents_body">본문으로 바로가기</a>
     </p>
-    
+
     <div id="hiddenLayer" style="display:none"></div>
     <div class="mw" id="mw_temp" style="display:none;"></div>
-    
+
     <div id="wrap">
         <link rel="stylesheet" href="/css/modalpopup.css" />
         <header id="header">
@@ -604,7 +605,7 @@
                     </div>
                     <span class="img animated slower"><img src="/assets/img/sub/sub-visual02.jpg" alt=""></span>
                 </div>
-                
+
                 <div id="contentWrap">
                     <section id="snb" class="sub02">
                         <h2 class="title">연구현황</h2>
@@ -617,7 +618,7 @@
                             </ul>
                         </nav>
                     </section>
-                    
+
                     <section id="contents">
                         <div class="contents_util">
                             <h1 id="contents_title">연구갤러리</h1>
@@ -631,15 +632,18 @@
                                 </nav>
                                 <div class="util">
                                     <span class="zoom">
-                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;" class="btn up">글자 크게</a>
-                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;" class="btn down">글자 작게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('plus'); return false;"
+                                            class="btn up">글자 크게</a>
+                                        <a href="#contents_body" onclick="zoomInOut('minus'); return false;"
+                                            class="btn down">글자 작게</a>
                                     </span>
 
-                                    <a class="btn print" href="#contents_body" onclick="printAreaAction(); return false;">인쇄</a>
+                                    <a class="btn print" href="#contents_body"
+                                        onclick="printAreaAction(); return false;">인쇄</a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div id="contents_body" class="gallery-board">
                             <!-- 검색 기능 -->
                             <div class="board-search">
@@ -663,7 +667,7 @@
                             <div class="gallery-grid">
                                 <!-- 갤러리 항목들이 여기에 들어감 -->
                             </div>
-                            
+
                             <!-- 빈 갤러리 메시지 -->
                             <div class="empty-gallery">
                                 해당 내용이 없습니다.
@@ -706,6 +710,7 @@
 
     <style>
         @media screen and (max-width: 1000px) {
+
             /* 모바일 햄버거 메뉴 스타일 - 연구현황과 동일 */
             #gnb2 {
                 display: block !important;
@@ -720,7 +725,7 @@
                 z-index: 99999 !important;
                 background: transparent !important;
             }
-            
+
             #gnb2 .control {
                 display: block !important;
                 color: #333 !important;
@@ -734,29 +739,29 @@
                 text-decoration: none !important;
                 transition: all 0.3s !important;
             }
-            
-            #gnb2 .open:before { 
-                content: "☰" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .open:before {
+                content: "☰" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2 .close { 
-                display: none !important; 
+
+            #gnb2 .close {
+                display: none !important;
             }
-            
-            #gnb2 .close:before { 
-                content: "✕" !important; 
-                font-family: inherit !important; 
+
+            #gnb2 .close:before {
+                content: "✕" !important;
+                font-family: inherit !important;
             }
-            
-            #gnb2.active .open { 
-                display: none !important; 
+
+            #gnb2.active .open {
+                display: none !important;
             }
-            
-            #gnb2.active .close { 
-                display: block !important; 
+
+            #gnb2.active .close {
+                display: block !important;
             }
-            
+
             /* 모바일 메뉴 스타일 */
             #head_menu_all {
                 display: none !important;
@@ -770,9 +775,9 @@
                 z-index: 9999 !important;
                 background: #edf7ff !important;
                 border-radius: 1rem !important;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
             }
-            
+
             #gnb2.active #head_menu_all {
                 display: block !important;
                 visibility: visible !important;
@@ -780,12 +785,12 @@
                 height: calc(100vh - 13rem) !important;
                 overflow-y: auto !important;
             }
-            
-            #head_menu_all > li {
+
+            #head_menu_all>li {
                 border-bottom: 1px solid #ddd !important;
             }
-            
-            #head_menu_all > li > a {
+
+            #head_menu_all>li>a {
                 color: #333 !important;
                 display: block !important;
                 font-size: 2rem !important;
@@ -794,8 +799,8 @@
                 position: relative !important;
                 z-index: 1 !important;
             }
-            
-            #head_menu_all > li > a:after {
+
+            #head_menu_all>li>a:after {
                 content: "▼" !important;
                 font-size: 1.4rem !important;
                 position: absolute !important;
@@ -803,11 +808,11 @@
                 top: 2.2rem !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active > a:after {
+
+            #head_menu_all>li.active>a:after {
                 transform: rotate(180deg) !important;
             }
-            
+
             #head_menu_all .submenu {
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -816,37 +821,37 @@
                 background: #317bb5 !important;
                 transition: all 0.3s !important;
             }
-            
-            #head_menu_all > li.active {
+
+            #head_menu_all>li.active {
                 background-color: #317bb5 !important;
                 border-radius: 1rem !important;
             }
-            
-            #head_menu_all > li.active > a {
+
+            #head_menu_all>li.active>a {
                 background-color: #182346 !important;
                 border-radius: 1rem !important;
                 color: #fff !important;
             }
-            
-            #head_menu_all > li.active .submenu {
+
+            #head_menu_all>li.active .submenu {
                 visibility: visible !important;
                 opacity: 1 !important;
                 height: auto !important;
                 padding: 2rem 3rem 3rem !important;
             }
-            
-            #head_menu_all .submenu > ul > li > a {
+
+            #head_menu_all .submenu>ul>li>a {
                 color: #fff !important;
                 display: block !important;
                 font-size: 1.8rem !important;
                 font-weight: normal !important;
                 padding: 1rem 0 !important;
             }
-            
-            #head_menu_all .submenu > ul > li + li {
+
+            #head_menu_all .submenu>ul>li+li {
                 margin-top: 0.5rem !important;
             }
-            
+
             /* 모바일 메뉴 열렸을 때 스크롤 방지 */
             body.menu-open {
                 overflow: hidden !important;
@@ -854,10 +859,10 @@
                 width: 100% !important;
             }
         }
-        
+
         /* 서브메뉴 overflow 수정 */
         @media screen and (max-width: 1000px) {
-            #head_menu_all > li.active .submenu {
+            #head_menu_all>li.active .submenu {
                 overflow: visible !important;
             }
         }
@@ -872,24 +877,24 @@
     <script src="assets/js/main.js"></script>
     <script src="/assets/js/sub.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             console.log('[연구갤러리] 햄버거 메뉴 스크립트 시작');
-            
+
             // 기존 이벤트 제거
             $('#gnb2').off('.hamburger');
             $('#head_menu_all').off('.submenu');
             $(document).off('.menu-close');
-            
+
             // 햄버거 메뉴 토글 (open과 close 버튼 모두 처리)
-            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function(e) {
+            $('#gnb2 .control.open, #gnb2 .control.close').on('click.hamburger', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 console.log('[연구갤러리] 햄버거 버튼 클릭됨');
-                
+
                 const gnb2 = $('#gnb2');
                 const isActive = gnb2.hasClass('active');
-                
+
                 if (isActive) {
                     gnb2.removeClass('active');
                     $('body').removeClass('menu-open');
@@ -900,73 +905,73 @@
                     console.log('[연구갤러리] 메뉴 열림');
                 }
             });
-            
+
             // 서브메뉴 아코디언 토글
-            $('#head_menu_all > li > a').on('click.submenu', function(e) {
+            $('#head_menu_all > li > a').on('click.submenu', function (e) {
                 console.log('[연구갤러리] 메뉴 클릭됨:', $(this).text());
-                
+
                 const li = $(this).parent();
                 const hasSubmenu = li.find('.submenu').length > 0;
-                
+
                 console.log('[연구갤러리] 서브메뉴 있음:', hasSubmenu, '개수:', li.find('.submenu').length);
                 console.log('[연구갤러리] 현재 li 클래스:', li.attr('class'));
                 console.log('[연구갤러리] 서브메뉴 HTML:', li.find('.submenu').html());
-                
+
                 if (hasSubmenu) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     console.log('[연구갤러리] 서브메뉴 토글 실행:', $(this).text());
-                    
+
                     // 다른 메뉴들 닫기
                     $('#head_menu_all > li').not(li).removeClass('active');
-                    
+
                     // 현재 메뉴 토글
                     const wasActive = li.hasClass('active');
                     li.toggleClass('active');
-                    
+
                     console.log('[연구갤러리] 토글 후 상태:', li.hasClass('active'), '(이전:', wasActive, ')');
                     console.log('[연구갤러리] 토글 후 li 클래스:', li.attr('class'));
                 } else {
                     console.log('[연구갤러리] 서브메뉴 없음, 링크 이동 허용');
                 }
             });
-            
+
             // 메뉴 외부 클릭시 닫기
-            $(document).on('click.menu-close', function(e) {
+            $(document).on('click.menu-close', function (e) {
                 if (!$(e.target).closest('#gnb2').length) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구갤러리] 외부 클릭으로 메뉴 닫힘');
                 }
             });
-            
+
             // ESC 키로 메뉴 닫기
-            $(document).on('keydown.menu-close', function(e) {
+            $(document).on('keydown.menu-close', function (e) {
                 if (e.keyCode === 27 && $('#gnb2').hasClass('active')) {
                     $('#gnb2').removeClass('active');
                     $('body').removeClass('menu-open');
                     console.log('[연구갤러리] ESC 키로 메뉴 닫힘');
                 }
             });
-            
+
             console.log('[연구갤러리] 햄버거 메뉴 스크립트 완료');
         });
 
         // 검색 기능
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var searchForm = document.querySelector('.search-form');
             if (searchForm) {
-                searchForm.addEventListener('submit', function(e) {
+                searchForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const searchType = document.getElementById('search_type').value;
                     const keyword = document.querySelector('input[name="search_keyword"]').value;
-                    
+
                     if (!keyword.trim()) {
                         alert('검색어를 입력하세요.');
                         return;
                     }
-                    
+
                     console.log('검색 타입:', searchType, '검색어:', keyword);
                     alert('검색 기능은 서버 구현이 필요합니다.');
                 });
@@ -975,4 +980,4 @@
     </script>
 </body>
 
-</html> 
+</html>
