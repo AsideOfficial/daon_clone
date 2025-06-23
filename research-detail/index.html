@@ -20,6 +20,21 @@
     <title>연구현황 상세 : 한국의료정보데이터</title>
 
     <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/sub.css">
+    <link rel="stylesheet" href="/assets/css/sub_full.css">
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css">
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css">
+    <link rel="stylesheet" href="/assets/css/sub02_full.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/font/webfonts_gmarketsans.css">
+    <link rel="stylesheet" href="/assets/font/webfonts_NotoSansKR.css">
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
 	
 	<!-- Favicon 설정 -->
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
@@ -868,13 +883,81 @@
             }
         });
 
+        // 내장 프로젝트 데이터 (연구현황 페이지와 동일한 데이터)
+        const projectData = {
+            projects: [
+                {
+                    id: 1,
+                    title: "의료정보 보안 강화를 위한 블록체인 기반 인증 시스템 개발",
+                    department: "보건복지부",
+                    agency: "한국보건산업진흥원",
+                    announcementNumber: "2024-보건-001",
+                    announcementDate: "2024-12-15",
+                    applicationPeriod: {
+                        start: "2024-12-20",
+                        end: "2025-01-20"
+                    },
+                    budget: "5억원",
+                    duration: "24개월",
+                    status: "접수중",
+                    description: "의료정보의 보안성을 강화하기 위한 블록체인 기반 인증 시스템을 개발하여 환자 개인정보 보호와 의료 데이터의 무결성을 보장하는 연구입니다.",
+                    summary: "의료정보의 보안성을 강화하기 위한 블록체인 기반 인증 시스템 개발",
+                    keywords: ["블록체인", "보안", "인증시스템", "의료정보"],
+                    eligibility: "중소기업, 대학, 연구기관",
+                    field: "의료정보기술",
+                    subField: "보안기술",
+                    selectionCriteria: [
+                        "기술적 우수성 및 혁신성 (40%)",
+                        "사업화 가능성 및 시장성 (30%)",
+                        "연구개발 역량 및 추진체계 (20%)",
+                        "파급효과 및 정책적 기여도 (10%)"
+                    ],
+                    contactInfo: {
+                        department: "한국보건산업진흥원 의료정보기술팀",
+                        phone: "043-713-8000",
+                        email: "medtech@khidi.or.kr"
+                    }
+                },
+                {
+                    id: 2,
+                    title: "병원 경영 데이터 분석을 통한 효율성 개선 방안 연구",
+                    department: "과학기술정보통신부",
+                    agency: "정보통신기획평가원",
+                    announcementNumber: "2024-과기-002",
+                    announcementDate: "2024-12-10",
+                    applicationPeriod: {
+                        start: "2024-12-15",
+                        end: "2025-01-15"
+                    },
+                    budget: "3억원",
+                    duration: "18개월",
+                    status: "접수중",
+                    description: "병원 경영 데이터를 분석하여 운영 효율성을 개선하는 방안을 연구하고, 데이터 기반의 의사결정 지원 시스템을 개발합니다.",
+                    summary: "병원 경영 데이터를 분석하여 운영 효율성을 개선하는 방안 연구",
+                    keywords: ["데이터분석", "경영효율", "병원운영", "최적화"],
+                    eligibility: "대학, 연구기관, 기업",
+                    field: "의료경영",
+                    subField: "데이터분석",
+                    selectionCriteria: [
+                        "연구의 창의성 및 도전성 (35%)",
+                        "연구목표의 명확성 및 달성가능성 (25%)",
+                        "연구진의 전문성 및 연구역량 (25%)",
+                        "연구결과의 활용성 및 파급효과 (15%)"
+                    ],
+                    contactInfo: {
+                        department: "정보통신기획평가원 의료ICT팀",
+                        phone: "042-612-8000",
+                        email: "medical@iitp.kr"
+                    }
+                }
+            ]
+        };
+
         // 첫 번째 프로젝트 로드 (테스트용)
-        async function loadFirstProject() {
+        function loadFirstProject() {
             try {
-                const response = await fetch('/government-projects.json');
-                const data = await response.json();
-                if (data.projects && data.projects.length > 0) {
-                    const project = data.projects[0];
+                if (projectData.projects && projectData.projects.length > 0) {
+                    const project = projectData.projects[0];
                     currentProject = project;
                     renderProjectDetail(project);
                     hideLoading();
@@ -892,11 +975,9 @@
         }
 
         // 프로젝트 상세 정보 로드
-        async function loadProjectDetail(projectId) {
+        function loadProjectDetail(projectId) {
             try {
-                const response = await fetch('/government-projects.json');
-                const data = await response.json();
-                const project = data.projects.find(p => p.id === projectId);
+                const project = projectData.projects.find(p => p.id == projectId);
                 
                 if (project) {
                     currentProject = project;
