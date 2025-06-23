@@ -20,6 +20,21 @@
     <title>연구현황 : 한국의료정보데이터</title>
 
     <!-- 공통 CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/sub.css">
+    <link rel="stylesheet" href="/assets/css/sub_full.css">
+    <link rel="stylesheet" href="/assets/css/sub_respond_full.css">
+    <link rel="stylesheet" href="/assets/css/sub_es_full.css">
+    <link rel="stylesheet" href="/assets/css/sub02_full.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/font/webfonts_gmarketsans.css">
+    <link rel="stylesheet" href="/assets/font/webfonts_NotoSansKR.css">
+    <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
 	
 	<!-- Favicon 설정 -->
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
@@ -190,14 +205,18 @@
     <!-- 공통 JS - 메인 페이지와 동일 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
     <script>
+
+
         $(document).ready(function() {
             console.log('[연구현황] 햄버거 메뉴 스크립트 시작');
             
             // 기존 이벤트 제거
             $('#gnb2').off('.hamburger');
             $('#head_menu_all').off('.submenu');
+
+
             $(document).off('.menu-close');
             
             // 햄버거 메뉴 토글 (open과 close 버튼 모두 처리)
@@ -800,7 +819,98 @@
     <script>
         // 정부과제 데이터를 관리하는 객체
         let projectData = {
-            projects: [],
+            projects: [
+                {
+                    id: 1,
+                    title: "의료정보 보안 강화를 위한 블록체인 기반 인증 시스템 개발",
+                    department: "보건복지부",
+                    announcementDate: "2024-12-15",
+                    status: "진행중",
+                    summary: "의료정보의 보안성을 강화하기 위한 블록체인 기반 인증 시스템 개발",
+                    keywords: ["블록체인", "보안", "인증시스템", "의료정보"]
+                },
+                {
+                    id: 2,
+                    title: "병원 경영 데이터 분석을 통한 효율성 개선 방안 연구",
+                    department: "과학기술정보통신부",
+                    announcementDate: "2024-12-10", 
+                    status: "진행중",
+                    summary: "병원 경영 데이터를 분석하여 운영 효율성을 개선하는 방안 연구",
+                    keywords: ["데이터분석", "경영효율", "병원운영", "최적화"]
+                },
+                {
+                    id: 3,
+                    title: "AI 기반 의료영상 진단 시스템의 정확도 향상 연구",
+                    department: "산업통상자원부",
+                    announcementDate: "2024-12-05",
+                    status: "완료",
+                    summary: "인공지능을 활용한 의료영상 진단 시스템의 정확도 향상 연구",
+                    keywords: ["AI", "의료영상", "진단시스템", "정확도"]
+                },
+                {
+                    id: 4,
+                    title: "환자 개인정보 보호를 위한 암호화 기술 개발",
+                    department: "보건복지부",
+                    announcementDate: "2024-12-01",
+                    status: "진행중",
+                    summary: "환자 개인정보의 안전한 보호를 위한 고도화된 암호화 기술 개발",
+                    keywords: ["개인정보보호", "암호화", "보안기술", "환자정보"]
+                },
+                {
+                    id: 5,
+                    title: "의료 빅데이터 통합 플랫폼 구축 방안 연구",
+                    department: "과학기술정보통신부",
+                    announcementDate: "2024-11-28",
+                    status: "완료",
+                    summary: "의료 분야의 빅데이터를 통합하여 활용할 수 있는 플랫폼 구축 방안 연구",
+                    keywords: ["빅데이터", "통합플랫폼", "의료데이터", "데이터활용"]
+                },
+                {
+                    id: 6,
+                    title: "원격 의료 서비스의 보안성 강화 연구",
+                    department: "방송통신위원회",
+                    announcementDate: "2024-11-25",
+                    status: "진행중",
+                    summary: "원격 의료 서비스 제공 시 보안성을 강화하는 방안 연구",
+                    keywords: ["원격의료", "보안강화", "텔레메디슨", "사이버보안"]
+                },
+                {
+                    id: 7,
+                    title: "의료기관 간 데이터 표준화 방안 연구",
+                    department: "보건복지부",
+                    announcementDate: "2024-11-20",
+                    status: "진행중",
+                    summary: "의료기관 간 데이터 호환성을 위한 표준화 방안 연구",
+                    keywords: ["데이터표준화", "상호운용성", "의료기관", "호환성"]
+                },
+                {
+                    id: 8,
+                    title: "환자 경험 데이터 활용 의료 서비스 개선 연구",
+                    department: "국민건강보험공단",
+                    announcementDate: "2024-11-15",
+                    status: "완료",
+                    summary: "환자 경험 데이터를 분석하여 의료 서비스 품질 개선 방안 연구",
+                    keywords: ["환자경험", "서비스개선", "품질향상", "데이터활용"]
+                },
+                {
+                    id: 9,
+                    title: "공공 의료 데이터 개방 및 활용 정책 연구",
+                    department: "행정안전부",
+                    announcementDate: "2024-11-10",
+                    status: "진행중",
+                    summary: "공공 의료 데이터의 안전한 개방과 효율적 활용을 위한 정책 연구",
+                    keywords: ["공공데이터", "데이터개방", "활용정책", "의료정책"]
+                },
+                {
+                    id: 10,
+                    title: "의료 IoT 기기의 보안 취약점 분석 및 대응 방안",
+                    department: "과학기술정보통신부",
+                    announcementDate: "2024-11-05",
+                    status: "완료",
+                    summary: "의료용 IoT 기기의 보안 취약점을 분석하고 대응 방안을 제시하는 연구",
+                    keywords: ["IoT", "보안취약점", "의료기기", "사이버보안"]
+                }
+            ],
             filteredProjects: [],
             currentPage: 1,
             itemsPerPage: 10
@@ -808,23 +918,15 @@
 
         // 페이지 로드 시 데이터 초기화
         document.addEventListener('DOMContentLoaded', function() {
-            loadProjects();
+            initializeData();
             setupEventListeners();
         });
 
-        // JSON 데이터 로드
-        async function loadProjects() {
-            try {
-                const response = await fetch('/government-projects.json');
-                const data = await response.json();
-                projectData.projects = data.projects || [];
-                projectData.filteredProjects = [...projectData.projects];
-                renderProjects();
-                updateStats();
-            } catch (error) {
-                console.error('데이터 로딩 에러:', error);
-                showEmptyMessage('데이터를 불러오는데 실패했습니다.');
-            }
+        // 데이터 초기화
+        function initializeData() {
+            projectData.filteredProjects = [...projectData.projects];
+            renderProjects();
+            updateStats();
         }
 
         // 이벤트 리스너 설정
