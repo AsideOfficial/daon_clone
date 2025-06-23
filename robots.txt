@@ -6,16 +6,35 @@ Disallow: /*.sh
 Disallow: /*.json
 Disallow: /*.md
 
-Sitemap: https://kmid.co.kr/sitemap.xml
-
-# 네이버 검색로봇
+# 네이버 검색로봇 최적화
 User-agent: Yeti
 Allow: /
+Crawl-delay: 1
+
+User-agent: NaverBot
+Allow: /
+Crawl-delay: 1
 
 # 구글 검색로봇
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 # 다음 검색로봇
 User-agent: Daumoa
-Allow: / 
+Allow: /
+Crawl-delay: 1
+
+# 빙 검색로봇
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1
+
+# 사이트맵
+Sitemap: https://kmid.co.kr/sitemap.xml
+Sitemap: https://kmid.co.kr/naver-sitemap.xml
+Sitemap: https://kmid.co.kr/rss.xml
+
+# 중요 페이지 명시
+# 한국의료정보데이터 메인 페이지
+# https://kmid.co.kr/ 
