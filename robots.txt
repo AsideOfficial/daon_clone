@@ -9,10 +9,16 @@ Disallow: /*.md
 # 네이버 검색로봇 최적화
 User-agent: Yeti
 Allow: /
+Allow: /apply/
+Allow: /ai-diagnosis-system-register/
+Allow: /insurance-claim-system-register/
 Crawl-delay: 1
 
 User-agent: NaverBot
 Allow: /
+Allow: /apply/
+Allow: /ai-diagnosis-system-register/
+Allow: /insurance-claim-system-register/
 Crawl-delay: 1
 
 # 구글 검색로봇
@@ -36,5 +42,7 @@ Sitemap: https://kmid.co.kr/naver-sitemap.xml
 Sitemap: https://kmid.co.kr/rss.xml
 
 # 중요 페이지 명시
-# 한국의료정보데이터 메인 페이지
-# https://kmid.co.kr/ 
+# 개인정보 전송요구권 서비스: https://kmid.co.kr/apply/
+# 한국의료정보데이터 메인 페이지: https://kmid.co.kr/
+# AI 진단시스템 등록: https://kmid.co.kr/ai-diagnosis-system-register/
+# 보험청구시스템 등록: https://kmid.co.kr/insurance-claim-system-register/ 
