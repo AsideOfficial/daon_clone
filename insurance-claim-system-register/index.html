@@ -13,14 +13,185 @@
 
     <title>실손보험 청구 자동화 시스템 신청 - 한국의료정보데이터</title>
 
-    <!-- CSS -->
-
     <!-- Favicon 설정 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <link rel="shortcut icon" href="/assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon.png">
     <meta name="msapplication-TileImage" content="/assets/images/favicon.png">
+
+    <style>
+        /* 페이지 헤더 스타일 개선 */
+        .register-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem 0;
+        }
+
+        .register-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 3rem;
+            max-width: 1200px;
+        }
+
+        .register-header h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .register-header p {
+            font-size: 1.6rem;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 고정 관련 스타일 개선 */
+        #header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #main {
+            padding-top: 11rem;
+            min-height: 100vh;
+        }
+
+        /* 폼 레이아웃 스타일 */
+        .register-form {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #00a3d3;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 1.4rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #00a3d3;
+            box-shadow: 0 0 0 2px rgba(0, 163, 211, 0.2);
+        }
+
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00a3d3 0%, #0077a3 100%);
+            color: white;
+            border: none;
+            padding: 1.8rem 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 163, 211, 0.3);
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 163, 211, 0.4);
+        }
+
+        .submit-btn i {
+            margin-right: 1rem;
+        }
+
+        /* 반응형 레이아웃 */
+        @media (max-width: 768px) {
+            .register-form {
+                padding: 0 1rem;
+            }
+
+            .register-header {
+                padding: 2rem 1rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .register-header h1 {
+                font-size: 2.4rem;
+            }
+
+            .register-header p {
+                font-size: 1.4rem;
+            }
+
+            .form-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .form-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .form-group label {
+                font-size: 1.4rem;
+            }
+
+            .form-group input, .form-group select {
+                padding: 1rem;
+                font-size: 1.3rem;
+            }
+
+            .submit-btn {
+                font-size: 1.6rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+
     <!-- 공통 CSS -->
     <link rel="stylesheet" href="/assets/font/dingbat_xeicon.css">
     <link rel="stylesheet" href="/assets/css/reset.css">
@@ -64,8 +235,6 @@
                 <div id="headmn">
                     <nav id="gnb1">
                         <ul id="head_menu" class="topmenu">
-                            <li class="lnb1 mnfirst">
-                            </li>
                             <li class="lnb2">
                                 <a href="/greeting">KMID연구소개</a>
                                 <div class="submenu">
