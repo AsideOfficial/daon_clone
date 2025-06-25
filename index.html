@@ -254,6 +254,34 @@
     <!-- Preload 중요 리소스 -->
     <link rel="preload" href="assets/img/main/visual01.png" as="image">
     <link rel="preload" href="assets/css/main.css" as="style">
+
+    <!-- Google Analytics 4 (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G-PT673KYGS3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        // Google Analytics 4 설정
+        gtag('config', 'G-G-PT673KYGS3', {
+            // 페이지뷰 자동 추적
+            page_title: document.title,
+            page_location: window.location.href,
+            // 향상된 전자상거래 활성화
+            enhanced_ecommerce: true,
+            // 사용자 참여 측정
+            engagement_time_msec: 100,
+            // 스크롤 추적
+            send_page_view: true
+        });
+        
+        // 페이지 로드 완료 시 이벤트
+        gtag('event', 'page_load_complete', {
+            event_category: 'Performance',
+            event_label: 'Page Load',
+            value: 1
+        });
+    </script>
 </head>
 
 <body>
@@ -740,6 +768,170 @@
             });
             
             console.log('메인 페이지 햄버거 메뉴 초기화 완료');
+        });
+    </script>
+    
+    <!-- Google Analytics 이벤트 추적 스크립트 -->
+    <script>
+        $(document).ready(function() {
+            // 페이지 진입 시간 기록
+            var pageStartTime = new Date().getTime();
+            var scrollDepth = 0;
+            var maxScrollDepth = 0;
+            var isScrollTracked = false;
+            
+            // 1. 버튼 클릭 추적
+            $('a[href], button').on('click', function(e) {
+                var elementText = $(this).text().trim() || $(this).attr('alt') || $(this).attr('title') || 'Unknown';
+                var elementType = this.tagName.toLowerCase();
+                var elementClass = $(this).attr('class') || '';
+                var elementHref = $(this).attr('href') || '';
+                
+                gtag('event', 'click', {
+                    event_category: 'Button',
+                    event_label: elementText,
+                    element_type: elementType,
+                    element_class: elementClass,
+                    element_href: elementHref,
+                    page_location: window.location.href
+                });
+                
+                console.log('버튼 클릭 추적:', elementText);
+            });
+            
+            // 2. 스크롤 깊이 추적
+            $(window).on('scroll', function() {
+                var scrollTop = $(window).scrollTop();
+                var docHeight = $(document).height();
+                var winHeight = $(window).height();
+                var scrollPercent = Math.round((scrollTop / (docHeight - winHeight)) * 100);
+                
+                maxScrollDepth = Math.max(maxScrollDepth, scrollPercent);
+                
+                // 25%, 50%, 75%, 100% 지점에서 이벤트 발생
+                if (!isScrollTracked) {
+                    if (scrollPercent >= 25 && scrollDepth < 25) {
+                        gtag('event', 'scroll', {
+                            event_category: 'Scroll',
+                            event_label: '25% 스크롤',
+                            value: 25
+                        });
+                        scrollDepth = 25;
+                    } else if (scrollPercent >= 50 && scrollDepth < 50) {
+                        gtag('event', 'scroll', {
+                            event_category: 'Scroll',
+                            event_label: '50% 스크롤',
+                            value: 50
+                        });
+                        scrollDepth = 50;
+                    } else if (scrollPercent >= 75 && scrollDepth < 75) {
+                        gtag('event', 'scroll', {
+                            event_category: 'Scroll',
+                            event_label: '75% 스크롤',
+                            value: 75
+                        });
+                        scrollDepth = 75;
+                    } else if (scrollPercent >= 90 && scrollDepth < 90) {
+                        gtag('event', 'scroll', {
+                            event_category: 'Scroll',
+                            event_label: '90% 스크롤',
+                            value: 90
+                        });
+                        scrollDepth = 90;
+                        isScrollTracked = true;
+                    }
+                }
+            });
+            
+            // 3. 페이지 체류 시간 추적
+            var timeIntervals = [30, 60, 120, 300]; // 30초, 1분, 2분, 5분
+            var trackedIntervals = [];
+            
+            timeIntervals.forEach(function(interval) {
+                setTimeout(function() {
+                    if (!trackedIntervals.includes(interval)) {
+                        gtag('event', 'timing', {
+                            event_category: 'Engagement',
+                            event_label: interval + '초 체류',
+                            value: interval
+                        });
+                        trackedIntervals.push(interval);
+                        console.log('체류 시간 추적:', interval + '초');
+                    }
+                }, interval * 1000);
+            });
+            
+            // 4. 섹션별 조회 추적
+            var sections = ['#visual', '#business', '#research', '#hospital-business'];
+            var viewedSections = [];
+            
+            $(window).on('scroll', function() {
+                sections.forEach(function(section) {
+                    var $section = $(section);
+                    if ($section.length > 0 && !viewedSections.includes(section)) {
+                        var sectionTop = $section.offset().top;
+                        var sectionHeight = $section.outerHeight();
+                        var scrollTop = $(window).scrollTop();
+                        var windowHeight = $(window).height();
+                        
+                        // 섹션이 50% 이상 보이면 조회로 인정
+                        if (scrollTop + windowHeight > sectionTop + (sectionHeight * 0.5)) {
+                            gtag('event', 'view_section', {
+                                event_category: 'Section View',
+                                event_label: section.replace('#', ''),
+                                section_name: section.replace('#', '')
+                            });
+                            viewedSections.push(section);
+                            console.log('섹션 조회 추적:', section);
+                        }
+                    }
+                });
+            });
+            
+            // 5. 페이지 이탈 시 최종 데이터 전송
+            $(window).on('beforeunload', function() {
+                var timeSpent = Math.round((new Date().getTime() - pageStartTime) / 1000);
+                
+                gtag('event', 'page_exit', {
+                    event_category: 'Engagement',
+                    event_label: '페이지 이탈',
+                    time_spent: timeSpent,
+                    max_scroll_depth: maxScrollDepth,
+                    sections_viewed: viewedSections.length
+                });
+            });
+            
+            // 6. 특정 링크 클릭 추적 (외부 링크, 이메일, 전화번호)
+            $('a[href^="http"], a[href^="mailto:"], a[href^="tel:"]').on('click', function() {
+                var href = $(this).attr('href');
+                var linkType = '';
+                
+                if (href.startsWith('http')) {
+                    linkType = 'external_link';
+                } else if (href.startsWith('mailto:')) {
+                    linkType = 'email';
+                } else if (href.startsWith('tel:')) {
+                    linkType = 'phone';
+                }
+                
+                gtag('event', 'click', {
+                    event_category: 'Link',
+                    event_label: linkType,
+                    link_url: href
+                });
+            });
+            
+            // 7. 폼 제출 추적 (만약 폼이 있다면)
+            $('form').on('submit', function() {
+                var formId = $(this).attr('id') || 'unknown_form';
+                gtag('event', 'form_submit', {
+                    event_category: 'Form',
+                    event_label: formId,
+                    form_id: formId
+                });
+            });
+            
+            console.log('Google Analytics 이벤트 추적 초기화 완료');
         });
     </script>
 

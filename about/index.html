@@ -16,6 +16,23 @@
 	<meta property="og:description" content="한국의료정보데이터" />
 
 	<title>KMID연구소개 | KMID연구소개 : 한국의료정보데이터</title>
+	
+	<!-- Google Analytics 4 (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G-PT673KYGS3"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		
+		gtag('config', 'G-G-PT673KYGS3', {
+			page_title: document.title,
+			page_location: window.location.href,
+			enhanced_ecommerce: true,
+			engagement_time_msec: 100,
+			send_page_view: true
+		});
+	</script>
+
 	<!-- 공통 CSS -->
 	<!-- 서브 CSS -->
 	<!-- 공통 JS -->
@@ -406,10 +423,9 @@
 
 	<!-- 서브 JS -->
 	<script src="/assets/js/main.js"></script>
-
-
-
-
+	
+	<!-- Google Analytics 공통 추적 스크립트 -->
+	<script src="/assets/js/analytics.js"></script>
 
 	<script>
 		try { initNavigation('01'); } catch (e) { console.log(""); }	// 메인메뉴 활성화
