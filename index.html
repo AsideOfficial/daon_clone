@@ -255,6 +255,407 @@
     <link rel="preload" href="assets/img/main/visual01.png" as="image">
     <link rel="preload" href="assets/css/main.css" as="style">
 
+    <!-- 캠페인 팝업 CSS -->
+    <style>
+    /* 캠페인 팝업 스타일 */
+    .campaign-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .campaign-popup-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .campaign-popup-content {
+        position: relative;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        max-width: 450px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+    }
+
+    .campaign-popup-overlay.show .campaign-popup-content {
+        transform: scale(1);
+    }
+
+
+
+    .campaign-close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .campaign-close-btn:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .campaign-popup-body {
+        padding: 0;
+    }
+
+    .campaign-poster {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+        background: linear-gradient(135deg, #1976D2, #42A5F5);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .campaign-poster img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        max-height: none;
+    }
+
+    .campaign-content-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 30px 20px 20px;
+        text-align: center;
+    }
+
+    .campaign-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .campaign-description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    .campaign-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .campaign-btn {
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .campaign-btn-primary {
+        background: #FF6B6B;
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    .campaign-btn-primary:hover {
+        background: #FF5252;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    .campaign-btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .campaign-btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .campaign-popup-footer {
+        padding: 20px;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .campaign-checkbox {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 14px;
+        color: #666;
+        justify-content: center;
+    }
+
+    .campaign-checkbox input[type="checkbox"] {
+        display: none;
+    }
+
+    .campaign-checkbox .checkmark {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        margin-right: 8px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .campaign-checkbox input[type="checkbox"]:checked + .checkmark {
+        background: #1976D2;
+        border-color: #1976D2;
+    }
+
+    .campaign-checkbox input[type="checkbox"]:checked + .checkmark::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 6px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    /* 모바일 반응형 */
+    @media (max-width: 768px) {
+        .campaign-popup-content {
+            width: 95%;
+            max-width: 380px;
+            margin: 10px;
+            max-height: 95vh;
+        }
+
+        .campaign-poster {
+            min-height: 350px;
+        }
+
+        .campaign-title {
+            font-size: 20px;
+        }
+
+        .campaign-description {
+            font-size: 14px;
+        }
+
+        .campaign-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .campaign-btn {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .campaign-content-overlay {
+            padding: 20px 15px 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .campaign-popup-content {
+            width: 98%;
+            border-radius: 10px;
+        }
+
+        .campaign-title {
+            font-size: 18px;
+        }
+
+        .campaign-description {
+            font-size: 13px;
+        }
+    }
+
+    /* 이미지 뷰어 모달 스타일 */
+    .image-viewer-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 9998;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .image-viewer-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .image-viewer-content {
+        position: relative;
+        width: 95%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-viewer-close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        color: #333;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        z-index: 1002;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-viewer-close-btn:hover {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.1);
+    }
+
+    .image-viewer-body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .image-viewer-body img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+        cursor: grab;
+        user-select: none;
+    }
+
+    .image-viewer-body img:active {
+        cursor: grabbing;
+    }
+
+    .image-viewer-body img.zoomed {
+        cursor: move;
+    }
+
+    .image-viewer-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+    }
+
+    .zoom-btn {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .zoom-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+
+    .zoom-btn:active {
+        transform: scale(0.95);
+    }
+
+    /* 모바일에서 이미지 뷰어 */
+    @media (max-width: 768px) {
+        .image-viewer-close-btn {
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        .image-viewer-controls {
+            bottom: 10px;
+            padding: 8px;
+        }
+
+        .zoom-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+    }
+    </style>
+
     <!-- Google Analytics 4 (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PT673KYGS3"></script>
     <script>
@@ -292,6 +693,56 @@
 
     <div id="hiddenLayer" style="display: none"></div>
     <div class="mw" id="mw_temp" style="display: none"></div>
+
+    <!-- 캠페인 포스터 팝업 모달 -->
+    <div id="campaignPopup" class="campaign-popup-overlay">
+        <div class="campaign-popup-content">
+            <button type="button" class="campaign-close-btn" id="campaignCloseBtn">
+                <i class="xi-close"></i>
+            </button>
+            <div class="campaign-popup-body">
+                <div class="campaign-poster">
+                    <img src="assets/images/campaign-poster.png" alt="한국의료정보데이터 캠페인 포스터" id="campaignPosterImg">
+                    <div class="campaign-content-overlay">
+                        <div class="campaign-buttons">
+                            <a href="/apply" class="campaign-btn campaign-btn-primary">신청하기</a>
+                            <a href="#" class="campaign-btn campaign-btn-secondary" id="viewDetailBtn">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="campaign-popup-footer">
+                <label class="campaign-checkbox">
+                    <input type="checkbox" id="dontShowToday">
+                    <span class="checkmark"></span>
+                    오늘 하루 보지 않기
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이미지 뷰어 모달 -->
+    <div id="imageViewerModal" class="image-viewer-overlay">
+        <div class="image-viewer-content">
+            <button type="button" class="image-viewer-close-btn" id="imageViewerCloseBtn">
+                <i class="xi-close"></i>
+            </button>
+            <div class="image-viewer-body">
+                <img src="assets/images/campaign-poster.png" alt="캠페인 포스터 상세보기" id="viewerImage">
+            </div>
+            <div class="image-viewer-controls">
+                <button type="button" class="zoom-btn" id="zoomInBtn">
+                    <i class="xi-plus"></i>
+                </button>
+                <button type="button" class="zoom-btn" id="zoomOutBtn">
+                    <i class="xi-minus"></i>
+                </button>
+                <button type="button" class="zoom-btn" id="resetZoomBtn">
+                    <i class="xi-refresh"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <div id="wrap">
         <header id="header">
@@ -771,6 +1222,387 @@
         });
     </script>
     
+    <!-- 캠페인 팝업 JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // 캠페인 팝업 관련 변수
+            var $campaignPopup = $('#campaignPopup');
+            var $campaignCloseBtn = $('#campaignCloseBtn');
+            var $dontShowToday = $('#dontShowToday');
+            var campaignStorageKey = 'kmid_campaign_popup_hide';
+            
+            // 오늘 날짜 문자열 생성 (YYYY-MM-DD 형식)
+            function getTodayString() {
+                var today = new Date();
+                return today.getFullYear() + '-' + 
+                       String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                       String(today.getDate()).padStart(2, '0');
+            }
+            
+            // 로컬 스토리지에서 팝업 숨김 상태 확인
+            function shouldShowPopup() {
+                var hideDate = localStorage.getItem(campaignStorageKey);
+                var today = getTodayString();
+                
+                // 저장된 날짜가 없거나 오늘과 다르면 팝업 표시
+                return !hideDate || hideDate !== today;
+            }
+            
+            // 팝업 표시
+            function showCampaignPopup() {
+                console.log('캠페인 팝업 표시');
+                $campaignPopup.addClass('show');
+                
+                // Google Analytics 이벤트 추적
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'campaign_popup_show', {
+                        event_category: 'Campaign',
+                        event_label: '캠페인 팝업 노출',
+                        popup_date: getTodayString()
+                    });
+                }
+                
+                // 본문 스크롤 방지
+                $('body').css('overflow', 'hidden');
+            }
+            
+            // 팝업 숨김
+            function hideCampaignPopup() {
+                console.log('캠페인 팝업 숨김');
+                $campaignPopup.removeClass('show');
+                
+                // 본문 스크롤 복원
+                $('body').css('overflow', '');
+                
+                // Google Analytics 이벤트 추적
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'campaign_popup_close', {
+                        event_category: 'Campaign',
+                        event_label: '캠페인 팝업 닫기',
+                        popup_date: getTodayString()
+                    });
+                }
+            }
+            
+            // 오늘 하루 보지 않기 처리
+            function handleDontShowToday() {
+                if ($dontShowToday.is(':checked')) {
+                    var today = getTodayString();
+                    localStorage.setItem(campaignStorageKey, today);
+                    console.log('오늘 하루 보지 않기 설정:', today);
+                    
+                    // Google Analytics 이벤트 추적
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'campaign_popup_dont_show_today', {
+                            event_category: 'Campaign',
+                            event_label: '오늘 하루 보지 않기',
+                            popup_date: today
+                        });
+                    }
+                }
+            }
+            
+            // 이벤트 리스너 등록
+            
+            // 닫기 버튼 클릭
+            $campaignCloseBtn.on('click', function(e) {
+                e.preventDefault();
+                handleDontShowToday();
+                hideCampaignPopup();
+            });
+            
+            // 오버레이 클릭으로 닫기
+            $campaignPopup.on('click', function(e) {
+                if (e.target === this) {
+                    handleDontShowToday();
+                    hideCampaignPopup();
+                }
+            });
+            
+            // ESC 키로 닫기
+            $(document).on('keydown', function(e) {
+                if (e.keyCode === 27 && $campaignPopup.hasClass('show')) {
+                    handleDontShowToday();
+                    hideCampaignPopup();
+                }
+            });
+            
+            // 캠페인 버튼 클릭 추적
+            $('.campaign-btn').on('click', function() {
+                var btnText = $(this).text().trim();
+                var btnHref = $(this).attr('href');
+                
+                console.log('캠페인 버튼 클릭:', btnText);
+                
+                // Google Analytics 이벤트 추적
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'campaign_button_click', {
+                        event_category: 'Campaign',
+                        event_label: btnText,
+                        button_href: btnHref,
+                        popup_date: getTodayString()
+                    });
+                }
+                
+                // 팝업 닫기
+                handleDontShowToday();
+                hideCampaignPopup();
+            });
+            
+            // 이미지 로드 실패 시 대체 컨텐츠 표시
+            $('#campaignPosterImg').on('error', function() {
+                console.log('캠페인 포스터 이미지 로드 실패, 대체 컨텐츠 표시');
+                $(this).hide();
+                $('.campaign-poster').css({
+                    'background': 'linear-gradient(135deg, #1976D2, #42A5F5)',
+                    'min-height': '400px'
+                });
+            });
+            
+            // 페이지 로드 완료 후 팝업 표시 (2초 후)
+            setTimeout(function() {
+                if (shouldShowPopup()) {
+                    showCampaignPopup();
+                } else {
+                    console.log('오늘 이미 팝업을 확인했습니다.');
+                }
+            }, 2000);
+            
+            // 디버깅용 콘솔 함수 (개발 환경에서만 사용)
+            window.showCampaignPopup = showCampaignPopup;
+            window.hideCampaignPopup = hideCampaignPopup;
+            window.resetCampaignPopup = function() {
+                localStorage.removeItem(campaignStorageKey);
+                console.log('캠페인 팝업 설정 초기화됨');
+            };
+            
+                         console.log('캠페인 팝업 JavaScript 초기화 완료');
+         });
+
+         // 이미지 뷰어 모달 기능
+         $(document).ready(function() {
+             var $imageViewerModal = $('#imageViewerModal');
+             var $viewerImage = $('#viewerImage');
+             var $viewDetailBtn = $('#viewDetailBtn');
+             var $imageViewerCloseBtn = $('#imageViewerCloseBtn');
+             var $zoomInBtn = $('#zoomInBtn');
+             var $zoomOutBtn = $('#zoomOutBtn');
+             var $resetZoomBtn = $('#resetZoomBtn');
+             
+             var currentZoom = 1;
+             var maxZoom = 3;
+             var minZoom = 0.5;
+             var zoomStep = 0.2;
+             
+             var isDragging = false;
+             var lastX = 0;
+             var lastY = 0;
+             var translateX = 0;
+             var translateY = 0;
+             
+             // 이미지 뷰어 열기
+             function openImageViewer() {
+                 $imageViewerModal.addClass('show');
+                 $('body').css('overflow', 'hidden');
+                 resetImagePosition();
+                 
+                 // Google Analytics 추적
+                 if (typeof gtag !== 'undefined') {
+                     gtag('event', 'image_viewer_open', {
+                         event_category: 'Image Viewer',
+                         event_label: '포스터 상세보기',
+                         viewer_date: getTodayString()
+                     });
+                 }
+                 
+                 console.log('이미지 뷰어 열림');
+             }
+             
+             // 이미지 뷰어 닫기
+             function closeImageViewer() {
+                 $imageViewerModal.removeClass('show');
+                 $('body').css('overflow', '');
+                 resetImagePosition();
+                 
+                 console.log('이미지 뷰어 닫힘');
+             }
+             
+             // 이미지 위치 초기화
+             function resetImagePosition() {
+                 currentZoom = 1;
+                 translateX = 0;
+                 translateY = 0;
+                 updateImageTransform();
+                 $viewerImage.removeClass('zoomed');
+             }
+             
+             // 이미지 변형 업데이트
+             function updateImageTransform() {
+                 $viewerImage.css('transform', 
+                     'scale(' + currentZoom + ') translate(' + translateX + 'px, ' + translateY + 'px)'
+                 );
+                 
+                 if (currentZoom > 1) {
+                     $viewerImage.addClass('zoomed');
+                 } else {
+                     $viewerImage.removeClass('zoomed');
+                 }
+             }
+             
+             // 줌인
+             function zoomIn() {
+                 if (currentZoom < maxZoom) {
+                     currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+                     updateImageTransform();
+                 }
+             }
+             
+             // 줌아웃
+             function zoomOut() {
+                 if (currentZoom > minZoom) {
+                     currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+                     updateImageTransform();
+                 }
+             }
+             
+             // 줌 리셋
+             function resetZoom() {
+                 resetImagePosition();
+             }
+             
+             // 이벤트 리스너
+             
+             // 자세히 보기 버튼 클릭
+             $viewDetailBtn.on('click', function(e) {
+                 e.preventDefault();
+                 openImageViewer();
+             });
+             
+             // 닫기 버튼 클릭
+             $imageViewerCloseBtn.on('click', function(e) {
+                 e.preventDefault();
+                 closeImageViewer();
+             });
+             
+             // 오버레이 클릭으로 닫기
+             $imageViewerModal.on('click', function(e) {
+                 if (e.target === this) {
+                     closeImageViewer();
+                 }
+             });
+             
+             // ESC 키로 닫기
+             $(document).on('keydown', function(e) {
+                 if (e.keyCode === 27 && $imageViewerModal.hasClass('show')) {
+                     closeImageViewer();
+                 }
+             });
+             
+             // 줌 버튼들
+             $zoomInBtn.on('click', zoomIn);
+             $zoomOutBtn.on('click', zoomOut);
+             $resetZoomBtn.on('click', resetZoom);
+             
+             // 마우스 휠 줌
+             $viewerImage.on('wheel', function(e) {
+                 e.preventDefault();
+                 
+                 if (e.originalEvent.deltaY < 0) {
+                     zoomIn();
+                 } else {
+                     zoomOut();
+                 }
+             });
+             
+             // 드래그 기능
+             $viewerImage.on('mousedown', function(e) {
+                 if (currentZoom > 1) {
+                     isDragging = true;
+                     lastX = e.clientX;
+                     lastY = e.clientY;
+                     e.preventDefault();
+                 }
+             });
+             
+             $(document).on('mousemove', function(e) {
+                 if (isDragging && currentZoom > 1) {
+                     var deltaX = e.clientX - lastX;
+                     var deltaY = e.clientY - lastY;
+                     
+                     translateX += deltaX;
+                     translateY += deltaY;
+                     
+                     updateImageTransform();
+                     
+                     lastX = e.clientX;
+                     lastY = e.clientY;
+                 }
+             });
+             
+             $(document).on('mouseup', function() {
+                 isDragging = false;
+             });
+             
+             // 터치 이벤트 (모바일)
+             var startTouchX = 0;
+             var startTouchY = 0;
+             var startDistance = 0;
+             var initialZoom = 1;
+             
+             $viewerImage.on('touchstart', function(e) {
+                 var touches = e.originalEvent.touches;
+                 
+                 if (touches.length === 1) {
+                     // 단일 터치 - 드래그
+                     startTouchX = touches[0].clientX;
+                     startTouchY = touches[0].clientY;
+                 } else if (touches.length === 2) {
+                     // 두 손가락 - 핀치 줌
+                     startDistance = Math.sqrt(
+                         Math.pow(touches[1].clientX - touches[0].clientX, 2) +
+                         Math.pow(touches[1].clientY - touches[0].clientY, 2)
+                     );
+                     initialZoom = currentZoom;
+                 }
+                 
+                 e.preventDefault();
+             });
+             
+             $viewerImage.on('touchmove', function(e) {
+                 var touches = e.originalEvent.touches;
+                 
+                 if (touches.length === 1 && currentZoom > 1) {
+                     // 드래그
+                     var deltaX = touches[0].clientX - startTouchX;
+                     var deltaY = touches[0].clientY - startTouchY;
+                     
+                     translateX += deltaX;
+                     translateY += deltaY;
+                     
+                     updateImageTransform();
+                     
+                     startTouchX = touches[0].clientX;
+                     startTouchY = touches[0].clientY;
+                 } else if (touches.length === 2) {
+                     // 핀치 줌
+                     var currentDistance = Math.sqrt(
+                         Math.pow(touches[1].clientX - touches[0].clientX, 2) +
+                         Math.pow(touches[1].clientY - touches[0].clientY, 2)
+                     );
+                     
+                     var scale = currentDistance / startDistance;
+                     currentZoom = Math.max(minZoom, Math.min(maxZoom, initialZoom * scale));
+                     
+                     updateImageTransform();
+                 }
+                 
+                 e.preventDefault();
+             });
+             
+             console.log('이미지 뷰어 JavaScript 초기화 완료');
+         });
+     </script>
+
     <!-- Google Analytics 이벤트 추적 스크립트 -->
     <script>
         $(document).ready(function() {
